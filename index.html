@@ -2,19 +2,95 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Моё портфолио</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Проекты</title>
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <h1>Портфолио</h1>
-  <div class="cards">
-    <div class="card">
-      <img src="assets/img/landing.png" alt="Alpha">
-      <h2>Проект Alpha</h2>
-      <p>Краткий тезис о проекте...</p>
-      <a href="projects/metodica.html">Подробнее</a>
-    </div>
-    <!-- ещё карточки -->
-  </div>
+  <!-- Header -->
+  <header>
+    <nav class="navbar">
+      <a href="index.html" class="logo">Игорь Панарин</a>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Проекты</a></li>
+        <li><a href="#">Контакты</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <section class="cards">
+      <!-- Карточка проекта Metodica -->
+      <article class="card">
+        <a href="projects/project-metodica.html" class="card-link">
+          <img src="assets/img/metodica/metodica_cover.png" alt="Metodica Cover" class="card-img">
+          <div class="card-content">
+            <h2 class="card-title">Metodica</h2>
+            <p class="card-desc">AI-ассистент для учителя: генерирует конспекты уроков по фото и параметрам.</p>
+            <ul class="card-meta">
+              <li><strong>Результат:</strong> ускорение подготовки уроков до 1 минуты</li>
+              <li><strong>Технологии:</strong> Python · GPT-4 · Flask · React</li>
+              <li><strong>Роль:</strong> полный цикл разработки и UX-дизайн</li>
+            </ul>
+          </div>
+        </a>
+      </article>
+
+      <!-- Шаблонная карточка проекта #2 -->
+      <article class="card">
+        <a href="projects/project-2.html" class="card-link">
+          <img src="assets/img/project2/cover.png" alt="Project 2 Cover" class="card-img">
+          <div class="card-content">
+            <h2 class="card-title">Project 2</h2>
+            <p class="card-desc">Краткое описание проекта 2.</p>
+            <ul class="card-meta">
+              <li><strong>Результат:</strong> описание результата</li>
+              <li><strong>Технологии:</strong> Тех1 · Тех2 · Тех3</li>
+              <li><strong>Роль:</strong> описана роль</li>
+            </ul>
+          </div>
+        </a>
+      </article>
+
+      <!-- Шаблонная карточка проекта #3 -->
+      <article class="card">
+        <a href="projects/project-3.html" class="card-link">
+          <img src="assets/img/project3/cover.png" alt="Project 3 Cover" class="card-img">
+          <div class="card-content">
+            <h2 class="card-title">Project 3</h2>
+            <p class="card-desc">Краткое описание проекта 3.</p>
+            <ul class="card-meta">
+              <li><strong>Результат:</strong> описание результата</li>
+              <li><strong>Технологии:</strong> ТехA · ТехB · ТехC</li>
+              <li><strong>Роль:</strong> описана роль</li>
+            </ul>
+          </div>
+        </a>
+      </article>
+
+      <!-- Шаблонная карточка проекта #4 -->
+      <article class="card">
+        <a href="projects/project-4.html" class="card-link">
+          <img src="assets/img/project4/cover.png" alt="Project 4 Cover" class="card-img">
+          <div class="card-content">
+            <h2 class="card-title">Project 4</h2>
+            <p class="card-desc">Краткое описание проекта 4.</p>
+            <ul class="card-meta">
+              <li><strong>Результат:</strong> описание результата</li>
+              <li><strong>Технологии:</strong> ТехX · ТехY · ТехZ</li>
+              <li><strong>Роль:</strong> описана роль</li>
+            </ul>
+          </div>
+        </a>
+      </article>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Иван Панарин. Все права защищены.</p>
+  </footer>
 </body>
 </html>

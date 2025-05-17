@@ -1,0 +1,38 @@
+## вертикальная логика
+
+flowchart TD
+    %% User Interface
+    A["Gradio UI"] --> B["on_generate trigger"]
+
+    %% Image upload branch
+    B --> C{"Images uploaded?"}
+    C -- Yes --> D["upload_to_catbox()\n(returns image_urls)"]
+    C -- No --> Z["Show error: 'Загрузите одно или более изображений'"]
+
+    %% Prompt building
+    D --> E["build_prompt(lesson_params)\n(full_prompt)"]
+    E --> F["Assemble input_content\n(text + image_url entries)"]
+
+    %% Tool selection & model choice
+    F --> G{"web_search?"}
+    G -- True --> H["Configure web_search tool\nSelect GPT-4.1"]
+    G -- False --> I["No tools\nSelect o4-mini"]
+
+    %% LLM API call
+    H --> J["LLM API call\nresponse = client.responses.create(...)"]
+    I --> J
+
+    %% Display output
+    J --> K["Update Gradio output\nShow plan HTML"]
+    K --> L["Make Download .docx button visible"]
+
+    %% Download .docx flow
+    L --> M["Download button clicked"]
+    M --> N["generate_docx(html)"]
+    N --> O["Return .docx file to user"]
+
+    %% Feedback flow
+    A --> P["Feedback button clicked"]
+    P --> Q["Show feedback form"]
+    Q --> R["save_feedback(comment, rate)"]
+    R --> S["Confirmation message"]

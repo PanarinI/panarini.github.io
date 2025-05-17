@@ -3,78 +3,184 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Metodica | Игорь Панарин</title>
-  <!-- Подключаем Mermaid в head -->
-  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <title>Metodica | AI-ассистент для учителя</title>
   <style>
-    .mermaid {
-      font-family: Arial, sans-serif;
-      margin: 20px 0;
-      background: white;
+    /* Основные стили */
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* Двухколоночный макет */
+    .project-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+
+    /* Левая колонка */
+    .project-description {
+      padding-right: 20px;
+    }
+
+    .project-title {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+      color: #2c3e50;
+    }
+
+    .project-subtitle {
+      font-size: 1.2rem;
+      color: #7f8c8d;
+      margin-bottom: 30px;
+    }
+
+    .project-stack {
+      background: #f8f9fa;
       padding: 20px;
       border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      margin: 30px 0;
+    }
+
+    .stack-item {
+      display: inline-block;
+      background: #e0e0e0;
+      padding: 5px 12px;
+      margin: 0 8px 8px 0;
+      border-radius: 20px;
+      font-size: 0.9rem;
+    }
+
+    /* Правая колонка (Flowchart) */
+    .project-flowchart {
+      border: 1px solid #eee;
+      border-radius: 8px;
+      padding: 15px;
+      background: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    .flowchart-placeholder {
+      background: #f5f5f5;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #999;
+    }
+
+    /* Галерея скриншотов */
+    .gallery-section {
+      margin-top: 60px;
+      border-top: 1px solid #eee;
+      padding-top: 40px;
+    }
+
+    .gallery-title {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .gallery-item {
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.03);
+    }
+
+    .gallery-caption {
+      padding: 12px;
+      font-size: 0.9rem;
+      background: white;
     }
   </style>
 </head>
-
 <body>
-  <main>
-    <article class="project-details">
-      <h1>Metodica</h1>
+  <div class="project-container">
+    <!-- Левая колонка -->
+    <div class="project-description">
+      <h1 class="project-title">Metodica</h1>
+      <p class="project-subtitle">AI-ассистент для подготовки уроков</p>
+
+      <h2>О проекте</h2>
+      <p>Сервис позволяет учителям мгновенно генерировать детальные планы уроков на основе фотографий учебников или рукописных заметок. Экономит до 90% времени на подготовку к занятиям.</p>
+
+      <h3>Ключевые функции</h3>
       <ul>
-        <li><strong>Результат:</strong> ускорение подготовки уроков до 1 минуты</li>
-        <li><strong>Технологии:</strong> responses API · vision · Gradio · prompting</li>
-        <li><strong>Роль:</strong> полный цикл разработки и UX-дизайн</li>
+        <li>Распознавание текста с фото учебников</li>
+        <li>Генерация структурированных конспектов</li>
+        <li>Адаптация под ФГОС и учебные программы</li>
+        <li>Экспорт в DOCX/PDF</li>
       </ul>
 
-      <!-- Диаграмма Mermaid -->
-      <div class="mermaid">
-        %%{init: {'theme': 'redux', 'flowchart': {'layout': 'fixed'}}}%%
-        flowchart LR
-         subgraph UI["Gradio UI"]
-                A1["Загрузка изображения\n(img1, img2, img3)"]
-                A2["Форма параметров\n(textbook, …, web_search)"]
-                A3["Кнопка «Создать план»"]
-                A4["Вывод HTML-плана"]
-                A5["Кнопка «Скачать .docx»"]
-                A6["Форма обратной связи"]
-          end
-         subgraph Backend["Python Backend"]
-            direction TB
-                K1["Методические инструкции"]
-                K2["База знаний"]
-                B2["Промпт"]
-                B3["LLM-сервис\n(GPT‑4.1 / o4‑mini)"]
-                B4["generate_docx"]
-                B5["save_feedback → Google Sheets"]
-                B1["upload_to_catbox"]
-          end
-            A1 -- bytes --> B1
-            B1 -- image_URL --> B2
-            A2 -- params --> B2
-            K1 --> B2
-            K2 --> B2
-            B2 -- responses API --> B3
-            B3 -- text plan --> A4 & B4
-            B4 -- ".docx path" --> A5
-            A6 -- comment, rate --> B5
+      <div class="project-stack">
+        <h3>Технологический стэк</h3>
+        <div>
+          <span class="stack-item">Python</span>
+          <span class="stack-item">GPT-4</span>
+          <span class="stack-item">OpenCV</span>
+          <span class="stack-item">FastAPI</span>
+          <span class="stack-item">Gradio</span>
+          <span class="stack-item">Docker</span>
+        </div>
       </div>
-    </article>
-  </main>
+    </div>
 
-  <script>
-    // Инициализация Mermaid после полной загрузки страницы
-    document.addEventListener('DOMContentLoaded', () => {
-      mermaid.initialize({
-        theme: 'redux',
-        flowchart: {
-          layout: 'fixed',
-          useMaxWidth: false
-        },
-        startOnLoad: true
-      });
-    });
-  </script>
+    <!-- Правая колонка -->
+ <div class="project-flowchart">
+  <h2>Архитектура решения</h2>
+  <!-- Вот эта строка загрузит ваш SVG -->
+  <img
+    src="assets/img/flowchart-metodica.svg"
+    alt="Схема работы Metodica"
+    class="flowchart-img"
+  >
+</div>
+
+  <!-- Галерея скриншотов -->
+  <div class="gallery-section">
+    <h2 class="gallery-title">Процесс разработки</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="assets/img/metodica/screen1.jpg" alt="Интерфейс загрузки">
+        <div class="gallery-caption">Прототип интерфейса загрузки фото</div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/img/metodica/screen2.jpg" alt="Пример конспекта">
+        <div class="gallery-caption">Сгенерированный конспект урока</div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/img/metodica/screen3.jpg" alt="Настройки">
+        <div class="gallery-caption">Панель параметров генерации</div>
+      </div>
+    </div>
+
+    <!-- Блок для будущей модальной галереи -->
+    <div style="margin-top: 30px; padding: 20px; background: #f5f5f5; border-radius: 8px; text-align: center;">
+      <p>Здесь будет интерактивная галерея с возможностью листания скриншотов и комментариями</p>
+    </div>
+  </div>
 </body>
 </html>

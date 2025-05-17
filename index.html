@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-  <script>
-    fetch('components/head.html')
-      .then(response => response.text())
-      .then(data => document.head.innerHTML += data);
-  </script>
-  <title>Портфолио | Игорь Панарин</title>
-</head>
+<script>
+  // Динамически вставляем содержимое head.html
+  fetch('components/head.html')
+    .then(response => response.text())
+    .then(data => {
+      document.head.innerHTML = data; // Заменяем полностью
+      document.title = "Портфолио | Игорь Панарин"; // Переопределяем title
+    });
+</script>
 
 <body>
   <!-- Header -->

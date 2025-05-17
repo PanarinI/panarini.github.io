@@ -1,26 +1,15 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Metodica | Игорь Панарин</title>
-  <link rel="stylesheet" href="/assets/css/style.css">
-</head>
+<script>
+  fetch('../components/head.html')
+    .then(response => response.text())
+    .then(data => {
+      document.head.innerHTML = data;
+      document.title = "Metodica | Игорь Панарин"; // Уникальный title
+    });
+</script>
 
 <body>
-  <!-- Вставляем header напрямую (временно для теста) -->
-  <header>
-    <nav class="navbar">
-      <a href="/" class="logo">
-        <span class="logo-title">Исследования и аналитика</span>
-        <span class="logo-subtitle">Игорь Панарин</span>
-      </a>
-      <ul class="nav-links">
-        <li><a href="/">Home</a></li>
-        <li><a href="#projects">Проекты</a></li>
-      </ul>
-    </nav>
-  </header>
 
   <main>
     <article class="project-details">
@@ -30,9 +19,6 @@
     </article>
   </main>
 
-  <footer>
-    <p>© 2025 Игорь Панарин</p>
-  </footer>
 
   <script src="/assets/js/main.js"></script>
 </body>

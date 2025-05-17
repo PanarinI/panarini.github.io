@@ -1,32 +1,20 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Портфолио</title>
-  <link rel="stylesheet" href="assets/css/style.css">
-
+  <script>
+    fetch('components/head.html')
+      .then(response => response.text())
+      .then(data => document.head.innerHTML += data);
+  </script>
+  <title>Портфолио | Игорь Панарин</title>
 </head>
+
 <body>
   <!-- Header -->
-  <header>
-    <nav class="navbar">
-      <a href="index.html" class="logo">
-        <span class="logo-title">Исследования и аналитика, образование, AI-разработка</span>
-        <span class="logo-subtitle">Игорь Панарин</span>
-      </a>
+  <header id="dynamic-header"></header>
 
-      <ul class="nav-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Проекты</a></li>
-        <li><a href="#">Контакты</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <!-- Main Content -->
   <main>
-    <section class="cards">
+    <section class="cards" id="projects">
       <!-- Карточка проекта Metodica -->
       <article class="card">
         <a href="projects/metodica.html" class="card-link">
@@ -94,8 +82,8 @@
   </main>
 
   <!-- Footer -->
-  <footer>
-    <p>© 2025 Игорь Панарин</p>
-  </footer>
+  <footer id="dynamic-footer"></footer>
+
+  <script src="assets/js/components.js"></script>
 </body>
 </html>

@@ -1,28 +1,40 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <script>
-    fetch('../components/head.html')
-      .then(response => response.text())
-      .then(data => document.head.innerHTML += data);
-  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Metodica | Игорь Панарин</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <!-- или ../assets/css/style.css -->
 </head>
 
 <body>
-  <header id="dynamic-header"></header>
+  <!-- Вставляем header напрямую (временно для теста) -->
+  <header>
+    <nav class="navbar">
+      <a href="/" class="logo">
+        <span class="logo-title">Исследования и аналитика</span>
+        <span class="logo-subtitle">Игорь Панарин</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="#projects">Проекты</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <main>
-    <!-- Уникальный контент страницы проекта -->
     <article class="project-details">
       <h1>Metodica</h1>
-      <img src="../assets/img/metodica/metodica_cover.png" alt="Metodica">
-      <!-- Детали проекта -->
+      <img src="/assets/img/metodica/metodica_cover.png" alt="Metodica">
+      <!-- Контент -->
     </article>
   </main>
 
-  <footer id="dynamic-footer"></footer>
+  <footer>
+    <p>© 2025 Игорь Панарин</p>
+  </footer>
 
-  <script src="../assets/js/components.js"></script>
+  <script src="/assets/js/main.js"></script>
 </body>
 </html>

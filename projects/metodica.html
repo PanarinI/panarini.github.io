@@ -1,30 +1,24 @@
 <!DOCTYPE html>
 <html lang="ru">
-<script>
-  fetch('../components/head.html')
-    .then(response => response.text())
-    .then(data => {
-      document.head.innerHTML = data;
-      document.title = "Metodica | Игорь Панарин"; // Уникальный title
-
-      // Добавляем Mermaid после загрузки head
-      const mermaidScript = document.createElement('script');
-      mermaidScript.src = 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js';
-      mermaidScript.onload = () => {
-        mermaid.initialize({
-          theme: 'redux',
-          flowchart: {
-            layout: 'fixed',
-            useMaxWidth: false
-          }
-        });
-      };
-      document.head.appendChild(mermaidScript);
-    });
-</script>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Metodica | Игорь Панарин</title>
+  <!-- Подключаем Mermaid в head -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <style>
+    .mermaid {
+      font-family: Arial, sans-serif;
+      margin: 20px 0;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
 
 <body>
-
   <main>
     <article class="project-details">
       <h1>Metodica</h1>
@@ -36,6 +30,7 @@
 
       <!-- Диаграмма Mermaid -->
       <div class="mermaid">
+        %%{init: {'theme': 'redux', 'flowchart': {'layout': 'fixed'}}}%%
         flowchart LR
          subgraph UI["Gradio UI"]
                 A1["Загрузка изображения\n(img1, img2, img3)"]
@@ -65,12 +60,21 @@
             B4 -- ".docx path" --> A5
             A6 -- comment, rate --> B5
       </div>
-      <!-- /Диаграмма -->
-
-      <!-- Контент -->
     </article>
   </main>
 
-  <script src="/assets/js/components.js"></script>
+  <script>
+    // Инициализация Mermaid после полной загрузки страницы
+    document.addEventListener('DOMContentLoaded', () => {
+      mermaid.initialize({
+        theme: 'redux',
+        flowchart: {
+          layout: 'fixed',
+          useMaxWidth: false
+        },
+        startOnLoad: true
+      });
+    });
+  </script>
 </body>
 </html>

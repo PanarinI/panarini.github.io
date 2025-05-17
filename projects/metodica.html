@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="../assets/js/components.js" defer></script>
-  <title>Metodica | AI-ассистент для учителя английского</title>
+  <title>Metodica | AI-ассистент для учителя</title>
   <style>
     /* Основные стили */
     body {
@@ -214,10 +213,7 @@
   </style>
 </head>
 <body>
-  <!-- Загружаемый header -->
-  <header id="dynamic-header"></header>
-
- <div class="project-container">
+<div class="project-container">
   <!-- Левая колонка -->
   <div class="project-description">
     <h1 class="project-title">Metodica</h1>
@@ -253,52 +249,51 @@
           <h3>Студенты-учителя</h3>
           <p>Обучение современным методикам преподавания</p>
         </div>
+      </div> <!-- Закрывающий тег для audience-grid -->
+    </div> <!-- Закрывающий тег для target-audience -->
+
+    <div class="project-stack">
+      <h3>Технологический стэк</h3>
+      <div>
+        <span class="stack-item">Python</span>
+        <span class="stack-item">GPT-4</span>
+        <span class="stack-item">OpenCV</span>
+        <span class="stack-item">FastAPI</span>
+        <span class="stack-item">Gradio</span>
+        <span class="stack-item">Docker</span>
       </div>
     </div>
+  </div> <!-- Закрывающий тег для project-description -->
 
-      <div class="project-stack">
-        <h3>Технологический стэк</h3>
-        <div>
-          <span class="stack-item">Python</span>
-          <span class="stack-item">GPT-4</span>
-          <span class="stack-item">OpenCV</span>
-          <span class="stack-item">FastAPI</span>
-          <span class="stack-item">Gradio</span>
-          <span class="stack-item">Docker</span>
-        </div>
-      </div>
+  <!-- Правая колонка -->
+  <div class="project-flowchart">
+    <h2>Архитектура решения</h2>
+    <img
+      src="../assets/img/metodica/metodica_6.svg"
+      alt="Схема работы Metodica"
+      class="flowchart-img clickable-svg"
+    >
+  </div>
+</div> <!-- Закрывающий тег для project-container -->
+
+<!-- Галерея скриншотов -->
+<div class="gallery-section">
+  <h2 class="gallery-title">Процесс разработки</h2>
+  <div class="gallery-grid">
+    <div class="gallery-item" data-caption="Прототип интерфейса загрузки фото">
+      <img src="../assets/img/metodica/screen1.jpg" alt="Интерфейс загрузки">
+      <div class="gallery-caption">Прототип интерфейса загрузки фото</div>
     </div>
-
-    <!-- Правая колонка -->
-    <div class="project-flowchart">
-      <h2>Архитектура решения</h2>
-      <img
-        src="../assets/img/metodica/metodica_6.svg"
-        alt="Схема работы Metodica"
-        class="flowchart-img clickable-svg"
-      >
+    <div class="gallery-item" data-caption="Сгенерированный конспект урока">
+      <img src="../assets/img/metodica/screen2.jpg" alt="Пример конспекта">
+      <div class="gallery-caption">Сгенерированный конспект урока</div>
+    </div>
+    <div class="gallery-item" data-caption="Панель параметров генерации">
+      <img src="../assets/img/metodica/screen3.jpg" alt="Настройки">
+      <div class="gallery-caption">Панель параметров генерации</div>
     </div>
   </div>
-
-  <!-- Галерея скриншотов -->
-  <div class="gallery-section">
-    <h2 class="gallery-title">Процесс разработки</h2>
-    <div class="gallery-grid">
-      <div class="gallery-item" data-caption="Прототип интерфейса загрузки фото">
-        <img src="assets/img/metodica/screen1.jpg" alt="Интерфейс загрузки">
-        <div class="gallery-caption">Прототип интерфейса загрузки фото</div>
-      </div>
-      <div class="gallery-item" data-caption="Сгенерированный конспект урока">
-        <img src="assets/img/metodica/screen2.jpg" alt="Пример конспекта">
-        <div class="gallery-caption">Сгенерированный конспект урока</div>
-      </div>
-      <div class="gallery-item" data-caption="Панель параметров генерации">
-        <img src="assets/img/metodica/screen3.jpg" alt="Настройки">
-        <div class="gallery-caption">Панель параметров генерации</div>
-      </div>
-    </div>
-  </div>
-
+</div>
   <!-- Модальное окно для SVG -->
   <div id="svgModal" class="modal">
     <span class="close">&times;</span>
@@ -426,6 +421,5 @@
       });
     });
   </script>
-  <footer id="dynamic-footer"></footer>
 </body>
 </html>

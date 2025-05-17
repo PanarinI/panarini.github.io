@@ -6,6 +6,20 @@
     .then(data => {
       document.head.innerHTML = data;
       document.title = "Metodica | Игорь Панарин"; // Уникальный title
+
+      // Добавляем Mermaid после загрузки head
+      const mermaidScript = document.createElement('script');
+      mermaidScript.src = 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js';
+      mermaidScript.onload = () => {
+        mermaid.initialize({
+          theme: 'redux',
+          flowchart: {
+            layout: 'fixed',
+            useMaxWidth: false
+          }
+        });
+      };
+      document.head.appendChild(mermaidScript);
     });
 </script>
 
@@ -14,12 +28,49 @@
   <main>
     <article class="project-details">
       <h1>Metodica</h1>
-      <img src="/assets/img/metodica/metodica_cover.png" alt="Metodica">
+      <ul>
+        <li><strong>Результат:</strong> ускорение подготовки уроков до 1 минуты</li>
+        <li><strong>Технологии:</strong> responses API · vision · Gradio · prompting</li>
+        <li><strong>Роль:</strong> полный цикл разработки и UX-дизайн</li>
+      </ul>
+
+      <!-- Диаграмма Mermaid -->
+      <div class="mermaid">
+        flowchart LR
+         subgraph UI["Gradio UI"]
+                A1["Загрузка изображения\n(img1, img2, img3)"]
+                A2["Форма параметров\n(textbook, …, web_search)"]
+                A3["Кнопка «Создать план»"]
+                A4["Вывод HTML-плана"]
+                A5["Кнопка «Скачать .docx»"]
+                A6["Форма обратной связи"]
+          end
+         subgraph Backend["Python Backend"]
+            direction TB
+                K1["Методические инструкции"]
+                K2["База знаний"]
+                B2["Промпт"]
+                B3["LLM-сервис\n(GPT‑4.1 / o4‑mini)"]
+                B4["generate_docx"]
+                B5["save_feedback → Google Sheets"]
+                B1["upload_to_catbox"]
+          end
+            A1 -- bytes --> B1
+            B1 -- image_URL --> B2
+            A2 -- params --> B2
+            K1 --> B2
+            K2 --> B2
+            B2 -- responses API --> B3
+            B3 -- text plan --> A4 & B4
+            B4 -- ".docx path" --> A5
+            A6 -- comment, rate --> B5
+      </div>
+      <!-- /Диаграмма -->
+
       <!-- Контент -->
     </article>
   </main>
 
-
-  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/components.js"></script>
 </body>
 </html>

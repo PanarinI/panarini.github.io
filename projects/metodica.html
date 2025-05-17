@@ -65,13 +65,17 @@
       box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     }
 
-    .flowchart-placeholder {
-      background: #f5f5f5;
-      height: 400px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #999;
+    .flowchart-img {
+      width: 100%;
+      cursor: pointer;
+      transition: transform 0.2s;
+      border: 1px solid #eee;
+      border-radius: 4px;
+    }
+
+    .flowchart-img:hover {
+      transform: scale(1.01);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
 
     /* Галерея скриншотов */
@@ -97,6 +101,11 @@
       border-radius: 6px;
       overflow: hidden;
       cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-5px);
     }
 
     .gallery-item img {
@@ -107,13 +116,99 @@
     }
 
     .gallery-item:hover img {
-      transform: scale(1.03);
+      transform: scale(1.05);
     }
 
     .gallery-caption {
       padding: 12px;
       font-size: 0.9rem;
       background: white;
+    }
+
+    /* Стили для модального окна */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.9);
+      overflow: auto;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal.active {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 1;
+    }
+
+    .modal-content {
+      max-width: 90vw;
+      max-height: 90vh;
+      animation: zoomIn 0.3s;
+      position: relative;
+    }
+
+    .modal-content img,
+    .modal-content svg {
+      max-width: 100%;
+      max-height: 90vh;
+      border: 2px solid #fff;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+    /* Для галереи изображений */
+    .modal-nav {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 20px;
+      box-sizing: border-box;
+      z-index: 1001;
+    }
+
+    .modal-nav button {
+      background: rgba(0,0,0,0.5);
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 24px;
+    }
+
+    .modal-caption {
+      position: absolute;
+      bottom: 20px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      color: white;
+      padding: 10px;
+      background: rgba(0,0,0,0.7);
     }
   </style>
 </head>
@@ -149,38 +244,161 @@
     </div>
 
     <!-- Правая колонка -->
- <div class="project-flowchart">
-  <h2>Архитектура решения</h2>
-  <!-- Вот эта строка загрузит ваш SVG -->
-  <img
-    src="../assets/img/metodica/metodica_6.svg"
-    alt="Схема работы Metodica"
-    class="flowchart-img"
-  >
-</div>
+    <div class="project-flowchart">
+      <h2>Архитектура решения</h2>
+      <img
+        src="../assets/img/metodica/metodica_6.svg"
+        alt="Схема работы Metodica"
+        class="flowchart-img clickable-svg"
+      >
+    </div>
+  </div>
 
   <!-- Галерея скриншотов -->
   <div class="gallery-section">
     <h2 class="gallery-title">Процесс разработки</h2>
     <div class="gallery-grid">
-      <div class="gallery-item">
+      <div class="gallery-item" data-caption="Прототип интерфейса загрузки фото">
         <img src="assets/img/metodica/screen1.jpg" alt="Интерфейс загрузки">
         <div class="gallery-caption">Прототип интерфейса загрузки фото</div>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item" data-caption="Сгенерированный конспект урока">
         <img src="assets/img/metodica/screen2.jpg" alt="Пример конспекта">
         <div class="gallery-caption">Сгенерированный конспект урока</div>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item" data-caption="Панель параметров генерации">
         <img src="assets/img/metodica/screen3.jpg" alt="Настройки">
         <div class="gallery-caption">Панель параметров генерации</div>
       </div>
     </div>
+  </div>
 
-    <!-- Блок для будущей модальной галереи -->
-    <div style="margin-top: 30px; padding: 20px; background: #f5f5f5; border-radius: 8px; text-align: center;">
-      <p>Здесь будет интерактивная галерея с возможностью листания скриншотов и комментариями</p>
+  <!-- Модальное окно для SVG -->
+  <div id="svgModal" class="modal">
+    <span class="close">&times;</span>
+    <div class="modal-content" id="modalContent">
+      <!-- Сюда будет вставлено SVG -->
     </div>
   </div>
+
+  <!-- Модальное окно для галереи -->
+  <div id="imageModal" class="modal">
+    <span class="close">&times;</span>
+    <div class="modal-nav">
+      <button id="prevBtn">&lt;</button>
+      <button id="nextBtn">&gt;</button>
+    </div>
+    <div class="modal-content" id="imageModalContent">
+      <!-- Сюда будут вставляться изображения -->
+    </div>
+    <div class="modal-caption" id="imageCaption"></div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Модальное окно для SVG
+      const svgModal = document.getElementById('svgModal');
+      const modalContent = document.getElementById('modalContent');
+      const closeBtns = document.querySelectorAll('.close');
+      const svgImage = document.querySelector('.clickable-svg');
+
+      // Открытие модалки SVG
+      if (svgImage) {
+        svgImage.addEventListener('click', function() {
+          const clone = this.cloneNode(true);
+          clone.style.maxWidth = 'none';
+          clone.style.maxHeight = 'none';
+
+          modalContent.innerHTML = '';
+          modalContent.appendChild(clone);
+
+          svgModal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        });
+      }
+
+      // Модальное окно для галереи изображений
+      const imageModal = document.getElementById('imageModal');
+      const imageModalContent = document.getElementById('imageModalContent');
+      const imageCaption = document.getElementById('imageCaption');
+      const galleryItems = document.querySelectorAll('.gallery-item');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+
+      let currentImageIndex = 0;
+
+      // Открытие модалки галереи
+      galleryItems.forEach((item, index) => {
+        item.addEventListener('click', function() {
+          currentImageIndex = index;
+          updateModalImage();
+          imageModal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        });
+      });
+
+      // Обновление изображения в модалке
+      function updateModalImage() {
+        const imgSrc = galleryItems[currentImageIndex].querySelector('img').src;
+        const caption = galleryItems[currentImageIndex].getAttribute('data-caption');
+
+        imageModalContent.innerHTML = `<img src="${imgSrc}" alt="${caption}">`;
+        imageCaption.textContent = caption;
+      }
+
+      // Навигация по галерее
+      prevBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        currentImageIndex = (currentImageIndex - 1 + galleryItems.length) % galleryItems.length;
+        updateModalImage();
+      });
+
+      nextBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        currentImageIndex = (currentImageIndex + 1) % galleryItems.length;
+        updateModalImage();
+      });
+
+      // Закрытие модалок
+      function closeModal() {
+        document.querySelectorAll('.modal').forEach(modal => {
+          modal.classList.remove('active');
+        });
+        document.body.style.overflow = '';
+      }
+
+      // Обработчики закрытия
+      closeBtns.forEach(btn => {
+        btn.addEventListener('click', closeModal);
+      });
+
+      // Закрытие по клику вне контента
+      document.querySelectorAll('.modal').forEach(modal => {
+        modal.addEventListener('click', function(e) {
+          if (e.target === modal) {
+            closeModal();
+          }
+        });
+      });
+
+      // Закрытие по ESC
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          closeModal();
+        }
+
+        // Навигация по галерее стрелками
+        if (imageModal.classList.contains('active')) {
+          if (e.key === 'ArrowLeft') {
+            currentImageIndex = (currentImageIndex - 1 + galleryItems.length) % galleryItems.length;
+            updateModalImage();
+          } else if (e.key === 'ArrowRight') {
+            currentImageIndex = (currentImageIndex + 1) % galleryItems.length;
+            updateModalImage();
+          }
+        }
+      });
+    });
+  </script>
 </body>
 </html>

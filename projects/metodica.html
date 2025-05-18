@@ -331,6 +331,33 @@
     z-index: 1001;
   }
 
+
+
+.button-row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.custom-button {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  background-color: #d8eefe; /* пастельный сине-голубой */
+  color: #004c77;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.custom-button:hover {
+  background-color: #c1e1fa;
+}
+
+
+
+
     /* Для галереи изображений */
     .modal-nav {
       position: absolute;
@@ -365,14 +392,14 @@
     }
   </style>
 </head>
-<body data-logo-title="AI-ассистент для учителя">
+<body data-logo-title="Metodica: умный помощник учителя английского">
 <div id="dynamic-header"></div>
 
   <section class="project-container_1">
   <!-- Основной блок: описание + превью -->
     <div class="project-description">
       <div class="feature-highlight">
-        <p><strong>Metodica</strong> — это AI‑ассистент, который создаёт методически выверенные <strong>планы уроков по фотографии страницы</strong>.</p>
+        <p>Это AI‑ассистент, который создаёт методически выверенные <strong>планы уроков по фотографии страницы</strong>.</p>
 
       <div class="feature-block">
         <h3>Преимущества</h3>
@@ -431,7 +458,6 @@
     </div>
   </div>
 
-  <!-- Правая колонка: Технологический стэк -->
   <div class="preview-block">
     <div class="prompt-wrapper">
       <h3>Устройство промпта</h3>
@@ -504,6 +530,10 @@
     </script>
 
 
+<div class="button-row">
+  <a href="https://url-ассистента" class="custom-button">Перейти к ассистенту</a>
+  <a href="https://url-демонстрации" class="custom-button">Демонстрация</a>
+</div>
 
 
 

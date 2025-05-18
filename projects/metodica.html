@@ -353,27 +353,29 @@
     <div class="project-description">
       <div class="feature-highlight">
         <p><strong>Metodica</strong> — это AI‑ассистент, который создаёт методически выверенные <strong>планы уроков по фотографии страницы</strong>.</p>
-        <p>Решение уникально. Удобно в двух основных случаях:</p>
-        <ul>
-          <li><strong>Если вы работаете по учебнику</strong> — качественное планирование прямо из привычного материала.</li>
-          <li><strong>Если вы строите урок "из подручного" материала</strong> — позволяет собрать его в полноценный урок.</li>
-        </ul>
-      </div>
 
       <div class="feature-block">
-        <h3>Ключевые преимущества</h3>
+        <h3>Преимущества</h3>
         <ul class="benefits-list">
-          <li><strong>Качество планирования</strong> — ассистент обучается опытным преподавателем с квалификацией CELTA</li>
-          <li><strong>Методический комплект</strong> — включает справочные материалы и ответы к заданиям</li>
-          <li><strong>Развитие ваших профессиональных навыков</strong> — демонстрирует правильные подходы в ELT‑методике</li>
+          <li><strong>Читает и видит по фотографии </strong> — готовит урок из конкретного материала </li>
+          <li><strong>Создает полноценный методически-корректный план</strong> — ассистент обучается опытным преподавателем с квалификацией CELTA</li>
+          <li><strong>Создает методический комплект к уроку</strong> — справочные материалы и ответы к заданиям
+          <li><strong>Профессиональный рост учителя</strong> — демонстрирует проверенные ELT-подходы, дает методические пояснения</li>
         </ul>
       </div>
     </div>
+        <h3>Сценарии использования</h3>
+               <ul>
+          <li><strong>Школьный учитель работает по учебнику</strong> — ассистент разргружает учителя в рутинной подготовке</li>
+          <li><strong>Учитель/репетитор работает без учебника </strong> — ассистент помогает собрать любой материал в полноценный урок</li>
+        </ul>
+      </div>
 
     <!-- Правая колонка: превью плана урока, кликабельное -->
  <div class="preview-block">
   <div class="preview-clickable" onclick="openModal()">
-    <img src="../assets/img/metodica/plan_preview.png"
+    <h3>Пример результата</h3>
+    <img src="../assets/img/metodica/lesson-plan-preview.jpg"
          alt="Превью плана урока"
          class="preview-image"
          style="width: 100%; border-radius: 6px; border: 1px solid #ddd;">
@@ -388,8 +390,8 @@
 <section class="project-container">
   <!-- Левая колонка: Архитектура -->
   <div class="project-architecture">
+    <h3>Архитектура</h3>
     <div class="flowchart-clickable" onclick="openImageModal('../assets/img/metodica/metodica_6.svg')">
-      <h3>Архитектура</h3>
       <img
         src="../assets/img/metodica/metodica_6.svg"
         alt="Схема работы Metodica"
@@ -402,10 +404,10 @@
   <div class="preview-block">
 
       <div>
-        <div class="flowchart-clickable" onclick="openImageModal('../assets/img/metodica/Metodica_prompt.svg')">
-          <h3>Устройство промпта</h3>
+      <h3>Устройство промпта</h3>
+        <div class="flowchart-clickable" onclick="openImageModal('../assets/img/metodica/metodica_6.svg')">
         <img
-            src="../assets/img/metodica/Metodica_prompt.svg"
+            src="../assets/img/metodica/metodica_6.svg"
             alt="Схема работы Metodica"
             class="flowchart-img"
         >
@@ -422,7 +424,10 @@
       </div>
   </div>
 
+
 </section>
+
+
 
 
 <!-- Модалка для полного плана урока -->
@@ -486,7 +491,7 @@
 
 <!-- Галерея скриншотов -->
 <div class="gallery-section">
-  <h2 class="gallery-title">Процесс разработки</h2>
+  <h2 class="gallery-title">Детали и процесс разработки</h2>
   <div class="gallery-grid">
     <div class="gallery-item" data-caption="Прототип интерфейса загрузки фото">
       <img src="../assets/img/metodica/screen1.jpg" alt="Интерфейс загрузки">
@@ -629,6 +634,7 @@
       });
     });
   </script>
+
 
 
 <!-- TEMPLATE: LESSON PLAN -->

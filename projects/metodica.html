@@ -388,8 +388,8 @@
 <section class="project-container">
   <!-- Левая колонка: Архитектура -->
   <div class="project-architecture">
-    <h2>Архитектура решения</h2>
     <div class="flowchart-clickable" onclick="openImageModal('../assets/img/metodica/metodica_6.svg')">
+      <h3>Архитектура</h3>
       <img
         src="../assets/img/metodica/metodica_6.svg"
         alt="Схема работы Metodica"
@@ -400,8 +400,19 @@
 
   <!-- Правая колонка: Технологический стэк -->
   <div class="preview-block">
-    <div class="preview-clickable">
-      <h2>Технологический стэк</h2>
+
+      <div>
+        <div class="flowchart-clickable" onclick="openImageModal('../assets/img/metodica/metodica_6.svg')">
+          <h3>Устройство промпта</h3>
+        <img
+            src="../assets/img/metodica/metodica_6.svg"
+            alt="Схема работы Metodica"
+            class="flowchart-img"
+        >
+        </div>
+    </div>
+        <div class="preview-clickable">
+      <h3>Технологический стэк</h3>
       <div>
         <span class="stack-item">Python</span>
         <span class="stack-item">OpenAI API</span>
@@ -409,17 +420,6 @@
         <span class="stack-item">Gradio</span>
         <span class="stack-item">BeautifulSoup</span>
       </div>
-
-      <div>
-      <h2>Устройство промпта</h2>
-        <div class="flowchart-clickable" onclick="openImageModal('../assets/img/metodica/Metodica_prompt.svg')">
-        <img
-            src="../assets/img/metodica/Metodica_prompt.svg"
-            alt="Схема промпта"
-            class="flowchart-img"
-        >
-        </div>
-    </div>
   </div>
 
 </section>

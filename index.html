@@ -1,14 +1,147 @@
 <!DOCTYPE html>
 <html lang="ru">
-<script>
-  // Динамически вставляем содержимое head.html
-  fetch('components/head.html')
-    .then(response => response.text())
-    .then(data => {
-      document.head.innerHTML = data; // Заменяем полностью
-      document.title = "Портфолио | Игорь Панарин"; // Переопределяем title
-    });
-</script>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Исследования | Образование | Разработка</title>
+  <style>
+<style>
+/* Общие стили */
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+}
+
+/* Навигация */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #333;
+}
+
+.nav-links li a.active {
+  color: #0066cc;
+  border-bottom: 2px solid #0066cc;
+}
+
+/* Логотип и подписи */
+.logo {
+  display: inline-block;
+  text-decoration: none;
+  color: inherit;
+  line-height: 1.3;
+}
+
+.logo-title {
+  display: block;
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #222;
+}
+
+.logo-subtitle {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: normal;
+  color: #555;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.card {
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  transition: transform 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+.card:hover {
+  transform: translateY(-5px);
+}
+.card-img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  object-position: top;
+}
+.card-content {
+  padding: 1rem;
+}
+.card-title {
+  font-size: 1.35rem;
+  font-weight: 600;
+  margin: 0.75rem 0 0.25rem;
+  color: #222;
+}
+
+.card-desc {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #444;
+}
+
+.card-meta {
+  font-size: 0.9rem;
+  color: #333;
+}
+.card-meta li strong {
+  color: #111;
+  font-weight: 600;
+}
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  background-color: #fff;
+  color: #888;
+  font-size: 0.9rem;
+
+.badge {
+  display: inline-block;
+  background-color: #eef2ff;
+  color: #334155;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+  margin: 0 0.3rem 0.3rem 0;
+}
+
+</style>
+
 
 <body data-logo-title="Исследования, образование, разработка">
 
@@ -42,7 +175,12 @@
             <p class="card-desc">Краткое описание проекта 2.</p>
             <ul class="card-meta">
               <li><strong>Результат:</strong> описание результата</li>
-              <li><strong>Технологии:</strong> Тех1 · Тех2 · Тех3</li>
+            <li><strong>Технологии:</strong>
+            <span class="badge">Gradio</span>
+            <span class="badge">Vision</span>
+            <span class="badge">OpenAI API</span>
+            </li>
+
               <li><strong>Роль:</strong> описана роль</li>
             </ul>
           </div>

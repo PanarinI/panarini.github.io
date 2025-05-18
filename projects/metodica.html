@@ -434,21 +434,23 @@
     </div>
   </section>
 
-
-
-
   <!-- Вторая секция: архитектура и стэк -->
-  <section class="project-details">
-    <div class="project-flowchart">
+<section class="project-container">
+  <!-- Левая колонка: Архитектура -->
+  <div class="project-architecture">
+    <div class="flowchart-clickable" onclick="openImageModal('../assets/img/metodica/metodica_6.svg')">
       <h2>Архитектура решения</h2>
       <img
         src="../assets/img/metodica/metodica_6.svg"
         alt="Схема работы Metodica"
-        class="flowchart-img clickable-svg"
+        class="flowchart-img"
       >
     </div>
+  </div>
 
-    <div class="project-stack">
+  <!-- Правая колонка: Технологический стэк -->
+  <div class="preview-block">
+    <div class="preview-clickable">
       <h3>Технологический стэк</h3>
       <div>
         <span class="stack-item">Python</span>
@@ -458,7 +460,9 @@
         <span class="stack-item">BeautifulSoup</span>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
 
   <!-- Модальное окно -->
   <div class="modal" id="modal" onclick="closeModal(event)">
@@ -484,33 +488,6 @@
       }
     }
   </script>
-
-
-<!-- Правая колонка -->
-<div class="project-flowchart">
-<h2>Архитектура решения</h2>
-<img
-src="../assets/img/metodica/metodica_6.svg"
-alt="Схема работы Metodica"
-class="flowchart-img clickable-svg"
->
-</div>
-
-
-
-<div class="project-stack">
-<h3>Технологический стэк</h3>
-<div>
-    <span class="stack-item">Python</span>
-    <span class="stack-item">OpenAI API</span>
-    <span class="stack-item">Vision</span>
-    <span class="stack-item">Gradio</span>
-    <span class="stack-item">BeautifulSoup</span>
-</div>
-</div>
-</div> <!-- Закрывающий тег для project-description -->
-
-
 
 
 <!-- Галерея скриншотов -->

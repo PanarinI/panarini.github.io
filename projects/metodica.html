@@ -1,13 +1,5 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <script>
-    fetch('/components/head.html')  // подгружаем head (meta + css)
-      .then(response => response.text())
-      .then(data => {
-        document.head.innerHTML += data;  // вставляем head-контент
-        document.title = "Metodica | AI-ассистент для учителя";  // задаём свой title
-      });
-  </script>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">

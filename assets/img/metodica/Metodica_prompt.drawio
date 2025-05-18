@@ -1,0 +1,89 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36" version="27.0.6">
+  <diagram name="Страница — 1" id="mMibfgP7FLrCibUXT85D">
+    <mxGraphModel dx="-531" dy="993" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="osqDWqHXKL7bKPATrkBW-37" value="Примеры критериев:&#xa;* &quot;target language урока определен в соответствии с уровнем группы&quot;&#xa;* &quot;для заданий предусмотрены scaffolding&quot; (if group_level_vs_textbook == below или mixed) " style="whiteSpace=wrap;strokeWidth=1;align=left;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="2620" y="646" width="400" height="87" as="geometry" />
+        </mxCell>
+        <mxCell id="osqDWqHXKL7bKPATrkBW-93" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="osqDWqHXKL7bKPATrkBW-55" target="osqDWqHXKL7bKPATrkBW-56">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="osqDWqHXKL7bKPATrkBW-55" value="Роль, метаинструкции" style="whiteSpace=wrap;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="2369.25" y="374" width="180" height="37" as="geometry" />
+        </mxCell>
+        <mxCell id="osqDWqHXKL7bKPATrkBW-94" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="osqDWqHXKL7bKPATrkBW-56" target="osqDWqHXKL7bKPATrkBW-57">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="osqDWqHXKL7bKPATrkBW-56" value="Шаг 1. Анализ учебного материала" style="whiteSpace=wrap;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="2324.25" y="431" width="270" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="osqDWqHXKL7bKPATrkBW-95" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="osqDWqHXKL7bKPATrkBW-57" target="osqDWqHXKL7bKPATrkBW-58">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="osqDWqHXKL7bKPATrkBW-57" value="Шаг 2. Анализ контекста урока" style="whiteSpace=wrap;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="2321" y="511" width="276.5" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="osqDWqHXKL7bKPATrkBW-96" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="osqDWqHXKL7bKPATrkBW-58" target="osqDWqHXKL7bKPATrkBW-60">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="osqDWqHXKL7bKPATrkBW-58" value="Шаг 3. Написание черновика плана" style="whiteSpace=wrap;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="2323.25" y="589" width="272" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="osqDWqHXKL7bKPATrkBW-97" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="osqDWqHXKL7bKPATrkBW-60" target="osqDWqHXKL7bKPATrkBW-61">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="osqDWqHXKL7bKPATrkBW-60" value="Шаг 4.Оценка черновика по критериям" style="whiteSpace=wrap;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="2326" y="661.5" width="266.5" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="osqDWqHXKL7bKPATrkBW-101" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="osqDWqHXKL7bKPATrkBW-61" target="osqDWqHXKL7bKPATrkBW-100">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="osqDWqHXKL7bKPATrkBW-61" value="Шаг 5. Составление плана и Teaching Reference Sheet - финальная версия" style="whiteSpace=wrap;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="2329.75" y="741" width="259" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="osqDWqHXKL7bKPATrkBW-78" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="osqDWqHXKL7bKPATrkBW-73" target="osqDWqHXKL7bKPATrkBW-58">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="2273.75" y="627.9999999999998" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="osqDWqHXKL7bKPATrkBW-77" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="osqDWqHXKL7bKPATrkBW-76" target="osqDWqHXKL7bKPATrkBW-57">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="osqDWqHXKL7bKPATrkBW-76" value="{input params}:&#xa;Возраст, уровень и др." style="whiteSpace=wrap;strokeWidth=1;align=right;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="2160" y="518" width="134" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="osqDWqHXKL7bKPATrkBW-85" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="osqDWqHXKL7bKPATrkBW-37" target="osqDWqHXKL7bKPATrkBW-60">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="2629.75" y="688.5" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="osqDWqHXKL7bKPATrkBW-87" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="osqDWqHXKL7bKPATrkBW-86" target="osqDWqHXKL7bKPATrkBW-58">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="osqDWqHXKL7bKPATrkBW-86" value="requirements" style="whiteSpace=wrap;strokeWidth=1;align=right;strokeColor=default;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="2189.75" y="676" width="83" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="osqDWqHXKL7bKPATrkBW-82" value="few-shots" style="whiteSpace=wrap;strokeWidth=1;align=right;strokeColor=default;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="2189.75" y="646" width="83" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="osqDWqHXKL7bKPATrkBW-83" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="osqDWqHXKL7bKPATrkBW-82" target="osqDWqHXKL7bKPATrkBW-58">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="osqDWqHXKL7bKPATrkBW-92" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="osqDWqHXKL7bKPATrkBW-91" target="osqDWqHXKL7bKPATrkBW-61">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="osqDWqHXKL7bKPATrkBW-91" value="html, css instruction" style="whiteSpace=wrap;strokeWidth=1;align=right;strokeColor=default;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="2155.25" y="753" width="143.5" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="osqDWqHXKL7bKPATrkBW-73" value="{methodology step-by-step guideline}" style="whiteSpace=wrap;strokeWidth=1;dashed=1;align=right;" vertex="1" parent="1">
+          <mxGeometry x="1999.5" y="616" width="274" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="osqDWqHXKL7bKPATrkBW-100" value="output" style="whiteSpace=wrap;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="2414.25" y="820" width="90" height="50" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

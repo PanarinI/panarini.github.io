@@ -72,6 +72,16 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
+    .preview-block {
+    overflow-x: hidden; /* именно auto */
+    max-width: 100%;  /* гарантирует, что не растянется */
+    }
+
+    .preview-block table {
+    width: 100%;
+    table-layout: fixed;
+    }
+
     /* ПЛАН УРОКА В МОДАЛКЕ */
         table {
       width: 100%;
@@ -163,15 +173,6 @@
     }
 
 
-    .preview-block {
-    overflow-x: auto; /* именно auto */
-    max-width: 100%;  /* гарантирует, что не растянется */
-    }
-
-    .preview-block table {
-    width: 100%;
-    table-layout: fixed;
-    }
     .stack-item {
       display: inline-block;
       background: #e0e0e0;
@@ -250,32 +251,6 @@
       background: white;
     }
 
-
-
-.preview-block table {
-  border-collapse: collapse;
-  width: 100%;
-  font-size: 13px;
-}
-
-.preview-block th,
-.preview-block td {
-  border: 1px solid #ccc;
-  padding: 4px 6px;
-  vertical-align: top;
-  min-width: 80px;
-}
-
-.preview-block th.vz,
-.preview-block th.mat,
-.preview-block th.comm,
-.preview-block td.vz,
-.preview-block td.mat,
-.preview-block td.comm {
-  min-width: 90px;
-  max-width: 140px;
-  word-wrap: break-word;
-}
 
 .button-show {
   margin-top: 10px;

@@ -24,18 +24,20 @@
     }
 
     .project-container_2 {
-      display: flex;
+      display: grid;
+      grid-template-columns: 2fr 1fr;    /* Архитектура займёт в 2 раза больше ширины */
+      grid-auto-rows: 1fr;              /* Все колонки получат одинаковую высоту */
       gap: 20px;
-      align-items: stretch; /* Важно! */
-      height: 100%;
+      align-items: stretch;             /* Растягиваем содержимое по высоте ячеек */
     }
 
     .project-architecture,
     .preview-block {
-      flex: 1;
       display: flex;
       flex-direction: column;
+      /* удаляем flex: 1 и height:100% — теперь grid управляет размерами */
     }
+
 
 
     .project-stack {

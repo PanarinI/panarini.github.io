@@ -1,12 +1,21 @@
 // assets/js/components.js
 document.addEventListener('DOMContentLoaded', function() {
   // Загрузка header
-  fetch('../components/header.html')
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('dynamic-header').innerHTML = data;
-      setActiveLink();
-    });
+    fetch('../components/header.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('dynamic-header').innerHTML = data;
+
+        // Меняем содержимое logo-title
+        const customLogoTitle = document.body.dataset.logoTitle;
+        if (customLogoTitle) {
+          const titleSpan = document.querySelector('.logo-title');
+          if (titleSpan) {
+            titleSpan.textContent = customLogoTitle;
+          }
+        }
+      });
+
 
   // Загрузка footer
   fetch('../components/footer.html')

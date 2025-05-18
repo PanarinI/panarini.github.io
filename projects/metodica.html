@@ -25,12 +25,18 @@
 
     .project-container_2 {
       display: flex;
-      gap: 20px; /* или нужный вам отступ */
+      gap: 20px;
+      align-items: stretch; /* Важно! */
+      height: 100%;
     }
 
-    .project-architecture, .preview-block {
+    .project-architecture,
+    .preview-block {
       flex: 1;
+      display: flex;
+      flex-direction: column;
     }
+
 
     .project-stack {
         grid-column: 1 / -1;
@@ -410,21 +416,19 @@
   </div>
 
   <!-- Правая колонка: Технологический стэк -->
-  <div class="preview-block" style="display: flex; flex-direction: column; height: 100%;">
-
-    <div style="flex: 1; min-height: 0; display: flex; flex-direction: column;">
+  <div class="preview-block">
+    <div class="prompt-wrapper">
       <h3>Устройство промпта</h3>
-      <div class="flowchart-clickable" onclick="openImageModal('../assets/img/metodica/Metodica_prompt.svg')" style="flex: 1; overflow: hidden;">
+      <div class="flowchart-clickable" onclick="openImageModal('../assets/img/metodica/Metodica_prompt.svg')">
         <img
           src="../assets/img/metodica/Metodica_prompt_preview.svg"
           alt="Схема работы Metodica"
           class="flowchart-img"
-          style="object-fit: contain; width: 100%; height: 100%;"
         >
       </div>
     </div>
 
-    <div class="preview-clickable" style="flex-shrink: 0;">
+    <div class="preview-clickable">
       <h3>Технологический стэк</h3>
       <div>
         <span class="stack-item">Python</span>
@@ -436,7 +440,6 @@
     </div>
   </div>
 </section>
-
 
 
 <!-- Модалка для полного плана урока -->

@@ -386,7 +386,7 @@
 
 
 
-  <!-- Вторая секция: архитектура и стэк -->
+<!-- Вторая секция: архитектура и стэк -->
 <section class="project-container">
   <!-- Левая колонка: Архитектура -->
   <div class="project-architecture">
@@ -401,19 +401,21 @@
   </div>
 
   <!-- Правая колонка: Технологический стэк -->
-  <div class="preview-block">
+  <div class="preview-block" style="display: flex; flex-direction: column; height: 100%;">
 
-      <div>
+    <div style="flex: 1; min-height: 0; display: flex; flex-direction: column;">
       <h3>Устройство промпта</h3>
-        <div class="flowchart-clickable" onclick="openImageModal('../assets/img/metodica/Metodica_prompt.svg')">
+      <div class="flowchart-clickable" onclick="openImageModal('../assets/img/metodica/Metodica_prompt.svg')" style="flex: 1; overflow: hidden;">
         <img
-            src="../assets/img/metodica/Metodica_prompt_preview.svg"
-            alt="Схема работы Metodica"
-            class="flowchart-img"
+          src="../assets/img/metodica/Metodica_prompt_preview.svg"
+          alt="Схема работы Metodica"
+          class="flowchart-img"
+          style="object-fit: contain; width: 100%; height: 100%;"
         >
-        </div>
+      </div>
     </div>
-        <div class="preview-clickable">
+
+    <div class="preview-clickable" style="flex-shrink: 0;">
       <h3>Технологический стэк</h3>
       <div>
         <span class="stack-item">Python</span>
@@ -422,11 +424,9 @@
         <span class="stack-item">Gradio</span>
         <span class="stack-item">BeautifulSoup</span>
       </div>
+    </div>
   </div>
-
-
 </section>
-
 
 
 

@@ -16,11 +16,20 @@
     }
 
     /* Двухколоночный макет */
-    .project-container {
+    .project-container_1 {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 40px;
       margin-bottom: 50px;
+    }
+
+    .project-container_2 {
+      display: flex;
+      gap: 20px; /* или нужный вам отступ */
+    }
+
+    .project-architecture, .preview-block {
+      flex: 1;
     }
 
     .project-stack {
@@ -348,7 +357,7 @@
   </style>
 </head>
 <body>
-  <section class="project-container">
+  <section class="project-container_1">
   <!-- Основной блок: описание + превью -->
     <div class="project-description">
       <div class="feature-highlight">
@@ -387,7 +396,7 @@
 
 
 <!-- Вторая секция: архитектура и стэк -->
-<section class="project-container">
+<section class="project-container_2">
   <!-- Левая колонка: Архитектура -->
   <div class="project-architecture">
     <h3>Архитектура</h3>

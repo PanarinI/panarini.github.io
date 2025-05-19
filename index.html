@@ -91,11 +91,9 @@ body {
   display: flex;
   flex-direction: column;
   height: 600px;
+  box-shadow: none; /* временно убрать тень, чтобы проверить */
+  border: none;     /* или убрать рамку */
 }
-
-
-
-
 
 
 .card:hover::after {
@@ -152,13 +150,17 @@ body {
   position: absolute;
   top: 0;
   right: 0;
-  width: 50px;
-  height: 50px;
-  background-color: #000233; /* ярко-жёлтый */
-  clip-path: polygon(100% 0, 0 0, 100% 100%);
+  width: 36px;
+  height: 36px;
+  background-color: #000233;
+  transform: rotate(45deg) translate(50%, -50%);
+  transform-origin: top right;
+  border-top-right-radius: 12px;
+
   z-index: 2;
-  box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.1); /* тень */
 }
+
+
 
 .card:hover {
   transform: translateY(-6px);

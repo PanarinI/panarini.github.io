@@ -81,16 +81,29 @@ body {
 }
 
 .card {
+  position: relative; /* 👈 нужно для позиционирования стрелки */
   background-color: #eeeee7;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0,0,0,0.05);
   transition: transform 0.2s;
-max-width: 100%; /* гарантирует адаптивность */
+  max-width: 100%;
   display: flex;
   flex-direction: column;
-  height: 600px; /* Можно варьировать — высота карточки */
+  height: 600px;
 }
+
+
+
+
+
+
+.card:hover::after {
+  transform: translateX(3px);
+  opacity: 1;
+}
+
+
 .card:hover {
   transform: translateY(-5px);
 }
@@ -136,6 +149,20 @@ max-width: 100%; /* гарантирует адаптивность */
   transform: translateY(-6px);
   box-shadow: 0 8px 20px rgba(0,0,0,0.08);
 }
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  background-color: #000233; /* ярко-жёлтый */
+  clip-path: polygon(45% -0, 0 0, 80% 100%);
+  z-index: 2;
+  box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.1); /* тень */
+}
+
 
 .card-link {
   text-decoration: none;

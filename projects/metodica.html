@@ -10,9 +10,10 @@
     body {
       font-family: 'Segoe UI', sans-serif;
       line-height: 1.6;
-      color: #333;
-      max-width: 1200px;
-      margin: 0 auto;
+      color: #00031f;
+      background-color: #000233;
+  /* max-width: 1200px;
+  margin: 0 auto;  */
       padding: 20px;
     }
 
@@ -32,6 +33,29 @@
       align-items: stretch;             /* Растягиваем содержимое по высоте ячеек */
     }
 
+    @media (max-width: 1024px) {   /* ПОД РАЗНЫЕ ЭКРАНЫ РЕГУЛИРУЕТ БЛОКИ */
+    .project-container_1 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    }
+
+    @media (max-width: 640px) {
+    .project-container_1 {
+        grid-template-columns: 1fr;
+    }
+    }
+
+    @media (max-width: 1024px) {   /* Растягиваем содержимое по высоте ячеек */
+    .project-container_2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    }
+
+    @media (max-width: 640px) {
+    .project-container_2 {
+        grid-template-columns: 1fr;
+    }
+    }
     .project-architecture,
     .preview-block {
       display: flex;
@@ -39,6 +63,21 @@
       /* удаляем flex: 1 и height:100% — теперь grid управляет размерами */
     }
 
+
+.styled-text-block {       /* ЭТО ПЕРВЫЙ БЛОК С ТЕКСТОМ */
+  background-color: #eeeee7;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  max-width: 700px;
+}
+
+.project-description-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-right: 24px;
+}
 
 
     .project-stack {
@@ -396,41 +435,44 @@
 <body data-logo-title="Metodica: умный помощник учителя английского">
 <div id="dynamic-header"></div>
 
-  <section class="project-container_1">
+<section class="project-container_1">
   <!-- Основной блок: описание + превью -->
-    <div class="project-description">
+  <div class="project-description-wrapper">
+    <div class="project-description styled-text-block">
       <div class="feature-highlight">
         <p>Это AI‑ассистент, который создаёт методически выверенные <strong>планы уроков по фотографии страницы</strong>.</p>
 
-      <div class="feature-block">
-        <h3>Преимущества</h3>
-        <ul class="benefits-list">
-          <li><strong>Читает и видит по фотографии </strong> — готовит урок из конкретного материала </li>
-          <li><strong>Создает полноценный методически-корректный план</strong> — ассистент обучается опытным преподавателем с квалификацией CELTA</li>
-          <li><strong>Создает методический комплект к уроку</strong> — справочные материалы и ответы к заданиям
-          <li><strong>Профессиональный рост учителя</strong> — демонстрирует проверенные ELT-подходы, дает методические пояснения</li>
-        </ul>
-      </div>
-    </div>
-        <h3>Сценарии использования</h3>
-               <ul>
-          <li><strong>Школьный учитель работает по учебнику</strong> — ассистент разргружает учителя в рутинной подготовке</li>
-          <li><strong>Учитель/репетитор работает без учебника </strong> — ассистент помогает собрать любой материал в полноценный урок</li>
-        </ul>
+        <div class="feature-block">
+          <h3>Преимущества</h3>
+          <ul class="benefits-list">
+            <li><strong>Читает и видит по фотографии </strong> — готовит урок из конкретного материала </li>
+            <li><strong>Создает полноценный методически-корректный план</strong> — ассистент обучается опытным преподавателем с квалификацией CELTA</li>
+            <li><strong>Создает методический комплект к уроку</strong> — справочные материалы и ответы к заданиям</li>
+            <li><strong>Профессиональный рост учителя</strong> — демонстрирует проверенные ELT-подходы, дает методические пояснения</li>
+          </ul>
+        </div>
       </div>
 
-    <!-- Правая колонка: превью плана урока, кликабельное -->
- <div class="preview-block">
-  <div class="preview-clickable" onclick="openModal()">
-    <h3>Пример результата</h3>
-    <img src="../assets/img/metodica/plan_preview.png"
-         alt="Превью плана урока"
-         class="preview-image"
-         style="width: 100%; border-radius: 6px; border: 1px solid #ddd;">
+      <h3>Сценарии использования</h3>
+      <ul>
+        <li><strong>Школьный учитель работает по учебнику</strong> — ассистент разргружает учителя в рутинной подготовке</li>
+        <li><strong>Учитель/репетитор работает без учебника </strong> — ассистент помогает собрать любой материал в полноценный урок</li>
+      </ul>
+    </div>
   </div>
 
-</div>
-  </section>
+  <!-- Правая колонка: превью плана урока -->
+  <div class="preview-block">
+    <div class="preview-clickable" onclick="openModal()">
+      <h3>Пример результата</h3>
+      <img src="../assets/img/metodica/plan_preview.png"
+           alt="Превью плана урока"
+           class="preview-image"
+           style="width: 100%; border-radius: 6px; border: 1px solid #ddd;">
+    </div>
+  </div>
+</section>
+
 
 
 

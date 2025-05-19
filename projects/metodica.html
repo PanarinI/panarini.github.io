@@ -22,8 +22,8 @@
     display: flex;
     gap: 40px;
     margin: 50px 0;
-    align-items: stretch; /* равняем высоту блоков */
-    flex-wrap: wrap; /* чтобы на узких экранах было по одному блоку */
+    align-items: stretch;
+    flex-wrap: wrap;
     }
 
     .project-container_2 {
@@ -76,9 +76,8 @@
   padding: 24px;
   border-radius: 16px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-  /* height не задаём, чтобы текст формировал высоту */
+  /* высоту не задаём — будет по контенту */
 }
-
 
 .project-description-wrapper,
 .preview-block {
@@ -128,12 +127,21 @@
       margin: 30px 0;
     }
     .preview-clickable {
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    cursor: pointer;
-    flex-grow: 1; /* чтобы блок с картинкой растягивался по высоте контейнера */
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    background-color: #f9f9f9;
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    cursor: pointer;
+    }
+
+    .preview-title {
+    margin-bottom: 16px;
+    font-size: 1.1rem;
+    font-weight: 600;
     }
 
     .preview-clickable img {
@@ -492,15 +500,15 @@
   </div>
 
   <!-- Правая колонка: превью плана урока -->
-  <div class="preview-block">
+    <div class="preview-block">
     <div class="preview-clickable" onclick="openModal()">
-      <h3>Пример результата</h3>
-      <img src="../assets/img/metodica/plan_preview.png"
-           alt="Превью плана урока"
-           class="preview-image"
-           style="width: 100%; border-radius: 6px; border: 1px solid #ddd;">
+        <h3 class="preview-title">Пример результата</h3>
+        <img src="../assets/img/metodica/plan_preview.png"
+            alt="Превью плана урока"
+            class="preview-image">
     </div>
-  </div>
+    </div>
+
 </section>
 
 

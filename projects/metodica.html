@@ -19,11 +19,11 @@
 
     /* Двухколоночный макет */
     .project-container_1 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      margin-bottom: 50px;
-      margin-top: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* две равные колонки */
+    gap: 40px;
+    align-items: stretch; /* блоки будут одинаковой высоты */
+    margin: 50px 0;
     }
 
     .project-container_2 {
@@ -42,7 +42,7 @@
 
     @media (max-width: 640px) {
     .project-container_1 {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* на смартфонах один столбец */
     }
     }
 
@@ -63,7 +63,13 @@
       flex-direction: column;
       /* удаляем flex: 1 и height:100% — теперь grid управляет размерами */
     }
-
+    .styled-text-block, .preview-block {
+    /* пусть оба блока растягиваются на всю доступную высоту */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    }
 
 .styled-text-block {       /* ЭТО ПЕРВЫЙ БЛОК С ТЕКСТОМ */
   background-color: #eeeee7;

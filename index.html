@@ -144,20 +144,16 @@ body {
   font-weight: 600;
 }
 
-
 .card::before {
   content: '';
   position: absolute;
   top: 0;
   right: 0;
-  width: 36px;
-  height: 36px;
-  background-color: #000233;
-  transform: rotate(45deg) translate(50%, -50%);
-  transform-origin: top right;
-  border-top-right-radius: 12px;
-
-  z-index: 2;
+  width: 50px;
+  height: 50px;
+  background-color: #d3d3dc; /* светлый акцент или фон карточки */
+  clip-path: polygon(100% 0, 0 0, 100% 100%);
+  z-index: 1;
 }
 
 

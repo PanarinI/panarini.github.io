@@ -145,10 +145,7 @@ body {
   color: #111;
   font-weight: 600;
 }
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-}
+
 
 .card::before {
   content: '';
@@ -158,12 +155,15 @@ body {
   width: 50px;
   height: 50px;
   background-color: #000233; /* ярко-жёлтый */
-  clip-path: polygon(45% -0, 0 0, 80% 100%);
+  clip-path: polygon(100% 0, 0 0, 100% 100%);
   z-index: 2;
   box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.1); /* тень */
 }
 
-
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
 .card-link {
   text-decoration: none;
   color: inherit;

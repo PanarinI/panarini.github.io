@@ -85,29 +85,26 @@
   width: 100%;
 }
 
-.slide {
-  background: white;
-  border-radius: 8px;
-  overflow: hidden; /* Обрезаем всё лишнее */
-}
+   /* Карточка слайда */
+    .slide {
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    /* Контейнер для картинки - ОСНОВНОЙ ЭЛЕМЕНТ */
+    .img-box {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+    }
 
-.img-container {
-  position: relative;
-  width: 100%;
-  height: auto; /* Подстраивается под картинку */
-  overflow: hidden; /* Скрывает обрезанные части */
-}
-
-.img-container img {
-  display: block;
-  width: 100%;
-  height: auto;
-  position: relative;
-  top: var(--crop-top, 0);
-  left: var(--crop-left, 0);
-  right: var(--crop-right, 0);
-  bottom: var(--crop-bottom, 0);
-}
+    /* Сама картинка */
+    .img-box img {
+      display: block;
+      width: 100%;
+      position: relative; /* Позволяет сдвигать */
+    }
 
 
 
@@ -185,20 +182,22 @@
 
 <!-- Только слайды (остальное оставляем как есть) -->
 <div class="slides-container">
-  <!-- Слайд 1 -->
+  <!-- Пример 1: обрезано 20% сверху -->
   <div class="slide">
-    <div class="img-container" style="--crop-top: -20%;">
-      <img src="image1.jpg" alt="">
+    <div class="img-box" style="height: 300px;"> <!-- Фиксированная высота -->
+      <img src="image1.jpg" style="top: -60px;"> <!-- 20% от 300px = 60px -->
     </div>
   </div>
 
-  <!-- Слайд 2 -->
+  <!-- Пример 2: обрезано 15% слева -->
   <div class="slide">
-    <div class="img-container" style="--crop-left: -15%;">
-      <img src="image2.jpg" alt="">
+    <div class="img-box" style="height: 250px;"> <!-- Фиксированная высота -->
+      <img src="image2.jpg" style="left: -15%; width: 115%;">
+      <!-- Ширина 115% компенсирует обрезку -->
     </div>
   </div>
 </div>
+
   <script>
     // Открытие/закрытие модалки
     const preview = document.getElementById('preview-toggle');

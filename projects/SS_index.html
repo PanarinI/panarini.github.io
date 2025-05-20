@@ -93,6 +93,16 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
 
+.crop-hard {
+  overflow: hidden;  /* Скрываем всё, что выходит за границы */
+  border-radius: 8px;
+  width: 100%;      /* Занимает всю ширину слайда */
+}
+
+.crop-hard img {
+  display: block;
+  width: 100%;      /* По умолчанию */
+}
 .crop-area {
   overflow: hidden;  /* Скрываем всё, что выходит за границы */
   border-radius: 8px;
@@ -185,8 +195,18 @@
 <div class="slides-container">
 <figure class="slide-card">
   <figcaption>Обрезаем как хотим</figcaption>
-  <div class="crop-box" style="--crop-top: 100px; --crop-right: 100px; --crop-bottom: 100px; --crop-left: 100px;">
-    <img src="../assets/img/SS_index/index_2.jpg" alt="Пример">
+  <div class="crop-hard">
+    <img
+      src="../assets/img/SS_index/index_2.jpg"
+      alt="Пример"
+      style="
+        margin-top: -100px;    /* Обрезаем сверху */
+        margin-left: -100px;   /* Обрезаем слева */
+        margin-right: -100px;  /* Обрезаем справа */
+        margin-bottom: -100px; /* Обрезаем снизу */
+        width: calc(100% + 200px); /* Компенсируем margin-left + margin-right */
+      "
+    >
   </div>
 </figure>
 

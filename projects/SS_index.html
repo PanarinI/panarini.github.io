@@ -8,11 +8,12 @@
     /* --- Основной лэйаут: две колонки --- */
     .project-layout {
       display: grid;
-      grid-template-columns: 2fr 1fr;
+      grid-template-columns: 1fr 1fr;
       gap: 24px;
-      align-items: start;
+      align-items: stretch; /* выравнивание по высоте */
       margin-bottom: 40px;
     }
+
     @media (max-width: 768px) {
       .project-layout {
         grid-template-columns: 1fr;

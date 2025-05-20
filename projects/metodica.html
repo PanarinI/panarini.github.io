@@ -515,19 +515,26 @@
 
 
 <!-- Вторая секция: архитектура и стэк -->
+<!-- Вторая секция: архитектура и стэк -->
 <section class="project-container_2">
-  <!-- Левая колонка: Архитектура -->
-    <div class="project-container_2">
 
-    <!-- Левая колонка -->
-    <div class="project-col">
-        <!-- Карточка: Архитектура -->
-        <div class="preview-clickable">
-        <h3>Архитектура</h3>
-        <img src="/assets/bot-architecture-light.png" class="project-image" />
-        </div>
+  <!-- Левая колонка: Архитектура + Стэк -->
+  <div class="project-architecture">
 
-        <div class="preview-clickable">
+    <!-- Карточка: Архитектура -->
+    <div class="preview-clickable">
+      <h3>Архитектура</h3>
+      <div class="flowchart-clickable" onclick="openImageModal('../assets/img/metodica/metodica_6.svg')">
+        <img
+          src="../assets/img/metodica/metodica_6.svg"
+          alt="Схема работы Metodica"
+          class="flowchart-img"
+        >
+      </div>
+    </div>
+
+    <!-- Карточка: Стэк -->
+    <div class="preview-clickable">
       <h3>Технологический стэк</h3>
       <div>
         <span class="stack-item">Python</span>
@@ -539,23 +546,22 @@
     </div>
   </div>
 
-    <!-- Левая колонка -->
-    <div class="project-col">
-        <!-- Карточка: Архитектура -->
-        <div class="preview-clickable">
+  <!-- Правая колонка: Промпт -->
+  <div class="preview-block">
+    <div class="preview-clickable prompt-wrapper">
       <h3>Устройство промпта</h3>
       <div class="flowchart-clickable" onclick="openImageModal('../assets/img/metodica/Metodica_prompt.svg')">
         <img
           src="../assets/img/metodica/Metodica_prompt_preview.svg"
-          alt="Схема работы Metodica"
+          alt="Схема промпта"
           class="flowchart-img"
         >
       </div>
     </div>
-
-
   </div>
+
 </section>
+
 
 
 <!-- Модалка для полного плана урока -->

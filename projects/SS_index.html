@@ -79,46 +79,30 @@
     clip-path: polygon(100% 0, 0 0, 100% 100%);
     z-index: 1;
   }
-    /* --- Слайды --- */
-    .image-container {
-      position: relative;
-      overflow: hidden;
-      border-radius: 8px;
-      width: 100%;
+     .slides-container {
+      display: grid;
+      gap: 24px;
+      margin-top: 40px;
     }
-
     .slide-card {
       background: #fff;
       padding: 16px;
       border-radius: 12px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
-
-.croppable {
-  display: block;
-  width: 100%;
-  height: auto; /* <--- ключевая правка */
-  object-fit: cover;
-}
-
-
-.slide-card img {
-  display: block;
-  max-width: 100%;
-}
-
-    /* Классы для обрезки - можно добавлять к изображению */
-    .crop-top { object-position: top; }
-    .crop-bottom { object-position: bottom; }
-    .crop-left { object-position: left; }
-    .crop-right { object-position: right; }
-
-    /* Контейнер для изображения с фиксированной высотой */
     .image-container {
-      height: 160px; /* Фиксированная высота */
+      width: 100%;
+      height: 160px;
       overflow: hidden;
       border-radius: 8px;
+      position: relative;
     }
+    .slide-img {
+      display: block;
+      position: relative;
+      /* width/height and offsets задаём inline для каждого случая */
+    }
+
     /* --- Модалка --- */
     .modal {
       display: none;
@@ -185,72 +169,46 @@
   </div>
 
 
+  <!-- Новая секция слайдов -->
+  <div class="slides-container">
+    <!-- Слайд 1: Обрезаем 10% слева -->
+    <figure class="slide-card">
+      <figcaption>Обрезано 10% слева</figcaption>
+      <div class="image-container">
+        <img
+          src="../assets/img/SS_index/index_1.jpg"
+          alt="Пример 1"
+          class="slide-img"
+          style="left: -10%; top: 0; width: auto; height: 100%;"
+        >
+      </div>
+    </figure>
 
-<div class="slides-container">
-  <!-- Пример 1: Обрезаем 20% сверху -->
-  <figure class="slide-card">
-    <figcaption>Обрезано 20% сверху</figcaption>
-    <div class="image-container">
-    <img src="../assets/img/SS_index/index_2.jpg" class="croppable" style="clip-path: inset(20% 15% 5% 10%); height: auto;">
+    <!-- Слайд 2: Обрезаем 20% сверху -->
+    <figure class="slide-card">
+      <figcaption>Обрезано 20% сверху</figcaption>
+      <div class="image-container">
+        <img
+          src="../assets/img/SS_index/index_2.jpg"
+          alt="Пример 2"
+          class="slide-img"
+          style="top: -20%; left: 0; width: 100%; height: auto;"
+        >
+      </div>
+    </figure>
 
-
-    </div>
-  </figure>
-
-  <!-- Пример 2: Обрезаем 15% слева и 15% справа -->
-  <figure class="slide-card">
-    <figcaption>Обрезано по бокам</figcaption>
-    <div class="image-container">
-      <img
-        class="cropped-image"
-        src="../assets/img/SS_index/index_3.jpg"
-        alt="Пример 2"
-        style="
-          --crop-left: 15%;
-          --crop-right: 15%;
-        "
-      >
-    </div>
-  </figure>
-
-  <!-- Пример 3: Обрезаем со всех сторон -->
-  <figure class="slide-card">
-    <figcaption>Обрезано со всех сторон</figcaption>
-    <div class="image-container">
-      <img
-        class="cropped-image"
-        src="https://example.com/your-image.jpg"
-        alt="Пример 3"
-        style="
-          --crop-top: 10%;
-          --crop-bottom: 5%;
-          --crop-left: 20%;
-          --crop-right: 10%;
-        "
-      >
-    </div>
-  </figure>
-</div>
-
-
-
-  <!-- Модалка для индикатора -->
-  <div class="modal" id="modal">
-    <div class="modal-content">
-      <span class="modal-close" id="modal-close">&times;</span>
-      <img
-        src="../assets/img/SS_index/index_9.jpg"
-        alt="Индикатор в полном формате"
-        style="width: 80vw; height: 80vh;
-               object-fit: cover;
-               object-position: center;
-               display: block;
-               margin: 0 auto;
-               border-radius: 8px;
-               box-shadow: 0 0 20px rgba(0,0,0,0.5);
-               clip-path: inset(8% 1% 1% 1%);"
-      />
-    </div>
+    <!-- Слайд 3: Обрезаем 15% сверху и 15% справа -->
+    <figure class="slide-card">
+      <figcaption>Обрезано сверху и справа</figcaption>
+      <div class="image-container">
+        <img
+          src="../assets/img/SS_index/index_3.jpg"
+          alt="Пример 3"
+          class="slide-img"
+          style="top: -15%; right: -15%; width: auto; height: 100%;"
+        >
+      </div>
+    </figure>
   </div>
 
   <script>

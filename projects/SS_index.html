@@ -86,18 +86,35 @@
 
 
 
-
     .slide {
-      position: relative;
+      width: 100vw;
+      max-width: 100%;
+      border-radius: 8px;
       overflow: hidden;
-      display: inline-block;
+      position: relative;
+      padding: 2rem 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #dcdcd3;
+    }
+
+    .slide h2 {
+      color: #00031f;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
     }
 
     .slide img {
-      position: relative;
+      width: 90vw;
+      max-width: 1200px;
+      height: auto;
+      object-fit: cover;
+      object-position: center;
       display: block;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
     }
-
 
     /* --- Модалка --- */
     .modal {
@@ -167,11 +184,14 @@
 
     <!-- СЛАЙДЫ -->
 
-    <h1>Слайд 1</h1>
-  <div class="slide" style="--crop-top:100; --crop-bottom:50; --crop-left:200; --crop-right:100;">
-    <img src="../assets/img/SS_index/index_2.png" alt="Картинка 1">
+  <div class="slide">
+    <h2>Заголовок слайда</h2>
+    <img
+      src="../assets/img/SS_index/index_2.jpg"
+      alt="Картинка"
+      style="clip-path: inset(10% 5% 5% 15%);"
+    />
   </div>
-
 
 
   <!-- Модалка для индикатора -->

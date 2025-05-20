@@ -1,10 +1,204 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Проект: Составной индикатор</title>
+  <style>
+    /* --- Основной лэйаут: две колонки --- */
+    .project-layout {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 24px;
+      align-items: start;
+      margin-bottom: 40px;
+    }
+    @media (max-width: 768px) {
+      .project-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* --- Описание проекта (левая колонка) --- */
+    .project-description {
+      background: #f5f5f5;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .project-description h2 {
+      margin-top: 0;
+      font-size: 1.8rem;
+    }
+    .project-description p {
+      line-height: 1.5;
+    }
+
+    /* --- Блок превью индикатора (правая колонка) --- */
+    .project-preview {
+      position: relative;
+      background: #fff;
+      padding: 16px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .project-preview:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    .project-preview img {
+      width: 100%;
+      border-radius: 8px;
+      display: block;
+    }
+
+    /* --- Слайды --- */
+    .slides-container {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .slide-card {
+      background: #fff;
+      padding: 16px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .slide-card img {
+      width: 100%;
+      border-radius: 6px;
+      display: block;
+    }
+    .slide-card figcaption {
+      margin-top: 8px;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    /* --- Контейнер для обрезки изображений --- */
+    .crop-container {
+      position: relative;
+      overflow: hidden;
+      /* Ширина и высота можно задать через CSS или inline-стилями */
+    }
+    .crop-container .crop-img {
+      position: absolute;
+      /* Сдвиг изображения внутри контейнера */
+      top: 0;
+      left: 0;
+      /* Можно дополнительно использовать object-fit: none; */
+    }
+
+    /* --- Альтернативный метод: clip-path --- */
+    .clip-img {
+      /* inset(top right bottom left) */
+      clip-path: inset(10px 15px 20px 5px);
+    }
+
+    /* --- Модалка --- */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .modal.active {
+      display: flex;
+      opacity: 1;
+    }
+    .modal-content {
+      width: 80vw;
+      max-width: 900px;
+      max-height: 80vh;
+      position: relative;
+      animation: zoomIn 0.3s ease;
+    }
+    @keyframes zoomIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    .modal-content img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+    }
+    .modal-close {
+      position: absolute;
+      top: -10px; right: -10px;
+      background: #fff;
+      border-radius: 50%;
+      width: 32px; height: 32px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      font-size: 1.2rem;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.2);
+    }
+  </style>
 </head>
 <body>
+  <div class="project-layout">
+    <!-- Левая колонка: описание -->
+    <div class="project-description">
+      <h2>Составной индикатор</h2>
+      <p>Проект представляет собой составной индикатор факторов риска и масштаба социального сиротства в регионах РФ.</p>
+      <p>Проблема: необходимо постоянно мониторить систему профилактики социального сиротства и находить приоритетные направления политики.</p>
+    </div>
 
+    <!-- Правая колонка: превью индикатора -->
+    <div class="project-preview" id="preview-toggle">
+      <img src="../assets/img/SS_index/cover_main.png" alt="Основной индикатор">
+    </div>
+  </div>
+
+  <!-- Слайды -->
+  <div class="slides-container">
+    <!-- Пример одного слайда с обрезкой через контейнер -->
+    <figure class="slide-card">
+      <div class="crop-container" style="width:100%; height:300px;">
+        <img src="../assets/img/SS_index/index_1.png" alt="Слайд 1"
+             class="crop-img"
+             style="top:-50px; left:-20px;"> <!-- сдвигаем картинку внутри -->
+      </div>
+      <figcaption>Слайд 1: Введение и контекст проблемы</figcaption>
+    </figure>
+    <!-- Пример одного слайда с clip-path -->
+    <figure class="slide-card">
+      <img src="../assets/img/SS_index/slide2.png" alt="Слайд 2" class="clip-img">
+      <figcaption>Слайд 2: Методология</figcaption>
+    </figure>
+    <!-- Добавьте остальные слайды аналогично -->
+  </div>
+
+  <!-- Модалка для индикатора -->
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <span class="modal-close" id="modal-close">&times;</span>
+      <img src="../assets/img/SS_index/index_main.png" alt="Индикатор в крупном формате">
+    </div>
+  </div>
+
+  <script>
+    // Открытие/закрытие модалки
+    const preview = document.getElementById('preview-toggle');
+    const modal   = document.getElementById('modal');
+    const closeBtn= document.getElementById('modal-close');
+
+    preview.addEventListener('click', () => modal.classList.add('active'));
+    closeBtn.addEventListener('click', () => modal.classList.remove('active'));
+    modal.addEventListener('click', e => {
+      if (e.target === modal) modal.classList.remove('active');
+    });
+  </script>
 </body>
 </html>

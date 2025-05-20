@@ -90,13 +90,19 @@
       border-radius: 12px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
-    .image-container {
-      width: 100%;
-      height: 160px;
-      overflow: hidden;
-      border-radius: 8px;
-      position: relative;
-    }
+.image-container {
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.croppable {
+  display: block;
+  width: 100%;
+  height: auto; /* так, как ты хочешь */
+  object-fit: contain; /* или убери вообще, если не нужно */
+}
+
+
     .slide-img {
       display: block;
       position: relative;
@@ -169,57 +175,28 @@
   </div>
 
 
-  <!-- Новая секция слайдов -->
   <div class="slides-container">
-    <!-- Слайд 1: Обрезаем 10% слева -->
-    <figure class="slide-card">
-      <figcaption>Обрезано 10% слева</figcaption>
-      <div class="image-container">
+    <!-- Слайд 1: обрезано 20% сверху -->
+    <div class="slide">
+      <div class="slide-img-container">
         <img
-          src="../assets/img/SS_index/index_1.jpg"
-          alt="Пример: обрезано 20% сверху"
-          style="
-            position: absolute;
-            top: -20%;
-            left: 0;
-            min-width: 100%;
-            height: auto;
-          "
-        />
-      </div>
-    </figure>
-
-    <img
-  src="…/index_2.jpg"
-
-
-
-    <!-- Слайд 2: Обрезаем 20% сверху -->
-    <figure class="slide-card">
-      <figcaption>Обрезано 20% сверху</figcaption>
-      <div class="image-container">
-        <img
-          src="../assets/img/SS_index/index_2.jpg"
-          alt="Пример 2"
           class="slide-img"
-          style="top: -20%; left: 0; width: 100%; height: auto;"
+          src="../assets/img/SS_index/index_3.png"
+          style="top: -20%;" <!-- Обрезаем 20% сверху -->
         >
       </div>
-    </figure>
+    </div>
 
-    <!-- Слайд 3: Обрезаем 15% сверху и 15% справа -->
-    <figure class="slide-card">
-      <figcaption>Обрезано сверху и справа</figcaption>
-      <div class="image-container">
+    <!-- Слайд 2: обрезано 15% слева -->
+    <div class="slide">
+      <div class="slide-img-container">
         <img
-          src="../assets/img/SS_index/index_3.jpg"
-          alt="Пример 3"
           class="slide-img"
-          style="top: -15%; right: -15%; width: auto; height: 100%;"
+          src="image2.jpg"
+          style="left: -15%;" <!-- Обрезаем 15% слева -->
         >
       </div>
-    </figure>
-  </div>
+    </div>
 
   <script>
     // Открытие/закрытие модалки

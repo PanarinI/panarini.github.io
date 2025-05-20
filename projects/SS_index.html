@@ -80,10 +80,11 @@
     z-index: 1;
   }
     /* --- Слайды --- */
-    .slides-container {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
+    .image-container {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      width: 100%;
     }
 
     .slide-card {
@@ -93,24 +94,16 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
 
-.crop-final {
-  overflow: hidden;
-  border-radius: 8px;
-  width: 100%;
-  position: relative; /* Важно! */
-}
-
-.crop-final img {
-  display: block;
-  width: calc(100% + var(--crop-left) + var(--crop-right));
-  height: calc(100% + var(--crop-top) + var(--crop-bottom));
-  object-fit: cover;
-  position: relative;
-  transform: translate(
-    calc(-1 * var(--crop-left)),
-    calc(-1 * var(--crop-top))
-  );
-}
+    .cropped-image {
+      display: block;
+      width: calc(100% + var(--crop-left, 0px) + var(--crop-right, 0px));
+      height: calc(100% + var(--crop-top, 0px) + var(--crop-bottom, 0px));
+      object-fit: cover;
+      transform: translate(
+        calc(-1 * var(--crop-left, 0px)),
+        calc(-1 * var(--crop-top, 0px))
+      );
+    }
 
 .slide-card img {
   display: block;
@@ -197,42 +190,55 @@
 
 
 <div class="slides-container">
-<figure class="slide-card">
-  <figcaption>Теперь точно работает</figcaption>
-  <div class="crop-final">
-    <img
-      src="../assets/img/SS_index/index_2.jpg"
-      alt="Пример"
-      style="
-        --crop-top: 150px;    /* Обрезать сверху */
-        --crop-right: 200px; /* Обрезать справа */
-        --crop-bottom: 70px; /* Обрезать снизу */
-        --crop-left: 20px;   /* Обрезать слева */
-      "
-    >
-  </div>
-</figure>
+  <!-- Пример 1: Обрезаем 20% сверху -->
+  <figure class="slide-card">
+    <figcaption>Обрезано 20% сверху</figcaption>
+    <div class="image-container">
+      <img
+        class="cropped-image"
+        src="https://example.com/your-image.jpg"
+        alt="Пример 1"
+        style="
+          --crop-top: 20%;
+        "
+      >
+    </div>
+  </figure>
 
-    <!-- Еще один пример с другой обрезкой -->
-    <figure class="slide-card">
-      <figcaption>Другой слайд</figcaption>
-      <div class="image-container">
-        <img
-          src="../assets/img/SS_index/index_3.jpg"
-          alt="Слайд 3"
-          style="
-            clip-path: inset(5% 0 30% 10%); /* top right bottom left */
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-          "
-        >
-      </div>
-    </figure>
+  <!-- Пример 2: Обрезаем 15% слева и 15% справа -->
+  <figure class="slide-card">
+    <figcaption>Обрезано по бокам</figcaption>
+    <div class="image-container">
+      <img
+        class="cropped-image"
+        src="https://example.com/your-image.jpg"
+        alt="Пример 2"
+        style="
+          --crop-left: 15%;
+          --crop-right: 15%;
+        "
+      >
+    </div>
+  </figure>
 
+  <!-- Пример 3: Обрезаем со всех сторон -->
+  <figure class="slide-card">
+    <figcaption>Обрезано со всех сторон</figcaption>
+    <div class="image-container">
+      <img
+        class="cropped-image"
+        src="https://example.com/your-image.jpg"
+        alt="Пример 3"
+        style="
+          --crop-top: 10%;
+          --crop-bottom: 5%;
+          --crop-left: 20%;
+          --crop-right: 10%;
+        "
+      >
+    </div>
+  </figure>
 </div>
-
-
 
 
 

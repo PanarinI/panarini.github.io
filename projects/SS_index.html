@@ -95,12 +95,22 @@
   border-radius: 8px;
 }
 
-.croppable {
-  display: block;
-  width: 100%;
-  height: auto; /* так, как ты хочешь */
-  object-fit: contain; /* или убери вообще, если не нужно */
-}
+    /* Контейнер для обрезки */
+    .crop-box {
+      width: 100%;
+      overflow: hidden; /* Скрывает обрезанные части */
+      border-radius: 8px;
+    }
+
+    /* Картинка внутри контейнера */
+    .crop-box img {
+      display: block;
+      width: 100%;
+      height: auto;
+      position: relative; /* Позволяет сдвигать */
+    }
+
+
 
 
     .slide-img {
@@ -175,28 +185,28 @@
   </div>
 
 
+<!-- Только слайды (остальное оставляем как есть) -->
   <div class="slides-container">
     <!-- Слайд 1: обрезано 20% сверху -->
-    <div class="slide">
-      <div class="slide-img-container">
+    <div class="slide-card">
+      <div class="crop-box" style="height: 80%;"> <!-- Контейнер уменьшился на 20% -->
         <img
-          class="slide-img"
           src="../assets/img/SS_index/index_3.png"
-          style="top: -20%;" <!-- Обрезаем 20% сверху -->
+          style="top: -20%;" <!-- Сдвигаем картинку вверх -->
         >
       </div>
     </div>
 
     <!-- Слайд 2: обрезано 15% слева -->
-    <div class="slide">
-      <div class="slide-img-container">
+    <div class="slide-card">
+      <div class="crop-box" style="width: 85%;"> <!-- Контейнер уменьшился на 15% -->
         <img
-          class="slide-img"
-          src="image2.jpg"
-          style="left: -15%;" <!-- Обрезаем 15% слева -->
+          src="../assets/img/SS_index/index_2.jpg"
+          style="left: -15%;" <!-- Сдвигаем картинку влево -->
         >
       </div>
     </div>
+  </div>
 
   <script>
     // Открытие/закрытие модалки

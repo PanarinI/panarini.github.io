@@ -98,13 +98,12 @@
 
 .slide-card img {
   width: 100%;
-  border-radius: 6px;
   display: block;
-
-  /* сбрасываем все clip-path по умолчанию */
-  clip-path: none;
-  -webkit-clip-path: none;
+  border-radius: 6px;
+  clip-path: inset(0 0 0 0); /* по умолчанию ничего не обрезаем */
+  transition: clip-path 0.3s;
 }
+
 
 
     /* --- Контейнер для обрезки изображений --- */
@@ -200,7 +199,7 @@
   <img
     src="../assets/img/SS_index/index_1.jpg"
     alt="Слайд 1"
-    style="object-position: 20% 10%;"  <!-- сдвинули фокус -->
+    style="clip-path: inset(20% 5% 8% 5%);"
   >
 </figure>
 
@@ -209,7 +208,7 @@
   <img
     src="../assets/img/SS_index/index_2.jpg"
     alt="Слайд 2"
-    style="object-position: 50% 0%;"   <!-- другой фокус -->
+    style="clip-path: inset(10% 8% 10% 8%);"
   >
 </figure>
 
@@ -218,18 +217,10 @@
   <img
     src="../assets/img/SS_index/index_3.jpg"
     alt="Слайд 3"
-    style="object-position: 10% 60%;"
+    style="clip-path: inset(5% 10% 5% 10%);"
   >
 </figure>
 
-<figure class="slide-card">
-  <figcaption>Профиль регионов</figcaption>
-  <img
-    src="../assets/img/SS_index/index_4.jpg"
-    alt="Слайд 4"
-    style="object-position: 80% 20%;"
-  >
-</figure>
 
 </div>
 

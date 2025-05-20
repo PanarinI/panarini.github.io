@@ -79,37 +79,35 @@
     clip-path: polygon(100% 0, 0 0, 100% 100%);
     z-index: 1;
   }
-     .slides-container {
-      display: grid;
-      gap: 24px;
-      margin-top: 40px;
-    }
-    .slide-card {
-      background: #fff;
-      padding: 16px;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    }
-.image-container {
-  overflow: hidden;
-  border-radius: 8px;
+.slides-container {
+  display: grid;
+  gap: 20px;
+  width: 100%;
 }
 
-    /* Контейнер для обрезки */
-    .crop-box {
-      width: 100%;
-      overflow: hidden; /* Скрывает обрезанные части */
-      border-radius: 8px;
-    }
+.slide {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden; /* Обрезаем всё лишнее */
+}
 
-    /* Картинка внутри контейнера */
-    .crop-box img {
-      display: block;
-      width: 100%;
-      height: auto;
-      position: relative; /* Позволяет сдвигать */
-    }
+.img-container {
+  position: relative;
+  width: 100%;
+  height: auto; /* Подстраивается под картинку */
+  overflow: hidden; /* Скрывает обрезанные части */
+}
 
+.img-container img {
+  display: block;
+  width: 100%;
+  height: auto;
+  position: relative;
+  top: var(--crop-top, 0);
+  left: var(--crop-left, 0);
+  right: var(--crop-right, 0);
+  bottom: var(--crop-bottom, 0);
+}
 
 
 
@@ -186,28 +184,21 @@
 
 
 <!-- Только слайды (остальное оставляем как есть) -->
-  <div class="slides-container">
-    <!-- Слайд 1: обрезано 20% сверху -->
-    <div class="slide-card">
-      <div class="crop-box" style="height: 80%;"> <!-- Контейнер уменьшился на 20% -->
-        <img
-          src="../assets/img/SS_index/index_3.png"
-          style="top: -20%;" <!-- Сдвигаем картинку вверх -->
-        >
-      </div>
-    </div>
-
-    <!-- Слайд 2: обрезано 15% слева -->
-    <div class="slide-card">
-      <div class="crop-box" style="width: 85%;"> <!-- Контейнер уменьшился на 15% -->
-        <img
-          src="../assets/img/SS_index/index_2.jpg"
-          style="left: -15%;" <!-- Сдвигаем картинку влево -->
-        >
-      </div>
+<div class="slides-container">
+  <!-- Слайд 1 -->
+  <div class="slide">
+    <div class="img-container" style="--crop-top: -20%;">
+      <img src="image1.jpg" alt="">
     </div>
   </div>
 
+  <!-- Слайд 2 -->
+  <div class="slide">
+    <div class="img-container" style="--crop-left: -15%;">
+      <img src="image2.jpg" alt="">
+    </div>
+  </div>
+</div>
   <script>
     // Открытие/закрытие модалки
     const preview = document.getElementById('preview-toggle');

@@ -187,24 +187,34 @@
     </div>
   </div>
 
-  <!-- Слайды -->
-  <div class="slides-container">
-    <!-- Пример одного слайда с обрезкой через контейнер -->
-    <figure class="slide-card">
-      <div class="crop-container" style="width:100%; height:300px;">
-        <img src="../assets/img/SS_index/index_1.png" alt="Слайд 1"
-             class="crop-img"
-             style="top:-50px; left:-20px;"> <!-- сдвигаем картинку внутри -->
-      </div>
-      <figcaption>Слайд 1: Введение и контекст проблемы</figcaption>
-    </figure>
-    <!-- Пример одного слайда с clip-path -->
-    <figure class="slide-card">
-      <img src="../assets/img/SS_index/slide2.png" alt="Слайд 2" class="clip-img">
-      <figcaption>Слайд 2: Методология</figcaption>
-    </figure>
-    <!-- Добавьте остальные слайды аналогично -->
-  </div>
+
+
+<div class="slides-container">
+  <!-- Слайд 1 -->
+  <figure class="slide-card slide-trigger" data-img="../assets/img/SS_index/index_1.jpg" data-crop="inset(8% 5% 8% 5%)">
+    <img src="../assets/img/SS_index/index_1.jpg" alt="Слайд 1">
+    <figcaption>Слайд 1: Введение и контекст проблемы</figcaption>
+  </figure>
+
+  <!-- Слайд 2 -->
+  <figure class="slide-card slide-trigger" data-img="../assets/img/SS_index/index_2.jpg" data-crop="inset(10% 6% 7% 4%)">
+    <img src="../assets/img/SS_index/index_2.jpg" alt="Слайд 2">
+    <figcaption>Слайд 2: Методология и компоненты</figcaption>
+  </figure>
+
+  <!-- Слайд 3 -->
+  <figure class="slide-card slide-trigger" data-img="../assets/img/SS_index/index_3.jpg" data-crop="inset(5% 5% 5% 5%)">
+    <img src="../assets/img/SS_index/index_3.jpg" alt="Слайд 3">
+    <figcaption>Слайд 3: Индикатор и факторы риска</figcaption>
+  </figure>
+
+  <!-- Слайд 4 -->
+  <figure class="slide-card slide-trigger" data-img="../assets/img/SS_index/index_4.jpg" data-crop="inset(12% 4% 10% 6%)">
+    <img src="../assets/img/SS_index/index_4.jpg" alt="Слайд 4">
+    <figcaption>Слайд 4: Профиль регионов</figcaption>
+  </figure>
+</div>
+
 
   <!-- Модалка для индикатора -->
   <div class="modal" id="modal">

@@ -138,19 +138,6 @@
       to { transform: scale(1); opacity: 1; }
     }
 
-.modal-content img {
-  width: 80vw;
-  height: 80vh;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-  margin: 0 auto;
-  border-radius: 8px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.5);
-
-  /* Обрезка по сторонам: top right bottom left */
-  clip-path: inset(10% 5% 5% 5%);
-}
 
 
     .modal-close {
@@ -206,7 +193,18 @@
   <div class="modal" id="modal">
     <div class="modal-content">
       <span class="modal-close" id="modal-close">&times;</span>
-      <img src="../assets/img/SS_index/index_9.jpg" alt="Индикатор в полном формате">
+      <img
+        src="../assets/img/SS_index/index_9.jpg"
+        alt="Индикатор в полном формате"
+        style="width: 80vw; height: 80vh;
+               object-fit: cover;
+               object-position: center;
+               display: block;
+               margin: 0 auto;
+               border-radius: 8px;
+               box-shadow: 0 0 20px rgba(0,0,0,0.5);
+               clip-path: inset(10% 8% 12% 5%);"
+      />
     </div>
   </div>
 

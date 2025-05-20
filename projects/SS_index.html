@@ -79,40 +79,25 @@
     clip-path: polygon(100% 0, 0 0, 100% 100%);
     z-index: 1;
   }
-.slides-container {
-  display: grid;
-  gap: 20px;
-  width: 100%;
-}
 
-   /* Карточка слайда */
+
+
+
+
+
+
+
     .slide {
-      background: white;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    /* Контейнер для картинки - ОСНОВНОЙ ЭЛЕМЕНТ */
-    .img-box {
       position: relative;
-      width: 100%;
       overflow: hidden;
+      display: inline-block;
     }
 
-    /* Сама картинка */
-    .img-box img {
-      display: block;
-      width: 100%;
-      position: relative; /* Позволяет сдвигать */
-    }
-
-
-
-    .slide-img {
-      display: block;
+    .slide img {
       position: relative;
-      /* width/height and offsets задаём inline для каждого случая */
+      display: block;
     }
+
 
     /* --- Модалка --- */
     .modal {
@@ -180,23 +165,36 @@
   </div>
 
 
-<!-- Только слайды (остальное оставляем как есть) -->
-<div class="slides-container">
-  <!-- Пример 1: обрезано 20% сверху -->
-  <div class="slide">
-    <div class="img-box" style="height: 600;"> <!-- Фиксированная высота -->
-      <img src="../assets/img/SS_index/index_2.jpg" style="top: -100px;"> <!-- 20% от 300px = 60px -->
+    <!-- СЛАЙДЫ -->
+
+    <h1>Слайд 1</h1>
+  <div class="slide" style="--crop-top:100; --crop-bottom:50; --crop-left:200; --crop-right:100;">
+    <img src="../assets/img/SS_index/index_2.png" alt="Картинка 1">
+  </div>
+
+
+
+  <!-- Модалка для индикатора -->
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <span class="modal-close" id="modal-close">&times;</span>
+      <img
+        src="../assets/img/SS_index/index_9.jpg"
+        alt="Индикатор в полном формате"
+        style="width: 80vw; height: 80vh;
+               object-fit: cover;
+               object-position: center;
+               display: block;
+               margin: 0 auto;
+               border-radius: 8px;
+               box-shadow: 0 0 20px rgba(0,0,0,0.5);
+               clip-path: inset(8% 1% 1% 1%);"
+      />
     </div>
   </div>
 
-  <!-- Пример 2: обрезано 15% слева -->
-  <div class="slide">
-    <div class="img-box" style="height: 250px;"> <!-- Фиксированная высота -->
-      <img src="image2.jpg" style="left: -15%; width: 115%;">
-      <!-- Ширина 115% компенсирует обрезку -->
-    </div>
-  </div>
-</div>
+
+
 
   <script>
     // Открытие/закрытие модалки

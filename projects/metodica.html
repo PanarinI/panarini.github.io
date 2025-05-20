@@ -71,6 +71,29 @@
     justify-content: flex-start;
     }
 
+/* Общий вид карточки без hover и курсора */
+.preview-card {
+  background-color: #f9f9f9;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+@media (prefers-color-scheme: dark) {
+  .preview-card {
+    background-color: #1e1e1e;
+    color: #eee;
+  }
+  .preview-card h3 {
+    color: #fff;
+  }
+}
+
+
 .styled-text-block {
   background-color: #eeeee7;
   padding: 24px;
@@ -534,7 +557,7 @@
     </div>
 
     <!-- Карточка: Стэк -->
-    <div class="preview-clickable">
+    <div class="preview-card">
       <h3>Технологический стэк</h3>
       <div>
         <span class="stack-item">Python</span>

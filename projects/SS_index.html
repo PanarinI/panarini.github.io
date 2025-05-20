@@ -97,9 +97,8 @@
 .croppable {
   display: block;
   width: 100%;
-  height: 100%;
+  height: auto; /* <--- ключевая правка */
   object-fit: cover;
-  clip-path: inset(0 0 0 0); /* меняй как нужно */
 }
 
 
@@ -192,7 +191,8 @@
   <figure class="slide-card">
     <figcaption>Обрезано 20% сверху</figcaption>
     <div class="image-container">
-    <img src="../assets/img/SS_index/index_2.jpg" class="croppable" style="clip-path: inset(20% 15% 5% 10%);">
+    <img src="../assets/img/SS_index/index_2.jpg" class="croppable" style="clip-path: inset(20% 15% 5% 10%); height: auto;">
+
 
     </div>
   </figure>

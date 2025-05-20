@@ -81,7 +81,8 @@ body {
 }
 
 .card {
-  position: relative; /* 👈 нужно для позиционирования стрелки */
+  position: relative;
+  overflow: hidden; /* Важно для корректного отображения */
   background-color: #eeeee7;
   border-radius: 12px;
   overflow: hidden;
@@ -95,6 +96,22 @@ body {
   border: none;     /* или убрать рамку */
 }
 
+.card-tags {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.badge {
+  background-color: #eef2ff;
+  color: #334155;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
 
 .card:hover::after {
   transform: translateX(3px);
@@ -151,7 +168,7 @@ body {
   right: 0;
   width: 50px;
   height: 50px;
-  background-color: #d3d3dc; /* светлый акцент или фон карточки */
+  background-color: #dcdcd3;
   clip-path: polygon(100% 0, 0 0, 100% 100%);
   z-index: 1;
 }
@@ -196,20 +213,26 @@ footer {
   <main>
     <section class="cards" id="projects">
       <!-- Карточка проекта Metodica -->
-      <article class="card">
-        <a href="projects/metodica.html" class="card-link">
-          <img src="assets/img/metodica/metodica_cover.png" alt="Metodica Cover" class="card-img">
-          <div class="card-content">
-            <h2 class="card-title">Metodica</h2>
-            <p class="card-desc">AI-ассистент для учителя: генерирует конспекты уроков по фото и параметрам.</p>
-            <ul class="card-meta">
-              <li><strong>Результат:</strong> ускорение подготовки уроков до 1 минуты</li>
-              <li><strong>Технологии:</strong> responses API · vision · Gradio · prompting</li>
-              <li><strong>Роль:</strong> полный цикл разработки и UX-дизайн</li>
-            </ul>
-          </div>
-        </a>
-      </article>
+    <article class="card">
+    <a href="projects/metodica.html" class="card-link">
+        <img src="assets/img/metodica/metodica_cover.png" alt="Metodica Cover" class="card-img">
+        <div class="card-content">
+        <h2 class="card-title">Metodica</h2>
+        <p class="card-desc">AI-ассистент для учителя: генерирует конспекты уроков по фото и параметрам.</p>
+        <ul class="card-meta">
+            <li><strong>Результат:</strong> ускорение подготовки уроков до 1 минуты</li>
+            <li><strong>Роль:</strong> полный цикл разработки и UX-дизайн</li>
+        </ul>
+        <div class="card-tags">
+            <span class="badge">responses API</span>
+            <span class="badge">vision</span>
+            <span class="badge">Gradio</span>
+            <span class="badge">prompting</span>
+        </div>
+        </div>
+    </a>
+    </article>
+
 
       <!-- Шаблонная карточка проекта #2 -->
        <article class="card">

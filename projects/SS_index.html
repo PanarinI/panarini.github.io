@@ -93,14 +93,15 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
 
-    .slide-card img {
-      width: 100%;
-      display: block;
-      border-radius: 6px;
-      /* Добавляем возможность обрезки */
-      object-fit: cover;
-      object-position: center;
-    }
+.crop-area {
+  overflow: hidden;  /* Скрываем всё, что выходит за границы */
+  border-radius: 8px;
+}
+
+.slide-card img {
+  display: block;
+  max-width: 100%;
+}
 
     /* Классы для обрезки - можно добавлять к изображению */
     .crop-top { object-position: top; }
@@ -182,22 +183,22 @@
 
 
 <div class="slides-container">
- <figure class="slide-card">
-      <figcaption>Методология</figcaption>
-      <div class="image-container">
-        <img
-          src="../assets/img/SS_index/index_2.jpg"
-          alt="Слайд 2"
-          style="
-            clip-path: inset(0% 0% 0% 0%); /* top right bottom left */
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-          "
-        >
-      </div>
-    </figure>
-
+<figure class="slide-card">
+  <figcaption>Методология</figcaption>
+  <div class="crop-area">
+    <img
+      src="../assets/img/SS_index/index_2.jpg"
+      alt="Слайд 2"
+      style="
+        margin-top: -20px;    /* Обрезаем сверху */
+        margin-left: -30px;   /* Обрезаем слева */
+        margin-right: -10px;  /* Обрезаем справа */
+        margin-bottom: -40px; /* Обрезаем снизу */
+        width: calc(100% + 60px); /* Компенсируем margin-left + margin-right */
+      "
+    >
+  </div>
+</figure>
     <!-- Еще один пример с другой обрезкой -->
     <figure class="slide-card">
       <figcaption>Другой слайд</figcaption>

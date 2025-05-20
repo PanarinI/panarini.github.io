@@ -208,5 +208,32 @@
       if (e.target === modal) modal.classList.remove('active');
     });
   </script>
+
+
+  <script>
+    document.querySelectorAll('.slide').forEach(slide => {
+      const img = slide.querySelector('img');
+
+      const cropTop = parseInt(slide.style.getPropertyValue('--crop-top') || 0);
+      const cropBottom = parseInt(slide.style.getPropertyValue('--crop-bottom') || 0);
+      const cropLeft = parseInt(slide.style.getPropertyValue('--crop-left') || 0);
+      const cropRight = parseInt(slide.style.getPropertyValue('--crop-right') || 0);
+
+      img.onload = () => {
+        const originalWidth = img.naturalWidth;
+        const originalHeight = img.naturalHeight;
+
+        const visibleWidth = originalWidth - cropLeft - cropRight;
+        const visibleHeight = originalHeight - cropTop - cropBottom;
+
+        img.style.width = originalWidth + 'px';
+        img.style.height = originalHeight + 'px';
+        img.style.transform = `translate(${-cropLeft}px, ${-cropTop}px)`;
+
+        slide.style.width = visibleWidth + 'px';
+        slide.style.height = visibleHeight + 'px';
+      };
+    });
+  </script>
 </body>
 </html>

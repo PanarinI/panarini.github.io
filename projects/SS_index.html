@@ -81,10 +81,14 @@
   }
 
 .slide-container {
-      background-color: #dcdcd3;
-  width: 100%;
-  margin: 20px 0;
+  background-color: #fff; /* светлый фон */
+  border-radius: 12px;       /* скругление */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* тень */
+  padding: 16px;             /* отступы внутри */
+  margin-bottom: 24px;       /* отступ снизу между слайдами */
+  overflow: hidden;          /* чтобы обрезало */
 }
+
 
 .slide-title {
   margin: 0 0 8px;
@@ -190,18 +194,33 @@
 
 <!-- Контейнер для слайда -->
 
-
-<!-- Любое количество повторов -->
-<div class="slide-container"
-     data-ct="0.26"
-     data-cr="0.01"
-     data-cb="0.01"
-     data-cl="0.01">
-  <h3 class="slide-title">Заголовок слайда</h3>
-  <div class="image-wrapper">
-    <img src="../assets/img/SS_index/index_2.jpg" alt="Слайд" class="slide-image" />
+<div class="slide-container">
+  <h3 class="slide-title">Заголовок</h3>
+  <div class="image-wrapper" style="height: 220px;">
+    <img
+      src="../assets/img/SS_index/index_2.jpg"
+      alt="Картинка"
+      class="slide-image"
+      style="
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        transform: translateY(-8%);
+        clip-path: inset(8% 0% 2% 0%);
+      "
+    />
   </div>
 </div>
+
+
+
+
+
+
+
+
+
 
 
 
@@ -258,7 +277,6 @@ window.addEventListener('load', () => {
     const wrapper = container.querySelector('.image-wrapper');
     const img     = container.querySelector('img.slide-image');
 
-    // Читаем проценты обрезки
     const ct = parseFloat(container.dataset.ct),
           cr = parseFloat(container.dataset.cr),
           cb = parseFloat(container.dataset.cb),
@@ -267,36 +285,36 @@ window.addEventListener('load', () => {
     function applyCrop() {
       const naturalW = img.naturalWidth,
             naturalH = img.naturalHeight;
+
       const displayW = wrapper.clientWidth;
       const scale    = displayW / naturalW;
       const displayH = naturalH * scale;
 
-      // Пиксели, которые нужно отрезать
       const cropTop    = displayH * ct;
       const cropBottom = displayH * cb;
       const cropLeft   = displayW * cl;
       const cropRight  = displayW * cr;
 
-      // Высота видимой области
       const visibleH = displayH - cropTop - cropBottom;
 
-      // Устанавливаем высоту обёртки
       wrapper.style.height = visibleH + 'px';
 
-      // Размер картинки так, чтобы она покрывала всю область вместе с «излишками»
       img.style.width  = (displayW + cropLeft + cropRight) + 'px';
       img.style.height = (displayH + cropTop + cropBottom) + 'px';
 
-      // Сдвигаем картинку, чтобы нужная часть оказалась в рамке
-      img.style.transform =
-        `translate(${-cropLeft}px, ${-cropTop}px)`;
+      img.style.transform = `translate(${-cropLeft}px, ${-cropTop}px)`;
     }
 
-    // Ждём загрузки картинки
+    const observer = new ResizeObserver(() => {
+      if (img.complete) applyCrop();
+    });
+    observer.observe(wrapper);
+
     img.addEventListener('load', applyCrop);
     if (img.complete) applyCrop();
   });
 });
+
 </script>
 
 

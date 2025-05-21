@@ -184,17 +184,20 @@
 
 
 <!-- Контейнер для слайда -->
-<div class="slide-container">
-  <div class="slide-inner">
+<div class="slide-container" style="width: 100vw; overflow: hidden;">
+  <div class="slide-inner" style="position: relative; width: 100%; height: auto; overflow: hidden;">
     <h3 class="slide-title">Заголовок слайда</h3>
     <img
       src="../assets/img/SS_index/index_1.jpg"
       alt="Слайд"
-    class="slide-image clipped-slide"
-    data-clip="inset(20% 2% 2% 2%)"
+      class="slide-image"
+      data-clip="8% 2% 2% 2%"
+      style="display: block; width: 100%;"
     />
   </div>
 </div>
+
+
 
 
 
@@ -247,6 +250,37 @@
   });
 </script>
 
+<script>
+  function applyClipAndResize() {
+    document.querySelectorAll('.slide-image').forEach(img => {
+      const clip = img.dataset.clip; // "8% 2% 2% 2%"
+      if (!clip) return;
+
+      const [top, right, bottom, left] = clip.split(' ').map(val => parseFloat(val));
+
+      const naturalWidth = img.naturalWidth;
+      const naturalHeight = img.naturalHeight;
+
+      if (!naturalWidth || !naturalHeight) return;
+
+      const newWidth = naturalWidth * (1 - (left + right) / 100);
+      const newHeight = naturalHeight * (1 - (top + bottom) / 100);
+
+      const container = img.parentElement;
+
+      container.style.width = newWidth + 'px';
+      container.style.height = newHeight + 'px';
+
+      img.style.position = 'relative';
+      img.style.left = `-${naturalWidth * (left / 100)}px`;
+      img.style.top = `-${naturalHeight * (top / 100)}px`;
+      img.style.width = naturalWidth + 'px';
+      img.style.height = naturalHeight + 'px';
+    });
+  }
+
+  window.addEventListener('load', applyClipAndResize);
+</script>
 
 </body>
 </html>

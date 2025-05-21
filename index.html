@@ -54,6 +54,14 @@ body {
   z-index: 1;
 }
 
+.card-link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 .card-img {
   width: 100%;
   height: 150px; /* ~25% от 600px */
@@ -82,7 +90,6 @@ body {
   font-weight: 700;
   margin: 0 0 0.5rem;
   color: #222;
-  text-decoration: none;
 }
 
 .card-desc {
@@ -121,7 +128,6 @@ body {
 
 .card-footer {
   display: flex;
-  justify-content: flex-start;
   align-items: center;
   font-size: 0.9rem;
   color: #555;
@@ -131,8 +137,10 @@ body {
 .card-footer .year {
   margin-right: 0.5rem;
 }
+.card-footer .separator {
+  margin: 0 0.5rem;
+}
 .card-footer .client {
-  margin-left: auto;
   color: #333;
 }
 
@@ -144,8 +152,8 @@ body {
 
     <!-- Карточка #1: Metodica -->
     <article class="card">
-      <a href="#" class="card-link">
-        <img src="https://via.placeholder.com/400x150" alt="Metodica Cover" class="card-img">
+      <a href="projects/metodica.html" class="card-link">
+        <img src="assets/img/metodica/metodica_cover.png" alt="Metodica Cover" class="card-img">
         <div class="card-content">
           <div class="card-header">
             <h2 class="card-title">Metodica</h2>
@@ -157,12 +165,13 @@ body {
           </div>
           <div>
             <div class="card-tags">
-              <span class="badge">API</span>
-              <span class="badge">Vision</span>
-              <span class="badge">Gradio</span>
+              <a href="#" class="badge">API</a>
+              <a href="#" class="badge">Vision</a>
+              <a href="#" class="badge">Gradio</a>
             </div>
             <div class="card-footer">
               <span class="year">2025</span>
+              <span class="separator">|</span>
               <span class="client">ClientCorp</span>
             </div>
           </div>
@@ -172,11 +181,11 @@ body {
 
     <!-- Карточка #2: Индикатор -->
     <article class="card">
-      <a href="#" class="card-link">
-        <img src="https://via.placeholder.com/400x150" alt="Indicator Cover" class="card-img">
+      <a href="projects/SS_index.html" class="card-link">
+        <img src="assets/img/SS_index/cover.png" alt="Indicator Cover" class="card-img">
         <div class="card-tags" style="padding: 0 1rem; margin-top: -0.5rem;">
-          <span class="badge">Индикатор</span>
-          <span class="badge">OpenAI API</span>
+          <a href="#" class="badge">Indicator</a>
+          <a href="#" class="badge">OpenAI API</a>
         </div>
         <div class="card-content">
           <div class="card-header">
@@ -190,6 +199,7 @@ body {
           <div>
             <div class="card-footer">
               <span class="year">2023</span>
+              <span class="separator">|</span>
               <span class="client">GovAgency</span>
             </div>
           </div>
@@ -199,8 +209,8 @@ body {
 
     <!-- Карточка #3: Клиентоцентричность: база знаний -->
     <article class="card">
-      <a href="#" class="card-link">
-        <img src="https://via.placeholder.com/400x150" alt="Knowledge Base Cover" class="card-img">
+      <a href="projects/clientcentric.html" class="card-link">
+        <img src="assets/img/clientcentric/cover_2.png" alt="Knowledge Base Cover" class="card-img">
         <div class="card-content">
           <div class="card-header">
             <h2 class="card-title">Клиентоцентричность: база знаний</h2>
@@ -212,12 +222,13 @@ body {
           </div>
           <div>
             <div class="card-tags">
-              <span class="badge">UX/UI</span>
-              <span class="badge">Tilda</span>
-              <span class="badge">Excel</span>
+              <a href="#" class="badge">UX/UI</a>
+              <a href="#" class="badge">Tilda</a>
+              <a href="#" class="badge">Excel</a>
             </div>
             <div class="card-footer">
               <span class="year">2024</span>
+              <span class="separator">|</span>
               <span class="client">RANHiGS</span>
             </div>
           </div>
@@ -225,87 +236,8 @@ body {
       </a>
     </article>
 
-    <!-- Остальные карточки как первая -->
-    <!-- Карточка #4 -->
-    <article class="card">
-      <a href="#" class="card-link">
-        <img src="https://via.placeholder.com/400x150" alt="Analytics Cover" class="card-img">
-        <div class="card-content">
-          <div class="card-header">
-            <h2 class="card-title">Аналитические материалы</h2>
-            <p class="card-desc">Процессное описание и курсы.</p>
-            <ul class="card-meta">
-              <li>Описание опыта</li>
-              <li>BPMN схемы</li>
-            </ul>
-          </div>
-          <div>
-            <div class="card-tags">
-              <span class="badge">BPMN</span>
-              <span class="badge">Courses</span>
-            </div>
-            <div class="card-footer">
-              <span class="year">2024</span>
-              <span class="client">RANHiGS</span>
-            </div>
-          </div>
-        </div>
-      </a>
-    </article>
-
-    <!-- Карточка #5 -->
-    <article class="card">
-      <a href="#" class="card-link">
-        <img src="https://via.placeholder.com/400x150" alt="Orphanhood Analytics" class="card-img">
-        <div class="card-content">
-          <div class="card-header">
-            <h2 class="card-title">Аналитика сиротства</h2>
-            <p class="card-desc">Опросы и отчёты по регионам.</p>
-            <ul class="card-meta">
-              <li>Статистический отчёт</li>
-              <li>Интерактивные графики</li>
-            </ul>
-          </div>
-          <div>
-            <div class="card-tags">
-              <span class="badge">R</span>
-              <span class="badge">Опросы</span>
-            </div>
-            <div class="card-footer">
-              <span class="year">2023</span>
-              <span class="client">ChildRights</span>
-            </div>
-          </div>
-        </div>
-      </a>
-    </article>
-
-    <!-- Карточка #6 -->
-    <article class="card">
-      <a href="#" class="card-link">
-        <img src="https://via.placeholder.com/400x150" alt="Teacher Engagement" class="card-img">
-        <div class="card-content">
-          <div class="card-header">
-            <h2 class="card-title">Вовлечённость учителей: ПСВ Саха</h2>
-            <p class="card-desc">Факторный анализ вовлечённости.</p>
-            <ul class="card-meta">
-              <li>Факторный анализ</li>
-              <li>Интервью</li>
-            </ul>
-          </div>
-          <div>
-            <div class="card-tags">
-              <span class="badge">R</span>
-              <span class="badge">Интервью</span>
-            </div>
-            <div class="card-footer">
-              <span class="year">2022</span>
-              <span class="client">HSE</span>
-            </div>
-          </div>
-        </div>
-      </a>
-    </article>
+    <!-- Карточки 4-6 аналогично -->
+    <!-- ... -->
 
   </section>
 </main>

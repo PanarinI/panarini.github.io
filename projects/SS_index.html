@@ -81,14 +81,14 @@
   }
 
 .slide-container {
-  background-color: #fff; /* светлый фон */
-  border-radius: 12px;       /* скругление */
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* тень */
-  padding: 16px;             /* отступы внутри */
-  margin-bottom: 24px;       /* отступ снизу между слайдами */
-  overflow: hidden;          /* чтобы обрезало */
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 16px;
+  margin-bottom: 24px;
+  width: 100%;       /* ВАЖНО: 100% ширины родителя */
+  box-sizing: border-box;
 }
-
 
 .slide-title {
   margin: 0 0 8px;
@@ -96,19 +96,21 @@
   color: #000;
 }
 
-/* Обёртка, которая точно обрезает содержимое */
 .image-wrapper {
   position: relative;
   width: 100%;
   overflow: hidden;
+  border-radius: 12px;
+  /* height убираем из CSS, задаём через JS */
 }
 
-/* Картинка внутри: абсолютное позиционирование */
 .slide-image {
   position: absolute;
   top: 0;
   left: 0;
-  /* размеры и сдвиг мы зададим через JS */
+  width: 100%;   /* ширина картинки 100% от wrapper */
+  height: auto;
+  object-fit: cover;
 }
 
 
@@ -194,21 +196,14 @@
 
 <!-- Контейнер для слайда -->
 
-<div class="slide-container">
+<div class="slide-container" data-clip-top="0.3" data-clip-right="0.02" data-clip-bottom="0.02" data-clip-left="0.02">
   <h3 class="slide-title">Заголовок</h3>
-  <div class="image-wrapper" style="height: 1200px;">
+  <div class="image-wrapper" style="position: relative; width: 100%; overflow: hidden;">
     <img
       src="../assets/img/SS_index/index_2.jpg"
       alt="Картинка"
       class="slide-image"
-      style="
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        transform: translateY(-8%);
-        clip-path: inset(30% 2% 2% 2%);
-      "
+      style="position: absolute; top: 0; left: 0; width: 100%;"
     />
   </div>
 </div>
@@ -275,31 +270,32 @@
 window.addEventListener('load', () => {
   document.querySelectorAll('.slide-container').forEach(container => {
     const wrapper = container.querySelector('.image-wrapper');
-    const img     = container.querySelector('img.slide-image');
+    const img = container.querySelector('.slide-image');
 
-    const ct = parseFloat(container.dataset.ct),
-          cr = parseFloat(container.dataset.cr),
-          cb = parseFloat(container.dataset.cb),
-          cl = parseFloat(container.dataset.cl);
+    // Получаем обрезку или 0 по умолчанию
+    const ct = parseFloat(container.dataset.clipTop) || 0;
+    const cr = parseFloat(container.dataset.clipRight) || 0;
+    const cb = parseFloat(container.dataset.clipBottom) || 0;
+    const cl = parseFloat(container.dataset.clipLeft) || 0;
 
     function applyCrop() {
-      const naturalW = img.naturalWidth,
-            naturalH = img.naturalHeight;
+      const naturalW = img.naturalWidth;
+      const naturalH = img.naturalHeight;
 
       const displayW = wrapper.clientWidth;
-      const scale    = displayW / naturalW;
+      const scale = displayW / naturalW;
       const displayH = naturalH * scale;
 
-      const cropTop    = displayH * ct;
+      const cropTop = displayH * ct;
       const cropBottom = displayH * cb;
-      const cropLeft   = displayW * cl;
-      const cropRight  = displayW * cr;
+      const cropLeft = displayW * cl;
+      const cropRight = displayW * cr;
 
       const visibleH = displayH - cropTop - cropBottom;
 
       wrapper.style.height = visibleH + 'px';
 
-      img.style.width  = (displayW + cropLeft + cropRight) + 'px';
+      img.style.width = (displayW + cropLeft + cropRight) + 'px';
       img.style.height = (displayH + cropTop + cropBottom) + 'px';
 
       img.style.transform = `translate(${-cropLeft}px, ${-cropTop}px)`;
@@ -314,6 +310,7 @@ window.addEventListener('load', () => {
     if (img.complete) applyCrop();
   });
 });
+
 
 </script>
 

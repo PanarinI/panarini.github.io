@@ -81,12 +81,22 @@
   }
 
 .slide-container {
-  width: 100%;
-    background: #fff;
-    border-radius: 12px;
-    color: #00031f;
-  overflow: hidden;
+  background: #fff;
+  border-radius: 12px;
   margin: 40px 0;
+  padding: 20px;
+}
+
+.image-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.slide-image {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .slide-inner {
@@ -181,16 +191,17 @@
 
 
 <!-- Контейнер для слайда -->
-<div class="slide-container" style="width: 100%; overflow: hidden;">
-  <div class="slide-inner" style="position: relative; width: 100%; height: auto; overflow: hidden;">
+<div class="slide-container">
+  <div class="slide-inner">
     <h3 class="slide-title">Заголовок слайда</h3>
-    <img
-      src="../assets/img/SS_index/index_1.jpg"
-      alt="Слайд"
-      class="slide-image"
-      data-clip="21% 2% 2% 2%"
-      style="display: block; width: 100%;"
-    />
+    <div class="image-wrapper">
+      <img
+        src="../assets/img/SS_index/index_1.jpg"
+        alt="Слайд"
+        class="slide-image"
+        data-clip="21% 2% 2% 2%"
+      />
+    </div>
   </div>
 </div>
 
@@ -248,35 +259,16 @@
 </script>
 
 <script>
-  function applyClipAndResize() {
-    document.querySelectorAll('.slide-image').forEach(img => {
-      const clip = img.dataset.clip; // "8% 2% 2% 2%"
-      if (!clip) return;
+function applyClipAndResize() {
+  document.querySelectorAll('.slide-image').forEach(img => {
+    const clip = img.dataset.clip;
+    if (clip) {
+      img.style.clipPath = `inset(${clip})`;
+    }
+  });
+}
 
-      const [top, right, bottom, left] = clip.split(' ').map(val => parseFloat(val));
-
-      const naturalWidth = img.naturalWidth;
-      const naturalHeight = img.naturalHeight;
-
-      if (!naturalWidth || !naturalHeight) return;
-
-      const newWidth = naturalWidth * (1 - (left + right) / 100);
-      const newHeight = naturalHeight * (1 - (top + bottom) / 100);
-
-      const container = img.parentElement;
-
-      container.style.width = newWidth + 'px';
-      container.style.height = newHeight + 'px';
-
-      img.style.position = 'relative';
-      img.style.left = `-${naturalWidth * (left / 100)}px`;
-      img.style.top = `-${naturalHeight * (top / 100)}px`;
-      img.style.width = naturalWidth + 'px';
-      img.style.height = naturalHeight + 'px';
-    });
-  }
-
-  window.addEventListener('load', applyClipAndResize);
+window.addEventListener('load', applyClipAndResize);
 </script>
 
 </body>

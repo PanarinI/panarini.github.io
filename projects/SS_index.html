@@ -81,36 +81,28 @@
   }
 
 /* Галерея изображений */
-.image-column {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-  margin-top: 40px;
-}
+   .image-block {
+      background: #dcdcd3;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.7);
+      margin-bottom: 30px;
+    }
 
-.image-block h3 {
-  margin-bottom: 8px;
-  font-size: 1.1rem;
-  color: #fff;
-}
+    .image-block h3 {
+      margin: 0 0 12px 0;
+      font-size: 1.4rem;
+      border-bottom: 1px solid #444dff;
+      padding-bottom: 6px;
+    }
 
-.image-container {
-  height: var(--height, 300px);
-  overflow: hidden;
-  position: relative;
-  border-radius: 8px;
-  box-shadow: 0 0 12px rgba(0,0,0,0.3);
-  text-align: center; /* центрируем img */
-}
-
-.image-container img {
-  height: 100%;
-  width: auto; /* <--- ключевая замена! */
-  object-fit: cover; /* может быть даже лишним, но можно оставить */
-  object-position: top;
-  display: inline-block;
-}
-
+    .image-block img {
+      width: 100%;       /* Растягиваем картинку по ширине блока */
+      height: auto;      /* Сохраняем пропорции */
+      border-radius: 8px;
+      display: block;
+      box-shadow: 0 4px 8px rgba(0,0,255,0.3);
+    }
 
 
     /* --- Модалка --- */
@@ -180,20 +172,20 @@
 
 
 <!-- Блок с изображениями после грида -->
-<div class="image-block">
-  <h3>Заголовок 1</h3>
-  <div class="image-container" style="--height: 1600px">
-    <img src="../assets/img/SS_index/index_2.jpg" alt="..." />
+  <div class="image-block">
+    <h3>Заголовок 1</h3>
+    <img src="../assets/img/SS_index/index_2.jpg" alt="Картинка 1" />
   </div>
-</div>
 
-<div class="image-block">
-  <h3>Заголовок 2</h3>
-  <div class="image-container" style="--height: 1600px">
-    <img src="../assets/img/SS_index/index_3.jpg" alt="..." />
+  <div class="image-block">
+    <h3>Заголовок 2</h3>
+    <img src="../assets/img/SS_index/index_3.jpg" alt="Картинка 2" />
   </div>
-</div>
 
+  <div class="image-block">
+    <h3>Заголовок 3</h3>
+    <img src="../assets/img/SS_index/index_3.jpg" alt="Картинка 3" />
+  </div>
 
 
 

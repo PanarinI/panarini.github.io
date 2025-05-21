@@ -80,6 +80,38 @@
     z-index: 1;
   }
 
+.slide-container {
+  width: 100%;
+    background: #fff;
+    border-radius: 12px;
+  overflow: hidden;
+  margin: 40px 0;
+}
+
+.slide-inner {
+  position: relative;
+  width: 100%;
+}
+
+.slide-title {
+  position: absolute;
+  top: 16px;
+  left: 20px;
+  z-index: 2;
+  color: white;
+  background: rgba(0,0,0,0.6);
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 1.2rem;
+}
+
+.slide-image {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  clip-path: inset(8% 2% 2% 2%);
+}
 
 
 
@@ -150,27 +182,26 @@
   </div>
 
 
-    <!-- СЛАЙДЫ -->
 
-<div class="slide" style="width: 80vw; height: 80vh; max-width: 1200px; position: relative; margin: 20px auto; background: #dcdcd3; border-radius: 8px; overflow: hidden;">
-  <h2 style="position: absolute; top: 10px; left: 10px; color: white; z-index: 10; margin: 0; text-shadow: 0 0 5px black;">
-    Заголовок слайда
-  </h2>
-  <img
-    src="../assets/img/SS_index/index_2.jpg"
-    alt="Картинка слайд"
-    style="
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      clip-path: inset(10% 5% 5% 15%);
-      display: block;
-      border-radius: 8px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.5);
-    "
-  />
+
+<!-- Контейнер для слайда -->
+<div class="slide-container">
+  <div class="slide-inner">
+    <h3 class="slide-title">Заголовок слайда</h3>
+    <img
+      src="../assets/img/SS_index/index_1.jpg"
+      alt="Слайд"
+      class="slide-image"
+    />
+  </div>
 </div>
+
+
+
+
+
+
+
 
   <!-- Модалка для индикатора -->
   <div class="modal" id="modal">
@@ -207,31 +238,5 @@
     });
   </script>
 
-
-  <script>
-    document.querySelectorAll('.slide').forEach(slide => {
-      const img = slide.querySelector('img');
-
-      const cropTop = parseInt(slide.style.getPropertyValue('--crop-top') || 0);
-      const cropBottom = parseInt(slide.style.getPropertyValue('--crop-bottom') || 0);
-      const cropLeft = parseInt(slide.style.getPropertyValue('--crop-left') || 0);
-      const cropRight = parseInt(slide.style.getPropertyValue('--crop-right') || 0);
-
-      img.onload = () => {
-        const originalWidth = img.naturalWidth;
-        const originalHeight = img.naturalHeight;
-
-        const visibleWidth = originalWidth - cropLeft - cropRight;
-        const visibleHeight = originalHeight - cropTop - cropBottom;
-
-        img.style.width = originalWidth + 'px';
-        img.style.height = originalHeight + 'px';
-        img.style.transform = `translate(${-cropLeft}px, ${-cropTop}px)`;
-
-        slide.style.width = visibleWidth + 'px';
-        slide.style.height = visibleHeight + 'px';
-      };
-    });
-  </script>
 </body>
 </html>

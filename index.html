@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="ru">
-
-
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Портфолио</title>
 <style>
 /* Общие стили */
 body {
@@ -11,156 +13,35 @@ body {
   background-color: #000233;
 }
 
-/* Навигация */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background-color: #eeeee7;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 1rem;
-}
-
-.nav-links li a {
-  text-decoration: none;
-  color: #333;
-}
-
-.nav-links li a.active {
-  color: #0066cc;
-  border-bottom: 2px solid #0066cc;
-}
-
-/* Логотип и подписи */
-.logo {
-  display: inline-block;
-  text-decoration: none;
-  color: inherit;
-  line-height: 1.3;
-}
-
-.logo-title {
-  display: block;
-  font-size: 1.25rem;
-  font-weight: bold;
-  color: #222;
-}
-
-.logo-subtitle {
-  display: block;
-  font-size: 0.875rem;
-  font-weight: normal;
-  color: #555;
-}
-
 .cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   padding: 2rem;
-  /* max-width: 1200px;
-  margin: 0 auto;  */
 }
-
 @media (max-width: 1024px) {
-  .cards {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  .cards { grid-template-columns: repeat(2, 1fr); }
 }
-
 @media (max-width: 640px) {
-  .cards {
-    grid-template-columns: 1fr;
-  }
+  .cards { grid-template-columns: 1fr; }
 }
 
 .card {
   position: relative;
-  overflow: hidden; /* Важно для корректного отображения */
   background-color: #eeeee7;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-  transition: transform 0.2s;
-  max-width: 100%;
   display: flex;
   flex-direction: column;
   height: 600px;
-  box-shadow: none; /* временно убрать тень, чтобы проверить */
-  border: none;     /* или убрать рамку */
+  transition: transform 0.2s, box-shadow 0.2s;
 }
-
-.card-tags {
-  margin-top: 1rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-}
-
-.badge {
-  background-color: #eef2ff;
-  color: #334155;
-  font-size: 0.75rem;
-  font-weight: 500;
-  padding: 0.25rem 0.6rem;
-  border-radius: 999px;
-  white-space: nowrap;
-}
-
-.card:hover::after {
-  transform: translateX(3px);
-  opacity: 1;
-}
-
-
 .card:hover {
-  transform: translateY(-5px);
-}
-.card-img {
-  width: 100%;
-  height: 200px; /* Это 1/3 от 600px — изображение */
-  object-fit: cover;
-  object-position: top;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Мягкая тень */
-  border-bottom: 1px solid #e0e0e0; /* Доп. разделитель, если нужно */
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
 }
 
-.card-content {
-  flex: 1;
-  padding: 1rem;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.card-title {
-  font-size: 1.35rem;
-  font-weight: 600;
-  margin: 0.75rem 0 0.25rem;
-  color: #222;
-}
-
-.card-desc {
-  font-size: 1rem;
-  line-height: 1.5;
-  color: #444;
-}
-
-.card-meta {
-  font-size: 0.9rem;
-  color: #333;
-}
-.card-meta li strong {
-  color: #111;
-  font-weight: 600;
-}
-
+/* Уголок */
 .card::before {
   content: '';
   position: absolute;
@@ -173,157 +54,219 @@ body {
   z-index: 1;
 }
 
-
-
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+.card-img {
+  width: 100%;
+  height: 150px; /* ~25% от 600px */
+  object-fit: cover;
+  filter: grayscale(100%);
+  transition: filter 0.3s;
 }
-.card-link {
-  text-decoration: none;
-  color: inherit;
+.card:hover .card-img {
+  filter: none;
 }
 
-footer {
-  text-align: center;
-  padding: 2rem;
-  background-color: #fff;
-  color: #888;
+.card-content {
+  flex: 1;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.card-title {
+  font-size: 1.35rem;
+  font-weight: 600;
+  margin: 0.5rem 0;
+  color: #222;
+}
+.card-desc {
+  font-size: 1rem;
+  line-height: 1.4;
+  color: #444;
+  margin-bottom: 0.75rem;
+}
+.card-meta {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+/* Скрываем все li, кроме первого, пока не hover */
+.card-meta li:nth-child(n+2) {
+  display: none;
+}
+.card:hover .card-meta li:nth-child(n+2) {
+  display: list-item;
+}
+.card-meta li {
   font-size: 0.9rem;
-
+  color: #333;
+  margin-bottom: 0.4rem;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 1rem;
+}
 .badge {
-  display: inline-block;
   background-color: #eef2ff;
   color: #334155;
   font-size: 0.75rem;
   font-weight: 500;
-  padding: 0.2rem 0.5rem;
-  border-radius: 6px;
-  margin: 0 0.3rem 0.3rem 0;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
 }
 
 </style>
-
-
-<body data-logo-title="Исследования, образование, разработка">
-
-  <!-- Header -->
-  <header id="dynamic-header"></header>
-
-  <main>
-    <section class="cards" id="projects">
-      <!-- Карточка проекта Metodica -->
+</head>
+<body>
+<main>
+  <section class="cards" id="projects">
+    <!-- Карточка #1: Metodica, бейджи внизу -->
     <article class="card">
-    <a href="projects/metodica.html" class="card-link">
+      <a href="projects/metodica.html" class="card-link">
         <img src="assets/img/metodica/metodica_cover.png" alt="Metodica Cover" class="card-img">
         <div class="card-content">
-        <h2 class="card-title">Metodica</h2>
-        <p class="card-desc">AI-ассистент для учителя: генерирует конспекты уроков по фото и параметрам.</p>
-        <ul class="card-meta">
-            <li><strong>Результат:</strong> ускорение подготовки уроков до 1 минуты</li>
-            <li><strong>Роль:</strong> полный цикл разработки и UX-дизайн</li>
-        </ul>
-        <div class="card-tags">
+          <div>
+            <h2 class="card-title">Metodica</h2>
+            <p class="card-desc">AI-ассистент для учителя: генерирует конспекты уроков по фото и параметрам.</p>
+            <ul class="card-meta">
+              <li><strong>Результат:</strong> ускорение подготовки уроков до 1 минуты</li>
+              <li><strong>Роль:</strong> полный цикл разработки и UX-дизайн</li>
+              <li><strong>Год:</strong> 2025</li>
+            </ul>
+          </div>
+          <div class="card-tags">
             <span class="badge">responses API</span>
             <span class="badge">vision</span>
             <span class="badge">Gradio</span>
             <span class="badge">prompting</span>
+          </div>
         </div>
-        </div>
-    </a>
+      </a>
     </article>
 
-
-      <!-- Шаблонная карточка проекта #2 -->
-       <article class="card">
-        <a href="projects/SS_index.html" class="card-link">
-          <img src="assets/img/SS_index/cover.png" alt="SS_Index" class="card-img">
-          <div class="card-content">
+    <!-- Карточка #2: Индикатор, бейджи под картинкой -->
+    <article class="card">
+      <a href="projects/SS_index.html" class="card-link">
+        <img src="assets/img/SS_index/cover.png" alt="SS_Index" class="card-img">
+        <div class="card-tags" style="padding: 0 1rem; margin-top: -0.5rem;">
+          <span class="badge">Составной индикатор</span>
+          <span class="badge">Vision</span>
+          <span class="badge">OpenAI API</span>
+        </div>
+        <div class="card-content">
+          <div>
             <h2 class="card-title">Индикатор профилактики социального сиротства</h2>
             <p class="card-desc">Инструмент многофакторного мониторинга в разрезе субъектов РФ.</p>
             <ul class="card-meta">
-              <li><strong>Заказчик:</strong> Аппарат уполномоченного при Президенте РФ по правам ребенка</li>
-            <li><strong>Технологии:</strong>
-            <span class="badge">Составной индикатор</span>
-            <span class="badge">Vision</span>
-            <span class="badge">OpenAI API</span>
-            </li>
-
+              <li><strong>Заказчик:</strong> Уполномоченный по правам ребёнка при Президенте РФ</li>
               <li><strong>Роль:</strong> описана роль</li>
             </ul>
           </div>
-        </a>
-      </article>
+          <div>
+            <ul class="card-meta">
+              <li><strong>Год:</strong> 2023</li>
+            </ul>
+          </div>
+        </div>
+      </a>
+    </article>
 
-      <!-- Шаблонная карточка проекта #3 -->
-      <article class="card">
-        <a href="projects/clientcentric.html" class="card-link">
-          <img src="assets/img/clientcentric/cover_2.png" alt="Clientcentric_cover" class="card-img">
-          <div class="card-content">
-            <h2 class="card-title">Внедрение клиентоцентричности: база знаний</h2>
+    <!-- Остальные карточки, как первая (#1) -->
+    <!-- 3: Клиентоцентричность: база знаний -->
+    <article class="card">
+      <a href="projects/clientcentric.html" class="card-link">
+        <img src="assets/img/clientcentric/cover_2.png" alt="Clientcentric_cover" class="card-img">
+        <div class="card-content">
+          <div>
+            <h2 class="card-title">Клиентоцентричность: база знаний</h2>
             <p class="card-desc">Система хранения с умным поиском</p>
             <ul class="card-meta">
               <li><strong>Заказчик:</strong> ВШГУ РАНХиГС</li>
-              <li><strong>Технологии:</strong> Tilda, RAG (openAi API)</li>
-              <li><strong>Роль:</strong> описана роль</li>
+              <li><strong>Технологии:</strong> Tilda, RAG (OpenAI API)</li>
+              <li><strong>Год:</strong> 2024</li>
             </ul>
           </div>
-        </a>
-      </article>
+          <div class="card-tags">
+            <span class="badge">UX/UI</span>
+            <span class="badge">Tilda</span>
+            <span class="badge">Excel</span>
+            <span class="badge">Яндекс.Метрика</span>
+            <span class="badge">RAG</span>
+          </div>
+        </div>
+      </a>
+    </article>
 
-      <!-- Шаблонная карточка проекта #4 -->
-      <article class="card">
-        <a href="projects/SS_index_dashboard.html" class="card-link">
-          <img src="assets/img/project4/cover.png" alt="Project 4 Cover" class="card-img">
-          <div class="card-content">
-            <h2 class="card-title">Project 4</h2>
-            <p class="card-desc">Индикатор дашборд тест</p>
+    <!-- 4: Клиентоцентричность: аналитические материалы -->
+    <article class="card">
+      <a href="projects/SS_index_dashboard.html" class="card-link">
+        <img src="assets/img/project4/cover.png" alt="Project 4 Cover" class="card-img">
+        <div class="card-content">
+          <div>
+            <h2 class="card-title">Клиентоцентричность: аналитические материалы</h2>
+            <p class="card-desc">Описание опыта и образовательных курсов</p>
             <ul class="card-meta">
-              <li><strong>Результат:</strong> описание результата</li>
-              <li><strong>Технологии:</strong> ТехX · ТехY · ТехZ</li>
-              <li><strong>Роль:</strong> описана роль</li>
+              <li><strong>Заказчик:</strong> ВШГУ РАНХиГС</li>
+              <li><strong>Год:</strong> 2024</li>
             </ul>
           </div>
-        </a>
-      </article>
+          <div class="card-tags">
+            <span class="badge">BPMN</span>
+            <span class="badge">процессное управление</span>
+            <span class="badge">описание опыта</span>
+            <span class="badge">образовательные курсы</span>
+          </div>
+        </div>
+      </a>
+    </article>
 
-            <!-- Шаблонная карточка проекта #5 -->
-      <article class="card">
-        <a href="projects/project-4.html" class="card-link">
-          <img src="assets/img/Ulus/Ulus_cover.png" alt="Project 5 Cover" class="card-img">
-          <div class="card-content">
-            <h2 class="card-title">Исследование: субъективная динамика профессиональных компетенций учителей</h2>
-            <p class="card-desc">В рамках проекта  Хангаласского улуса</p>
+    <!-- 5: Аналитика социального сиротства -->
+    <article class="card">
+      <a href="#" class="card-link">
+        <img src="assets/img/Ulus/Ulus_cover.png" alt="Project 5 Cover" class="card-img">
+        <div class="card-content">
+          <div>
+            <h2 class="card-title">Аналитика социального сиротства</h2>
+            <p class="card-desc">FA для мониторинга и отчётности</p>
             <ul class="card-meta">
-              <li><strong>Результат:</strong> описание результата</li>
-              <li><strong>Технологии:</strong> R, статистический анализ, excel, опрос</li>
-              <li><strong>Проект:</strong> Улучшение качества обучения в школах Хангаласского улуса Республики Саха (Якутия)</li>
+              <li><strong>Заказчик:</strong> Аппарат уполномоченного при Президенте РФ по правам ребёнка</li>
+              <li><strong>Год:</strong> 2023</li>
             </ul>
           </div>
-        </a>
-      </article>
+          <div class="card-tags">
+            <span class="badge">опросы</span>
+            <span class="badge">R</span>
+            <span class="badge">теория изменений</span>
+          </div>
+        </div>
+      </a>
+    </article>
 
-            <!-- Шаблонная карточка проекта #6 -->
-      <article class="card">
-        <a href="projects/project-4.html" class="card-link">
-          <img src="assets/img/project4/cover.png" alt="Project 6 Cover" class="card-img">
-          <div class="card-content">
-            <h2 class="card-title">Project 6</h2>
-            <p class="card-desc">Краткое описание проекта 6.</p>
+    <!-- 6: Вовлечённость учителей: ПСВ Саха -->
+    <article class="card">
+      <a href="#" class="card-link">
+        <img src="assets/img/project6/cover.png" alt="Project 6 Cover" class="card-img">
+        <div class="card-content">
+          <div>
+            <h2 class="card-title">Вовлечённость учителей: ПСВ Саха</h2>
+            <p class="card-desc">Факторный анализ вовлечённости учителей</p>
             <ul class="card-meta">
-              <li><strong>Результат:</strong> описание результата</li>
-              <li><strong>Технологии:</strong> ТехX · ТехY · ТехZ</li>
-              <li><strong>Роль:</strong> описана роль</li>
+              <li><strong>Проект:</strong> Институт образования ВШЭ</li>
+              <li><strong>Год:</strong> 2022</li>
             </ul>
           </div>
-        </a>
-      </article>
-    </section>
-  </main>
+          <div class="card-tags">
+            <span class="badge">факторный анализ</span>
+            <span class="badge">R</span>
+            <span class="badge">опросы</span>
+            <span class="badge">интервью</span>
+          </div>
+        </div>
+      </a>
+    </article>
 
-  <!-- Footer -->
-  <footer id="dynamic-footer"></footer>
-
-  <script src="assets/js/components.js"></script>
+  </section>
+</main>
 </body>
 </html>

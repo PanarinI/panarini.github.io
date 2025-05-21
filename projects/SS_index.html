@@ -87,16 +87,23 @@
   padding: 20px;
 }
 
+.slide-title {
+  color: black;
+  margin: 0 0 20px 0;
+  font-size: 1.2rem;
+}
+
 .image-wrapper {
   position: relative;
   overflow: hidden;
   border-radius: 8px;
+  width: 100%;
 }
 
 .slide-image {
+  display: block;
   width: 100%;
   height: auto;
-  display: block;
 }
 
 .slide-inner {
@@ -104,20 +111,7 @@
   width: 100%;
 }
 
-.slide-title {
-  color: black;      /* чёрный текст */
-  margin: 0 0 12px 0; /* отступ снизу, чтобы не прилипал к картинке */
-  font-size: 1rem;
-  font-weight: 600;
-}
 
-
-.slide-image {
-  width: 100%;
-  display: block;
-  object-fit: cover;
-  object-position: center;
-}
 
 
 
@@ -191,12 +185,13 @@
 
 
 <!-- Контейнер для слайда -->
+
 <div class="slide-container">
   <div class="slide-inner">
     <h3 class="slide-title">Заголовок слайда</h3>
     <div class="image-wrapper">
       <img
-        src="../assets/img/SS_index/index_1.jpg"
+        src="../assets/img/SS_index/index_2.jpg"
         alt="Слайд"
         class="slide-image"
         data-clip="21% 2% 2% 2%"
@@ -204,7 +199,6 @@
     </div>
   </div>
 </div>
-
 
 
 
@@ -259,16 +253,43 @@
 </script>
 
 <script>
+// JavaScript
 function applyClipAndResize() {
   document.querySelectorAll('.slide-image').forEach(img => {
     const clip = img.dataset.clip;
-    if (clip) {
-      img.style.clipPath = `inset(${clip})`;
-    }
+    if (!clip) return;
+
+    // Разбиваем значения обрезки
+    const [top, right, bottom, left] = clip.split(' ').map(v => parseFloat(v));
+
+    // Получаем реальные размеры изображения
+    const naturalWidth = img.naturalWidth;
+    const naturalHeight = img.naturalHeight;
+
+    // Рассчитываем новые размеры контейнера
+    const containerWidth = naturalWidth * (1 - (left + right)/100);
+    const containerHeight = naturalHeight * (1 - (top + bottom)/100);
+
+    // Находим контейнер для изображения
+    const container = img.parentElement;
+
+    // Устанавливаем размеры контейнера
+    container.style.width = `${containerWidth}px`;
+    container.style.height = `${containerHeight}px`;
+
+    // Позиционируем изображение внутри контейнера
+    img.style.position = 'absolute';
+    img.style.left = `-${naturalWidth * left/100}px`;
+    img.style.top = `-${naturalHeight * top/100}px`;
+    img.style.width = `${naturalWidth}px`;
+    img.style.height = `${naturalHeight}px`;
   });
 }
 
+// Запускаем после полной загрузки изображений
 window.addEventListener('load', applyClipAndResize);
+// Обновляем при изменении размера окна
+window.addEventListener('resize', applyClipAndResize);
 </script>
 
 </body>

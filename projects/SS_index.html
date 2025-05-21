@@ -95,19 +95,20 @@
 }
 
 .image-container {
-  height: var(--height, 300px); /* по умолчанию 300px */
+  height: var(--height, 300px);
   overflow: hidden;
   position: relative;
   border-radius: 8px;
   box-shadow: 0 0 12px rgba(0,0,0,0.3);
+  text-align: center; /* центрируем img */
 }
 
 .image-container img {
-  width: 100%;
   height: 100%;
-  object-fit: cover;
+  width: auto; /* <--- ключевая замена! */
+  object-fit: cover; /* может быть даже лишним, но можно оставить */
   object-position: top;
-  display: block;
+  display: inline-block;
 }
 
 

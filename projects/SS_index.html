@@ -81,11 +81,9 @@
   }
 
 .slide-container {
-  position: relative;
-    background: #fff;
+      background-color: #dcdcd3;
   width: 100%;
   margin: 20px 0;
-  overflow: hidden;       /* прячет всё, что выходит за рамки */
 }
 
 .slide-title {
@@ -94,21 +92,23 @@
   color: #000;
 }
 
+/* Обёртка, которая точно обрезает содержимое */
 .image-wrapper {
   position: relative;
   width: 100%;
-  height: auto;           /* высота выставится скриптом */
   overflow: hidden;
 }
 
+/* Картинка внутри: абсолютное позиционирование */
 .slide-image {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: auto;
-  transform-origin: top left;
+  /* размеры и сдвиг мы зададим через JS */
 }
+
+
+
 
 .slide-inner {
   position: relative;
@@ -191,11 +191,10 @@
 <!-- Контейнер для слайда -->
 
 
-
-<!-- один слайд -->
+<!-- Любое количество повторов -->
 <div class="slide-container"
      data-ct="0.10"
-     data-cr="0.05"
+     data-cr="0.05"  <
      data-cb="0.20"
      data-cl="0.05">
   <h3 class="slide-title">Заголовок слайда</h3>
@@ -204,14 +203,6 @@
   </div>
 </div>
 
-<!-- ещё слайд — просто меняешь data-ct/cr/cb/cl -->
-<div class="slide-container"
-     data-ct="0.00" data-cr="0.00" data-cb="0.00" data-cl="0.00">
-  <h3 class="slide-title">Без обрезки</h3>
-  <div class="image-wrapper">
-    <img src="index_3.jpg" alt="Слайд2" class="slide-image" />
-  </div>
-</div>
 
 
 
@@ -269,42 +260,46 @@
 <script>
 window.addEventListener('load', () => {
   document.querySelectorAll('.slide-container').forEach(container => {
-    const img = container.querySelector('img');
-    // читаем проценты обрезки из data-*
-    const ct = parseFloat(container.dataset.ct);
-    const cr = parseFloat(container.dataset.cr);
-    const cb = parseFloat(container.dataset.cb);
-    const cl = parseFloat(container.dataset.cl);
+    const wrapper = container.querySelector('.image-wrapper');
+    const img     = container.querySelector('img.slide-image');
 
-    // как только картинка загрузится, делаем расчёты
-    img.addEventListener('load', () => {
-      const naturalW = img.naturalWidth;
-      const naturalH = img.naturalHeight;
-      const displayW = container.clientWidth;
-      const scale = displayW / naturalW;
+    // Читаем проценты обрезки
+    const ct = parseFloat(container.dataset.ct),
+          cr = parseFloat(container.dataset.cr),
+          cb = parseFloat(container.dataset.cb),
+          cl = parseFloat(container.dataset.cl);
+
+    function applyCrop() {
+      const naturalW = img.naturalWidth,
+            naturalH = img.naturalHeight;
+      const displayW = wrapper.clientWidth;
+      const scale    = displayW / naturalW;
       const displayH = naturalH * scale;
 
-      // сколько пикселей отрезать
+      // Пиксели, которые нужно отрезать
       const cropTop    = displayH * ct;
       const cropBottom = displayH * cb;
       const cropLeft   = displayW * cl;
       const cropRight  = displayW * cr;
 
-      // новая высота контейнера = visible H
+      // Высота видимой области
       const visibleH = displayH - cropTop - cropBottom;
-      container.style.height = visibleH + 'px';
 
-      // расширяем саму картинку, чтобы покрыть область + сдвигаем её
-      const newImgW = displayW + cropLeft + cropRight;
-      const newImgH = displayH + cropTop + cropBottom;
-      img.style.width  = newImgW + 'px';
-      img.style.height = newImgH + 'px';
+      // Устанавливаем высоту обёртки
+      wrapper.style.height = visibleH + 'px';
+
+      // Размер картинки так, чтобы она покрывала всю область вместе с «излишками»
+      img.style.width  = (displayW + cropLeft + cropRight) + 'px';
+      img.style.height = (displayH + cropTop + cropBottom) + 'px';
+
+      // Сдвигаем картинку, чтобы нужная часть оказалась в рамке
       img.style.transform =
-        translate(${-cropLeft}px, ${-cropTop}px);
-    });
+        `translate(${-cropLeft}px, ${-cropTop}px)`;
+    }
 
-    // если картинка уже в кеше и load не сработал:
-    if (img.complete) img.dispatchEvent(new Event('load'));
+    // Ждём загрузки картинки
+    img.addEventListener('load', applyCrop);
+    if (img.complete) applyCrop();
   });
 });
 </script>

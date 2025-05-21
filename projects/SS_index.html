@@ -95,14 +95,14 @@
   font-size: 1.2rem;
 }
 
-.image-wrapper {
+.slide-image {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
   position: relative;
-  overflow: hidden;
-  border-radius: 8px;
-  width: 100%;
-  margin: 0 auto;
+  object-fit: contain; /* Сохраняем пропорции */
 }
-
 .slide-image {
   display: block;
   width: 100%;
@@ -262,30 +262,17 @@ function applyClipAndResize() {
     const clip = img.dataset.clip;
     if (!clip) return;
 
-    // Получаем размеры контейнера
+    // Применяем clip-path как есть
+    img.style.clipPath = `inset(${clip})`;
+
+    // Автоматическое масштабирование
     const container = img.closest('.slide-container');
     const containerWidth = container.offsetWidth;
-
-    // Рассчитываем пропорции изображения
-    const naturalRatio = img.naturalWidth / img.naturalHeight;
-    const renderedHeight = containerWidth / naturalRatio;
-
-    // Применяем обрезку через clip-path
-    const [top, right, bottom, left] = clip.split(' ').map(v => parseFloat(v));
-    img.style.clipPath = `inset(${top}% ${right}% ${bottom}% ${left}%)`;
-
-    // Настраиваем позиционирование
-    img.style.position = 'absolute';
-    img.style.left = `-${(left/100) * containerWidth}px`;
-    img.style.top = `-${(top/100) * renderedHeight}px`;
-
-    // Устанавливаем размеры изображения
-    img.style.width = `${containerWidth / (1 - (left + right)/100)}px`;
-    img.style.height = `${renderedHeight / (1 - (top + bottom)/100)}px`;
+    img.style.width = `${containerWidth}px`;
   });
 }
 
-// Добавляем обработчики
+// Инициализация
 window.addEventListener('load', () => {
   setTimeout(applyClipAndResize, 100);
   new ResizeObserver(applyClipAndResize).observe(document.body);

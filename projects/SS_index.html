@@ -110,7 +110,6 @@
   display: block;
   object-fit: cover;
   object-position: center;
-  clip-path: inset(8% 2% 2% 2%);
 }
 
 
@@ -191,7 +190,8 @@
     <img
       src="../assets/img/SS_index/index_1.jpg"
       alt="Слайд"
-      class="slide-image"
+    class="slide-image clipped-slide"
+    data-clip="inset(20% 2% 2% 2%)"
     />
   </div>
 </div>
@@ -237,6 +237,16 @@
       if (e.target === modal) modal.classList.remove('active');
     });
   </script>
+
+<script>
+  document.querySelectorAll('.clipped-slide').forEach(img => {
+    const clip = img.dataset.clip;
+    if (clip) {
+      img.style.clipPath = clip;
+    }
+  });
+</script>
+
 
 </body>
 </html>

@@ -120,7 +120,29 @@
   width: 100%;
 }
 
+/* Контейнер для обрезки */
+.crop-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  border-radius: 8px;
+}
 
+/* Само изображение */
+.crop-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+  clip-path: inset(var(--clip));
+}
+
+/* Адаптивный заголовок */
+.slide-title {
+  font-size: min(max(18px, 3vw), 24px);
+  margin-bottom: 15px;
+}
 
 
 
@@ -196,20 +218,16 @@
 <!-- Контейнер для слайда -->
 
 <div class="slide-container">
-  <div class="slide-inner">
-    <h3 class="slide-title">Заголовок слайда</h3>
-    <div class="image-wrapper">
-      <img
-        src="../assets/img/SS_index/index_2.jpg"
-        alt="Слайд"
-        class="slide-image"
-      />
-    </div>
+  <h3 class="slide-title">Заголовок слайда</h3>
+  <div class="crop-wrapper">
+    <img
+      src="../assets/img/SS_index/index_2.jpg"
+      class="crop-image"
+      alt="Слайд"
+      style="--clip: 21% 2% 2% 2%;" <!-- top right bottom left -->
+    >
   </div>
 </div>
-
-
-
 
 
 

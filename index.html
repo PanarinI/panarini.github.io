@@ -68,8 +68,10 @@ body {
 .card-img-wrapper {
   height: var(--card-img-height);
   flex-shrink: 0;
-  overflow: hidden;
+  overflow-x: hidden;
   background: #ccc;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  border-bottom: 1px solid #e0e0e0;
 }
 
 
@@ -80,8 +82,7 @@ body {
   object-position: top;
   filter: grayscale(100%);
   transition: filter 0.3s;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-  border-bottom: 1px solid #e0e0e0;
+
 }
 .card:hover .card-img {
   filter: none;

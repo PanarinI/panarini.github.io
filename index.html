@@ -33,7 +33,6 @@ body {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  height: 600px;
   transition: transform 0.2s, box-shadow 0.2s;
 }
 .card:hover {
@@ -62,7 +61,7 @@ body {
   height: 100%;
 }
 .card-img-wrapper {
-  height: 600px; /* ← регулируешь только это! 50px, 150px, 300px и т.д. */
+  height: 300; /* ← регулируешь только это! 50px, 150px, 300px и т.д. */
   flex-shrink: 0;         /* не сжимается */
   overflow: hidden;
   background: #ccc;       /* если картинка короткая — будет серый фон снизу */
@@ -72,6 +71,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: top;
   filter: grayscale(100%);
   transition: filter 0.3s;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);

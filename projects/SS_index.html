@@ -267,7 +267,6 @@
 </script>
 
 <script>
-<script>
 window.addEventListener('load', () => {
   document.querySelectorAll('.slide-container').forEach(container => {
     const img = container.querySelector('img');
@@ -301,7 +300,7 @@ window.addEventListener('load', () => {
       img.style.width  = newImgW + 'px';
       img.style.height = newImgH + 'px';
       img.style.transform =
-        `translate(${-cropLeft}px, ${-cropTop}px)`;
+        translate(${-cropLeft}px, ${-cropTop}px);
     });
 
     // если картинка уже в кеше и load не сработал:
@@ -310,7 +309,6 @@ window.addEventListener('load', () => {
 });
 </script>
 
-</script>
 
 </body>
 </html>

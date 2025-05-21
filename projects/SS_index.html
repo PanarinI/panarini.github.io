@@ -97,13 +97,16 @@
   position: relative;
   overflow: hidden;
   border-radius: 8px;
-  width: 100%;
+  max-width: 100%; /* Добавляем ограничение по ширине */
+  margin: 0 auto; /* Центрируем контейнер */
 }
 
 .slide-image {
   display: block;
-  width: 100%;
+  width: auto; /* Меняем с 100% на auto */
   height: auto;
+  max-width: 100%; /* Добавляем ограничение */
+  position: relative;
 }
 
 .slide-inner {
@@ -253,43 +256,39 @@
 </script>
 
 <script>
-// JavaScript
 function applyClipAndResize() {
   document.querySelectorAll('.slide-image').forEach(img => {
     const clip = img.dataset.clip;
     if (!clip) return;
 
-    // Разбиваем значения обрезки
-    const [top, right, bottom, left] = clip.split(' ').map(v => parseFloat(v));
+    // Получаем максимальную доступную ширину
+    const container = img.closest('.slide-container');
+    const maxWidth = container.offsetWidth;
 
-    // Получаем реальные размеры изображения
-    const naturalWidth = img.naturalWidth;
-    const naturalHeight = img.naturalHeight;
+    // Рассчитываем соотношение сторон оригинального изображения
+    const naturalRatio = img.naturalWidth / img.naturalHeight;
 
-    // Рассчитываем новые размеры контейнера
-    const containerWidth = naturalWidth * (1 - (left + right)/100);
-    const containerHeight = naturalHeight * (1 - (top + bottom)/100);
+    // Устанавливаем ширину изображения равной ширине контейнера
+    img.style.width = `${maxWidth}px`;
 
-    // Находим контейнер для изображения
-    const container = img.parentElement;
+    // Рассчитываем высоту на основе соотношения сторон
+    const calculatedHeight = maxWidth / naturalRatio;
 
-    // Устанавливаем размеры контейнера
-    container.style.width = `${containerWidth}px`;
-    container.style.height = `${containerHeight}px`;
+    // Применяем обрезку
+    const [top, right, bottom, left] = clip.split(' ').map(v => {
+      return parseFloat(v) / 100 * calculatedHeight;
+    });
 
-    // Позиционируем изображение внутри контейнера
+    img.style.clipPath = `inset(${top}px ${right}px ${bottom}px ${left}px)`;
     img.style.position = 'absolute';
-    img.style.left = `-${naturalWidth * left/100}px`;
-    img.style.top = `-${naturalHeight * top/100}px`;
-    img.style.width = `${naturalWidth}px`;
-    img.style.height = `${naturalHeight}px`;
+    img.style.left = `-${left}px`;
+    img.style.top = `-${top}px`;
   });
 }
 
-// Запускаем после полной загрузки изображений
-window.addEventListener('load', applyClipAndResize);
-// Обновляем при изменении размера окна
-window.addEventListener('resize', applyClipAndResize);
+// Добавляем задержку для полной загрузки изображений
+window.addEventListener('load', () => setTimeout(applyClipAndResize, 100));
+window.addEventListener('resize', () => setTimeout(applyClipAndResize, 100));
 </script>
 
 </body>

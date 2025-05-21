@@ -94,14 +94,23 @@
   color: #fff;
 }
 
-.image-block img.clipped-image {
-  width: 100%;
+.image-container {
+  height: 300px; /* или 40vh, или что-то фиксированное */
+  overflow: hidden;
+  position: relative;
   border-radius: 8px;
-  object-fit: cover;
-  display: block;
-  clip-path: var(--clip);
   box-shadow: 0 0 12px rgba(0,0,0,0.3);
 }
+
+.image-container img.clipped-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  clip-path: var(--clip);
+  display: block;
+}
+
 
     /* --- Модалка --- */
     .modal {
@@ -172,23 +181,27 @@
 <!-- Блок с изображениями после грида -->
 <div class="image-column">
   <div class="image-block">
-    <h3>Контекст: проблема</h3>
-    <img
-      src="../assets/img/SS_index/index_2.jpg"
-      alt="Пример 1"
-      class="clipped-image"
-      style="--clip: inset(22% 2% 2% 2%)"
-    >
+    <h3>Заголовок изображения 1</h3>
+    <div class="image-container">
+      <img
+        src="../assets/img/SS_index/img1.jpg"
+        alt="Пример 1"
+        class="clipped-image"
+        style="--clip: inset(8% 2% 2% 2%)"
+      >
+    </div>
   </div>
 
   <div class="image-block">
-    <h3>Цель и задачи проекта</h3>
-    <img
-      src="../assets/img/SS_index/index_3.jpg"
-      alt="Пример 2"
-      class="clipped-image"
-      style="--clip: inset(15% 2% 2% 2%)"
-    >
+    <h3>Заголовок изображения 2</h3>
+    <div class="image-container">
+      <img
+        src="../assets/img/SS_index/img2.jpg"
+        alt="Пример 2"
+        class="clipped-image"
+        style="--clip: inset(10% 5% 0% 5%)"
+      >
+    </div>
   </div>
 </div>
 

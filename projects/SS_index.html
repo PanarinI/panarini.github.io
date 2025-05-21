@@ -99,18 +99,17 @@
   position: relative;
   overflow: hidden;
   border-radius: 8px;
-  max-width: 100%; /* Добавляем ограничение по ширине */
-  margin: 0 auto; /* Центрируем контейнер */
+  width: 100%;
+  margin: 0 auto;
 }
 
 .slide-image {
   display: block;
-  width: auto; /* Меняем с 100% на auto */
+  width: 100%;
   height: auto;
-  max-width: 100%; /* Добавляем ограничение */
+  object-fit: cover; /* Добавляем это свойство */
   position: relative;
 }
-
 .slide-inner {
   position: relative;
   width: 100%;
@@ -263,39 +262,34 @@ function applyClipAndResize() {
     const clip = img.dataset.clip;
     if (!clip) return;
 
-    // Получаем максимальную доступную ширину
+    // Получаем размеры контейнера
     const container = img.closest('.slide-container');
-    const maxWidth = container.offsetWidth;
+    const containerWidth = container.offsetWidth;
 
-    // Рассчитываем соотношение сторон оригинального изображения
+    // Рассчитываем пропорции изображения
     const naturalRatio = img.naturalWidth / img.naturalHeight;
+    const renderedHeight = containerWidth / naturalRatio;
 
-    // Устанавливаем ширину изображения равной ширине контейнера
-    const imageWidth = maxWidth;
-    const imageHeight = maxWidth / naturalRatio;
+    // Применяем обрезку через clip-path
+    const [top, right, bottom, left] = clip.split(' ').map(v => parseFloat(v));
+    img.style.clipPath = `inset(${top}% ${right}% ${bottom}% ${left}%)`;
 
-    // Применяем обрезку
-    const [topPercent, rightPercent, bottomPercent, leftPercent] = clip.split(' ').map(v => parseFloat(v));
-
-    // Пересчитываем проценты в пиксели относительно новых размеров
-    const top = (imageHeight * topPercent) / 100;
-    const right = (imageWidth * rightPercent) / 100;
-    const bottom = (imageHeight * bottomPercent) / 100;
-    const left = (imageWidth * leftPercent) / 100;
-
-    // Применяем стили
-    img.style.width = `${imageWidth}px`;
-    img.style.height = `${imageHeight}px`;
+    // Настраиваем позиционирование
     img.style.position = 'absolute';
-    img.style.left = `-${left}px`;
-    img.style.top = `-${top}px`;
+    img.style.left = `-${(left/100) * containerWidth}px`;
+    img.style.top = `-${(top/100) * renderedHeight}px`;
 
-    // Обновляем размеры контейнера
-    const wrapper = img.parentElement;
-    wrapper.style.width = `${imageWidth - left - right}px`;
-    wrapper.style.height = `${imageHeight - top - bottom}px`;
+    // Устанавливаем размеры изображения
+    img.style.width = `${containerWidth / (1 - (left + right)/100)}px`;
+    img.style.height = `${renderedHeight / (1 - (top + bottom)/100)}px`;
   });
 }
+
+// Добавляем обработчики
+window.addEventListener('load', () => {
+  setTimeout(applyClipAndResize, 100);
+  new ResizeObserver(applyClipAndResize).observe(document.body);
+});
 </script>
 
 </body>

@@ -60,12 +60,18 @@ body {
   flex-direction: column;
   height: 100%;
 }
+
+:root {
+  --card-img-height: 300px;
+}
+
 .card-img-wrapper {
-  height: 400px;
+  height: var(--card-img-height);
   flex-shrink: 0;
   overflow: hidden;
   background: #ccc;
 }
+
 
 .card-img {
   width: 100%;
@@ -168,7 +174,7 @@ body {
   <!-- Карточка #1: Metodica -->
   <article class="card">
     <a href="projects/metodica.html" class="card-link">
-      <div class="card-img-wrapper" style="height: 400px;">
+      <div class="card-img-wrapper">
         <img src="assets/img/metodica/metodica_cover.png" alt="Metodica Cover" class="card-img">
       </div>
       <div class="card-content">
@@ -197,7 +203,7 @@ body {
   <!-- Карточка #2: Индикатор -->
   <article class="card">
     <a href="projects/SS_index.html" class="card-link">
-      <div class="card-img-wrapper" style="height: 200px;">
+      <div class="card-img-wrapper">
         <img src="assets/img/SS_index/cover.png" alt="Indicator Cover" class="card-img">
       </div>
       <div class="card-content">
@@ -225,7 +231,7 @@ body {
   <!-- Карточка #3: Клиентоцентричность: база знаний -->
   <article class="card">
     <a href="projects/clientcentric.html" class="card-link">
-      <div class="card-img-wrapper" style="height: 200px;">
+      <div class="card-img-wrapper">
         <img src="assets/img/clientcentric/cover_2.png" alt="Knowledge Base Cover" class="card-img">
       </div>
       <div class="card-content">
@@ -254,7 +260,7 @@ body {
   <!-- Карточка #4: Аналитические материалы -->
   <article class="card">
     <a href="projects/analytics.html" class="card-link">
-      <div class="card-img-wrapper" style="height: 200px;">
+      <div class="card-img-wrapper">
         <img src="assets/img/analytics/cover.png" alt="Analytics Cover" class="card-img">
       </div>
       <div class="card-content">
@@ -282,7 +288,7 @@ body {
   <!-- Карточка #5: Аналитика социального сиротства -->
   <article class="card">
     <a href="projects/sir/cover.html" class="card-link">
-      <div class="card-img-wrapper" style="height: 200px;">
+      <div class="card-img-wrapper">
         <img src="assets/img/sir/cover.png" alt="Sir Cover" class="card-img">
       </div>
       <div class="card-content">
@@ -310,7 +316,7 @@ body {
   <!-- Карточка #6: Вовлечённость учителей: ПСВ Саха -->
   <article class="card">
     <a href="projects/psv_saha.html" class="card-link">
-      <div class="card-img-wrapper" style="height: 200px;">
+      <div class="card-img-wrapper">
         <img src="assets/img/psv_saha/cover.png" alt="PSV Cover" class="card-img">
       </div>
       <div class="card-content">

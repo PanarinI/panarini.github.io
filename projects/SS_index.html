@@ -81,35 +81,35 @@
   }
 
 .slide-container {
-  background: #fff;
-  border-radius: 12px;
-  margin: 40px 0;
-  padding: 20px;
-  max-width: 100%; /* Добавляем ограничение по ширине */
-  overflow: hidden; /* Скрываем выходящие за пределы части */
+  position: relative;
+    background: #fff;
+  width: 100%;
+  margin: 20px 0;
+  overflow: hidden;       /* прячет всё, что выходит за рамки */
 }
 
 .slide-title {
-  color: black;
-  margin: 0 0 20px 0;
+  margin: 0 0 8px;
   font-size: 1.2rem;
+  color: #000;
+}
+
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  height: auto;           /* высота выставится скриптом */
+  overflow: hidden;
 }
 
 .slide-image {
-  display: block;
-  width: auto;
-  height: auto;
-  max-width: 100%;
-  position: relative;
-  object-fit: contain; /* Сохраняем пропорции */
-}
-.slide-image {
-  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: auto;
-  object-fit: cover; /* Добавляем это свойство */
-  position: relative;
+  transform-origin: top left;
 }
+
 .slide-inner {
   position: relative;
   width: 100%;
@@ -190,19 +190,29 @@
 
 <!-- Контейнер для слайда -->
 
-<div class="slide-container">
-  <div class="slide-inner">
-    <h3 class="slide-title">Заголовок слайда</h3>
-    <div class="image-wrapper">
-      <img
-        src="../assets/img/SS_index/index_2.jpg"
-        alt="Слайд"
-        class="slide-image"
-        data-clip="21% 2% 2% 2%"
-      />
-    </div>
+
+
+<!-- один слайд -->
+<div class="slide-container"
+     data-ct="0.10"
+     data-cr="0.05"
+     data-cb="0.20"
+     data-cl="0.05">
+  <h3 class="slide-title">Заголовок слайда</h3>
+  <div class="image-wrapper">
+    <img src="../assets/img/SS_index/index_2.jpg" alt="Слайд" class="slide-image" />
   </div>
 </div>
+
+<!-- ещё слайд — просто меняешь data-ct/cr/cb/cl -->
+<div class="slide-container"
+     data-ct="0.00" data-cr="0.00" data-cb="0.00" data-cl="0.00">
+  <h3 class="slide-title">Без обрезки</h3>
+  <div class="image-wrapper">
+    <img src="index_3.jpg" alt="Слайд2" class="slide-image" />
+  </div>
+</div>
+
 
 
 
@@ -257,26 +267,49 @@
 </script>
 
 <script>
-function applyClipAndResize() {
-  document.querySelectorAll('.slide-image').forEach(img => {
-    const clip = img.dataset.clip;
-    if (!clip) return;
-
-    // Применяем clip-path как есть
-    img.style.clipPath = `inset(${clip})`;
-
-    // Автоматическое масштабирование
-    const container = img.closest('.slide-container');
-    const containerWidth = container.offsetWidth;
-    img.style.width = `${containerWidth}px`;
-  });
-}
-
-// Инициализация
+<script>
 window.addEventListener('load', () => {
-  setTimeout(applyClipAndResize, 100);
-  new ResizeObserver(applyClipAndResize).observe(document.body);
+  document.querySelectorAll('.slide-container').forEach(container => {
+    const img = container.querySelector('img');
+    // читаем проценты обрезки из data-*
+    const ct = parseFloat(container.dataset.ct);
+    const cr = parseFloat(container.dataset.cr);
+    const cb = parseFloat(container.dataset.cb);
+    const cl = parseFloat(container.dataset.cl);
+
+    // как только картинка загрузится, делаем расчёты
+    img.addEventListener('load', () => {
+      const naturalW = img.naturalWidth;
+      const naturalH = img.naturalHeight;
+      const displayW = container.clientWidth;
+      const scale = displayW / naturalW;
+      const displayH = naturalH * scale;
+
+      // сколько пикселей отрезать
+      const cropTop    = displayH * ct;
+      const cropBottom = displayH * cb;
+      const cropLeft   = displayW * cl;
+      const cropRight  = displayW * cr;
+
+      // новая высота контейнера = visible H
+      const visibleH = displayH - cropTop - cropBottom;
+      container.style.height = visibleH + 'px';
+
+      // расширяем саму картинку, чтобы покрыть область + сдвигаем её
+      const newImgW = displayW + cropLeft + cropRight;
+      const newImgH = displayH + cropTop + cropBottom;
+      img.style.width  = newImgW + 'px';
+      img.style.height = newImgH + 'px';
+      img.style.transform =
+        `translate(${-cropLeft}px, ${-cropTop}px)`;
+    });
+
+    // если картинка уже в кеше и load не сработал:
+    if (img.complete) img.dispatchEvent(new Event('load'));
+  });
 });
+</script>
+
 </script>
 
 </body>

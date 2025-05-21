@@ -80,38 +80,28 @@
     z-index: 1;
   }
 
+/* Галерея изображений */
+.image-column {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-top: 40px;
+}
 
-   /* --- Стили для дополнительных блоков --- */
-    .custom-block {
-      margin-top: 40px;
-      background: #f5f5f5;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
+.image-block h3 {
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+  color: #fff;
+}
 
-    .custom-block h3 {
-      margin-top: 0;
-      font-size: 1.5rem;
-      margin-bottom: 16px;
-    }
-
-    .custom-block img {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 8px;
-      object-fit: cover;
-      object-position: center;
-      transition: transform 0.3s ease;
-    }
-
-    @media (max-width: 768px) {
-      .custom-block {
-        padding: 16px;
-      }
-    }
-
+.image-block img.clipped-image {
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+  display: block;
+  clip-path: var(--clip);
+  box-shadow: 0 0 12px rgba(0,0,0,0.3);
+}
 
     /* --- Модалка --- */
     .modal {
@@ -179,18 +169,28 @@
   </div>
 
 
-<div class="custom-block">
-  <h3>Блок 1: Обрезка сверху</h3>
-  <img src="../assets/img/SS_index/index_2.png" alt="Обрезанное изображение" class="clipped-img" data-clip="inset(10% 0 0 0)">
+<!-- Блок с изображениями после грида -->
+<div class="image-column">
+  <div class="image-block">
+    <h3>Заголовок изображения 1</h3>
+    <img
+      src="../assets/img/SS_index/index_2.jpg"
+      alt="Пример 1"
+      class="clipped-image"
+      style="--clip: inset(8% 2% 2% 2%)"
+    >
+  </div>
+
+  <div class="image-block">
+    <h3>Заголовок изображения 2</h3>
+    <img
+      src="../assets/img/SS_index/index_3.jpg"
+      alt="Пример 2"
+      class="clipped-image"
+      style="--clip: inset(12% 5% 3% 5%)"
+    >
+  </div>
 </div>
-
-<div class="custom-block">
-  <h3>Блок 2: Обрезка со всех сторон</h3>
-  <img src="../assets/img/SS_index/index_2.png" alt="Обрезанное изображение" class="clipped-img" data-clip="inset(10% 5% 15% 20%)">
-</div>
-
-
-
 
 
 
@@ -242,15 +242,6 @@
   });
 </script>
 
-  <script>
-    // Применяем clip-path только к изображениям с классом clipped-img
-    document.querySelectorAll('.clipped-img').forEach(img => {
-      const clip = img.dataset.clip;
-      if (clip) {
-        img.style.clipPath = clip;
-      }
-    });
-  </script>
 
 </body>
 </html>

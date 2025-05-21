@@ -85,6 +85,8 @@
   border-radius: 12px;
   margin: 40px 0;
   padding: 20px;
+  max-width: 100%; /* Добавляем ограничение по ширине */
+  overflow: hidden; /* Скрываем выходящие за пределы части */
 }
 
 .slide-title {
@@ -97,13 +99,16 @@
   position: relative;
   overflow: hidden;
   border-radius: 8px;
-  width: 100%;
+  max-width: 100%; /* Добавляем ограничение по ширине */
+  margin: 0 auto; /* Центрируем контейнер */
 }
 
 .slide-image {
   display: block;
-  width: 100%;
+  width: auto; /* Меняем с 100% на auto */
   height: auto;
+  max-width: 100%; /* Добавляем ограничение */
+  position: relative;
 }
 
 .slide-inner {
@@ -253,43 +258,44 @@
 </script>
 
 <script>
-// JavaScript
 function applyClipAndResize() {
   document.querySelectorAll('.slide-image').forEach(img => {
     const clip = img.dataset.clip;
     if (!clip) return;
 
-    // Разбиваем значения обрезки
-    const [top, right, bottom, left] = clip.split(' ').map(v => parseFloat(v));
+    // Получаем максимальную доступную ширину
+    const container = img.closest('.slide-container');
+    const maxWidth = container.offsetWidth;
 
-    // Получаем реальные размеры изображения
-    const naturalWidth = img.naturalWidth;
-    const naturalHeight = img.naturalHeight;
+    // Рассчитываем соотношение сторон оригинального изображения
+    const naturalRatio = img.naturalWidth / img.naturalHeight;
 
-    // Рассчитываем новые размеры контейнера
-    const containerWidth = naturalWidth * (1 - (left + right)/100);
-    const containerHeight = naturalHeight * (1 - (top + bottom)/100);
+    // Устанавливаем ширину изображения равной ширине контейнера
+    const imageWidth = maxWidth;
+    const imageHeight = maxWidth / naturalRatio;
 
-    // Находим контейнер для изображения
-    const container = img.parentElement;
+    // Применяем обрезку
+    const [topPercent, rightPercent, bottomPercent, leftPercent] = clip.split(' ').map(v => parseFloat(v));
 
-    // Устанавливаем размеры контейнера
-    container.style.width = `${containerWidth}px`;
-    container.style.height = `${containerHeight}px`;
+    // Пересчитываем проценты в пиксели относительно новых размеров
+    const top = (imageHeight * topPercent) / 100;
+    const right = (imageWidth * rightPercent) / 100;
+    const bottom = (imageHeight * bottomPercent) / 100;
+    const left = (imageWidth * leftPercent) / 100;
 
-    // Позиционируем изображение внутри контейнера
+    // Применяем стили
+    img.style.width = `${imageWidth}px`;
+    img.style.height = `${imageHeight}px`;
     img.style.position = 'absolute';
-    img.style.left = `-${naturalWidth * left/100}px`;
-    img.style.top = `-${naturalHeight * top/100}px`;
-    img.style.width = `${naturalWidth}px`;
-    img.style.height = `${naturalHeight}px`;
+    img.style.left = `-${left}px`;
+    img.style.top = `-${top}px`;
+
+    // Обновляем размеры контейнера
+    const wrapper = img.parentElement;
+    wrapper.style.width = `${imageWidth - left - right}px`;
+    wrapper.style.height = `${imageHeight - top - bottom}px`;
   });
 }
-
-// Запускаем после полной загрузки изображений
-window.addEventListener('load', applyClipAndResize);
-// Обновляем при изменении размера окна
-window.addEventListener('resize', applyClipAndResize);
 </script>
 
 </body>

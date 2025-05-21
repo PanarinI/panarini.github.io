@@ -98,12 +98,16 @@
   top: 16px;
   left: 20px;
   z-index: 2;
-  color: white;
-  background: rgba(0,0,0,0.6);
-  padding: 8px 12px;
-  border-radius: 6px;
+  color: white;          /* цвет текста */
+  background: none;      /* убрать фон */
+  padding: 0;            /* убрать внутренние отступы */
+  border-radius: 0;      /* убрать скругления */
   font-size: 1.2rem;
+  pointer-events: none;  /* чтобы клики проходили через заголовок, если нужно */
+  user-select: none;     /* чтобы текст нельзя было выделить, опционально */
+  text-shadow: 0 0 5px rgba(0,0,0,0.7); /* добавить тень для читаемости */
 }
+
 
 .slide-image {
   width: 100%;
@@ -184,14 +188,14 @@
 
 
 <!-- Контейнер для слайда -->
-<div class="slide-container" style="width: 100vw; overflow: hidden;">
+<div class="slide-container" style="width: 100&; overflow: hidden;">
   <div class="slide-inner" style="position: relative; width: 100%; height: auto; overflow: hidden;">
     <h3 class="slide-title">Заголовок слайда</h3>
     <img
       src="../assets/img/SS_index/index_1.jpg"
       alt="Слайд"
       class="slide-image"
-      data-clip="20% 2% 2% 2%"
+      data-clip="21% 2% 2% 2%"
       style="display: block; width: 100%;"
     />
   </div>

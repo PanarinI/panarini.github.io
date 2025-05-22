@@ -1,10 +1,221 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>База знаний по клиентоцентричности</title>
+  <style>
+    /* Основные стили из предыдущего проекта */
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      color: #00031f;
+      background-color: #f5f5f5;
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .project-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .project-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .project-description {
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .project-preview {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .project-preview:hover {
+      transform: translateY(-5px);
+    }
+
+    .project-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Стили для стека технологий */
+    .tech-stack {
+      display: flex;
+      gap: 15px;
+      margin: 20px 0;
+      flex-wrap: wrap;
+    }
+
+    .tech-badge {
+      background: #000233;
+      color: white;
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-size: 0.9em;
+    }
+
+    /* Стили для галереи */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .gallery-item {
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.05);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .gallery-caption {
+      font-size: 0.8em;
+      margin-top: 8px;
+      color: #666;
+    }
+
+    /* Модальное окно */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-content {
+      max-width: 80%;
+      max-height: 80vh;
+      position: relative;
+    }
+
+    .modal-img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: -30px;
+      right: -30px;
+      color: white;
+      font-size: 30px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
+  <!-- Верхний грид -->
+  <div class="project-layout">
+    <div class="project-description">
+      <h1>База знаний по клиентоцентричности</h1>
+      <p>Систематизированная база знаний с материалами и исследованиями по клиентоориентированному подходу в бизнес-процессах.</p>
+    </div>
+    <a href="https://clientcentric.ranepa.ru/" class="project-preview" target="_blank">
+      <img src="../assets/img/CC_KB/cover.png" alt="CC_KB_cover>
+    </a>
+  </div>
 
+  <!-- Блок стека технологий -->
+  <div class="tech-stack">
+    <span class="tech-badge">UI/UX</span>
+    <span class="tech-badge">Tilda</span>
+    <span class="tech-badge">Excel</span>
+    <span class="tech-badge">RAG</span>
+  </div>
+
+  <!-- Второй грид -->
+  <div class="project-layout">
+    <div class="project-preview modal-trigger">
+      <img src="../assets/img/CC_KB/RAG_upscale.jpg" alt="RAG">
+    </div>
+    <div class="project-description">
+      <h2>Особенности реализации</h2>
+      <p>Интерактивная система накопления знаний с интеллектуальным поиском и тегированием материалов.</p>
+    </div>
+  </div>
+
+  <!-- Галерея -->
+  <div class="gallery">
+    <div class="gallery-item modal-trigger">
+      <img src="thumb1.jpg" alt="Миниатюра 1">
+      <div class="gallery-caption">Интерфейс поиска</div>
+    </div>
+    <div class="gallery-item modal-trigger">
+      <img src="thumb2.jpg" alt="Миниатюра 2">
+      <div class="gallery-caption">Система тегов</div>
+    </div>
+    <!-- Добавьте остальные элементы галереи -->
+  </div>
+
+  <!-- Модальное окно -->
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <span class="modal-close" onclick="closeModal()">&times;</span>
+      <img class="modal-img" src="" alt="Полноразмерное изображение">
+    </div>
+  </div>
+
+  <script>
+    // Обработчики модального окна
+    const modalTriggers = document.querySelectorAll('.modal-trigger');
+    const modal = document.getElementById('modal');
+    const modalImg = modal.querySelector('.modal-img');
+
+    modalTriggers.forEach(trigger => {
+      trigger.addEventListener('click', (e) => {
+        const imgSrc = e.currentTarget.querySelector('img').src;
+        modalImg.src = imgSrc;
+        modal.classList.add('active');
+      });
+    });
+
+    function closeModal() {
+      modal.classList.remove('active');
+    }
+
+    // Закрытие по клику вне изображения
+    window.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+  </script>
 </body>
 </html>

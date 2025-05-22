@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Проект: Аналитика социального сиротства</title>
+  <style>
+    /* Основные стили */
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      color: #00031f;
+      background-color: #000233;
+      padding: 20px;
+    }
+
+    /* Грид проекта */
+    .project-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+    @media (max-width: 768px) {
+      .project-layout { grid-template-columns: 1fr; }
+    }
+
+    /* Блок описания */
+    .project-description {
+      background: #f5f5f5;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .project-description h2 {
+      margin-top: 0;
+      font-size: 1.8rem;
+    }
+
+    /* Блок превью (ссылка) */
+    .project-preview {
+      position: relative;
+      display: block;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+      text-decoration: none;
+    }
+    .project-preview:hover {
+      transform: translateY(-4px);
+    }
+    .project-preview img {
+      width: 100%;
+      border-radius: 8px;
+      display: block;
+    }
+    .project-preview::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50px;
+      height: 50px;
+      background-color: #dcdcd3;
+      clip-path: polygon(100% 0, 0 0, 100% 100%);
+      z-index: 1;
+    }
+
+    /* Стек технологий */
+    .tech-stack {
+      display: flex;
+      gap: 15px;
+      margin: 20px 0;
+      flex-wrap: wrap;
+    }
+    .tech-badge {
+      background: #dcdcd3;
+      color: #00031f;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    /* Блоки с изображениями */
+    .image-block {
+      background: #dcdcd3;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.7);
+      margin-bottom: 30px;
+    }
+    .image-block h3 {
+      margin: 0 0 12px 0;
+      font-size: 1.4rem;
+      border-bottom: 1px solid #444dff;
+      padding-bottom: 6px;
+    }
+    .image-block img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,255,0.3);
+    }
+  </style>
+</head>
+<body>
+  <div class="project-layout">
+    <!-- Левая колонка -->
+    <div class="project-description">
+      <h2>Аналитика социального сиротства</h2>
+      <p>Исследование факторов риска и разработка составного индикатора для регионов РФ.</p>
+      <p>Цель: системный мониторинг профилактики социального сиротства и выявление приоритетных направлений политики.</p>
+    </div>
+
+    <!-- Правая колонка (ссылка) -->
+    <a href="https://disk.yandex.ru/i/AgNRONKWBv19MQ" class="project-preview">
+      <img src="../assets/img/SS_research/Slide7.JPG" alt="Распределение по возрасту">
+    </a>
+  </div>
+
+  <!-- Стек технологий -->
+  <div class="tech-stack">
+    <span class="tech-badge">Excel</span>
+    <span class="tech-badge">Запросы в регионы РФ</span>
+    <span class="tech-badge">Экспертиза</span>
+  </div>
+
+  <!-- Галерея изображений -->
+  <div class="image-block">
+    <h3>Контекст исследования</h3>
+    <img src="../assets/img/SS_research/Slide1.JPG" alt="Слайд 1">
+  </div>
+
+  <div class="image-block">
+    <h3>Методология</h3>
+    <img src="../assets/img/SS_research/Slide2.JPG" alt="Слайд 2">
+  </div>
+
+  <div class="image-block">
+    <h3>Результаты анализа</h3>
+    <img src="../assets/img/SS_research/Slide3.JPG" alt="Слайд 3">
+  </div>
+
+  <div class="image-block">
+    <h3>Результаты анализа</h3>
+    <img src="../assets/img/SS_research/Slide4.JPG" alt="Слайд 4">
+  </div>
+
+  <div class="image-block">
+    <h3>Результаты анализа</h3>
+    <img src="../assets/img/SS_research/Slide5.JPG" alt="Слайд 5">
+  </div>
+
+  <div class="image-block">
+    <h3>Результаты анализа</h3>
+    <img src="../assets/img/SS_research/Slide6.JPG" alt="Слайд 6">
+  </div>
+
+  <div class="image-block">
+    <h3>Результаты анализа</h3>
+    <img src="../assets/img/SS_research/Slide7.JPG" alt="Слайд 7">
+  </div>
+
+  <div class="image-block">
+    <h3>Результаты анализа</h3>
+    <img src="../assets/img/SS_research/Slide8.JPG" alt="Слайд 8">
+  </div>
+
+  <div class="image-block">
+    <h3>Результаты анализа</h3>
+    <img src="../assets/img/SS_research/Slide9.JPG" alt="Слайд 9">
+  </div>
+
+  <div class="image-block">
+    <h3>Результаты анализа</h3>
+    <img src="../assets/img/SS_research/Slide10.JPG" alt="Слайд 10">
+  </div>
+
+  <div class="image-block">
+    <h3>Результаты анализа</h3>
+    <img src="../assets/img/SS_research/Slide11.JPG" alt="Слайд 11">
+  </div>
+
+  <div class="image-block">
+    <h3>Результаты анализа</h3>
+    <img src="../assets/img/SS_research/Slide12.JPG" alt="Слайд 12">
+  </div>
+
+  <div class="image-block">
+    <h3>Результаты анализа</h3>
+    <img src="../assets/img/SS_research/Slide13.JPG" alt="Слайд 13">
+  </div>
+
+  <div class="image-block">
+    <h3>Результаты анализа</h3>
+    <img src="../assets/img/SS_research/Slide14.JPG" alt="Слайд 14">
+  </div>
+
+  <div class="image-block">
+    <h3>Результаты анализа</h3>
+    <img src="../assets/img/SS_research/Slide15.JPG" alt="Слайд 15">
+  </div>
+
+  <div class="image-block">
+    <h3>Результаты анализа</h3>
+    <img src="../assets/img/SS_research/Slide16.JPG" alt="Слайд 16">
+  </div>
+
+  <div class="image-block">
+    <h3>Результаты анализа</h3>
+    <img src="../assets/img/SS_research/Slide17.JPG" alt="Слайд 17">
+  </div>
+
+  <div class="image-block">
+    <h3>Результаты анализа</h3>
+    <img src="../assets/img/SS_research/Slide18.JPG" alt="Слайд 18">
+  </div>
+
+  <div class="image-block">
+    <h3>Результаты анализа</h3>
+    <img src="../assets/img/SS_research/Slide19.JPG" alt="Слайд 19">
+  </div>
+
+  <div class="image-block">
+    <h3>Результаты анализа</h3>
+    <img src="../assets/img/SS_research/Slide20.JPG" alt="Слайд 20">
+  </div>
+
+  <div class="image-block">
+    <h3>Результаты анализа</h3>
+    <img src="../assets/img/SS_research/Slide21.JPG" alt="Слайд 21">
+  </div>
+
+  <div class="image-block">
+    <h3>Результаты анализа</h3>
+    <img src="../assets/img/SS_research/Slide22.JPG" alt="Слайд 22">
+  </div>
+
+  <div class="image-block">
+    <h3>Результаты анализа</h3>
+    <img src="../assets/img/SS_research/Slide23.JPG" alt="Слайд 23">
+  </div>
+
+  <div class="image-block">
+    <h3>Результаты анализа</h3>
+    <img src="../assets/img/SS_research/Slide24.JPG" alt="Слайд 24">
+  </div>
+
+  <div class="image-block">
+    <h3>Результаты анализа</h3>
+    <img src="../assets/img/SS_research/Slide25.JPG" alt="Слайд 25">
+  </div>
+</body>
+</html>

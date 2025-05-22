@@ -87,7 +87,9 @@ body {
 .card:hover .card-img {
   filter: none;
 }
-
+.card-content {
+  min-height: 350px; /* Убирет зазор между картинкой и заголовком */
+}
 .card-content {
   flex: 1;
   padding: 1rem;
@@ -166,6 +168,13 @@ body {
   background: rgba(0, 255, 0, 0.1); /* Покрасим контент */
 }
 
+/* Временные стили для диагностики */
+
+.card:nth-child(2) * {
+  outline: 1px solid red !important; /* Покажет границы всех элементов */
+}
+
+
 </style>
 </head>
 <body>
@@ -183,7 +192,6 @@ body {
           <h2 class="card-title">Metodica: умный помощник учителя</h2>
           <p class="card-desc">AI-ассистент, который составляет планы уроков по фотографии страницы учебного материала .</p>
           <ul class="card-meta">
-            <li></li>
             <li>Продукт, разработанный преподавателем для преподавателей</li>
             <li>Системный промпт на базе экспертных знаний</li>
             <li>Уникальная функция работы по фотографии</li>

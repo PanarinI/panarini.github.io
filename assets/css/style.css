@@ -1,109 +1,67 @@
-/* Общие стили */
-body {
-  font-family: sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f9f9f9;
-}
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+    }
 
-/* Навигация */
-.navbar {
-  display: flex;
-  height: 48px; /* фиксируем высоту */
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.5rem 0.5rem;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.25rem 1rem;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
 
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 1rem;
-}
+    .logo {
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: inherit;
+      max-width: 100%;
+    }
 
-.nav-links li a {
-  text-decoration: none;
-  color: #333;
-}
+    .logo-title {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: #333;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
 
-.nav-links li a.active {
-  color: #0066cc;
-  border-bottom: 2px solid #0066cc;
-}
+    .logo-subtitle {
+      font-size: 0.5rem;
+      color: #888;
+      white-space: nowrap;
+    }
 
-/* Логотип и подписи */
-.logo {
-  max-width: 250px; /* чтобы текст не расползался вниз */
-  white-space: nowrap; /* не переносить строки */
-  overflow: hidden;
-  text-overflow: ellipsis; /* ставить "..." при переполнении */
-  display: block;
-  line-height: 1;
-}
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+      margin: 0;
+      padding: 0;
+    }
 
-.logo-title {
-  display: block;
-  font-size: 0.75rem;
-   line-height: 1;
-  font-weight: 500;
-  color: #333;
-}
+    .nav-links li a {
+      text-decoration: none;
+      color: #333;
+      font-size: 0.75rem;
+    }
 
-.logo-subtitle {
-  font-size: 0.5rem; /* было 0.875rem */
-  color: #888;
-    line-height: 1;
-}
+    .nav-links li a.active {
+      color: #0066cc;
+      border-bottom: 2px solid #0066cc;
+    }
 
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-  padding: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-.card {
-  background-color: #fff;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-  transition: transform 0.2s;
-  display: flex;
-  flex-direction: column;
-}
-.card:hover {
-  transform: translateY(-5px);
-}
-.card-img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  object-position: top;
-}
-.card-content {
-  padding: 1rem;
-}
-.card-title {
-  font-size: 1.2rem;
-  margin: 0.5rem 0;
-}
-.card-desc {
-  font-size: 0.95rem;
-  color: #555;
-}
-.card-meta {
-  list-style: none;
-  padding: 0;
-  margin-top: 0.75rem;
-  font-size: 0.85rem;
-  color: #444;
-}
-.card-meta li + li {
-  margin-top: 0.25rem;
-}
+    /* Визуальное разделение навбара */
+    .after-navbar {
+      background-color: #e320ff;
+      height: 100px;
+    }
+
 footer {
   text-align: center;
   padding: 2rem;

@@ -16,6 +16,7 @@ body {
 
 :root {
   --card-img-height: 150px;
+
 }
 
 /* Обёртка карточек (не трогаем) */
@@ -30,7 +31,8 @@ body {
 
 /* Сама карточка */
 .card {
-  display: flex;
+  display: grid;
+  grid-template-rows: var(--card-img-height) 1fr auto;
   flex-direction: column;
   height: 100%;
   background: #eeeee7;
@@ -46,21 +48,15 @@ body {
 
 /* Кликабельная зона */
 .card-link {
-  display: flex;
-  flex-direction: column;
-  flex: 1;           /* тянемся, чтобы футер всегда внизу */
+  display: contents; /* оставляем разметку, но делаем детей прямыми элементами grid */
   color: inherit;
   text-decoration: none;
 }
-
 /* Изображение */
 .card-img-wrapper {
-  height: var(--card-img-height);
-  flex-shrink: 0;
-  overflow: hidden;
+  grid-row: 1;
   background: #ccc;
   box-shadow: 0 4px 6px rgba(0,0,0,0.5);
-  border-bottom: 1px solid #e0e0e0;
 }
 
 .card-img {
@@ -68,6 +64,7 @@ body {
   height: 100%;
   object-fit: cover;
   object-position: top;
+  display: block;
   filter: grayscale(100%);
   transition: filter .3s;
 }
@@ -81,37 +78,51 @@ body {
   padding: 0;      /* сбрасываем padding */
 }
 
-/* 2) Жёстко задаём padding и gap внутри основного контента */
+/* 4. Основной контент — ровно в средней (растягивающейся) строке */
 .card-content {
+  grid-row: 2;
   display: flex;
   flex-direction: column;
-  flex: 1;               /* чтобы футер остался внизу */
-  padding: 0 1rem 0.5rem; /* top 0, right/left 1rem, bottom 0.5rem */
-  gap: 0.5rem;           /* только между .card-header и .card-tags */
+  padding: 1rem;
+  gap: 0.5rem;
 }
 
-/* 3) Правильное выравнивание и снятие подчёркиваний в тэгах */
+/* Сбрасываем все неожиданные маргины у заголовков */
+.card-content .card-header,
+.card-content .card-header h2 {
+  margin: 0;
+  padding: 0;
+}
+/* 5. Тэги сразу под списком, без наезжаний */
 .card-tags {
+  margin-top: auto;        /* прижимает весь блок тегов к низу контента */
   display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start; /* прижимаем бейджи к левому краю */
-  margin: auto 0 0 0;          /* только верхний margin, если нужен */
+  flex-wrap: wrap-reverse; /* <-- ВАЖНО: строки будут добавляться вверх */
+  gap: 0.4rem 0.6rem;
+  justify-content: flex-start;
 }
 .card-tags .badge {
   text-decoration: none !important; /* убираем подчёркивание */
 }
 
-/* Если у тебя тэги лежат НЕ в .badge, а просто в <a>, то: */
 .card-tags a {
-  text-decoration: none !important;
+  background: #00031f;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  text-decoration: none;
+  white-space: nowrap;
+  line-height: 1.2;
 }
-
 
 /* Контент */
 .card-content {
   padding-top: 0 !important;
   margin-top: 0 !important;
   gap: 0.5rem !important;
+    flex: 1;                 /* чтобы контент тянулся и толкал футер вниз */
 }
 .card-content {
   outline: 1px dashed red !important;
@@ -147,16 +158,6 @@ body {
   margin: 0 0 0.25rem 0;
 }
 
-/* Тэги */
-.card-tags {
-    text-decoration: none !important;  /* снимаем подчёркивание */
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem 0.6rem;      /* вертикальный 0.4, горизонтальный 0.6 */
-  margin-top: auto;        /* прижать к низу контента */
-  margin-bottom: 0.5rem;   /* отступ до футера */
-  justify-content: flex-start;  /* выравниваем содержимое слева */
-}
 .badge {
   background: #00031f;
   color: #fff;
@@ -172,20 +173,16 @@ body {
   .badge { white-space: normal; word-break: break-word; }
 }
 
-/* Футер */
+/* 6. Футер — всегда ровно в третьей строке грида */
 .card-footer {
-  flex-shrink: 0;
+  grid-row: 3;
   border-top: 1px solid #ddd;
   padding: 0.75rem 1rem;
   display: flex;
   align-items: center;
+  gap: 0.5rem;
   font-size: 0.9rem;
   color: #555;
-  gap: 0.5rem;
-  background: #eeeee7;
-}
-.card-footer .year {
-  font-weight: 600;
 }
 .card-footer .separator {
   margin: 0;
@@ -193,6 +190,20 @@ body {
 .card-footer .client {
   color: #333;
 }
+
+
+
+/* 2) Убираем границу у обёртки картинки */
+.card-img-wrapper {
+  border-bottom: none !important;
+}
+
+/* 3) Переносим разделитель вниз в контент */
+.card-content {
+  border-top: 1px solid #e0e0e0 !important;
+  padding-top: 0.75rem !important; /* отступ между картинкой и контентом */
+}
+
 
 </style>
 </head>
@@ -339,7 +350,7 @@ body {
           <p class="card-desc"></p>
           <ul class="card-meta">
             <li>Комплексная статистика</li>
-            <li>Экспертные комментарии/li>
+            <li>Экспертные комментарии</li>
             <li>Уникальные данные</li>
           </ul>
         </div>

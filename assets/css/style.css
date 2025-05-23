@@ -42,16 +42,14 @@ body {
 
 .logo-title {
   display: block;
-  font-size: 1.25rem;
-  font-weight: bold;
-  color: #222;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #333;
 }
 
 .logo-subtitle {
-  display: block;
-  font-size: 0.875rem;
-  font-weight: normal;
-  color: #555;
+  font-size: 0.5rem; /* было 0.875rem */
+  color: #888;
 }
 
 .cards {

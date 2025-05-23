@@ -14,149 +14,181 @@ body {
   background-color: #000233;
 }
 
+:root {
+  --card-img-height: 150px;
+}
+
+/* Обёртка карточек (не трогаем) */
 .cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   padding: 2rem;
 }
-@media (max-width: 1024px) {
-  .cards { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 640px) {
-  .cards { grid-template-columns: 1fr; }
-}
+@media (max-width: 1024px) { .cards { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width:  640px) { .cards { grid-template-columns: 1fr; } }
 
+/* Сама карточка */
 .card {
-  position: relative;
-  background-color: #eeeee7;
-  border-radius: 12px;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: transform 0.2s, box-shadow 0.2s;
+  height: 100%;
+  background: #eeeee7;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform .2s, box-shadow .2s;
 }
 .card:hover {
   transform: translateY(-6px);
   box-shadow: 0 8px 20px rgba(0,0,0,0.08);
 }
 
-/* Уголок */
-.card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 50px;
-  height: 50px;
-  background-color: #dcdcd3;
-  clip-path: polygon(100% 0, 0 0, 100% 100%);
-  z-index: 1;
-}
 
+/* Кликабельная зона */
 .card-link {
-  text-decoration: none;
-  color: inherit;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  flex: 1;           /* тянемся, чтобы футер всегда внизу */
+  color: inherit;
+  text-decoration: none;
 }
 
-:root {
-  --card-img-height: 280px;
-}
-
+/* Изображение */
 .card-img-wrapper {
   height: var(--card-img-height);
   flex-shrink: 0;
   overflow: hidden;
   background: #ccc;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.5);
   border-bottom: 1px solid #e0e0e0;
 }
 
-
 .card-img {
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
   object-position: top;
   filter: grayscale(100%);
-  transition: filter 0.3s;
-
+  transition: filter .3s;
 }
 .card:hover .card-img {
   filter: none;
 }
-.card-content {
-  min-height: 350px; /* Убирет зазор между картинкой и заголовком */
+
+/* 1) Убираем любые отступы внутри заголовочного контейнера */
+.card-header {
+  margin: 0;       /* полностью сбрасываем margin */
+  padding: 0;      /* сбрасываем padding */
 }
+
+/* 2) Жёстко задаём padding и gap внутри основного контента */
 .card-content {
-  flex: 1;
-  padding: 1rem;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  flex: 1;               /* чтобы футер остался внизу */
+  padding: 0 1rem 0.5rem; /* top 0, right/left 1rem, bottom 0.5rem */
+  gap: 0.5rem;           /* только между .card-header и .card-tags */
 }
 
-.card-header {
-  margin-bottom: 1rem;
-}
-
-.card-title {
-  font-size: 1.75rem;
-  font-weight: 700;
-  margin: 0 0 0.5rem;
-  color: #222;
-}
-
-.card-desc {
-  font-size: 1rem;
-  line-height: 1.4;
-  color: #444;
-  margin: 0 0 0.75rem;
-}
-
-.card-meta {
-  list-style: disc inside;
-  padding: 0;
-  margin: 0 0 1rem;
-}
-.card-meta li {
-  font-size: 0.95rem;
-  color: #333;
-  margin-bottom: 0.3rem;
-}
-
+/* 3) Правильное выравнивание и снятие подчёркиваний в тэгах */
 .card-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.4rem;
-  margin: 1rem 0;
+  justify-content: flex-start; /* прижимаем бейджи к левому краю */
+  margin: auto 0 0 0;          /* только верхний margin, если нужен */
 }
-.badge {
-  background-color: #eef2ff;
-  color: #334155;
-  font-size: 0.75rem;
-  font-weight: 500;
-  padding: 0.25rem 0.6rem;
-  border-radius: 999px;
-  text-decoration: none;
+.card-tags .badge {
+  text-decoration: none !important; /* убираем подчёркивание */
 }
 
+/* Если у тебя тэги лежат НЕ в .badge, а просто в <a>, то: */
+.card-tags a {
+  text-decoration: none !important;
+}
+
+
+/* Контент */
+.card-content {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+  gap: 0.5rem !important;
+}
+.card-content {
+  outline: 1px dashed red !important;
+}
+
+/* Заголовок */
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;               /* сразу под картинкой */
+  padding: 0;              /* никаких щелей */
+  color: #222;
+}
+
+/* Описание */
+.card-desc {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #444;
+  margin: 0;
+  padding: 0;
+}
+
+/* Список мета */
+.card-meta {
+  list-style: disc inside;
+  margin: 0;
+  padding: 0;
+}
+.card-meta li {
+  font-size: 0.9rem;
+  color: #333;
+  margin: 0 0 0.25rem 0;
+}
+
+/* Тэги */
+.card-tags {
+    text-decoration: none !important;  /* снимаем подчёркивание */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.6rem;      /* вертикальный 0.4, горизонтальный 0.6 */
+  margin-top: auto;        /* прижать к низу контента */
+  margin-bottom: 0.5rem;   /* отступ до футера */
+  justify-content: flex-start;  /* выравниваем содержимое слева */
+}
+.badge {
+  background: #00031f;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.3rem 0.8rem;   /* добиваемся круглых «овальчиков» */
+  border-radius: 999px;
+  white-space: nowrap;
+  line-height: 1.2;
+  flex-shrink: 0;
+}
+@media (max-width: 640px) {
+  .badge { white-space: normal; word-break: break-word; }
+}
+
+/* Футер */
 .card-footer {
+  flex-shrink: 0;
+  border-top: 1px solid #ddd;
+  padding: 0.75rem 1rem;
   display: flex;
   align-items: center;
   font-size: 0.9rem;
   color: #555;
-  border-top: 1px solid #ddd;
-  padding: 0.75rem 1.5rem;
+  gap: 0.5rem;
+  background: #eeeee7;
 }
 .card-footer .year {
-  margin-right: 0.5rem;
+  font-weight: 600;
 }
 .card-footer .separator {
-  margin: 0 0.5rem;
+  margin: 0;
 }
 .card-footer .client {
   color: #333;
@@ -312,7 +344,7 @@ body {
           </ul>
         </div>
         <div class="card-tags">
-          <a href="#" class="badge">excel/a>
+          <a href="#" class="badge">excel</a>
           <a href="#" class="badge">экспертиза</a>
           <a href="#" class="badge">запросы в регионы РФ</a>
         </div>

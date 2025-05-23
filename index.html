@@ -178,8 +178,18 @@ body {
 </style>
 </head>
 <body>
-<div id="dynamic-header" style="background: red; padding: 20px; color: white;">
-  Этот текст должен быть ВИДЕН. Если его нет - значит div не создан.
+<div id="dynamic-header" style="border: 3px solid red; padding: 20px;">
+  <!-- Временная ручная вставка header.html -->
+  <nav class="navbar">
+    <a href="../index.html" class="logo">
+      <span class="logo-title">Исследования и анализ | Разработка | Образование</span>
+      <span class="logo-subtitle">Игорь Панарин</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="../projects/about_me.html">Об авторе</a></li>
+      <li><a href="#contacts">Контакты</a></li>
+    </ul>
+  </nav>
 </div>
 <main>
 <section class="cards" id="projects">

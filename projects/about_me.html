@@ -1,10 +1,158 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Об авторе</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      color: #00031f;
+      background-color: #000233;
+      padding: 20px;
+      margin: 0;
+    }
+
+    h2, h3 {
+      margin-top: 0;
+    }
+
+    /* Верхний грид: текст слева, портрет справа */
+    .top-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+    @media (max-width: 768px) {
+      .top-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .main-text {
+      background: #f5f5f5;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      color: #00031f;
+    }
+
+    .portrait {
+      background: #f5f5f5;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+      user-select: none; /* нельзя выделять */
+      pointer-events: none; /* нельзя кликать */
+    }
+
+    .portrait img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* Второй грид: опыт слева, скиллы + образование справа */
+    .bottom-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    @media (max-width: 768px) {
+      .bottom-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .experience, .skills-education {
+      background: #f5f5f5;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      color: #00031f;
+    }
+
+    /* Бейджи для скиллов */
+    .skill-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .skill-badge {
+      background: #dcdcd3;
+      color: #00031f;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      user-select: none;
+    }
+
+    /* Стили для списка образования */
+    .education-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+    .education-list li {
+      margin-bottom: 8px;
+    }
+  </style>
 </head>
 <body>
+
+  <div class="top-grid">
+    <div class="main-text">
+      <h2>Привет, я Игорь Панарин</h2>
+      <p>Я занимаюсь исследованиями и аналитикой в социальной сфере, создаю AI-продукты.
+        .</p>
+      <p>Я люблю изучать и обучать, систематизировать и создавать уникальное.</p>
+    </div>
+
+    <div class="portrait">
+      <img src="\assets\img\About_me\portrait.jpg" alt="Портрет автора" />
+    </div>
+  </div>
+
+  <div class="bottom-grid">
+    <div class="experience">
+      <h3>Опыт</h3>
+      <ul>
+        <li>Аналитик-исследователь в образовании и социальной сфере</li>
+        <li>Разработчик AI-ассистентов</li>
+        <li>Учитель английского языка</li>
+      </ul>
+    </div>
+
+    <div class="skills-education">
+      <h3>Навыки</h3>
+      <div class="skill-badges">
+        <span class="skill-badge">Python</span>
+        <span class="skill-badge">AI-ассистенты</span>
+        <span class="skill-badge">Количественный анализ</span>
+        <span class="skill-badge">Качественный анализ</span>
+        <span class="skill-badge">Визуализация, дашборды</span>
+        <span class="skill-badge">Образовательные технологии</span>
+        <span class="skill-badge">MVP</span>
+        <span class="skill-badge">Преподавание</span>
+      </div>
+
+      <h3>Образование</h3>
+      <ul class="education-list">
+        <li>НИУ ВШЭ (2023), Институт образования. Исследователь-аналитик в сфере образования. Магистр</li>
+        <li>МАБиУ (2014), Международных отношений и мировой экономики. Лингвист-переводчик</li>
+      </ul>
+    </div>
+  </div>
 
 </body>
 </html>

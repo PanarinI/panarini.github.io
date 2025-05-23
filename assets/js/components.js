@@ -1,7 +1,7 @@
 // assets/js/components.js
 document.addEventListener('DOMContentLoaded', function() {
   // Загрузка header
-    fetch('../components/header.html')
+    fetch('/components/header.html')
       .then(response => response.text())
       .then(data => {
         document.getElementById('dynamic-header').innerHTML = data;

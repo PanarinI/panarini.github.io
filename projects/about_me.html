@@ -50,15 +50,27 @@
   background: #f5f5f5;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  /* Убираем overflow: hidden, чтобы изображение не обрезалось */
-  display: flex; /* Добавляем flex для правильного позиционирования */
-  justify-content: center; /* Центрируем по горизонтали */
-  align-items: center; /* Центрируем по вертикали */
-  padding: 20px; /* Добавляем отступы */
-  width: fit-content; /* Ширина по содержимому */
-  height: fit-content; /* Высота по содержимому */
-  max-width: 100%; /* Ограничиваем максимальную ширину */
-  align-self: start; /* Выравниваем по верху сетки */
+  display: flex; /* Используем flex для размещения элементов в строку */
+  align-items: center; /* Выравниваем по вертикали */
+  padding: 20px;
+  gap: 20px; /* Отступ между изображением и текстом */
+  align-self: start;
+}
+
+.portrait {
+  flex-shrink: 0; /* Запрещаем сжатие изображения */
+}
+
+.contacts {
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .block-b {
+    flex-direction: column; /* На мобильных - вертикальное расположение */
+    text-align: center;
+  }
 }
 
     .block-c {
@@ -267,12 +279,18 @@
       <p>Широко вовлечен в сферу образования (учительский опыт, исследования, EdTech-продукты, Master of Education), </p>
     </div>
 
-    <!-- Блок B -->
-    <div class="block-b">
-      <div class="portrait">
-        <img src="\assets\img\About_me\portrait.jpg" alt="Портрет автора" />
-      </div>
-    </div>
+<!-- Блок B -->
+<div class="block-b">
+  <div class="portrait">
+    <img src="\assets\img\About_me\portrait.jpg" alt="Портрет автора" />
+  </div>
+  <div class="contacts">
+    Контакты:<br>
+    tg @PanarinIgor<br>
+    email panarin2005@yandex.ru<br>
+    +79154939460
+  </div>
+</div>
 
     <!-- Блок C -->
     <div class="block-c">

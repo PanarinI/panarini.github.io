@@ -255,13 +255,13 @@ font-size: 18px
     const modal = document.getElementById('modal');
     const modalImg = modal.querySelector('.modal-img');
 
-    modalTriggers.forEach(trigger => {
-      trigger.addEventListener('click', (e) => {
-        const imgSrc = e.currentTarget.querySelector('img').src;
-        modalImg.src = imgSrc;
-        modal.classList.add('active');
-      });
+  modalTriggers.forEach(trigger => {
+    trigger.addEventListener('click', (e) => {
+      const customImage = trigger.dataset.modalImage; // Берем путь из data-атрибута
+      modalImg.src = customImage;
+      modal.classList.add('active');
     });
+  });
 
     function closeModal() {
       modal.classList.remove('active');

@@ -1,0 +1,1 @@
+https://www.hse.ru/edu/vkr/838282823 - ВКР

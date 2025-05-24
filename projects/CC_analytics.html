@@ -17,7 +17,7 @@
 
     /* Краткое описание */
     .header-description {
-      background: #f5f5f5;
+      background: #eeeee7;
       padding: 30px;
       border-radius: 12px;
       margin-bottom: 40px;
@@ -35,16 +35,39 @@
       .top-grid { grid-template-columns: 1fr; }
     }
 
+
     /* Кликабельные блоки */
-    .grid-item {
-      position: relative;
-      background: #fff;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      transition: transform 0.2s;
-      text-decoration: none;
-    }
+.grid-item {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+  text-decoration: none;
+  background-color: #e2eff8; /* Теперь без !important */
+  padding: 16px;
+}
+
+    /* Стиль для верхнего серого текста */
+.grid-item .meta-text {
+  color: #000233;
+  font-size: 0.75rem;
+  margin-bottom: 8px;
+}
+
+/* Стиль для основного белого текста */
+.grid-item .main-text {
+  color: #000233;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+/* Стиль для нижнего серого текста */
+.grid-item .date-text {
+  color: #000233;
+  font-size: 0.75rem;
+}
     .grid-item:hover {
       transform: translateY(-4px);
     }
@@ -99,27 +122,26 @@
 
 <div class="top-grid">
   <!-- Левый блок -->
-  <a href="https://disk.yandex.ru/i/l6D-CFF-NDLJNA" target="_blank" rel="noopener noreferrer" class="grid-item" style="background-color: #1a1f36; color: white; padding: 16px; display: flex; flex-direction: column; justify-content: space-between; font-size: 0.875rem; text-decoration: none;">
-    <div style="color: #aaa; font-size: 0.75rem; margin-bottom: 8px;">
+  <a href="https://disk.yandex.ru/i/l6D-CFF-NDLJNA" target="_blank" rel="noopener noreferrer" class="grid-item">
+  <div class="meta-text">
       ПРАКТИКА КЛИЕНТОЦЕНТРИЧНОСТИ.<br>Серия материалов о реальном опыте внедрения клиентоцентричности в госуправлении
     </div>
-    <div style="color: #fff; font-size: 1rem; font-weight: bold; margin-bottom: 8px;">
+  <div class="main-text">
       ВНЕДРЕНИЕ ПРИНЦИПОВ КЛИЕНТОЦЕНТРИЧНОСТИ В ФНС РОССИИ
     </div>
-    <div style="color: #ccc; font-size: 0.75rem;">
+  <div class="date-text">
       сентябрь 2024
     </div>
   </a>
 
   <!-- Правый блок -->
-  <a href="https://disk.yandex.ru/i/i1zKckPwaBbIzA" target="_blank" rel="noopener noreferrer" class="grid-item" style="background-color: #1a1f36; color: white; padding: 16px; display: flex; flex-direction: column; justify-content: space-between; font-size: 0.875rem; text-decoration: none;">
-    <div style="color: #aaa; font-size: 0.75rem; margin-bottom: 8px;">
+  <a href="https://disk.yandex.ru/i/i1zKckPwaBbIzA" target="_blank" rel="noopener noreferrer" class="grid-item">   <div class="meta-text">
       ПРАКТИКА КЛИЕНТОЦЕНТРИЧНОСТИ.<br>Серия материалов о реальном опыте внедрения клиентоцентричности в госуправлении
     </div>
-    <div style="color: #fff; font-size: 1rem; font-weight: bold; margin-bottom: 8px;">
+  <div class="main-text">
       РЕЙТИНГ STAR: СИСТЕМА КОМПЛЕКСНОЙ ОЦЕНКИ ГОСУДАРСТВЕННЫХ УСЛУГ В ОАЭ
     </div>
-    <div style="color: #ccc; font-size: 0.75rem;">
+  <div class="date-text">
       декабрь 2024
     </div>
   </a>

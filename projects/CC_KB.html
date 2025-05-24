@@ -10,7 +10,7 @@
     body {
       font-family: 'Segoe UI', sans-serif;
       line-height: 1.6;
-      color: #00031f;
+      color: #000233;
       background-color: #000233;
       padding: 20px;
       max-width: 1200px;
@@ -21,6 +21,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 24px;
+      color: #eeeee7
       margin-bottom: 40px;
     }
 
@@ -31,12 +32,22 @@
     }
 
     .project-description {
-      background: #fff;
-      padding: 30px;
+      background: #eeeee7;
+      padding: 10px;
       border-radius: 12px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
+.project-description h1,
+.project-description h2 {
+  margin-top: 0rem; /* Уменьшаем отступ сверху */
+  padding-top: 10px; /* Добавляем небольшой внутренний отступ */
+  line-height: 1.2; /* Уменьшаем межстрочный интервал */
+  margin-bottom: 0.5em; /* Опционально: уменьшаем отступ снизу */
+}
 
+.project-description ul li {
+  font-weight: normal; /* или 400 */
+}
     .project-preview {
       background: #fff;
       border-radius: 12px;
@@ -44,7 +55,12 @@
       cursor: pointer;
       transition: transform 0.2s;
     }
-
+  .project-preview h3 {
+    text-align: left; /* или left/right */
+    color: #000233; /* цвет текста, если нужен светлый */
+    margin-bottom: 10px; /* отступ снизу */
+    padding: 0 10px; /* отступы по бокам */
+  }
     .project-preview:hover {
       transform: translateY(-5px);
     }
@@ -64,8 +80,8 @@
     }
 
     .tech-badge {
-      background: #000233;
-      color: white;
+      background: #eeeee7;
+      color: eeeee7;
       padding: 8px 15px;
       border-radius: 20px;
       font-size: 0.9em;
@@ -147,8 +163,11 @@
   <!-- Верхний грид -->
   <div class="project-layout">
     <div class="project-description">
-      <h1>База знаний по клиентоцентричности</h1>
-      <p>Систематизированная база знаний с материалами и исследованиями по клиентоориентированному подходу в бизнес-процессах.</p>
+      <h2>База знаний: клиентоцентричность в госуправлении</h2>
+      <p>Коллекция актуальных практик и решений в области клиентоцентричности в госуправлении РФ и мира.</p>
+
+      <p>Разработано для Центра внедрения клиентоцентричного подхода ВШГУ РАНХиГС в рамках ФП "Государство для людей"
+      </p>
     </div>
     <a href="https://clientcentric.ranepa.ru/" class="project-preview" target="_blank">
       <img src="../assets/img/CC_KB/cover.png" alt="CC_KB_cover>">
@@ -166,11 +185,25 @@
   <!-- Второй грид -->
   <div class="project-layout">
     <div class="project-preview modal-trigger">
+        <p>Пример результата</p> <!-- Добавляем заголовок -->
       <img src="../assets/img/CC_KB/RAG_upscale.jpg"" alt="RAG">
     </div>
     <div class="project-description">
-      <h2>Особенности реализации</h2>
-      <p>Интерактивная система накопления знаний с интеллектуальным поиском и тегированием материалов.</p>
+      <h3>Система умного поиска (RAG)</h3>
+      <p>Дополнительная функция - диалоговый ассистент для гибкого поиска информации по материалам базы. </p>
+                      <ul>
+            <li><strong>Поиск документации</strong>, методик, кейсов</li>
+            <li><strong>Консультант</strong> по клиентоцентричности</li>
+            <li><strong>Ссылки на источники</strong> с возможностью скачивания</li>
+          </ul>
+
+      <p>Под капотом:</p>
+          <ul>
+            <li>openai Responses API </li>
+            <li>векторый поиск (file search)</li>
+            <li>Маппинг файлов → presigned-URL в S3 для ссылок</li>
+          </ul>
+
     </div>
   </div>
 

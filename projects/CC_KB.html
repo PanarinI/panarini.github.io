@@ -127,6 +127,7 @@ font-size: 18px
 
     /* Модальное окно */
 /* Модальное окно */
+/* Модальное окно */
 .modal {
   display: none;
   position: fixed;
@@ -134,10 +135,11 @@ font-size: 18px
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.8);
+  background: rgba(0, 0, 0, 0.8);
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  overflow: hidden; /* Убираем скролл у всего модального окна */
 }
 
 .modal.active {
@@ -145,43 +147,33 @@ font-size: 18px
 }
 
 .modal-content {
-  max-width: 90vw;  /* 90% ширины viewport */
-  max-height: 90vh; /* 90% высоты viewport */
   position: relative;
+  margin: 20px; /* Минимальный отступ от краев экрана */
 }
 
 .modal-img {
-  max-width: 100%;  /* Не больше ширины контейнера */
-  max-height: 90vh; /* Не больше высоты viewport */
-  width: auto;      /* Автоматическая ширина */
-  height: auto;     /* Автоматическая высота */
+  max-width: calc(100vw - 40px); /* Ширина экрана минус отступы */
+  max-height: calc(100vh - 40px); /* Высота экрана минус отступы */
+  display: block; /* Убираем лишние отступы */
   border-radius: 12px;
-  object-fit: contain; /* Все изображение видно полностью */
+  object-fit: contain; /* Гарантирует, что вся картинка влезет */
 }
 
 .modal-close {
   position: absolute;
-  top: -40px;
-  right: -40px;
+  top: 10px;
+  right: 10px;
   color: white;
   font-size: 30px;
   cursor: pointer;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   border-radius: 50%;
   width: 40px;
   height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-.modal-content {
-  max-width: 90%; /* Чуть больше ширины */
-  max-height: 90vh; /* Чуть больше высоты */
-  overflow: auto; /* Добавляем прокрутку при необходимости */
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start; /* Выравниваем по верху для длинных изображений */
+  z-index: 1001;
 }
 
   </style>
@@ -230,7 +222,7 @@ font-size: 18px
           <ul>
             <li>openai Responses API </li>
             <li>векторый поиск (file search)</li>
-            <li>Маппинг файлов → presigned-URL в S3 для ссылок</li>
+            <li>маппинг файлов → presigned-URL в S3 для ссылок</li>
           </ul>
 
     </div>

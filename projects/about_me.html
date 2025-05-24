@@ -109,6 +109,139 @@
     .education-list li {
       margin-bottom: 8px;
     }
+
+    /* Стили для модального окна с галереей */
+ .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    overflow: auto;
+  }
+
+  .modal-content {
+    position: relative;
+    margin: auto;
+    padding: 0;
+    width: 90%;
+    max-width: 800px;
+    height: 90vh;
+    animation-name: zoom;
+    animation-duration: 0.3s;
+  }
+
+    @keyframes zoom {
+      from {transform: scale(0.9)}
+      to {transform: scale(1)}
+    }
+
+    .close {
+      position: absolute;
+      top: 15px;
+      right: 35px;
+      color: #f1f1f1;
+      font-size: 40px;
+      font-weight: bold;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: #bbb;
+    }
+
+
+  .gallery-item {
+    display: none;
+    height: 100%;
+    position: relative;
+  }
+
+  .gallery-item.active {
+    display: block;
+  }
+
+  .gallery-image {
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+    padding-top: 20px;
+  }
+
+  .gallery-caption {
+    color: #fff;
+    padding: 15px 0;
+    text-align: center;
+    font-size: 1.1rem;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+  }
+
+    .gallery-nav {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 15px;
+    }
+
+    .gallery-nav button {
+      background: rgba(255, 255, 255, 0.3);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+  /* Области для навигации */
+  .nav-area {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    cursor: pointer;
+    z-index: 10;
+  }
+
+  .nav-area.prev {
+    left: 0;
+  }
+
+  .nav-area.next {
+    right: 0;
+  }
+
+  /* Индикатор текущего положения */
+  .gallery-indicator {
+    position: absolute;
+    bottom: 60px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: white;
+    font-size: 0.9rem;
+  }
+    .gallery-nav button:hover {
+      background: rgba(255, 255, 255, 0.5);
+    }
+
+    /* Стиль для кликабельного текста */
+    .clickable {
+      color: #0066cc;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    .clickable:hover {
+      color: #004499;
+    }
   </style>
 </head>
 <body>
@@ -121,8 +254,8 @@
       <h2>Привет, я Игорь Панарин</h2>
       <p>Занимаюсь исследованиями и аналитикой в образовании и социальной сфере</p>
       <p>Имею опыт создания EdTech-продуктов - от идеи до тестирования</p>
-      <p>Люблю изучать и обучать, систематизировать и создавать уникальное.</p>
-      <p>Широко понимаю сферу образования (учительский опыт, исследования, магистратура Института образования ВШЭ), </p>
+      <p>Люблю изучать и обучать, систематизировать и создавать нечто уникальное.</p>
+      <p>Широко вовлечен в сферу образования (учительский опыт, исследования, EdTech-продукты, Master of Education), </p>
     </div>
 
     <!-- Блок B -->
@@ -138,49 +271,188 @@
         <h3>Навыки</h3>
         <div class="skill-badges">
           <span class="skill-badge">Python</span>
-          <span class="skill-badge">JupyterNotebook</span>
           <span class="skill-badge">R</span>
           <span class="skill-badge">PostgreSQL</span>
           <span class="skill-badge">Excel</span>
-          <span class="skill-badge">Процессное управление</span>
+          <span class="skill-badge">Jupyter Notebook</span>
+
           <span class="skill-badge">MVP</span>
           <span class="skill-badge">AI</span>
           <span class="skill-badge">RAG</span>
-          <span class="skill-badge">BeautifulSoup</span>
-          <span class="skill-badge">SurveyMonkey</span>
+          <span class="skill-badge">Конструкторы опросов</span>
           <span class="skill-badge">Количественный анализ</span>
           <span class="skill-badge">Качественный анализ</span>
           <span class="skill-badge">Визуализация</span>
           <span class="skill-badge">UI/UX</span>
           <span class="skill-badge">Образовательные технологии</span>
           <span class="skill-badge">Образовательный дизайн</span>
-          <span class="skill-badge">TKT, ICELT</span>
+          <span class="skill-badge">Процессное управление</span>
+
         </div>
       </div>
-
     </div>
 
     <!-- Блок D -->
     <div class="block-d">
       <h3>Опыт работы</h3>
       <ul>
-        <li>Аналитик-исследователь в образовании: Институт образование НИУ ВШЭ</li>
-        <li>Аналитик-исследователь в социальной и гос. сфере: ВШГУ РАНХиГС, Аппарат уполномоченного при ПРФ по правам ребенка, АЦпПРФ</li>
-        <li>Разработчик AI-ассистентов</li>
-        <li>Учитель английского языка: школа 1533 "ЛИТ", Летово (стажировка), школа в усадьбе Свиблово, частные школы английского языка </li>
+        <li>Аналитик-исследователь - ВШГУ РАНХиГС, Центр внедрения клиентоцентричной транисформации</li>
+
+        <li>Аналитик-исследователь - Аппарат уполномоченного при ПРФ по правам ребенка</li>
+        <li>Аналитик-исследователь - Институт образования НИУ ВШЭ</li>
+        <li>Учитель английского языка - школа 1533 "ЛИТ", школа "Летово" (стажировка), школа в усадьбе Свиблово, English First </li>
       </ul>
 
-        <h3>Образование</h3>
-        <ul class="education-list">
-          <li>НИУ ВШЭ (2023), Институт образования. Исследователь-аналитик в сфере образования. Магистр</li>
-          <li>МАБиУ (2014), Международных отношений и мировой экономики. Лингвист-переводчик</li>
-          <li>Курсы, сертификаты, повышение квалификации</li>
-        </ul>
+      <h3>Образование</h3>
+      <ul class="education-list">
+        <li>НИУ ВШЭ (2023), Институт образования. <a href="../assets/img/About_me/HSE_MEd.jpg">Исследователь-аналитик в сфере образования</a>. Магистр</li>
+        <li>МАБиУ (2014), Международных отношений и мировой экономики. Лингвист-переводчик</li>
+        <li><span id="courses-link" class="clickable">Курсы, сертификаты, повышение квалификации</span></li>
+      </ul>
+    </div>
+  </div>
+</main>
+
+<!-- Модальное окно с галереей -->
+<div id="courses-modal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+
+    <!-- Области для навигации -->
+    <div class="nav-area prev"></div>
+    <div class="nav-area next"></div>
+
+    <div class="gallery-item active">
+      <img src="./assets/img/About_me/Statistics_Karpov.jpg" class="gallery-image" alt="Основы статистики_курс А. Карпова">
+      <div class="gallery-caption">Основы статистики_курс А. Карпова (2022)</div>
+      <div class="gallery-indicator">1 из 3</div>
+    </div>
+
+
+      <div class="gallery-item">
+      <img src=".../assets/img/About_me/DA/DA_Ask.jpg" class="gallery-image" alt="Google Data Analysis">
+      <div class="gallery-caption">Google Data Analytics (2021)</div>
+      <div class="gallery-indicator">2 из 3</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="../assets/img/About_me/DA/R_Intermediate_DataCamp.jpg" class="gallery-image" alt="R Intermediate_DataCamp">
+      <div class="gallery-caption">R Intermediate - DataCamp (2022)</div>
+      <div class="gallery-indicator">2 из 3</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="../assets/img/About_me/DA/TidyVerse_DataCamp.jpg" class="gallery-image" alt="Tidyverse_DataCamp">
+      <div class="gallery-caption">Tidyverse - DataCamp (2022)</div>
+      <div class="gallery-indicator">3 из 3</div>
+    </div>
+
+        <div class="gallery-item">
+      <img src="../assets/img/About_me/Teacher_Add.jpg" class="gallery-image" alt="Teacher_Add">
+      <div class="gallery-caption">Профессиональная переподготовка - учитель английского языка (2020)</div>
+      <div class="gallery-indicator">3 из 3</div>
+    </div>
+
+        <div class="gallery-item">
+      <img src="../assets/img/About_me/TKT_Module3_1.jpg" class="gallery-image" alt="TKT">
+      <div class="gallery-caption"> TKT Cambridge Assessment (2020)</div>
+      <div class="gallery-indicator">3 из 3</div>
+    </div>
+
+        <div class="gallery-item">
+      <img src="../assets/img/About_me/CAE.jpg" class="gallery-image" alt="CAE">
+      <div class="gallery-caption">CAE Cambridge Assessment (2019)</div>
+      <div class="gallery-indicator">3 из 3</div>
+    </div>
+
 
   </div>
+</div>
 
-</main>
-      <script src="../assets/js/components.js"></script>
+<script>
+  // Обновлённый JavaScript для навигации
+  const modal = document.getElementById("courses-modal");
+  const btn = document.getElementById("courses-link");
+  const closeBtn = document.getElementsByClassName("close")[0];
+  const galleryItems = document.getElementsByClassName("gallery-item");
+  const prevArea = document.querySelector(".nav-area.prev");
+  const nextArea = document.querySelector(".nav-area.next");
+  let currentItem = 0;
+
+  function showItem(index) {
+    // Скрываем все элементы
+    for (let i = 0; i < galleryItems.length; i++) {
+      galleryItems[i].classList.remove("active");
+    }
+    // Показываем текущий
+    galleryItems[index].classList.add("active");
+  }
+
+  // Открытие модального окна
+  btn.onclick = function() {
+    modal.style.display = "block";
+    showItem(currentItem);
+    document.body.style.overflow = "hidden"; // Блокируем прокрутку страницы
+  }
+
+  // Закрытие модального окна
+  function closeModal() {
+    modal.style.display = "none";
+    document.body.style.overflow = ""; // Восстанавливаем прокрутку
+  }
+
+  closeBtn.onclick = closeModal;
+
+  // Навигация по клику на области
+  prevArea.onclick = function() {
+    currentItem = (currentItem - 1 + galleryItems.length) % galleryItems.length;
+    showItem(currentItem);
+  }
+
+  nextArea.onclick = function() {
+    currentItem = (currentItem + 1) % galleryItems.length;
+    showItem(currentItem);
+  }
+
+  // Закрытие по клику вне области
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      closeModal();
+    }
+  }
+
+  // Закрытие по ESC
+  document.onkeydown = function(event) {
+    if (event.key === "Escape") {
+      closeModal();
+    }
+  }
+
+  // Свайпы на мобильных устройствах
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  modal.addEventListener('touchstart', function(e) {
+    touchStartX = e.changedTouches[0].screenX;
+  }, false);
+
+  modal.addEventListener('touchend', function(e) {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+  }, false);
+
+  function handleSwipe() {
+    if (touchEndX < touchStartX - 50) {
+      // Свайп влево - следующий
+      currentItem = (currentItem + 1) % galleryItems.length;
+      showItem(currentItem);
+    } else if (touchEndX > touchStartX + 50) {
+      // Свайп вправо - предыдущий
+      currentItem = (currentItem - 1 + galleryItems.length) % galleryItems.length;
+      showItem(currentItem);
+    }
+  }
+</script>
 
 </body>
 </html>

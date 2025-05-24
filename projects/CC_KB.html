@@ -143,26 +143,38 @@ font-size: 18px
       display: flex;
     }
 
-    .modal-content {
-      max-width: 80%;
-      max-height: 80vh;
-      position: relative;
-    }
+.modal-content {
+  max-width: 90%; /* Чуть больше ширины */
+  max-height: 90vh; /* Чуть больше высоты */
+  overflow: auto; /* Добавляем прокрутку при необходимости */
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Выравниваем по верху для длинных изображений */
+}
+.modal-img {
+  max-width: 100%; /* Ограничиваем по ширине контейнера */
+  height: auto; /* Сохраняем пропорции */
+  border-radius: 12px;
+  object-fit: contain; /* Гарантируем, что все изображение будет видно */
+}
 
-    .modal-img {
-      width: 100%;
-      height: auto;
-      border-radius: 12px;
-    }
-
-    .modal-close {
-      position: absolute;
-      top: -30px;
-      right: -30px;
-      color: white;
-      font-size: 30px;
-      cursor: pointer;
-    }
+.modal-close {
+  position: fixed; /* Фиксируем относительно окна */
+  top: 20px;
+  right: 20px;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+  z-index: 1001; /* Над контентом */
+  background: rgba(0,0,0,0.5);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
   </style>
 </head>
 <body>
@@ -194,7 +206,7 @@ font-size: 18px
   <div class="project-layout">
     <div class="project-preview modal-trigger">
         <h3>Пример результата</h3> <!-- Добавляем заголовок -->
-      <img src="../assets/img/CC_KB/RAG_cover.PNG" alt="RAG">
+      <img src="../assets/img/CC_KB/RAG_cover.PNG"" alt="RAG">
     </div>
     <div class="project-description">
       <h3>Система умного поиска (RAG)</h3>

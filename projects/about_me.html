@@ -44,13 +44,21 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
 
-    .block-b {
-      grid-area: b;
-      background: #f5f5f5;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      overflow: hidden;
-    }
+.block-b {
+  grid-area: b;
+  background: #f5f5f5;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  /* Убираем overflow: hidden, чтобы изображение не обрезалось */
+  display: flex; /* Добавляем flex для правильного позиционирования */
+  justify-content: center; /* Центрируем по горизонтали */
+  align-items: center; /* Центрируем по вертикали */
+  padding: 20px; /* Добавляем отступы */
+  width: fit-content; /* Ширина по содержимому */
+  height: fit-content; /* Высота по содержимому */
+  max-width: 100%; /* Ограничиваем максимальную ширину */
+  align-self: start; /* Выравниваем по верху сетки */
+}
 
     .block-c {
       grid-area: c;

@@ -14,171 +14,165 @@
       margin: 0;
     }
 
-    h2, h3 {
-      margin-top: 0;
+    .grid-container {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      grid-template-rows: auto auto 1fr;
+      gap: 24px;
+      grid-template-areas:
+        "a b"
+        "a c"
+        "d c";
     }
 
-    /* Верхний грид: текст слева, портрет справа */
-    .top-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      margin-bottom: 40px;
-    }
     @media (max-width: 768px) {
-      .top-grid {
+      .grid-container {
         grid-template-columns: 1fr;
+        grid-template-areas:
+          "a"
+          "b"
+          "c"
+          "d";
       }
     }
 
-    .main-text {
+    .block-a {
+      grid-area: a;
       background: #f5f5f5;
       padding: 20px;
       border-radius: 12px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      color: #00031f;
     }
 
-    .portrait {
+    .block-b {
+      grid-area: b;
       background: #f5f5f5;
       border-radius: 12px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       overflow: hidden;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 10px;
-      user-select: none; /* нельзя выделять */
-      pointer-events: none; /* нельзя кликать */
     }
 
-  .portrait img {
-    max-width: 150px;  /* максимальная ширина */
-    width: 100%;
-    height: auto;
-    border-radius: 12px;
-    display: block;
-    object-fit: cover;
-  }
-
-
-    /* Второй грид: опыт слева, скиллы + образование справа */
-    .bottom-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-    }
-    @media (max-width: 768px) {
-      .bottom-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .experience, .skills-education {
+    .block-c {
+      grid-area: c;
       background: #f5f5f5;
       padding: 20px;
       border-radius: 12px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      color: #00031f;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
     }
 
-    /* Бейджи для скиллов */
+    .block-d {
+      grid-area: d;
+      background: #f5f5f5;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .portrait {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+
+    .portrait img {
+      max-width: 150px;
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      object-fit: cover;
+    }
+
     .skill-badges {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-bottom: 20px;
     }
+
     .skill-badge {
       background: #dcdcd3;
       color: #00031f;
       padding: 6px 12px;
       border-radius: 20px;
       font-size: 0.9rem;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      user-select: none;
     }
 
-    /* Стили для списка образования */
     .education-list {
       list-style: none;
       padding-left: 0;
       margin: 0;
     }
+
     .education-list li {
       margin-bottom: 8px;
     }
   </style>
 </head>
 <body>
-
-  <div class="top-grid">
-    <div class="main-text">
+  <div class="grid-container">
+    <!-- Блок A -->
+    <div class="block-a">
       <h2>Привет, я Игорь Панарин</h2>
       <p>Занимаюсь исследованиями и аналитикой в образовании и социальной сфере</p>
       <p>Имею опыт создания продуктов - от идеи до тестирования</p>
       <p>Люблю изучать и обучать, систематизировать и создавать уникальное.</p>
-      <p>Глубокое понимание сферы образования (учительский опыт, методики, психология)</p>
-
-      <p>
-
+      <p>Имею широкое понимание сферы образования (учительский опыт, методики, психология, исследования)</p>
     </div>
 
-    <div class="portrait">
-      <img src="\assets\img\About_me\portrait.jpg" alt="Портрет автора" />
+    <!-- Блок B -->
+    <div class="block-b">
+      <div class="portrait">
+        <img src="\assets\img\About_me\portrait.jpg" alt="Портрет автора" />
+      </div>
     </div>
-  </div>
 
-  <div class="bottom-grid">
-    <div class="experience">
+    <!-- Блок C -->
+    <div class="block-c">
+      <div>
+        <h3>Навыки</h3>
+        <div class="skill-badges">
+          <span class="skill-badge">Python</span>
+          <span class="skill-badge">R</span>
+          <span class="skill-badge">PostgreSQL</span>
+          <span class="skill-badge">Excel</span>
+          <span class="skill-badge">Процессное управление</span>
+          <span class="skill-badge">MVP</span>
+          <span class="skill-badge">AI</span>
+          <span class="skill-badge">RAG</span>
+          <span class="skill-badge">BeautifulSoup</span>
+          <span class="skill-badge">SurveyMonkey</span>
+          <span class="skill-badge">Количественный анализ</span>
+          <span class="skill-badge">Качественный анализ</span>
+          <span class="skill-badge">Визуализация, дашборды</span>
+          <span class="skill-badge">UI/UX</span>
+          <span class="skill-badge">Образовательные технологии</span>
+          <span class="skill-badge">Образовательный дизайн</span>
+          <span class="skill-badge">TKT, ICELT</span>
+        </div>
+      </div>
+      <div>
+        <h3>Образование</h3>
+        <ul class="education-list">
+          <li>НИУ ВШЭ (2023), Институт образования. Исследователь-аналитик в сфере образования. Магистр</li>
+          <li>МАБиУ (2014), Международных отношений и мировой экономики. Лингвист-переводчик</li>
+          <li>Курсы, сертификаты, повышение квалификации</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Блок D -->
+    <div class="block-d">
       <h3>Опыт работы</h3>
       <ul>
         <li>Аналитик-исследователь в образовании: Институт образование НИУ ВШЭ</li>
-        <li>Аналитик-исследователь в социальной и гос. сфере: ВШГУ РАНХиГС, Аппарат уполномоченного при ПРФ по правам ребенка, АЦпПРФ
+        <li>Аналитик-исследователь в социальной и гос. сфере: ВШГУ РАНХиГС, Аппарат уполномоченного при ПРФ по правам ребенка, АЦпПРФ</li>
         <li>Разработчик AI-ассистентов</li>
         <li>Учитель английского языка: школа 1533 "ЛИТ", Летово (стажировка), школа в усадьбе Свиблово, частные школы английского языка </li>
       </ul>
     </div>
-
-    <div class="skills-education">
-      <h3>Навыки</h3>
-      <div class="skill-badges">
-        <span class="skill-badge">Python</span>
-        <span class="skill-badge">R</span>
-        <span class="skill-badge">PostgreSQL</span>
-        <span class="skill-badge">Excel</span>
-        <span class="skill-badge">Процессное управление</span>
-        <span class="skill-badge">MVP</span>
-
-        <span class="skill-badge">AI</span>
-        <span class="skill-badge">RAG</span>
-
-
-        <span class="skill-badge">BeautifulSoup</span>
-
-        <span class="skill-badge">SurveyMonkey</span>
-
-        <span class="skill-badge">Количественный анализ</span>
-        <span class="skill-badge">Качественный анализ</span>
-        <span class="skill-badge">Визуализация, дашборды</span>
-        <span class="skill-badge">UI/UX</span>
-        <span class="skill-badge">Образовательные технологии</span>
-        <span class="skill-badge">Образовательный дизайн</span>
-
-
-        <span class="skill-badge">TKT, ICELT</span>
-
-
-      </div>
-
-      <h3>Образование</h3>
-      <ul class="education-list">
-        <li>НИУ ВШЭ (2023), Институт образования. Исследователь-аналитик в сфере образования. Магистр</li>
-        <li>МАБиУ (2014), Международных отношений и мировой экономики. Лингвист-переводчик</li>
-        <li>Курсы, сертификаты, повышение квалификации</li>
-      </ul>
-    </div>
   </div>
-
 </body>
 </html>

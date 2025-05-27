@@ -107,6 +107,16 @@
       object-fit: cover;
     }
 
+  .modal-caption {
+    text-align: center;
+    color: #fff;
+    padding: 10px;
+    font-size: 1rem;
+    background-color: rgba(0, 0, 0, 0.6); /* полупрозрачный фон */
+    border-radius: 8px;
+    margin-top: 10px;
+  }
+
     .skill-badges {
       display: flex;
       flex-wrap: wrap;
@@ -342,6 +352,15 @@
   </div>
 </main>
 
+<!-- Модалка для портрета -->
+<div id="portrait-modal" class="modal">
+  <div class="modal-content">
+    <span class="close" id="portrait-close">&times;</span>
+    <img src="../assets/img/About_me/Students.jpg" class="gallery-image" alt="Портрет крупнее"/>
+    <div class="modal-caption">Игорь Юрьевич, версия третьеклассников</div>
+  </div>
+</div>
+
 <!-- Модальное окно с галереей -->
 <div id="courses-modal" class="modal">
   <div class="modal-content">
@@ -352,46 +371,46 @@
     <div class="nav-area next"></div>
 
     <div class="gallery-item active">
-      <img src="./assets/img/About_me/Statistics_Karpov.jpg" class="gallery-image" alt="Основы статистики_курс А. Карпова">
-      <div class="gallery-caption">Основы статистики_курс А. Карпова (2022)</div>
-      <div class="gallery-indicator">1 из 3</div>
+      <img src="./assets/img/About_me/DA/Statistics_Karpov.jpg" class="gallery-image" alt="Основы статистики_курс А. Карпова">
+      <div class="gallery-caption">Основы статистики - курс А. Карпова (2022)</div>
+      <div class="gallery-indicator">1 из 7</div>
     </div>
 
 
       <div class="gallery-item">
       <img src=".../assets/img/About_me/DA/DA_Ask.jpg" class="gallery-image" alt="Google Data Analysis">
       <div class="gallery-caption">Google Data Analytics (2021)</div>
-      <div class="gallery-indicator">2 из 3</div>
+      <div class="gallery-indicator">2 из 7</div>
     </div>
 
     <div class="gallery-item">
       <img src="../assets/img/About_me/DA/R_Intermediate_DataCamp.jpg" class="gallery-image" alt="R Intermediate_DataCamp">
       <div class="gallery-caption">R Intermediate - DataCamp (2022)</div>
-      <div class="gallery-indicator">2 из 3</div>
+      <div class="gallery-indicator">3 из 7</div>
     </div>
 
     <div class="gallery-item">
       <img src="../assets/img/About_me/DA/TidyVerse_DataCamp.jpg" class="gallery-image" alt="Tidyverse_DataCamp">
       <div class="gallery-caption">Tidyverse - DataCamp (2022)</div>
-      <div class="gallery-indicator">3 из 3</div>
+      <div class="gallery-indicator">4 из 7</div>
     </div>
 
         <div class="gallery-item">
       <img src="../assets/img/About_me/Teacher_Add.jpg" class="gallery-image" alt="Teacher_Add">
       <div class="gallery-caption">Профессиональная переподготовка - учитель английского языка (2020)</div>
-      <div class="gallery-indicator">3 из 3</div>
+      <div class="gallery-indicator">5 из 7</div>
     </div>
 
         <div class="gallery-item">
       <img src="../assets/img/About_me/TKT_Module3_1.jpg" class="gallery-image" alt="TKT">
       <div class="gallery-caption"> TKT Cambridge Assessment (2020)</div>
-      <div class="gallery-indicator">3 из 3</div>
+      <div class="gallery-indicator">6 из 7</div>
     </div>
 
         <div class="gallery-item">
       <img src="../assets/img/About_me/CAE.jpg" class="gallery-image" alt="CAE">
       <div class="gallery-caption">CAE Cambridge Assessment (2019)</div>
-      <div class="gallery-indicator">3 из 3</div>
+      <div class="gallery-indicator">7 из 7</div>
     </div>
 
 
@@ -482,6 +501,41 @@
     }
   }
 </script>
+
+<script>
+  // Модалка портрета
+  const portraitModal = document.getElementById("portrait-modal");
+  const portraitImg = document.querySelector(".portrait img");
+  const portraitClose = document.getElementById("portrait-close");
+
+  portraitImg.onclick = function () {
+    portraitModal.style.display = "block";
+    document.body.style.overflow = "hidden";
+  };
+
+  portraitClose.onclick = function () {
+    portraitModal.style.display = "none";
+    document.body.style.overflow = "";
+  };
+
+  // Закрытие при клике вне изображения
+  window.addEventListener("click", function (event) {
+    if (event.target === portraitModal) {
+      portraitModal.style.display = "none";
+      document.body.style.overflow = "";
+    }
+  });
+
+  // Закрытие по ESC
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape" && portraitModal.style.display === "block") {
+      portraitModal.style.display = "none";
+      document.body.style.overflow = "";
+    }
+  });
+</script>
+
+
   <div id="dynamic-footer"></div>
   <script src="../assets/js/components.js"></script>
 </body>

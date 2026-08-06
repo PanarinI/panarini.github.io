@@ -1,411 +1,141 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Портфолио</title>
-    <link rel="stylesheet" href="../assets/css/style.css">
-<style>
-/* Общие стили */
-body {
-  font-family: sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #000233;
-}
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Igor Panarin — work</title>
+<meta name="description" content="A catalogue of projects: what each one is, how it is built, and what was decided along the way.">
+<style>*{box-sizing:border-box}
+body{margin:0;background:#0d0d0f;color:#e8e6e1;
+  font:16px/1.55 -apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif;
+  -webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding:5vh 28px 8vh}
+.who{font-size:clamp(21px,2.6vw,28px);font-weight:600;letter-spacing:-.02em;margin:0 0 .6rem}
+.sub{max-width:46em;color:#a8a49b;font-size:16px;margin:0 0 3.2rem}
+h2{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#75726b;font-weight:400;
+  margin:0 0 1.2rem;padding-top:1.6rem;border-top:1px solid #1e1e22}
+.card{display:block;text-decoration:none;color:inherit;background:#131316;border:1px solid #1e1e22;
+  border-radius:4px;overflow:hidden;transition:border-color .25s,transform .25s}
+a.card:hover{border-color:#3a3a42;transform:translateY(-2px)}
+.row{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.name{font-size:16px;font-weight:600;letter-spacing:-.01em}
+.stage{font-size:10px;letter-spacing:.07em;text-transform:uppercase;color:#a8a49b;
+  border:1px solid #2e2e33;border-radius:2px;padding:2px 6px;white-space:nowrap}
+.desc{margin:.5rem 0 0;font-size:14px;line-height:1.45;color:#8d8981}
 
-:root {
-  --card-img-height: 150px;
+.spine{display:grid;grid-template-columns:1.15fr 1fr;margin:0 0 3.4rem}
+.spine .shot{height:100%;min-height:224px;overflow:hidden;border-right:1px solid #1e1e22}
+.spine .shot img{display:block;width:100%;height:100%;object-fit:cover}
+.spine .body{padding:24px 26px;display:flex;flex-direction:column;justify-content:center}
+.spine .name{font-size:21px}
+.spine .desc{font-size:15px;max-width:32em;margin-top:.7rem}
 
-}
+.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fill,minmax(min(100%,268px),1fr));
+  margin:0 0 3.4rem}
+.shot{height:132px;background:#17171a;overflow:hidden;border-bottom:1px solid #1e1e22}
+.shot img{display:block;width:100%;height:100%;object-fit:cover;object-position:top center}
+.shot.none{display:flex;align-items:center;justify-content:center;color:#4d4b47;font-size:12px;
+  letter-spacing:.06em;text-transform:uppercase}
+.body{padding:12px 14px 14px}
 
-/* Обёртка карточек (не трогаем) */
-.cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  padding: 2rem;
-}
-@media (max-width: 1024px) { .cards { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width:  640px) { .cards { grid-template-columns: 1fr; } }
-
-/* Сама карточка */
-.card {
-  display: grid;
-  grid-template-rows: var(--card-img-height) 1fr auto;
-  flex-direction: column;
-  height: 100%;
-  background: #eeeee7;
-  border-radius: 12px;
-  overflow: hidden;
-  transition: transform .2s, box-shadow .2s;
-}
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-
-
-}
+.rows{max-width:58em;margin:0 0 3.4rem}
+.r{display:flex;gap:14px;align-items:baseline;padding:.75rem 0;border-bottom:1px solid #17171a;
+  font-size:15px}
+.r .t{flex:1;color:#c9c4b8}
+.r .t a{color:inherit;text-decoration:none;border-bottom:1px solid #2e2e33}
+.r .t a:hover{color:#e8e6e1}
+.r .n{color:#8d8981;font-size:13.5px;flex:1.3}
+.r .y{color:#75726b;font-size:13px;white-space:nowrap}
+.r .c{color:#75726b;font-size:13px;max-width:16em;text-align:right}
 
 
-/* Кликабельная зона */
-.card-link {
-  display: contents; /* оставляем разметку, но делаем детей прямыми элементами grid */
-  color: inherit;
-  text-decoration: none;
-}
-/* Изображение */
-.card-img-wrapper {
-  grid-row: 1;
-  background: #ccc;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.5);
-}
+footer{margin-top:3rem;padding-top:1.6rem;border-top:1px solid #1e1e22;font-size:15px;color:#8d8981}
+footer a{color:#c9c4b8;text-decoration:none;border-bottom:1px solid #2e2e33}
+footer a:hover{color:#e8e6e1}
+@media(max-width:760px){.spine{grid-template-columns:1fr}.spine .shot{border-right:0;
+  border-bottom:1px solid #1e1e22;min-height:150px}}
+@media(prefers-reduced-motion:reduce){a.card{transition:none}}
+</style></head><body><div class="wrap">
 
-.card-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top;
-  display: block;
-  filter: grayscale(100%);
-  transition: filter .3s;
-}
-.card:hover .card-img {
-  filter: none;
-}
+<p class="who">Igor Panarin — what I build, and how it is built.</p>
+<p class="sub">A catalogue, not a pitch. Every project below shows its current state, the decisions
+behind it and what comes next. All of it is made by one person working with AI. The order is not a
+ranking — most recently moved comes first, so the top of this page is whatever I am living in now.</p>
 
-/* 1) Убираем любые отступы внутри заголовочного контейнера */
-.card-header {
-  margin: 0;       /* полностью сбрасываем margin */
-  padding: 0;      /* сбрасываем padding */
-}
+<h2>Work</h2>
+<div class="grid">
 
-/* 4. Основной контент — ровно в средней (растягивающейся) строке */
-.card-content {
-  grid-row: 2;
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-  gap: 0.5rem;
-}
+  <a class="card" href="projects/logoped.html">
+    <div class="shot"><img src="projects/img/sheet-2026-08.png" alt="A generated practice sheet"></div>
+    <div class="body">
+      <div class="row"><span class="name">Worksheet generator</span><span class="stage">in build</span></div>
+      <p class="desc">Speech-therapy material assembled for one specific child: every word filtered
+      against the sounds that child cannot say yet.</p>
+    </div>
+  </a>
 
-/* Сбрасываем все неожиданные маргины у заголовков */
-.card-content .card-header,
-.card-content .card-header h2 {
-  margin: 0;
-  padding: 0;
-}
-/* 5. Тэги сразу под списком, без наезжаний */
-.card-tags {
-  margin-top: auto;        /* прижимает весь блок тегов к низу контента */
-  display: flex;
-  flex-wrap: wrap-reverse; /* <-- ВАЖНО: строки будут добавляться вверх */
-  gap: 0.4rem 0.6rem;
-  justify-content: flex-start;
-}
-.card-tags .badge {
-  text-decoration: none !important; /* убираем подчёркивание */
-}
+  <div class="card">
+    <div class="shot"><img src="projects/img/flight.png" alt="A dark starfield with one warm star"></div>
+    <div class="body">
+      <div class="row"><span class="name">Sound Focus</span><span class="stage">in build</span></div>
+      <p class="desc">A focus timer with no digits on screen. Time is carried by sound — a flight
+      toward a star, and arrival ends the session.</p>
+    </div>
+  </div>
 
-.card-tags a {
-  background: #00031f;
-  color: #fff;
-  font-size: 0.75rem;
-  font-weight: 500;
-  padding: 0.3rem 0.8rem;
-  border-radius: 999px;
-  text-decoration: none;
-  white-space: nowrap;
-  line-height: 1.2;
-}
+  <div class="card">
+    <div class="shot"><img src="projects/img/igra.png" alt="A valley map with five inhabitants"></div>
+    <div class="body">
+      <div class="row"><span class="name">Live As You Like</span><span class="stage">in build</span></div>
+      <p class="desc">A watchable simulation: a handful of inhabitants, simple rules, one valley.
+      Nothing is scripted — the story is whatever emerges.</p>
+    </div>
+  </div>
 
-/* Контент */
-.card-content {
-  padding-top: 0 !important;
-  margin-top: 0 !important;
-  gap: 0.5rem !important;
-    flex: 1;                 /* чтобы контент тянулся и толкал футер вниз */
-}
+  <a class="card" href="projects/telescope.html">
+    <div class="shot"><img src="projects/img/sky.png" style="object-position:center" alt="A field of constellations standing for clusters of demand"></div>
+    <div class="body">
+      <div class="row"><span class="name">Demand Telescope</span><span class="stage">in use</span></div>
+      <p class="desc">Raw search data turned into a sky you can navigate: each star a query, its size
+      the volume, its colour how crowded that door already is.</p>
+    </div>
+  </a>
 
-/* Заголовок */
-.card-title {
-  font-size: 1.25rem;
-  font-weight: 700;
-  margin: 0;               /* сразу под картинкой */
-  padding: 0;              /* никаких щелей */
-  color: #222;
-}
+  <div class="card">
+    <div class="shot none">frame pending</div>
+    <div class="body">
+      <div class="row"><span class="name">ExportGPT</span><span class="stage">in use</span></div>
+      <p class="desc">A Chrome extension turning a ChatGPT conversation into a clean PDF. In the
+      store, 346 users, rendered on its own server rather than a paid API.</p>
+    </div>
+  </div>
 
-/* Описание */
-.card-desc {
-  font-size: 0.9rem;
-  line-height: 1.4;
-  color: #444;
-  margin: 0;
-  padding: 0;
-}
+  <div class="card">
+    <div class="shot"><img src="projects/img/mir.png" alt="An isometric world standing for the garden of projects"></div>
+    <div class="body">
+      <div class="row"><span class="name">The Garden</span><span class="stage">in use</span></div>
+      <p class="desc">A way of keeping context alive across sessions: each project holds its own
+      memory in plain files, so work resumes instead of restarting. Nineteen run on it.</p>
+    </div>
+  </div>
 
-/* Список мета */
-.card-meta {
-  list-style: disc inside;
-  margin: 0;
-  padding: 0;
-}
-.card-meta li {
-  font-size: 0.9rem;
-  color: #333;
-  margin: 0 0 0.25rem 0;
-}
+</div>
 
-.badge {
-  background: #00031f;
-  color: #fff;
-  font-size: 0.75rem;
-  font-weight: 500;
-  padding: 0.3rem 0.8rem;   /* добиваемся круглых «овальчиков» */
-  border-radius: 999px;
-  white-space: nowrap;
-  line-height: 1.2;
-  flex-shrink: 0;
-}
-@media (max-width: 640px) {
-  .badge { white-space: normal; word-break: break-word; }
-}
+<h2>Shelved</h2>
+<div class="rows">
+  <div class="r"><span class="t">Metodica</span><span class="n">A lesson-plan engine: a photo of a textbook page in, a methodical sequence of activities out. The ideas in it are still good.</span><span class="y">in queue</span></div>
+</div>
 
-/* 6. Футер — всегда ровно в третьей строке грида */
-.card-footer {
-  grid-row: 3;
-  border-top: 1px solid #ddd;
-  padding: 0.75rem 1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.9rem;
-  color: #555;
-}
-.card-footer .separator {
-  margin: 0;
-}
-.card-footer .client {
-  color: #333;
-}
+<h2>Earlier research</h2>
+<div class="rows">
+  <div class="r"><span class="t"><a href="archive/projects/SS_index.html">Social orphanhood: a composite risk indicator across regions</a></span><span class="y">2023</span><span class="c">Office of the Children's Ombudsman</span></div>
+  <div class="r"><span class="t"><a href="archive/projects/SS_analytics.html">Social orphanhood: children in institutional care</a></span><span class="y">2023</span><span class="c">Office of the Children's Ombudsman</span></div>
+  <div class="r"><span class="t"><a href="archive/projects/CC_KB.html">Client-centric public administration: knowledge base</a></span><span class="y">2024</span><span class="c">RANEPA</span></div>
+  <div class="r"><span class="t"><a href="archive/projects/CC_analytics.html">Client-centric public administration: analytical reviews</a></span><span class="y">2024</span><span class="c">RANEPA</span></div>
+  <div class="r"><span class="t"><a href="archive/projects/InObr_teachers.html">Teachers' professional growth: a survey study</a></span><span class="y">2022</span><span class="c">HSE Institute of Education</span></div>
+</div>
 
 
-.card:hover .badge {
-  background-color: #3b0d99; /* глубокий фиолетовый */
-}
 
+<footer>Text first. Write about living-memory systems, teaching companions, or anything on this
+page — <a href="mailto:panarin2005@gmail.com">panarin2005@gmail.com</a> ·
+<a href="https://github.com/PanarinI">GitHub</a></footer>
 
-/* 2) Убираем границу у обёртки картинки */
-.card-img-wrapper {
-  border-bottom: none !important;
-}
-
-/* 3) Переносим разделитель вниз в контент */
-.card-content {
-  border-top: 1px solid #e0e0e0 !important;
-  padding-top: 0.75rem !important; /* отступ между картинкой и контентом */
-}
-
-
-</style>
-</head>
-<body>
-
-<div id="dynamic-header"></div>
-
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript" >
-   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-   m[i].l=1*new Date();
-   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-
-   ym(102234535, "init", {
-        clickmap:true,
-        trackLinks:true,
-        accurateTrackBounce:true
-   });
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/102234535" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
-
-
-<main>
-<section class="cards" id="projects">
-
-  <!-- Карточка #1: Metodica -->
-  <article class="card">
-    <a href="projects/metodica.html" class="card-link">
-      <div class="card-img-wrapper">
-        <img src="assets/img/metodica/metodica_cover_upscale.png" alt="Metodica Cover" class="card-img">
-      </div>
-      <div class="card-content">
-        <div class="card-header">
-          <h2 class="card-title">Metodica: умный помощник учителя</h2>
-          <p class="card-desc">AI-ассистент, который составляет планы уроков по фотографии страницы учебного материала</p>
-
-        </div>
-        <div class="card-tags">
-          <a href="#" class="badge">EdTech</a>
-          <a href="#" class="badge">openai API</a>
-          <a href="#" class="badge">multimodal</a>
-          <a href="#" class="badge">UI/UX</a>
-
-        </div>
-      </div>
-      <div class="card-footer">
-        <span class="year">2025</span>
-      </div>
-    </a>
-  </article>
-
-  <!-- Карточка #2: Клиентоцентричность: база знаний -->
-  <article class="card">
-    <a href="projects/CC_KB.html" class="card-link">
-      <div class="card-img-wrapper">
-        <img src="assets/img/CC_KB/cover_2.png" alt="Knowledge Base Cover" class="card-img">
-      </div>
-      <div class="card-content">
-        <div class="card-header">
-          <h2 class="card-title">Клиентоцентричность в госуправлении: база знаний</h2>
-          <p class="card-desc">Библиотека материалов по внедрению клиентоцентричного подхода в госуправлении</p>
-        </div>
-        <div class="card-tags">
-          <a href="#" class="badge">UI/UX</a>
-          <a href="#" class="badge">Tilda</a>
-          <a href="#" class="badge">ЯМетрики</a>
-          <a href="#" class="badge">Excel</a>
-          <a href="#" class="badge">RAG</a>
-        </div>
-      </div>
-      <div class="card-footer">
-        <span class="year">2024</span>
-        <span class="separator">|</span>
-        <span class="client">Заказчик: ВШГУ РАНХиГС</span>
-      </div>
-    </a>
-  </article>
-
-  <!-- Карточка #3: Аналитические материалы ВШГУ -->
-  <article class="card">
-    <a href="projects/CC_analytics.html" class="card-link">
-      <div class="card-img-wrapper">
-        <img src="assets/img/CC_analytics/cover.png" alt="Analytics Cover" class="card-img">
-      </div>
-      <div class="card-content">
-        <div class="card-header">
-          <h2 class="card-title">Клиентоцентричность в госуправлении: аналитические обзоры</h2>
-          <p class="card-desc">Отечественный и зарубежный опыт внедрения клиентоцентричности в госуправлении</p>
-          <ul class="card-meta">
-
-          </ul>
-        </div>
-        <div class="card-tags">
-          <a href="#" class="badge">BPMN</a>
-          <a href="#" class="badge">процессное управление</a>
-          <a href="#" class="badge">пользовательский опыт</a>
-          <a href="#" class="badge">desk researh</a>
-        </div>
-      </div>
-      <div class="card-footer">
-        <span class="year">2024</span>
-        <span class="separator">|</span>
-        <span class="client">Заказчик: ВШГУ РАНХиГС</span>
-      </div>
-    </a>
-  </article>
-
-
-  <!-- Карточка #4: Индикатор -->
-  <article class="card">
-    <a href="projects/SS_index.html" class="card-link">
-      <div class="card-img-wrapper">
-        <img src="assets/img/SS_index/cover.png" alt="Indicator Cover" class="card-img">
-      </div>
-      <div class="card-content">
-        <div class="card-header">
-          <h2 class="card-title">Социальное сиротство: индикатор</h2>
-          <p class="card-desc">Многомерный индикатор рисков социального сиротства в субъектах РФ</p>
-
-        </div>
-        <div class="card-tags">
-          <a href="#" class="badge">Исследования и анализ</a>
-          <a href="#" class="badge">Прикладная статистика</a>
-          <a href="#" class="badge">Формы стат. наблюдения</a>
-          <a href="#" class="badge">Управение проектом</a>
-        </div>
-      </div>
-      <div class="card-footer">
-        <span class="year">2023</span>
-        <span class="separator">|</span>
-        <span class="client">Заказчик: Аппарат Уполномоченного при ПРФ по правам ребенка</span>
-      </div>
-    </a>
-  </article>
-
-  <!-- Карточка #5: Аналитика социального сиротства -->
-  <article class="card">
-    <a href="projects/SS_analytics.html" class="card-link">
-      <div class="card-img-wrapper">
-        <img src="assets/img/SS_research/Cover_7.PNG" alt="SS_cover" class="card-img">
-      </div>
-      <div class="card-content">
-        <div class="card-header">
-          <h2 class="card-title">Социальное сиротство: дети в детских учреждениях </h2>
-          <p class="card-desc">Детальный портрет социального сиротства в субъектах РФ</p>
-        </div>
-        <div class="card-tags">
-          <a href="#" class="badge">запросы данных</a>
-          <a href="#" class="badge">экспертиза</a>
-          <a href="#" class="badge">проверка гипотез</a>
-          <a href="#" class="badge">прикладная статистика</a>
-        </div>
-      </div>
-      <div class="card-footer">
-        <span class="year">2023</span>
-        <span class="separator">|</span>
-        <span class="client">Заказчик: Аппарат Уполномоченного при ПРФ по правам ребенка</span>
-      </div>
-    </a>
-  </article>
-
-  <!-- Карточка #6: Вовлечённость учителей: ПСВ Саха -->
-  <article class="card">
-    <a href="projects/InObr_teachers.html" class="card-link">
-      <div class="card-img-wrapper">
-        <img src="assets/img/InObr_Teachers/cover.png" alt="PSV Cover" class="card-img">
-      </div>
-      <div class="card-content">
-        <div class="card-header">
-          <h2 class="card-title">Профессиональный рост учителей: субъективная оценка </h2>
-          <p class="card-desc">Исследование участия учителей в практиках Проекта социального воздействия</p>
-
-        </div>
-        <div class="card-tags">
-          <a href="#" class="badge">прикладная статистика</a>
-          <a href="#" class="badge">экспертные интервью</a>
-          <a href="#" class="badge">опрос</a>
-          <a href="#" class="badge">R</a>
-          <a href="#" class="badge">ANOVA</a>
-
-        </div>
-      </div>
-      <div class="card-footer">
-        <span class="year">2022</span>
-        <span class="separator">|</span>
-        <span class="client">Институт образования ВШЭ</span>
-      </div>
-    </a>
-  </article>
-
-</section>
-
-
-</main>
-
-  <script src="../assets/js/components.js"></script>
-
-</body>
-</html>
+</div></body></html>

@@ -1,0 +1,151 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Demand Telescope — Igor Panarin</title>
+<meta name="description" content="An instrument that turns search demand into a sky you can navigate, used to decide what is worth building next.">
+<style>*{box-sizing:border-box}
+body{margin:0;background:#0d0d0f;color:#e8e6e1;
+  font:16px/1.55 -apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif;
+  -webkit-font-smoothing:antialiased}
+.wrap{max-width:940px;margin:0 auto;padding:4vh 28px 10vh}
+.back{font-size:14px;color:#8d8981;text-decoration:none;border-bottom:1px solid #2e2e33}
+.back:hover{color:#e8e6e1}
+.head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin:2.4rem 0 0}
+h1{font-size:clamp(26px,3.6vw,38px);font-weight:600;letter-spacing:-.02em;margin:0}
+.stage{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#c9c4b8;
+  border:1px solid #34343a;border-radius:2px;padding:3px 9px}
+.lede{max-width:40em;color:#a8a49b;font-size:17px;margin:.9rem 0 1.4rem}
+.tags{display:flex;gap:7px;flex-wrap:wrap;margin:0 0 2.6rem}
+.tag{font-size:12px;color:#8d8981;border:1px solid #26262b;border-radius:2px;padding:2px 9px;
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+.strip{display:grid;grid-template-columns:1fr 1fr .8fr;gap:14px;margin:0 0 2.6rem}
+.frame{margin:0}
+.frame a,.frame span{display:block;background:#17171a;border-radius:3px;overflow:hidden;height:186px}
+.frame img{display:block;width:100%;height:100%;object-fit:contain;background:#0f0f11}
+.frame figcaption{font-size:13px;color:#8d8981;padding:.6rem .1rem 0}
+.next{border:1px dashed #34343a;border-radius:3px;display:flex;flex-direction:column;
+  justify-content:center;padding:1.1rem;height:186px}
+.next b{display:block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;
+  color:#75726b;font-weight:400;margin-bottom:.5rem}
+.next p{margin:0;color:#c9c4b8;font-size:14.5px;line-height:1.45}
+h2{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#75726b;
+  font-weight:400;margin:0 0 1rem;padding-top:1.6rem;border-top:1px solid #1e1e22}
+.how{max-width:46em;margin:0 0 2.6rem;color:#a8a49b;font-size:15.5px}
+.how p{margin:0 0 .75rem}
+.how em{color:#e8e6e1;font-style:normal}
+.nums{display:flex;gap:2.4rem;flex-wrap:wrap;margin:1.4rem 0 0;font-size:14px;color:#75726b}
+.nums b{display:block;color:#e8e6e1;font-size:22px;font-weight:600;letter-spacing:-.01em}
+.dec{max-width:46em;margin:0 0 1.8rem}
+.dec h3{font-size:16.5px;font-weight:600;margin:0 0 .4rem;letter-spacing:-.01em}
+.dec p{margin:0;color:#a8a49b;font-size:15.5px}
+footer{margin-top:3rem;padding-top:1.6rem;border-top:1px solid #1e1e22;
+  font-size:14px;color:#8d8981;max-width:46em}
+@media(max-width:700px){.strip{grid-template-columns:1fr}}
+
+#lb{position:fixed;inset:0;background:rgba(8,8,10,.94);display:none;align-items:center;
+  justify-content:center;padding:4vh 4vw;z-index:9;cursor:zoom-out}
+#lb.on{display:flex}
+#lb img{max-width:100%;max-height:100%;object-fit:contain;border-radius:3px}
+#lb b{position:absolute;top:14px;right:20px;color:#8d8981;font-size:26px;font-weight:400;
+  line-height:1;cursor:pointer}
+[data-zoom]{cursor:zoom-in}
+</style></head><body><div class="wrap">
+
+<a class="back" href="../">← All work</a>
+
+<div class="head">
+  <h1>Demand Telescope</h1>
+  <span class="stage">in use</span>
+</div>
+
+<p class="lede">An instrument for deciding what to build next. Search demand becomes a sky you can
+fly through: every query a star, its size the monthly volume, its colour how crowded that door
+already is.</p>
+
+<div class="tags">
+  <span class="tag">offline layout</span>
+  <span class="tag">level-of-detail canvas</span>
+</div>
+
+<div class="strip">
+  <figure class="frame">
+    <span><img src="img/sky-0712.png" alt="An early, sparse graph of a few dozen large nodes"></span>
+    <figcaption>12 July — a sparse graph</figcaption>
+  </figure>
+  <figure class="frame">
+    <span data-zoom="img/sky.png" tabindex="0"><img src="img/sky.png" alt="A dense field of constellations"></span>
+    <figcaption>Today — 1497 stars, nine regions</figcaption>
+  </figure>
+  <div class="next">
+    <b>Next</b>
+    <p>A public cut of the sky: the landscape shown without the instrument behind it.</p>
+  </div>
+</div>
+
+<h2>How it works</h2>
+<div class="how">
+<p>Every query the instrument has ever looked at stays as a node. Size is monthly volume;
+colour is <em>how occupied that door already is</em>; edges are relations found in the data.</p>
+<p>Positions are not decided by hand and not simulated in the browser. The layout is
+<em>computed offline</em> from the relations themselves, so a sky of fifteen hundred nodes stays
+smooth to fly through, with detail appearing as you descend.</p>
+<p>Regions are the <em>questions that were asked</em>, not properties of the data — which is why
+every run, on any topic, pours into one sky rather than into a folder of separate maps.</p>
+<div class="nums">
+  <span><b>1497</b> stars</span>
+  <span><b>9</b> regions</span>
+  <span><b>1</b> sky, all runs</span>
+</div>
+</div>
+
+<h2>Decisions</h2>
+
+<div class="dec">
+  <h3>A niche is the question, not a property of the data</h3>
+  <p>Every key used to carry the niche it had been collected under, and the layout leaned on that.
+  But the same query turns up in two different runs asked under two different questions, and it
+  cannot belong to both. The niche was pulled out of the layout entirely: it is the frame of a run,
+  not a fact about the key. Positions now come only from relations inside the data.</p>
+</div>
+
+<div class="dec">
+  <h3>Nothing is drawn that the map cannot define</h3>
+  <p>Marks had crept onto the map — small stars and ticks — that meant something only to whoever
+  put them there. They were removed. The rule since: every mark carries a meaning defined in the
+  map's own dictionary, or it does not get drawn at all.</p>
+</div>
+
+<div class="dec">
+  <h3>A finished layer was deleted the evening it was finished</h3>
+  <p>A layer grouping regions into themes was built, worked, and looked good on screen. It came off
+  the same evening: it introduced a new kind of entity to answer a question the map could already
+  answer. The older rule won — do not multiply entities to decorate a view.</p>
+</div>
+
+<div class="dec">
+  <h3>Every run goes onto the sky, whatever it concluded</h3>
+  <p>It is tempting to keep only the runs that found something worth building. The sky would then
+  be a landscape made of wins, and useless for judging the next idea against. So every run is
+  poured in regardless of its verdict: the sky is the landscape, and a verdict is one cut through it.</p>
+</div>
+
+<footer>What the instrument sees is shown here. How it measures — where the numbers come from, how
+crowding is scored, and which regions are being explored right now — stays off this page.</footer>
+
+</div>
+<div id="lb" role="dialog" aria-modal="true" aria-label="Enlarged image"><b>&times;</b><img alt=""></div>
+<script>
+(function(){
+  var lb=document.getElementById('lb'), im=lb.querySelector('img'), last=null;
+  document.querySelectorAll('[data-zoom]').forEach(function(el){
+    el.addEventListener('click',function(){
+      last=el; im.src=el.getAttribute('data-zoom');
+      im.alt=(el.querySelector('img')||{}).alt||'';
+      lb.classList.add('on'); lb.focus();
+    });
+  });
+  function close(){ lb.classList.remove('on'); im.src=''; if(last) last.focus(); }
+  lb.addEventListener('click', close);
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') close(); });
+})();
+</script>
+</body></html>

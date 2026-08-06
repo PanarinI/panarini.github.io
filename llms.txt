@@ -1,0 +1,20 @@
+# Igor Panarin — living systems, built with AI
+
+> AI teaching companion with living memory… and a body. Builder of a product studio and its
+> instruments; works by a method where every project keeps its own living context.
+
+## Flagship: Teaching Companion
+- Working now: lesson-plan engine — photo of a textbook page in, materials and lesson plan out (PPP/ESA/TPR/TBL). Demo being reworked.
+- In the making: living memory (remembers the class and the teacher's style) and a body — Reachy Mini robot.
+- Horizon: an autonomous teaching creature; a companion, not a replacement.
+
+## Constellation
+- The Garden — method of building with AI where context stays alive (living memory per project).
+- Demand Telescope — internal instrument turning search data into a navigable sky of demand.
+- ExportGPT — shipped Chrome extension: ChatGPT conversations to clean PDFs.
+- Sound Focus — focus timer where time is made of sound (in the making).
+- Prints — wearable print line: /prints/ (THREAT LEVEL: EXTREMIST — case files of humanity's finest).
+
+## Contact
+- Email: panarin2005@gmail.com (text-first)
+- GitHub: https://github.com/PanarinI

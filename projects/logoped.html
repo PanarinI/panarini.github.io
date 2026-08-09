@@ -35,17 +35,22 @@ workbook can never do.</p>
 
 
 <figure class="fig">
-  <img src="img/sheet-2026-08.png" alt="A generated A4 practice sheet for the Russian sound R, with seven blocks: warm-up, isolated sound, syllables, words, a grammar game, sentences and a tongue-twister.">
-  <figcaption>One sheet, straight out of the printer. Every word on it passed the filter for one
-  particular child.</figcaption>
+  <img src="img/logoped-ui.png" alt="The first screen of the generator: eleven sound cards, each with how many words the dictionary holds for it, and a note explaining which sounds this sheet cannot serve and why.">
+  <figcaption>The first screen. Each card carries the size of its own dictionary, and the note below
+  says which sounds this format cannot serve — and why not.</figcaption>
 </figure>
 
 <h2>How it works</h2>
 <div class="how">
-<p>Words are transcribed <em>by sound, not by spelling</em>. A Russian word can be written with one
-consonant and spoken with another, so it never enters the list for the sound it appears to contain.</p>
-<p>A purity gate then removes every word holding a sound this child has not mastered yet. If the
-gate cannot verify a word, it <em>stops the build</em> instead of printing it.</p>
+<p>You choose the sound being practised and tick the sounds this child cannot say yet. Everything
+after that is automatic. The dictionary is cut down to words that hold the target sound and none of
+the forbidden ones. Ten blocks are then assembled — warm-up, the sound alone, syllables, words, a
+grammar game, sentences, a tongue-twister — and if they do not fit one A4 page, blocks are dropped in
+a fixed order until they do. Five kinds of material come out of the same dictionary: the sheet, two
+tracks to trace, word pairs, and a maze.</p>
+<p>Every word is transcribed <em>by sound, not by spelling</em>, because a Russian word can be
+written with one consonant and spoken with another. If a word cannot be verified, the build
+<em>stops</em> rather than printing it.</p>
 <div class="nums">
   <span><b>11</b> sounds</span>
   <span><b>2207</b> words vetted by hand</span>
@@ -53,84 +58,102 @@ gate cannot verify a word, it <em>stops the build</em> instead of printing it.</
 </div>
 </div>
 
-<h2>What it refuses to print</h2>
-<p class="exnote">This project has almost nothing to show as a screenshot: what changes is not a
-screen but what the engine is allowed to say. So here it is by example — the same two cases that
-taught it to distrust rules.</p>
+<h2>Where a rule would lie</h2>
+<p class="exnote">Twice the engine was caught generating Russian by the shape of a word, and twice
+the rule turned out to be wrong more often than right. Both are now tables, filled in by hand.</p>
 
 <table class="ex">
-  <caption><b>A rule by word-ending is wrong more often than it is right.</b> Asked to print
-  “five chairs”, a rule that inflects by the tail of the word produces a word that does not exist.
-  Out of sixteen words tested, it was wrong about fifteen.</caption>
-  <tr><th>the word</th><th>what a rule produces</th><th>what goes on the sheet</th></tr>
+  <caption><b>Inflection by word-ending.</b> Asked to print “five chairs”, a rule that changes the
+  tail of the word produces words that do not exist. Out of sixteen words tested it was wrong about
+  fifteen.</caption>
+  <tr><th>the word</th><th>what the rule produced</th><th>what goes on the sheet</th></tr>
   <tr><td class="w">стул <span class="g">chair</span></td><td class="bad">пять стулов</td><td class="out">пять стульев</td></tr>
   <tr><td class="w">угол <span class="g">corner</span></td><td class="bad">два угола</td><td class="out">два угла</td></tr>
   <tr><td class="w">лоб <span class="g">forehead</span></td><td class="bad">пять лобов</td><td class="out">пять лбов</td></tr>
 </table>
-<p class="exnote">The rule was switched off. Five hundred and seventy-nine words were then inflected
-by hand, twice and independently, and only the forms both passes agreed on were kept.</p>
+<p class="exnote">Five hundred and seventy-nine words were then inflected by hand, twice and
+independently. Only forms both passes agreed on were kept.</p>
 
 <table class="ex">
-  <caption><b>The suffix that makes a thing smaller also makes it a different thing.</b> A
-  diminutive is the friendliest exercise on the sheet — say it fondly — and the least safe to
-  generate, because the same ending that shrinks one word renames another.</caption>
+  <caption><b>The affectionate form.</b> “Say it fondly” is the friendliest exercise on the sheet and
+  the least safe to generate: the same ending that makes one word smaller turns another into a
+  different object entirely.</caption>
   <tr><th>the word</th><th>the “small” form</th><th>what it actually means</th><th>printed</th></tr>
   <tr><td class="w">ворона <span class="g">crow</span></td><td class="bad">воронка</td><td>a funnel</td><td class="out">no</td></tr>
   <tr><td class="w">корона <span class="g">crown</span></td><td class="bad">коронка</td><td>a dental crown</td><td class="out">no</td></tr>
   <tr><td class="w">пила <span class="g">saw</span></td><td class="bad">пилочка</td><td>a nail file</td><td class="out">no</td></tr>
 </table>
-<p class="exnote">Four hundred and fifty words went through the same double pass. The two passes
-agreed on ninety-five per cent of them; every disagreement was thrown away rather than resolved.
-Three hundred and six forms survived, two hundred and sixty-nine were blocked.</p>
+<p class="exnote">Four hundred and fifty words went through the same double pass; they agreed on
+ninety-five per cent. Every disagreement was thrown away rather than resolved — three hundred and six
+forms survived, two hundred and sixty-nine were blocked.</p>
 
 <h2>What the engine learned</h2>
-<p class="rule">Newest first. Each entry is the same shape: what it could not do, what it had to know
-first, and what it can do now.</p>
+<p class="rule">Newest first. Each entry has the same shape: what it could not do, what it had to
+know first, and what it can do now.</p>
 
 <details class="dec">
   <summary><time>2026-08-10</time><span>Two exercises existed on paper and not in fact</span></summary>
-  <p>Both were listed as working features. Neither could actually be built for almost any sheet,
-  because the rule they stood on had been switched off two days earlier as unreliable, and the
-  hand-made table that replaced it covered twenty-three words out of one thousand seven hundred.
-  They were counted as existing without existing. After the tables were filled they build on
-  twenty-eight sheets out of twenty-nine, and on fourteen out of twenty-nine — and the second
-  number is not a defect, see below.</p>
+  <p>Both were listed as working features, and neither could be built for almost any sheet: the rule they stood on had been switched off two days earlier as unreliable, and the hand-made table replacing it covered twenty-three words out of one thousand seven hundred. They were counted as existing without existing. Once the tables were filled, one builds on twenty-eight sheets out of twenty-nine and the other on fourteen — and the second number is not a defect, see below.</p>
 </details>
 
 <details class="dec">
-  <summary><time>2026-08-10</time><span>One exercise cannot be built for hissing sounds, and the reason is the language itself</span></summary>
-  <p>The fond diminutive almost always carries a particular consonant, and that consonant is
-  forbidden on a sheet for any hissing or whistling sound, because a child practising one will slide
-  into the other. Sixteen words on such a sheet, forms exist for twelve, eight of those fall at the
-  purity gate. No amount of engineering moves that number: it is a property of Russian, and the
-  screen should say so plainly rather than report that the exercise “could not be assembled”.</p>
+  <summary><time>2026-08-10</time><span>One exercise cannot be built for hissing sounds, and the reason is the language</span></summary>
+  <p>The affectionate form almost always carries a particular consonant, and that consonant is forbidden on a sheet for any hissing or whistling sound, because a child practising one will slide into the other. Sixteen words on such a sheet; forms exist for twelve; eight of those fall at the purity gate. No engineering moves that number, so the screen should say it plainly instead of reporting that the exercise “could not be assembled”.</p>
 </details>
 
 <details class="dec">
   <summary><time>2026-08-09</time><span>Ten tests had never run, and the suite reported all green</span></summary>
-  <p>A single line that tells the file to execute its tests was sitting in the middle of that file
-  instead of at its end. Everything written below it — ten test functions, five of them other
-  people's, including a check added the day before — was silently skipped. The suite printed a clean
-  result the whole time. Moving one line took the count from 1224 checks to 1649, and all of them
-  pass.</p>
+  <p>The single line that tells a file to execute its tests was sitting in the middle of that file instead of at the end. Everything below it — ten test functions, five of them written by other people, including a check added the day before — was silently skipped, while the suite printed a clean result. Moving one line took the count from 1224 checks to 1649.</p>
+</details>
+
+<details class="dec">
+  <summary><time>2026-08-09</time><span>A finished block was measured and parked, because the page was already full</span></summary>
+  <p>Word pairs were built as another block of the sheet. Then the sheet was measured: an A4 page holds 273 millimetres of material, and the existing blocks already asked for 305 to 363. The block became a separate printable material instead. The sheet itself did not change by a millimetre — verified against the previous version rather than assumed.</p>
 </details>
 
 <details class="dec">
   <summary><time>2026-08-08</time><span>Verbs were kept out of sentences until the dictionary knew enough about them</span></summary>
-  <p>Sentences on the sheet were frozen phrases: point at a picture and name it. Making them live
-  needs verbs, and a verb cannot be placed without knowing whether its subject is animate and
-  whether the action is finished — and neither can be derived from how the word ends. So the verbs
-  waited while three properties were marked by hand across the dictionary. Then the sentences moved:
-  from “here is a ram” to “an elk is swimming past”.</p>
+  <p>Sentences on the sheet were frozen phrases: point at a picture, name it. Making them live needs verbs, and a verb cannot be placed without knowing whether its subject is animate and whether the action is finished — neither of which can be derived from how the word ends. The verbs waited while three properties were marked by hand across the dictionary. Then the sentences moved: from “here is a ram” to “an elk is swimming past”.</p>
 </details>
 
 <details class="dec">
   <summary><time>2026-08-08</time><span>Three materials were teaching the wrong sound</span></summary>
-  <p>A practice track for one voiced consonant printed syllables that, read aloud, come out as its
-  voiceless twin — so a sheet made to train one sound was training its opposite. Two more materials
-  had the same class of fault. All three came off the paper the day it was measured. The lesson is
-  the project's rule now: what a letter looks like and what a mouth does with it are different
-  facts, and only the second one is allowed to decide anything.</p>
+  <p>A practice track for one voiced consonant printed syllables that, read aloud, come out as its voiceless twin — a sheet made to train one sound was training its opposite. Two more materials had the same class of fault. All three came off the paper the day it was measured. What a letter looks like and what a mouth does with it are different facts, and only the second is allowed to decide anything.</p>
+</details>
+
+<details class="dec">
+  <summary><time>2026-08-06</time><span>The engine was describing a child it had never met</span></summary>
+  <p>The sheet printed a line about sounds that were “still difficult” for this child. Nothing in the input says that: the therapist ticks which sounds to avoid, which is not the same as a diagnosis. The line came off. A generated document may state what it did, never what it inferred about a person.</p>
+</details>
+
+<details class="dec">
+  <summary><time>2026-08-06</time><span>A guess of ours became “canon” three files later</span></summary>
+  <p>An assumption was written into a research note, cited from there into a second note, and by the third had acquired the authority of a source — after which it was implemented as though the field required it. The rule now: a confidence mark belongs to the quotation, not to the conclusion drawn from it, however obvious that conclusion looks.</p>
+</details>
+
+<details class="dec">
+  <summary><time>2026-08-06</time><span>Printed material is looked at before it is shown, not after</span></summary>
+  <p>Three times in a row a build was reported as done on the strength of a passing test suite, and three times the printed page was visibly broken: lines not starting where they should, a scrawl instead of a track, a letter running off the edge. Tests pass on the data; paper is a different medium. The screenshot is now taken before the work is handed over.</p>
+</details>
+
+<details class="dec">
+  <summary><time>2026-08-04</time><span>A believed rule about how therapists work was disproved by their own plans</span></summary>
+  <p>Navigation rested on the idea that one session equals one step of difficulty. Ten real lesson plans were coded into a dataset of thirty-three task names, and not one worked that way: a therapist moves along a frontier — how far this child has come with this sound — and builds a run-up to it. The idea was dropped; the engine, tested against the same dataset, held.</p>
+</details>
+
+<details class="dec">
+  <summary><time>2026-08-04</time><span>The screen was cleared of words that existed only in the code</span></summary>
+  <p>Machine terms had leaked into the interface, where they meant nothing to anyone but us. Rather than renaming them one by one, a translation layer was added between the engine and the screen. The rule since: a new machine term gets its translation first and is shown second.</p>
+</details>
+
+<details class="dec">
+  <summary><time>2026-08-03</time><span>Five untruths came off the sheet</span></summary>
+  <p>The sheet claimed more than the data could support — the source of a block, what a child had mastered, which manual an exercise came from. Provenance is now computed from the data rather than declared, and a claim without a traceable source counts as a defect rather than a rough edge.</p>
+</details>
+
+<details class="dec">
+  <summary><time>2026-08-03</time><span>The user's words are kept verbatim, in a file of their own</span></summary>
+  <p>A speech therapist described the format she needed, and what went into the code was a summary of her words rather than the words. A week later the two were compared: the format in the code was not hers. Her words now live untouched in their own file, and any reading of them sits beside them, never on top.</p>
 </details>
 
 <footer>Not published yet. The gate: any therapist from the group of ~150 can open a link and

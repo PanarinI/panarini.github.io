@@ -1,0 +1,210 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sound Focus — Igor Panarin</title>
+<meta name="description" content="A focus timer with no digits on screen. Time is made of sound: it rises as you begin, holds through the session, and eases off as you arrive.">
+<style>*{box-sizing:border-box}
+body{margin:0;background:#0d0d0f;color:#e8e6e1;
+  font:16px/1.55 -apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif;
+  -webkit-font-smoothing:antialiased}
+.wrap{max-width:940px;margin:0 auto;padding:4vh 28px 10vh}
+.back{font-size:14px;color:#8d8981;text-decoration:none;border-bottom:1px solid #2e2e33}
+.back:hover{color:#e8e6e1}
+.head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin:2.4rem 0 0}
+h1{font-size:clamp(26px,3.6vw,38px);font-weight:600;letter-spacing:-.02em;margin:0}
+.stage{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#c9c4b8;
+  border:1px solid #34343a;border-radius:2px;padding:3px 9px}
+.lede{max-width:40em;color:#a8a49b;font-size:17px;margin:.9rem 0 1.4rem}
+.tags{display:flex;gap:7px;flex-wrap:wrap;margin:0 0 2.6rem}
+.tag{font-size:12px;color:#8d8981;border:1px solid #26262b;border-radius:2px;padding:2px 9px;
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+.strip{display:grid;grid-template-columns:1fr 1fr .8fr;gap:14px;margin:0 0 2.6rem}
+.frame{margin:0}
+.frame a,.frame span{display:block;background:#17171a;border-radius:3px;overflow:hidden;height:186px}
+.frame img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;background:#0f0f11}
+.frame figcaption{font-size:13px;color:#8d8981;padding:.6rem .1rem 0}
+.next{border:1px dashed #34343a;border-radius:3px;display:flex;flex-direction:column;
+  justify-content:center;padding:1.1rem;height:186px}
+.next b{display:block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;
+  color:#75726b;font-weight:400;margin-bottom:.5rem}
+.next p{margin:0;color:#c9c4b8;font-size:14.5px;line-height:1.45}
+h2{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#75726b;
+  font-weight:400;margin:0 0 1rem;padding-top:1.6rem;border-top:1px solid #1e1e22}
+.how{max-width:46em;margin:0 0 2.6rem;color:#a8a49b;font-size:15.5px}
+.how p{margin:0 0 .75rem}
+.how em{color:#e8e6e1;font-style:normal}
+.nums{display:flex;gap:2.4rem;flex-wrap:wrap;margin:1.4rem 0 0;font-size:14px;color:#75726b}
+.nums b{display:block;color:#e8e6e1;font-size:22px;font-weight:600;letter-spacing:-.01em}
+.dec{max-width:46em;margin:0 0 1.8rem}
+.dec h3{font-size:16.5px;font-weight:600;margin:0 0 .4rem;letter-spacing:-.01em}
+.dec p{margin:0;color:#a8a49b;font-size:15.5px}
+footer{margin-top:3rem;padding-top:1.6rem;border-top:1px solid #1e1e22;
+  font-size:14px;color:#8d8981;max-width:46em}
+footer a{color:#c9c4b8}
+
+/* живой стенд — на этой странице он и есть «пример результата»: звук не показать картинкой */
+.stand{margin:0 0 2.6rem}
+.stand iframe{display:block;width:100%;height:440px;border:0;border-radius:3px;background:#05060f}
+.stand figcaption{font-size:13px;color:#8d8981;padding:.7rem .1rem 0;max-width:46em}
+/* схемы: тема в них зафиксирована тёмной, иначе <img> слушал бы систему читателя, а не страницу */
+.fig{margin:0 0 2.6rem}
+.fig img{display:block;width:100%;height:auto;border-radius:3px;background:#0f0f11}
+.fig figcaption{font-size:13px;color:#8d8981;padding:.7rem .1rem 0;max-width:46em}
+@media(max-width:700px){.strip{grid-template-columns:1fr}.stand iframe{height:520px}}
+</style></head><body><div class="wrap">
+
+<a class="back" href="../">← All work</a>
+
+<div class="head">
+  <h1>Sound Focus</h1>
+  <span class="stage">in use</span>
+</div>
+
+<p class="lede">A focus timer with no digits on screen. Time is made of sound: it rises as you begin,
+holds steady through the session, and eases off as you arrive. Nothing is streamed and nothing is
+played back — every sound is computed on the device while you work.</p>
+
+<div class="tags">
+  <span class="tag">incommensurable-period modulation</span>
+  <span class="tag">offscreen audio document</span>
+</div>
+
+<div class="strip">
+  <figure class="frame">
+    <span><img src="img/flight-ember.png" alt="The same panel in warm amber, with a volume slider"></span>
+    <figcaption>26 July — an ember, and Russian labels</figcaption>
+  </figure>
+  <figure class="frame">
+    <span data-zoom="img/flight-star.png" tabindex="0"><img src="img/flight-star.png" alt="A dark blue starfield with one warm star and two knobs"></span>
+    <figcaption>Today — a flight, and a knob for tone</figcaption>
+  </figure>
+  <div class="next">
+    <b>Next</b>
+    <p>A web version, so the sound can be heard on a phone and without installing anything.</p>
+  </div>
+</div>
+
+<h2>Hear it</h2>
+<figure class="stand">
+  <iframe src="/focus-pages/flight/" title="The panel, running" loading="lazy"></iframe>
+  <figcaption>The real panel, running here. Tap the sky to begin — sound starts on the tap, never
+  before it. Drag the <em>Tone</em> knob up to bring the tonal layer in.</figcaption>
+</figure>
+
+<h2>How it works</h2>
+<div class="how">
+<p>The session has <em>two endings, and they are not the same</em>. When the timer ends it, it ends
+slowly: a dawn rather than a bell. When the person ends it, it ends at once — a stop is usually
+needed for a reason that will not wait.</p>
+<p>Sound is <em>generated, not played</em>. There are no audio files, no stream and no account;
+the noise is synthesised continuously, so it never loops and never clicks. Nothing is recorded
+inside the extension, which is also why there is nothing to send anywhere.</p>
+<p>The toolbar icon carries an arc of the <em>distance still ahead</em>, not the time already spent —
+no digits, no red, no acceleration toward the finish. It is visible on any tab without injecting
+anything into the pages you are reading.</p>
+<div class="nums">
+  <span><b>8</b> voices in the tonal layer</span>
+  <span><b>53</b> languages</span>
+  <span><b>0</b> events recorded inside</span>
+</div>
+</div>
+
+<h2>How the tone is generated</h2>
+<figure class="fig">
+  <img src="img/tone-layer-signal-path-2026-08-08-dark.svg"
+       alt="Signal flow: two oscillators into a gain moved by two slow waves; eight such voices plus a pulse, a wanderer and motifs through a highpass, a drifting lowpass, a dry path and a reverb into the engine master">
+  <figcaption>The curves are not drawn by hand. They are computed from the same formulas that run in
+  the product, so the diagram is a measurement of the thing rather than a picture of it.</figcaption>
+</figure>
+
+<h2>Who it is for</h2>
+<div class="how">
+<p>The position is one sentence: <em>it accompanies, it does not punish</em>. Attention is not
+missing, it is hard to regulate — which makes two moments hard, not one: getting in, and being torn
+out. A timer that forces the start and then breaks the flow with a bell gets both of them wrong.</p>
+</div>
+<figure class="fig">
+  <img src="img/audience-and-doors-2026-08-08-dark.svg"
+       alt="Three overlapping needs — sound is the tool, the hard edge hurts, it has to be lovely — with their common core, and the category door of timer searches below">
+  <figcaption>The circles are segments; the phrases inside them are what those people actually type,
+  with monthly volumes. The band below is the category door — the noun everyone arrives through,
+  whichever circle they sit in.</figcaption>
+</figure>
+
+<h2>Decisions</h2>
+
+<div class="dec">
+  <h3>The new layer ships switched off</h3>
+  <p>A tonal layer was added over the noise, and its knob defaults to zero for everyone. The product
+  promises warm noise; a chord offered instead is not what anyone arrived for. The layer is something
+  to be found, not something served in place of the thing that was described.</p>
+</div>
+
+<div class="dec">
+  <h3>The knob thins the noise; it never mutes it</h3>
+  <p>Turning the tone up could have faded the noise out, but then the two would simply trade places
+  and the road under the sound would disappear. The noise is thinned instead — its wall drops and its
+  level falls to a floor it does not cross. The tone travels on the noise, not in place of it.</p>
+</div>
+
+<div class="dec">
+  <h3>The layer is told where the session is</h3>
+  <p>A generative layer with no ending is an endlessness, and a session needs an arrival. So the
+  layer knows the phase: it gathers as the session begins, holds through the middle, stops
+  accumulating during a pause, and resolves at the end — the chord returns home and the upper voices
+  leave. It does not stop. It finishes.</p>
+</div>
+
+<div class="dec">
+  <h3>Whoever ended the session sets the tempo</h3>
+  <p>The ceremony belongs to the ending nobody asked for. An automatic ending is slow, because it has
+  to mark a transition the person did not choose. A manual stop is immediate, because it was chosen,
+  and making someone wait through a ceremony they interrupted is the opposite of respect.</p>
+</div>
+
+<div class="dec">
+  <h3>Packaging is a script with a whitelist</h3>
+  <p>Two files are attached loosely: if either is missing the extension does not crash, it silently
+  loses a feature. A hand-assembled archive would therefore ship a product with no icon, or with no
+  tone, and give no sign of it. Archives are now built only by a script that fails when a file is
+  absent from disk or from the finished package.</p>
+</div>
+
+<div class="dec">
+  <h3>The sound does not live in the panel</h3>
+  <p>Audio runs in a separate offscreen document, and the panel is only a view onto it through the
+  same interface the engine would offer directly. Closing the panel hides the flight; it does not
+  end it.</p>
+</div>
+
+<footer>The extension is in the Chrome Web Store as
+<a href="https://chromewebstore.google.com/detail/minimalist-timer/miknhphoakphfhgjajhkalmpdnadkeic">Minimalist Timer</a>.
+How it is listed and advertised — the wording, the keywords, the campaign and its numbers — stays off
+this page.</footer>
+
+</div>
+<div id="lb" role="dialog" aria-modal="true" aria-label="Enlarged image"><b>&times;</b><img alt=""></div>
+<script>
+(function(){
+  var lb=document.getElementById('lb'), im=lb.querySelector('img'), last=null;
+  document.querySelectorAll('[data-zoom]').forEach(function(el){
+    el.addEventListener('click',function(){
+      last=el; im.src=el.getAttribute('data-zoom');
+      im.alt=(el.querySelector('img')||{}).alt||'';
+      lb.classList.add('on'); lb.focus();
+    });
+  });
+  function close(){ lb.classList.remove('on'); im.src=''; if(last) last.focus(); }
+  lb.addEventListener('click', close);
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') close(); });
+})();
+</script>
+<style>
+#lb{position:fixed;inset:0;background:rgba(8,8,10,.94);display:none;align-items:center;
+  justify-content:center;padding:4vh 4vw;z-index:9;cursor:zoom-out}
+#lb.on{display:flex}
+#lb img{max-width:100%;max-height:100%;object-fit:contain;border-radius:3px}
+#lb b{position:absolute;top:14px;right:20px;color:#8d8981;font-size:26px;font-weight:400;
+  line-height:1;cursor:pointer}
+[data-zoom]{cursor:zoom-in}
+</style>
+</body></html>

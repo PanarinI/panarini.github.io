@@ -30,11 +30,13 @@ img{max-width:100%}
 .topbar a{color:var(--paper);text-decoration:none}
 .topbar .me{font:700 14px/1 -apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
   letter-spacing:-.01em}
-.topbar .links{display:flex;flex-wrap:wrap;gap:18px;
-  font:600 11.5px/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.1em;
-  text-transform:uppercase}
-.topbar .links a{border-bottom:2px solid transparent;padding-bottom:3px}
-.topbar .links a:hover{border-color:var(--accent);color:var(--accent)}
+.topbar .links{display:flex;align-items:center;gap:20px}
+.topbar .links a{display:inline-flex;align-items:center;line-height:0;
+  border-bottom:2px solid transparent;padding-bottom:2px}
+.topbar .links svg{width:17px;height:17px;display:block}
+.topbar .links a:hover{color:var(--accent);border-color:var(--accent)}
+.topbar .links .ru{font:600 8px/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.08em;
+  border:1px solid currentColor;padding:2px 2px 1px;margin-left:4px;align-self:flex-start;opacity:.8}
 @media(max-width:560px){.topbar{padding:11px 18px}.topbar .links{gap:14px;font-size:10.5px}}
 
 .wrap{max-width:1180px;margin:0 auto;padding:5vh 28px 8vh}

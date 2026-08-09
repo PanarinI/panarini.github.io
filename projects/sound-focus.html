@@ -2,65 +2,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Sound Focus — Igor Panarin</title>
 <meta name="description" content="A focus timer with no digits on screen. Time is made of sound: it rises as you begin, holds through the session, and eases off as you arrive.">
-<style>*{box-sizing:border-box}
-body{margin:0;background:#0d0d0f;color:#e8e6e1;
-  font:16px/1.55 -apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif;
-  -webkit-font-smoothing:antialiased}
-.wrap{max-width:940px;margin:0 auto;padding:4vh 28px 10vh}
-.back{font-size:14px;color:#8d8981;text-decoration:none;border-bottom:1px solid #2e2e33}
-.back:hover{color:#e8e6e1}
-.head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin:2.4rem 0 0}
-h1{font-size:clamp(26px,3.6vw,38px);font-weight:600;letter-spacing:-.02em;margin:0}
-.stage{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#c9c4b8;
-  border:1px solid #34343a;border-radius:2px;padding:3px 9px}
-.lede{max-width:40em;color:#a8a49b;font-size:17px;margin:.9rem 0 1.4rem}
-.tags{display:flex;gap:7px;flex-wrap:wrap;margin:0 0 2.6rem}
-.tag{font-size:12px;color:#8d8981;border:1px solid #26262b;border-radius:2px;padding:2px 9px;
-  font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
-.strip{display:grid;grid-template-columns:1fr 1fr .8fr;gap:14px;margin:0 0 2.6rem}
-.frame{margin:0}
-.frame a,.frame span{display:block;background:#17171a;border-radius:3px;overflow:hidden;height:186px}
-.frame img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;background:#0f0f11}
-.frame figcaption{font-size:13px;color:#8d8981;padding:.6rem .1rem 0}
-.next{border:1px dashed #34343a;border-radius:3px;display:flex;flex-direction:column;
-  justify-content:center;padding:1.1rem;height:186px}
-.next b{display:block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;
-  color:#75726b;font-weight:400;margin-bottom:.5rem}
-.next p{margin:0;color:#c9c4b8;font-size:14.5px;line-height:1.45}
-h2{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#75726b;
-  font-weight:400;margin:0 0 1rem;padding-top:1.6rem;border-top:1px solid #1e1e22}
-.how{max-width:46em;margin:0 0 2.6rem;color:#a8a49b;font-size:15.5px}
-.how p{margin:0 0 .75rem}
-.how em{color:#e8e6e1;font-style:normal}
-.nums{display:flex;gap:2.4rem;flex-wrap:wrap;margin:1.4rem 0 0;font-size:14px;color:#75726b}
-.nums b{display:block;color:#e8e6e1;font-size:22px;font-weight:600;letter-spacing:-.01em}
-/* лог решений: дата + строка, текст раскрывается. Новые сверху, правило отбора названо вслух */
-.rule{max-width:46em;color:#75726b;font-size:14px;margin:-.3rem 0 1.4rem}
-.dec{max-width:46em;border-bottom:1px solid #1a1a1e}
-.dec summary{list-style:none;cursor:pointer;padding:.75rem 0;display:flex;gap:1rem;
-  align-items:baseline;font-size:15.5px}
-.dec summary::-webkit-details-marker{display:none}
-.dec summary time{flex:0 0 auto;color:#75726b;font-size:13px;
-  font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
-.dec summary span{color:#e8e6e1}
-.dec[open] summary span{color:#fff}
-.dec summary:hover span{color:#fff}
-.dec p{margin:0 0 1rem;padding-left:calc(5.5em + 1rem);color:#a8a49b;font-size:15px;max-width:44em}
-@media(max-width:560px){.dec summary{flex-direction:column;gap:.2rem}.dec p{padding-left:0}}
-footer{margin-top:3rem;padding-top:1.6rem;border-top:1px solid #1e1e22;
-  font-size:14px;color:#8d8981;max-width:46em}
-footer a{color:#c9c4b8}
-
-/* живой стенд — на этой странице он и есть «пример результата»: звук не показать картинкой */
-.stand{margin:0 0 2.6rem}
-.stand iframe{display:block;width:100%;height:440px;border:0;border-radius:3px;background:#05060f}
-.stand figcaption{font-size:13px;color:#8d8981;padding:.7rem .1rem 0;max-width:46em}
-/* схемы: тема в них зафиксирована тёмной, иначе <img> слушал бы систему читателя, а не страницу */
-.fig{margin:0 0 2.6rem}
-.fig img{display:block;width:100%;height:auto;border-radius:3px;background:#0f0f11}
-.fig figcaption{font-size:13px;color:#8d8981;padding:.7rem .1rem 0;max-width:46em}
-@media(max-width:700px){.strip{grid-template-columns:1fr}.stand iframe{height:520px}}
-</style></head><body><div class="wrap">
+<link rel="stylesheet" href="/assets/hub.css"></head><body><div class="wrap page">
 
 <a class="back" href="../">← All work</a>
 
@@ -110,7 +52,7 @@ played back — every sound is computed on the device while you work.</p>
 
 <h2>How the tone is generated</h2>
 <figure class="fig">
-  <img src="img/tone-layer-signal-path-2026-08-08-dark.svg"
+  <img src="img/tone-layer-signal-path-2026-08-08-light.svg"
        alt="Signal flow: two oscillators into a gain moved by two slow waves; eight such voices plus a pulse, a wanderer and motifs through a highpass, a drifting lowpass, a dry path and a reverb into the engine master">
   <figcaption>The curves are not drawn by hand. They are computed from the same formulas that run in
   the product, so the diagram is a measurement of the thing rather than a picture of it.</figcaption>
@@ -123,7 +65,7 @@ missing, it is hard to regulate — which makes two moments hard, not one: getti
 out. A timer that forces the start and then breaks the flow with a bell gets both of them wrong.</p>
 </div>
 <figure class="fig">
-  <img src="img/audience-and-doors-2026-08-08-dark.svg"
+  <img src="img/audience-and-doors-2026-08-08-light.svg"
        alt="Three overlapping needs — sound is the tool, the hard edge hurts, it has to be lovely — with their common core, and the category door of timer searches below">
   <figcaption>The circles are segments; the phrases inside them are what those people actually type,
   with monthly volumes. The band below is the category door — the noun everyone arrives through,
@@ -227,13 +169,4 @@ this page.</footer>
   document.addEventListener('keydown', function(e){ if(e.key==='Escape') close(); });
 })();
 </script>
-<style>
-#lb{position:fixed;inset:0;background:rgba(8,8,10,.94);display:none;align-items:center;
-  justify-content:center;padding:4vh 4vw;z-index:9;cursor:zoom-out}
-#lb.on{display:flex}
-#lb img{max-width:100%;max-height:100%;object-fit:contain;border-radius:3px}
-#lb b{position:absolute;top:14px;right:20px;color:#8d8981;font-size:26px;font-weight:400;
-  line-height:1;cursor:pointer}
-[data-zoom]{cursor:zoom-in}
-</style>
 </body></html>

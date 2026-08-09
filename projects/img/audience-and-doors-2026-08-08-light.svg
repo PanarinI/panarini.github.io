@@ -3,7 +3,7 @@
 <desc>Euler diagram of the focus timer's audience. Three overlapping needs: sound is the tool, the hard edge hurts, and the instrument has to be lovely. Their common core is the sound-first focuser, with ADHD adults as the beachhead. Inside each region are the actual search phrases that segment uses, with monthly volumes measured in DataForSEO. Below, kept separate, is the category door: the timer queries everyone arrives through whichever circle they sit in.</desc>
 <style>
 :root{--bg:#fff;--ink:#1C1917;--dim:#57534E;--faint:#A8A29E;--a:#0F6E56;--b:#B45309;--c:#5B4BC4}
-:root{--bg:#1C1917;--ink:#E7E5E4;--dim:#A8A29E;--faint:#78716C;--a:#5DCAA5;--b:#FBBF6E;--c:#A99BF0}
+
 text{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;fill:var(--ink)}
 .h{font-size:18px;font-weight:600} .sub{font-size:12px;fill:var(--dim)}
 .seg{font-size:12.5px;font-weight:700;letter-spacing:.4px}

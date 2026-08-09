@@ -3,7 +3,7 @@
 <desc>Signal flow of the tone layer in a focus timer. One voice is two detuned triangle oscillators through a gain; that gain is moved by two slow waves of 55 and 89 seconds, drawn here as measured curves, so the voice fades in and out on its own and never repeats. Eight such voices, plus a pulse, a wandering companion and occasional motifs, pass through a highpass at 150 Hz, a drifting lowpass around 1.2 kHz, a dry path and a six-second reverb, into the engine master where the brown noise already is.</desc>
 <style>
 :root{--bg:#fff;--ink:#1C1917;--dim:#57534E;--faint:#A8A29E;--line:#A8A29E;--pad:#0F6E56;--padf:#E1F5EE;--mod:#5B4BC4;--modf:#EAE6FA;--warm:#B45309;--warmf:#FBEAD2}
-:root{--bg:#1C1917;--ink:#E7E5E4;--dim:#A8A29E;--faint:#78716C;--line:#78716C;--pad:#5DCAA5;--padf:#0C4A3A;--mod:#A99BF0;--modf:#2E2560;--warm:#FBBF6E;--warmf:#5C2D0C}
+
 text{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;fill:var(--ink)}
 .t{font-size:17px;font-weight:600} .s{font-size:12px;fill:var(--dim)}
 .n{font-size:12.5px;font-weight:600} .u{font-size:11px;fill:var(--dim)}

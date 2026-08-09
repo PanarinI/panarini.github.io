@@ -22,6 +22,21 @@ body{margin:0;background:var(--paper);color:var(--ink);
 img{max-width:100%}
 ::selection{background:var(--accent);color:var(--paper)}
 
+/* ── верхняя панель: имя слева, контакты справа ─────────────────────
+   Решение автора 08-10: все контакты в верхней панели, а не в подвале.
+   Чёрная полоса во всю ширину — та же резкость, что у плашек-заголовков. */
+.topbar{background:var(--ink);color:var(--paper);display:flex;flex-wrap:wrap;gap:10px 22px;
+  align-items:baseline;justify-content:space-between;padding:11px 28px}
+.topbar a{color:var(--paper);text-decoration:none}
+.topbar .me{font:700 14px/1 -apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+  letter-spacing:-.01em}
+.topbar .links{display:flex;flex-wrap:wrap;gap:18px;
+  font:600 11.5px/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.1em;
+  text-transform:uppercase}
+.topbar .links a{border-bottom:2px solid transparent;padding-bottom:3px}
+.topbar .links a:hover{border-color:var(--accent);color:var(--accent)}
+@media(max-width:560px){.topbar{padding:11px 18px}.topbar .links{gap:14px;font-size:10.5px}}
+
 .wrap{max-width:1180px;margin:0 auto;padding:5vh 28px 8vh}
 .wrap.page{max-width:940px}
 

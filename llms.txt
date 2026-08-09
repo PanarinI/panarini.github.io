@@ -1,20 +1,31 @@
 # Igor Panarin — living systems, built with AI
 
-> AI teaching companion with living memory… and a body. Builder of a product studio and its
-> instruments; works by a method where every project keeps its own living context.
+> Builder working alone with AI. Every project keeps its own living context — a set of plain files
+> it reads at the start of a session, so work resumes instead of restarting. The catalogue at
+> https://panarini.github.io shows what each project is, how it is built, and what was decided.
 
 ## Flagship: Teaching Companion
-- Working now: lesson-plan engine — photo of a textbook page in, materials and lesson plan out (PPP/ESA/TPR/TBL). Demo being reworked.
-- In the making: living memory (remembers the class and the teacher's style) and a body — Reachy Mini robot.
+- Working now: lesson-plan engine — photo of a textbook page in, materials and lesson plan out
+  (PPP/ESA/TPR/TBL). Demo being reworked.
+- In the making: living memory (remembers the class and the teacher's style) and a body —
+  a Reachy Mini robot.
 - Horizon: an autonomous teaching creature; a companion, not a replacement.
 
-## Constellation
-- The Garden — method of building with AI where context stays alive (living memory per project).
-- Demand Telescope — internal instrument turning search data into a navigable sky of demand.
+## Catalogue
+- Sound Focus — https://panarini.github.io/projects/sound-focus.html
+  Focus timer with no digits on screen; time is made of sound, generated on the device.
+  In the Chrome Web Store as "Minimalist Timer". The page shows how the tone is synthesised,
+  what the panel looked like at each stage, and a dated log of decisions.
+- Demand Telescope — https://panarini.github.io/projects/telescope.html
+  Internal instrument turning search data into a navigable sky of demand: 1641 queries, of which
+  630 are checked against real search results. Used to decide what to build next.
+- Worksheet generator — https://panarini.github.io/projects/logoped.html
+  Printable speech-therapy material assembled for one specific child: every word filtered against
+  the sounds that child cannot say yet.
 - ExportGPT — shipped Chrome extension: ChatGPT conversations to clean PDFs.
-- Sound Focus — focus timer where time is made of sound (in the making).
-- Prints — wearable print line: /prints/ (THREAT LEVEL: EXTREMIST — case files of humanity's finest).
+- The Garden — the method itself: living context per project, decisions kept as a log.
 
 ## Contact
-- Email: panarin2005@gmail.com (text-first)
+- Email: panarin2005@gmail.com — a letter is better than a call
 - GitHub: https://github.com/PanarinI
+- Bluesky: https://bsky.app/profile/igorpanarin.bsky.social

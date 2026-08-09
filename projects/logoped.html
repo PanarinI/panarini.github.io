@@ -2,7 +2,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Speech-therapy worksheet generator — Igor Panarin</title>
 <meta name="description" content="Printable speech-therapy material generated for one specific child: every word filtered against the sounds that child cannot say yet.">
-<link rel="stylesheet" href="/assets/hub.css?v=481e97d5"></head><body>
+<link rel="stylesheet" href="/assets/hub.css?v=ecdbede6"></head><body>
 <nav class="topbar">
   <a class="me" href="/">Igor Panarin</a>
   <span class="links">
@@ -34,73 +34,104 @@ word is filtered against the sounds that child cannot say yet — the one thing 
 workbook can never do.</p>
 
 
-<div class="strip">
-  <figure class="frame">
-    <span data-zoom="img/sheet-2026-08.png" tabindex="0"><img src="img/sheet-2026-08.png" alt="A generated A4 practice sheet for the Russian sound R, with seven blocks: warm-up, isolated sound, syllables, words, a grammar game, sentences and a tongue-twister."></span>
-    <figcaption>August 2026 — one sheet, straight out of the printer</figcaption>
-  </figure>
-  <div class="next">
-    <b>Next</b>
-    <p>Our own picture bank, so the picture formats can leave the workshop.</p>
-  </div>
-</div>
+<figure class="fig">
+  <img src="img/sheet-2026-08.png" alt="A generated A4 practice sheet for the Russian sound R, with seven blocks: warm-up, isolated sound, syllables, words, a grammar game, sentences and a tongue-twister.">
+  <figcaption>One sheet, straight out of the printer. Every word on it passed the filter for one
+  particular child.</figcaption>
+</figure>
 
 <h2>How it works</h2>
 <div class="how">
-<p>Words are transcribed <em>by sound, not by spelling</em>. The Russian word for “helper”
-is written with one sound and spoken with another, so it never enters the list for the
-sound it appears to contain.</p>
-<p>A purity gate then removes every word holding a sound this child has not mastered. If the
+<p>Words are transcribed <em>by sound, not by spelling</em>. A Russian word can be written with one
+consonant and spoken with another, so it never enters the list for the sound it appears to contain.</p>
+<p>A purity gate then removes every word holding a sound this child has not mastered yet. If the
 gate cannot verify a word, it <em>stops the build</em> instead of printing it.</p>
-<p>Each block on the sheet carries the manual it comes from, and that provenance is
-<em>computed from the data</em> rather than declared.</p>
 <div class="nums">
   <span><b>11</b> sounds</span>
-  <span><b>1577</b> words vetted</span>
-  <span><b>1646</b> tests</span>
+  <span><b>2207</b> words vetted by hand</span>
+  <span><b>1649</b> checks run on every build</span>
 </div>
 </div>
 
-<h2>Decisions</h2>
+<h2>What it refuses to print</h2>
+<p class="exnote">This project has almost nothing to show as a screenshot: what changes is not a
+screen but what the engine is allowed to say. So here it is by example — the same two cases that
+taught it to distrust rules.</p>
 
-<div class="dec">
-  <h3>A claim without a source is a defect</h3>
-  <p>The generator built an exercise on an image the field uses everywhere — one sound taught as
-  a snake's hiss. Checked against the manual that exercise cited, the two did not match: the book
-  was right, the exercise was wrong. Rule since then — every methodical statement on a sheet
-  carries its source, and one without a source counts as a defect, not a rough edge.</p>
-</div>
+<table class="ex">
+  <caption><b>A rule by word-ending is wrong more often than it is right.</b> Asked to print
+  “five chairs”, a rule that inflects by the tail of the word produces a word that does not exist.
+  Out of sixteen words tested, it was wrong about fifteen.</caption>
+  <tr><th>the word</th><th>what a rule produces</th><th>what goes on the sheet</th></tr>
+  <tr><td class="w">стул <span class="g">chair</span></td><td class="bad">пять стулов</td><td class="out">пять стульев</td></tr>
+  <tr><td class="w">угол <span class="g">corner</span></td><td class="bad">два угола</td><td class="out">два угла</td></tr>
+  <tr><td class="w">лоб <span class="g">forehead</span></td><td class="bad">пять лобов</td><td class="out">пять лбов</td></tr>
+</table>
+<p class="exnote">The rule was switched off. Five hundred and seventy-nine words were then inflected
+by hand, twice and independently, and only the forms both passes agreed on were kept.</p>
 
-<div class="dec">
-  <h3>A summary of a user is not the user</h3>
-  <p>A speech therapist described the format she needed. What went into the code was a summary of
-  her words rather than the words. A week later the two were compared: the format in the code was
-  not hers. User's words now live verbatim in a file of their own, and any reading of them sits
-  beside it, never on top.</p>
-</div>
+<table class="ex">
+  <caption><b>The suffix that makes a thing smaller also makes it a different thing.</b> A
+  diminutive is the friendliest exercise on the sheet — say it fondly — and the least safe to
+  generate, because the same ending that shrinks one word renames another.</caption>
+  <tr><th>the word</th><th>the “small” form</th><th>what it actually means</th><th>printed</th></tr>
+  <tr><td class="w">ворона <span class="g">crow</span></td><td class="bad">воронка</td><td>a funnel</td><td class="out">no</td></tr>
+  <tr><td class="w">корона <span class="g">crown</span></td><td class="bad">коронка</td><td>a dental crown</td><td class="out">no</td></tr>
+  <tr><td class="w">пила <span class="g">saw</span></td><td class="bad">пилочка</td><td>a nail file</td><td class="out">no</td></tr>
+</table>
+<p class="exnote">Four hundred and fifty words went through the same double pass. The two passes
+agreed on ninety-five per cent of them; every disagreement was thrown away rather than resolved.
+Three hundred and six forms survived, two hundred and sixty-nine were blocked.</p>
 
-<div class="dec">
-  <h3>The model was wrong and the engine was right</h3>
-  <p>Navigation rested on a believed rule: one session, one step of difficulty. Ten real lesson
-  plans were then coded into a dataset of thirty-three task names, and not one worked that way.
-  A therapist moves along a frontier — how far this child has come with this sound — building a
-  run-up to it. The rule was dropped. The engine, tested against the same dataset, held.</p>
-</div>
+<h2>What the engine learned</h2>
+<p class="rule">Newest first. Each entry is the same shape: what it could not do, what it had to know
+first, and what it can do now.</p>
 
-<div class="dec">
-  <h3>The moat had a hole in it</h3>
-  <p>The filter checks the word it intends to place. On a picture task the child names what they
-  see, and published naming norms put 41% of children on a different name for a common picture —
-  one with none of the target sound in it. Found before print, not after.</p>
-</div>
+<details class="dec">
+  <summary><time>2026-08-10</time><span>Two exercises existed on paper and not in fact</span></summary>
+  <p>Both were listed as working features. Neither could actually be built for almost any sheet,
+  because the rule they stood on had been switched off two days earlier as unreliable, and the
+  hand-made table that replaced it covered twenty-three words out of one thousand seven hundred.
+  They were counted as existing without existing. After the tables were filled they build on
+  twenty-eight sheets out of twenty-nine, and on fourteen out of twenty-nine — and the second
+  number is not a defect, see below.</p>
+</details>
 
-<div class="dec">
-  <h3>Every word list was re-checked by a pass that distrusted the first</h3>
-  <p>A second review went through the dictionaries assuming the first was wrong. It found 114
-  defects: misplaced stress, transcriptions that followed spelling instead of speech, words whose
-  plural quietly loses the target sound, and claims in the project's own reports that the data
-  did not support.</p>
-</div>
+<details class="dec">
+  <summary><time>2026-08-10</time><span>One exercise cannot be built for hissing sounds, and the reason is the language itself</span></summary>
+  <p>The fond diminutive almost always carries a particular consonant, and that consonant is
+  forbidden on a sheet for any hissing or whistling sound, because a child practising one will slide
+  into the other. Sixteen words on such a sheet, forms exist for twelve, eight of those fall at the
+  purity gate. No amount of engineering moves that number: it is a property of Russian, and the
+  screen should say so plainly rather than report that the exercise “could not be assembled”.</p>
+</details>
+
+<details class="dec">
+  <summary><time>2026-08-09</time><span>Ten tests had never run, and the suite reported all green</span></summary>
+  <p>A single line that tells the file to execute its tests was sitting in the middle of that file
+  instead of at its end. Everything written below it — ten test functions, five of them other
+  people's, including a check added the day before — was silently skipped. The suite printed a clean
+  result the whole time. Moving one line took the count from 1224 checks to 1649, and all of them
+  pass.</p>
+</details>
+
+<details class="dec">
+  <summary><time>2026-08-08</time><span>Verbs were kept out of sentences until the dictionary knew enough about them</span></summary>
+  <p>Sentences on the sheet were frozen phrases: point at a picture and name it. Making them live
+  needs verbs, and a verb cannot be placed without knowing whether its subject is animate and
+  whether the action is finished — and neither can be derived from how the word ends. So the verbs
+  waited while three properties were marked by hand across the dictionary. Then the sentences moved:
+  from “here is a ram” to “an elk is swimming past”.</p>
+</details>
+
+<details class="dec">
+  <summary><time>2026-08-08</time><span>Three materials were teaching the wrong sound</span></summary>
+  <p>A practice track for one voiced consonant printed syllables that, read aloud, come out as its
+  voiceless twin — so a sheet made to train one sound was training its opposite. Two more materials
+  had the same class of fault. All three came off the paper the day it was measured. The lesson is
+  the project's rule now: what a letter looks like and what a mouth does with it are different
+  facts, and only the second one is allowed to decide anything.</p>
+</details>
 
 <footer>Not published yet. The gate: any therapist from the group of ~150 can open a link and
 print a sheet. No sheet has been used with a child in a real session — everything so far is

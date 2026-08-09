@@ -49,15 +49,17 @@ seven times smaller. Two earlier frames exist and stay unpublished — on those 
 method is legible, and this page shows what the sky sees, not how it measures.</p>
 
 <h2>How it works</h2>
+<div class="trio">
+  <figure><img src="img/sky-anatomy-star.svg" alt="A single node: its size is the monthly volume, its colour how busy that door is, grey meaning not yet measured"></figure>
+  <figure><img src="img/sky-anatomy-links.svg" alt="Four kinds of line between two nodes: contains, same door, same field, and no line at all"></figure>
+  <figure><img src="img/sky-anatomy-layers.svg" alt="Four stacked layers ordered by how well each is proved, each of them switchable"></figure>
+</div>
 <div class="how">
-<p>Every query the instrument has ever looked at stays as a node. Size is monthly volume; colour is
-<em>how occupied that door already is</em>; edges are relations found in the data.</p>
-<p>Positions are not decided by hand and not simulated in the browser. The layout is
+<p>Positions are not decided by hand and not simulated in the browser: the layout is
 <em>computed offline</em> from the relations themselves, so a sky of a thousand-odd nodes stays
-smooth to fly through, with detail appearing as you descend. Dragging a node is therefore
-<em>reading, not editing</em> — a reset puts it back where the data says it belongs.</p>
-<p>Regions are the <em>questions that were asked</em>, not properties of the data — which is why
-every run, on any topic, pours into one sky rather than into a folder of separate maps.</p>
+smooth to fly through. Dragging a node is therefore <em>reading, not editing</em> — a reset puts it
+back where the data says it belongs, and the map gets corrected through its data, never with
+the mouse.</p>
 <div class="nums">
   <span><b>1641</b> stars</span>
   <span><b>630</b> checked against real search results</span>

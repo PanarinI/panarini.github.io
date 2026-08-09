@@ -141,6 +141,13 @@ a.card:hover{transform:translate(-4px,-4px);box-shadow:8px 8px 0 var(--ink)}
 .nums{display:flex;gap:2.6rem;flex-wrap:wrap;margin:1.6rem 0 0;font-size:14px;color:var(--mute)}
 .nums b{display:block;color:var(--ink);font-size:26px;font-weight:800;letter-spacing:-.02em}
 
+/* ── тройка схем-анатомий: несколько простых картинок вместо абзаца ── */
+.trio{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:20px;
+  margin:0 0 1.4rem}
+.trio figure{margin:0}
+.trio img{display:block;width:100%;height:auto;border:2px solid var(--ink);
+  box-shadow:5px 5px 0 var(--ink);background:var(--paper)}
+
 /* ── лог решений: дата + строка, текст раскрывается ────────────────── */
 .rule{max-width:46em;color:var(--mute);font-size:14.5px;margin:0 0 1.6rem}
 .dec{max-width:52em;border-top:2px solid var(--ink)}

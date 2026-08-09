@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="330" viewBox="0 0 480 330" style="max-width:100%;height:auto" role="img">
+<title>A star on the sky of demand</title>
+<desc>One node of the demand map: its size is the monthly search volume, its colour says how occupied that door already is, and grey means it has not been measured yet. Below, the whole palette with how many stars currently carry each colour.</desc>
+<style>
+text{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;fill:#14110E}
+.h{font:600 13px/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;fill:#6B635A}
+.l{font-size:12.5px;font-weight:600}
+.s{font-size:11.5px;fill:#6B635A}
+.q{font-size:12px;font-weight:600}
+.ldr{stroke:#14110E;stroke-width:1.2;fill:none}
+.dot{stroke:#14110E;stroke-width:1.5}
+</style>
+<rect x="0" y="0" width="480" height="330" fill="#F7F4EE"/>
+<text class="h" x="20" y="26">A star</text>
+
+<!-- сама звезда -->
+<circle class="dot" cx="132" cy="118" r="44" fill="#E8B25C"/>
+<text class="q" x="132" y="182" text-anchor="middle">pomodoro timer</text>
+
+<!-- размер -->
+<path class="ldr" d="M132 74 V56 H250"/>
+<text class="l" x="258" y="52">size = monthly volume</text>
+<text class="s" x="258" y="68">the busiest query is 234 times</text>
+<text class="s" x="258" y="83">the quietest, so the scale is</text>
+<text class="s" x="258" y="98">squeezed to fit them both</text>
+
+<!-- цвет -->
+<path class="ldr" d="M176 118 H250"/>
+<text class="l" x="258" y="114">colour = how busy that door is</text>
+<text class="s" x="258" y="130">how many products already sit</text>
+<text class="s" x="258" y="145">on this exact query</text>
+
+<!-- подпись -->
+<path class="ldr" d="M132 162 V190 H250"/>
+<text class="l" x="258" y="176">label = the query itself</text>
+<text class="s" x="258" y="192">the words people really type</text>
+
+<!-- палитра -->
+<text class="h" x="20" y="238">the palette, and how much of the sky is in it</text>
+<circle class="dot" cx="34" cy="272" r="13" fill="#4FA96B"/><text class="s" x="34" y="303" text-anchor="middle">780</text>
+<circle class="dot" cx="92" cy="272" r="13" fill="#E8C15C"/><text class="s" x="92" y="303" text-anchor="middle">23</text>
+<circle class="dot" cx="150" cy="272" r="13" fill="#E08B3C"/><text class="s" x="150" y="303" text-anchor="middle">22</text>
+<circle class="dot" cx="208" cy="272" r="13" fill="#D6553F"/><text class="s" x="208" y="303" text-anchor="middle">24</text>
+<circle class="dot" cx="266" cy="272" r="13" fill="#D8D2C6"/><text class="s" x="266" y="303" text-anchor="middle">792</text>
+<text class="s" x="24" y="252">empty ⟶ crowded</text>
+<text class="l" x="300" y="268">grey is not a verdict</text>
+<text class="s" x="300" y="285">nearly half the sky has simply</text>
+<text class="s" x="300" y="300">not been measured yet</text>
+</svg>

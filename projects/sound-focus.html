@@ -34,9 +34,19 @@ h2{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#75726b;
 .how em{color:#e8e6e1;font-style:normal}
 .nums{display:flex;gap:2.4rem;flex-wrap:wrap;margin:1.4rem 0 0;font-size:14px;color:#75726b}
 .nums b{display:block;color:#e8e6e1;font-size:22px;font-weight:600;letter-spacing:-.01em}
-.dec{max-width:46em;margin:0 0 1.8rem}
-.dec h3{font-size:16.5px;font-weight:600;margin:0 0 .4rem;letter-spacing:-.01em}
-.dec p{margin:0;color:#a8a49b;font-size:15.5px}
+/* лог решений: дата + строка, текст раскрывается. Новые сверху, правило отбора названо вслух */
+.rule{max-width:46em;color:#75726b;font-size:14px;margin:-.3rem 0 1.4rem}
+.dec{max-width:46em;border-bottom:1px solid #1a1a1e}
+.dec summary{list-style:none;cursor:pointer;padding:.75rem 0;display:flex;gap:1rem;
+  align-items:baseline;font-size:15.5px}
+.dec summary::-webkit-details-marker{display:none}
+.dec summary time{flex:0 0 auto;color:#75726b;font-size:13px;
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+.dec summary span{color:#e8e6e1}
+.dec[open] summary span{color:#fff}
+.dec summary:hover span{color:#fff}
+.dec p{margin:0 0 1rem;padding-left:calc(5.5em + 1rem);color:#a8a49b;font-size:15px;max-width:44em}
+@media(max-width:560px){.dec summary{flex-direction:column;gap:.2rem}.dec p{padding-left:0}}
 footer{margin-top:3rem;padding-top:1.6rem;border-top:1px solid #1e1e22;
   font-size:14px;color:#8d8981;max-width:46em}
 footer a{color:#c9c4b8}
@@ -90,23 +100,13 @@ played back — every sound is computed on the device while you work.</p>
   before it. Drag the <em>Tone</em> knob up to bring the tonal layer in.</figcaption>
 </figure>
 
-<h2>How it works</h2>
-<div class="how">
-<p>The session has <em>two endings, and they are not the same</em>. When the timer ends it, it ends
-slowly: a dawn rather than a bell. When the person ends it, it ends at once — a stop is usually
-needed for a reason that will not wait.</p>
-<p>Sound is <em>generated, not played</em>. There are no audio files, no stream and no account;
-the noise is synthesised continuously, so it never loops and never clicks. Nothing is recorded
-inside the extension, which is also why there is nothing to send anywhere.</p>
-<p>The toolbar icon carries an arc of the <em>distance still ahead</em>, not the time already spent —
-no digits, no red, no acceleration toward the finish. It is visible on any tab without injecting
-anything into the pages you are reading.</p>
-<div class="nums">
-  <span><b>8</b> voices in the tonal layer</span>
-  <span><b>53</b> languages</span>
-  <span><b>0</b> events recorded inside</span>
-</div>
-</div>
+<h2>The icon is the clock</h2>
+<figure class="fig">
+  <img src="img/icon-states.png"
+       alt="Six states of the toolbar icon: a full warm ring, then the arc shrinking to a stub, and a dimmed paused state">
+  <figcaption>The arc is the distance still ahead, not the time already spent. Drawn here by the same
+  file that draws it in the toolbar.</figcaption>
+</figure>
 
 <h2>How the tone is generated</h2>
 <figure class="fig">
@@ -130,51 +130,80 @@ out. A timer that forces the start and then breaks the flow with a bell gets bot
   whichever circle they sit in.</figcaption>
 </figure>
 
-<h2>Decisions</h2>
+<h2>Decision log</h2>
+<p class="rule">Newest first. A decision appears here only if a reader with no context can follow it
+to the end without once asking “what is that?” — the rest stay in the project’s own log.</p>
 
-<div class="dec">
-  <h3>The new layer ships switched off</h3>
-  <p>A tonal layer was added over the noise, and its knob defaults to zero for everyone. The product
-  promises warm noise; a chord offered instead is not what anyone arrived for. The layer is something
-  to be found, not something served in place of the thing that was described.</p>
-</div>
+<details class="dec">
+  <summary><time>2026-08-07</time><span>The tone knob ships at zero, for everyone</span></summary>
+  <p>The product promises warm noise, and a chord offered instead is not what anyone came for. An
+  earlier version put the knob at the centre for new users only — but a newcomer cannot be told from
+  a long-time user by the absence of a setting, because the setting is new and neither of them has
+  one. The split went out together with the idea behind it.</p>
+</details>
 
-<div class="dec">
-  <h3>The knob thins the noise; it never mutes it</h3>
-  <p>Turning the tone up could have faded the noise out, but then the two would simply trade places
-  and the road under the sound would disappear. The noise is thinned instead — its wall drops and its
-  level falls to a floor it does not cross. The tone travels on the noise, not in place of it.</p>
-</div>
+<details class="dec">
+  <summary><time>2026-08-06</time><span>The tonal layer rides the same rails as the noise, not beside them</span></summary>
+  <p>On the bench the layer went straight to the output, which was right for judging it on its own.
+  In the product that would drift apart: on pause the noise would stop while the tone kept playing;
+  at the end the noise would thin while the tone stood still. One output, one set of rails — volume,
+  pause, fade and the inaudible keep-alive floor now apply to everything at once. The layer is also
+  told which phase the session is in, because music that sounds the same at the start and at the
+  finish cancels the point of arriving.</p>
+</details>
 
-<div class="dec">
-  <h3>The layer is told where the session is</h3>
-  <p>A generative layer with no ending is an endlessness, and a session needs an arrival. So the
-  layer knows the phase: it gathers as the session begins, holds through the middle, stops
-  accumulating during a pause, and resolves at the end — the chord returns home and the upper voices
-  leave. It does not stop. It finishes.</p>
-</div>
+<details class="dec">
+  <summary><time>2026-08-06</time><span>A finished feature was turned down the evening it started working</span></summary>
+  <p>Ten milestones laid along the flight, receding by the same perspective the starfield already
+  uses, so the remaining distance could be read in space rather than in numbers. It was built, it
+  worked, and it was rejected that evening: the sidebar reads well enough without it. The lesson was
+  mine rather than the feature’s — the choice had been offered as “what to build next” and was read,
+  correctly, as “what goes into this release”.</p>
+</details>
 
-<div class="dec">
-  <h3>Whoever ended the session sets the tempo</h3>
-  <p>The ceremony belongs to the ending nobody asked for. An automatic ending is slow, because it has
-  to mark a transition the person did not choose. A manual stop is immediate, because it was chosen,
-  and making someone wait through a ceremony they interrupted is the opposite of respect.</p>
-</div>
+<details class="dec">
+  <summary><time>2026-08-06</time><span>Presence is carried by the toolbar icon, not by a tab injected into other people’s pages</span></summary>
+  <p>An edge tab on every page costs a scripting permission, an optional host permission and a
+  reviewer’s attention, and it buys one thing: a door back. The icon is visible on any tab without
+  touching a single page, and clicking it already opens the panel. The drawing law came with it —
+  show the distance still ahead, never the time draining away: no digits, no red, no acceleration
+  toward the finish. A countdown in permanent view presses; an arc of what is left does not.</p>
+</details>
 
-<div class="dec">
-  <h3>Packaging is a script with a whitelist</h3>
-  <p>Two files are attached loosely: if either is missing the extension does not crash, it silently
-  loses a feature. A hand-assembled archive would therefore ship a product with no icon, or with no
-  tone, and give no sign of it. Archives are now built only by a script that fails when a file is
-  absent from disk or from the finished package.</p>
-</div>
+<details class="dec">
+  <summary><time>2026-08-06</time><span>Packaging is a script with a whitelist, never a hand-made archive</span></summary>
+  <p>Two files are attached loosely, so a missing one does not crash the extension — it ships
+  silently without its icon, or without its tone, and would pass review in that state. The script
+  fails if a file is absent from disk or from the finished archive, and it refuses to overwrite an
+  archive that already exists, because that version may be the one already in the store.</p>
+</details>
 
-<div class="dec">
-  <h3>The sound does not live in the panel</h3>
-  <p>Audio runs in a separate offscreen document, and the panel is only a view onto it through the
-  same interface the engine would offer directly. Closing the panel hides the flight; it does not
-  end it.</p>
-</div>
+<details class="dec">
+  <summary><time>2026-08-04</time><span>A second sound is a bench experiment, not a release feature — and never a library of sounds</span></summary>
+  <p>The noise field is a market of sleep apps and hardware; entering it as a feature means becoming
+  the fiftieth noise generator with nothing to tell it apart. But individual variance in what people
+  can work under is real and measured, so one timbre cannot fit everyone. The fork is therefore
+  worked out on a bench driving the real engine through its ordinary controls, and a control in the
+  panel has to earn its place before it appears.</p>
+</details>
+
+<details class="dec">
+  <summary><time>2026-08-01</time><span>The worst bug was proved by a symptom, not by a reproduction</span></summary>
+  <p>“Turn the volume to zero, wait, turn it back — no sound.” Zero volume is real silence at the
+  output, and the browser keeps an audio document alive only while sound is actually playing, so it
+  was being shut down and taking the session state with it. The cure is an inaudible floor on the
+  master gain, around −80 dB and below the sixteen-bit quantum, held for as long as a session exists.
+  It treats the cause; restoring a lost session would have treated the symptom and risked resuming a
+  flight from the middle.</p>
+</details>
+
+<details class="dec">
+  <summary><time>2026-07-25</time><span>The ember was abandoned for a flight toward a star</span></summary>
+  <p>An ember sitting in a panel was rejected in four words — a potato with a rim. What replaced it
+  was not a repaint: the ring went, time became a slider under the scene, and energy became the speed
+  you travel at. Everything the old skin implied about the hour of the day went with it, because a
+  flight does not happen at a time of day.</p>
+</details>
 
 <footer>The extension is in the Chrome Web Store as
 <a href="https://chromewebstore.google.com/detail/minimalist-timer/miknhphoakphfhgjajhkalmpdnadkeic">Minimalist Timer</a>.

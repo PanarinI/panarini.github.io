@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 560" width="1120" height="560" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif">
+<!-- Публичная схема архитектуры для страницы проекта на хабе.
+     Отличается от рабочих схем капсулы: без дев-языка, без открытых расхождений,
+     без разговора про ров и риски. Тема зафиксирована светлой — SVG в <img>
+     слушает системную тему читателя, а не страницу. -->
+<style>
+  .bg{fill:#F7F4EE}
+  .ink{fill:#14110E}
+  .mute{fill:#6B635A}
+  .accent{fill:#D93A00}
+  .box{fill:none;stroke:#14110E;stroke-width:2.5}
+  .boxfill{fill:#EFEAE0;stroke:#14110E;stroke-width:2.5}
+  .ghost{fill:none;stroke:#6B635A;stroke-width:2;stroke-dasharray:7 6}
+  .arrow{stroke:#14110E;stroke-width:2.5;fill:none}
+  .t{font-size:15px;fill:#14110E}
+  .s{font-size:13.5px;fill:#6B635A}
+  .n{font-size:12px;fill:#6B635A;letter-spacing:.12em;font-weight:600}
+  .h{font-size:17px;font-weight:700;fill:#14110E;letter-spacing:-.01em}
+  .title{font-size:20px;font-weight:800;fill:#14110E;letter-spacing:-.02em}
+</style>
+
+<rect class="bg" x="0" y="0" width="1120" height="560"/>
+
+<text class="title" x="40" y="46">How one sheet is assembled</text>
+<text class="s" x="40" y="70">Every step runs on the same word bank; nothing about a child is stored between sessions.</text>
+
+<!-- 1 · word bank -->
+<rect class="box" x="40" y="100" width="300" height="168"/>
+<text class="n" x="58" y="128">1 · WORD BANK</text>
+<text class="h" x="58" y="154">2207 words, eleven sounds</text>
+<text class="t" x="58" y="182">Each word carries how it sounds:</text>
+<text class="t" x="58" y="204">the syllable shape, consonant</text>
+<text class="t" x="58" y="226">clusters, where the target sound</text>
+<text class="t" x="58" y="248">falls, which other sounds it drags in.</text>
+
+<!-- arrow 1→2 -->
+<path class="arrow" d="M348 184 H392" marker-end="url(#a)"/>
+
+<!-- 2 · filter -->
+<rect class="boxfill" x="400" y="100" width="300" height="168"/>
+<text class="n" x="418" y="128">2 · FILTER</text>
+<text class="h" x="418" y="154">The child's own profile</text>
+<text class="t" x="418" y="182">The therapist marks the sounds this</text>
+<text class="t" x="418" y="204">child cannot say yet. Every word</text>
+<text class="t" x="418" y="226">containing one of them is dropped —</text>
+<text class="t" x="418" y="248">no tripping over a missing sound.</text>
+
+<!-- arrow 2→3 -->
+<path class="arrow" d="M708 184 H752" marker-end="url(#a)"/>
+
+<!-- 3 · assembly -->
+<rect class="box" x="760" y="100" width="320" height="168"/>
+<text class="n" x="778" y="128">3 · ASSEMBLY</text>
+<text class="h" x="778" y="154">Ten blocks, one A4</text>
+<text class="t" x="778" y="182">Warm-up, the sound alone, syllables,</text>
+<text class="t" x="778" y="204">words, a grammar game, sentences,</text>
+<text class="t" x="778" y="226">a tongue-twister. What does not fit</text>
+<text class="t" x="778" y="248">an A4 is dropped in a fixed order.</text>
+
+<!-- the rule under the row -->
+<text class="s" x="40" y="300">A printed workbook is one book for every child: it holds words built on sounds a</text>
+<text class="s" x="40" y="320">particular child has not learnt yet, and no amount of skipping pages removes them.</text>
+<text class="s" x="40" y="340">Filtering them out means rebuilding the material — which is what happens here, per child.</text>
+
+<!-- formats -->
+<line x1="40" y1="376" x2="1080" y2="376" stroke="#DBD4C7" stroke-width="2"/>
+<text class="n" x="40" y="408">ONE BASE, MANY FORMATS</text>
+<text class="s" x="40" y="432">Five kinds of material come out of the same dictionary, and the formats still ahead are</text>
+<text class="s" x="40" y="452">layers over that one base rather than separate products.</text>
+
+<rect class="boxfill" x="40" y="474" width="196" height="52"/>
+<text class="t" x="58" y="498">Practice sheet</text>
+<text class="s" x="58" y="516">in use</text>
+
+<rect class="boxfill" x="252" y="474" width="196" height="52"/>
+<text class="t" x="270" y="498">Maze · tracks · word pairs</text>
+<text class="s" x="270" y="516">in use</text>
+
+<rect class="ghost" x="464" y="474" width="196" height="52"/>
+<text class="t" x="482" y="498">Odd one out</text>
+<text class="s" x="482" y="516">ahead</text>
+
+<rect class="ghost" x="676" y="474" width="196" height="52"/>
+<text class="t" x="694" y="498">Noisy pictures</text>
+<text class="s" x="694" y="516">ahead</text>
+
+<rect class="ghost" x="888" y="474" width="192" height="52"/>
+<text class="t" x="906" y="498">Weekly batch</text>
+<text class="s" x="906" y="516">ahead</text>
+
+<defs>
+  <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+    <path d="M0 0 L10 5 L0 10 z" fill="#14110E"/>
+  </marker>
+</defs>
+</svg>

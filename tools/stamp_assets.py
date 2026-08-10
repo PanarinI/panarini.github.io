@@ -65,6 +65,33 @@ for page in hub_pages:
     if s != old:
         page.write_text(s, encoding="utf-8"); changed += 1
 
+
+# ── живое число пользователей из листинга CWS ────────────────────────────
+# Цифра на сайте устаревает молча: 346 провисели до 08-10, когда их стало 440.
+# Тянем из карточки стора и подставляем всюду, где помечено data-cws-users
+# или написано «N users» / «N пользователей». Стор недоступен — оставляем как есть.
+import urllib.request
+CWS = "https://chromewebstore.google.com/detail/aighdeikamhkemngfanhnamdlpoceimo"
+users = None
+try:
+    req = urllib.request.Request(CWS, headers={"User-Agent": "Mozilla/5.0"})
+    html = urllib.request.urlopen(req, timeout=15).read().decode("utf-8", "ignore")
+    m = re.search(r">([\d,]{2,9}) users<", html)
+    if m:
+        users = m.group(1)
+except Exception as e:
+    print(f"счётчик стора недоступен ({e}) — число оставлено прежним")
+if users:
+    n = 0
+    for page in all_pages:
+        t = old_t = page.read_text(encoding="utf-8")
+        t = re.sub(r"(<b data-cws-users>)[\d,]+(</b>)", r"\g<1>" + users + r"\g<2>", t)
+        t = re.sub(r"\b[\d,]{2,9} users\b", users + " users", t)
+        t = re.sub(r"\b[\d,]{2,9} пользовател(ей|я)\b", users + r" пользовател\g<1>", t)
+        if t != old_t:
+            page.write_text(t, encoding="utf-8"); n += 1
+    print(f"пользователей в сторе: {users} — обновлено страниц: {n}")
+
 print(f"счётчик: добавлен на {added}, всего страниц с ним "
       f"{sum('data-goatcounter' in p.read_text(encoding='utf-8') for p in all_pages)}"
       f" из {len(all_pages)}")

@@ -32,47 +32,51 @@
   <span class="stage">in use</span>
 </div>
 
-<p class="lede">A Chrome extension that turns a ChatGPT conversation into a clean PDF — the whole
-thread, only the answers, or a hand-picked selection. In the store since 2025, 346 users, rendered
-on a server I run rather than through a paid conversion API.</p>
+<p class="lede">A Chrome extension. It saves a ChatGPT conversation as a PDF: the whole thread,
+only the answers, or blocks you pick.</p>
 
 <figure class="fig">
   <span data-zoom="img/exportgpt-menu.png" tabindex="0"><img src="img/exportgpt-menu.png" alt="The Export button next to the ChatGPT input, with its menu open: Select to export, AI answers only, Settings."></span>
-  <figcaption>The whole product is one button beside the chat input. What sits under it — picking
-  blocks by hand, dropping your own prompts — is the part people come back for.</figcaption>
+  <figcaption>One button beside the chat input.</figcaption>
 </figure>
 
 <h2>How it works</h2>
 
 <figure class="fig">
   <span data-zoom="img/exportgpt-path-light.svg" tabindex="0"><img src="img/exportgpt-path-light.svg" alt="Four steps: the page holds only part of the conversation, the extension rebuilds it, a server renders the PDF, the file comes back."></span>
-  <figcaption>The hard part is step two, and it is invisible to the person exporting.</figcaption>
+  <figcaption>What happens when you press Export.</figcaption>
 </figure>
 
 <div class="how">
-<p>A long conversation is never fully present on the page. The browser keeps what is on screen and
-drops the rest, so anything that simply copies the document gets a fragment — <em>and always the
-same fragment</em>. That determinism was the clue when exports started coming out short: a race or a
-timeout would break in a different place each time, so the cause had to be structural.</p>
-<p>So the extension scrolls the thread, keeps what it sees, and merges the pieces back in their
-original order before anything is rendered. The rebuilt page then goes to the server, comes back as
-a PDF, and is saved.</p>
+<p>A long chat is not fully in the page. ChatGPT keeps the turns you can see and removes the rest,
+so copying the page gives you a part of the conversation. The extension scrolls the thread first,
+collects the turns, and puts them back in order. Only then is anything rendered.</p>
+<p>The text of the chat is sent to a server I rent and run. That is where the data leaves your
+machine, and it is the first line of the privacy policy.</p>
 <div class="nums">
-  <span><b>346</b>users</span>
-  <span><b>5.4%</b>exports that fail, measured</span>
-  <span><b>3</b>reasons the failure counter tells apart</span>
+  <span><b data-cws-users>440</b>users</span>
+  <span><b>5.4%</b>exports that fail</span>
+  <span><b>3</b>kinds of failure counted apart</span>
 </div>
 </div>
 
 <figure class="fig">
   <span data-zoom="img/exportgpt-settings.png" tabindex="0"><img src="img/exportgpt-settings.png" alt="The settings window: single page, page size, colour theme, font size, margins, page breaks, and a live preview of the resulting document."></span>
-  <figcaption>Settings, with a preview beside them. Dark exports were asked for by people who read at
-  night; the preview exists because margins and page breaks cannot be judged from a number.</figcaption>
+  <figcaption>Settings.</figcaption>
 </figure>
 
+<h2>What people said</h2>
+<table class="ex">
+  <caption><b>Four voices from the store,</b> kept word for word.</caption>
+  <tr><th>what they wrote</th><th>what it turned out to be</th><th>what changed</th></tr>
+  <tr><td class="w">“afraid of being banned”</td><td>a trust question, not a bug</td><td class="bad">nothing yet — the listing still does not say the extension only reads the page</td></tr>
+  <tr><td class="w">“目前用不到” <span class="g">don't need it right now</span></td><td>the need is occasional: install, save a chat, remove</td><td>nothing — that is how a one-off tool is used</td></tr>
+  <tr><td class="w">“neumí dlouhé konverzace s obrázky” <span class="g">can't handle long chats with images</span></td><td>a real ceiling: images are inlined into the file and inflate it</td><td class="out">images are shrunk before sending — 24 MB → 2.7 MB on the measured chat</td></tr>
+  <tr><td class="w">“It doesn't work” <span class="g">three times in one day</span></td><td>ChatGPT had stopped leaving placeholders for turns scrolled out of view</td><td class="out">the harvest was rebuilt: it scrolls, collects, reassembles</td></tr>
+</table>
+
 <h2>Decisions</h2>
-<p class="rule">Six of them, chosen because they can be read without knowing the project. The full
-log stays in the repository.</p>
+<p class="rule">Six that can be read without knowing the project.</p>
 
 <details class="dec">
   <summary><time>2026-08-09</time><span>A privacy statement starts with rendering, not with analytics</span></summary>

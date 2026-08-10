@@ -1,0 +1,130 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Garden — Igor Panarin</title>
+<meta name="description" content="A way of keeping working context alive between sessions with an AI assistant: every project holds its own memory in three plain text files.">
+<link rel="stylesheet" href="/assets/hub.css?v=e4caec43"><script data-goatcounter="https://panarini.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</head><body>
+<nav class="topbar">
+  <a class="me" href="/">Igor Panarin</a>
+  <span class="links">
+    <a href="mailto:panarin2005@gmail.com" aria-label="Email">
+      <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1.5 3h13a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5Z" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M1.6 4.1 8 8.9l6.4-4.8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+    </a>
+    <a href="https://github.com/PanarinI" aria-label="GitHub">
+      <svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+    </a>
+    <a href="https://bsky.app/profile/igorpanarin.bsky.social" aria-label="Bluesky">
+      <svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 7.1C7.1 5.4 4.7 2.2 2.7 1.4 1.5.9.5 1.4.5 2.9c0 1.4.8 4.7 1.3 5.5.9 1.4 2.4 1.3 3.9 1.1-1.5.2-2.8.8-1.1 2.6.4.4 1 1 1.5 1.5.8.8 1.5.9 1.9.9s1.1-.1 1.9-.9c.5-.5 1.1-1.1 1.5-1.5 1.7-1.8.4-2.4-1.1-2.6 1.5.2 3 .3 3.9-1.1.5-.8 1.3-4.1 1.3-5.5 0-1.5-1-2-2.2-1.5-2 .8-4.4 4-5.3 5.7Z"/></svg>
+    </a>
+    <a href="https://t.me/bot_and_kot" aria-label="Telegram channel, in Russian">
+      <svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M15.2 2.2 1.1 7.6c-.7.3-.7.9 0 1.1l3.5 1.1L13 4.4c.4-.2.8-.1.5.2l-6.8 6.2-.3 3.6c.4 0 .6-.2.8-.4l1.7-1.7 3.6 2.6c.7.4 1.1.2 1.3-.6l2.3-10.9c.2-.9-.3-1.3-.9-1.2Z"/></svg><span class="ru">RU</span>
+    </a>
+    <a class="lang" href="/ru/" hreflang="ru">Рус</a>
+  </span>
+</nav>
+<div class="wrap page">
+
+<a class="back" href="../">← All work</a>
+
+<div class="head">
+  <h1>The Garden</h1>
+  <span class="stage">in use</span>
+</div>
+
+<p class="lede">Work with an AI assistant restarts every session: the model arrives knowing nothing
+about yesterday. The Garden is the answer to that — every project keeps its own memory in three
+plain text files, so a new session reads itself into the work instead of being briefed again.
+Twenty projects run on it.</p>
+
+<h2>The three files</h2>
+<div class="how">
+  <p><em>CLAUDE.md</em> — what this project is and the rules it lives by. Changes rarely; when it
+  changes, something about the project itself has changed.</p>
+  <p><em>STATE.md</em> — where the work stands right now, and what the next step is. Rewritten
+  often, and always in meaning rather than in log entries.</p>
+  <p><em>DECISIONS.md</em> — why things are the way they are. Append-only: a decision that turned
+  out wrong is marked, never deleted, because the reasoning is the part worth keeping.</p>
+  <p>Nothing here is a framework or a package. The files are ordinary text in the project folder,
+  readable by a person, and the assistant is instructed to read them first and write them last.</p>
+</div>
+
+<div class="nums">
+  <span><b>20</b>projects running on it</span>
+  <span><b>3</b>files per project</span>
+  <span><b>47</b>decisions recorded about the system itself</span>
+</div>
+
+<h2>What a session does with them</h2>
+<div class="how">
+  <p><em>On entry</em> the assistant reads the three files of one project and nothing else. Reading
+  the whole set would cost more and blur the work; a project is meant to be self-contained.</p>
+  <p><em>While working</em> anything that settles goes straight into its file, and the assistant
+  says out loud where it put it. This is behaviour, not a command — a command has to be remembered,
+  and remembering is exactly the load being removed.</p>
+  <p><em>On the way out</em> the files are rewritten in meaning: what the work now is, what was
+  decided and why. The closing pass is not a backup — nothing is lost without it, because things
+  were filed as they settled.</p>
+</div>
+
+<figure class="fig">
+  <img src="img/mir.png" alt="An isometric plot at night: a glass structure, small houses, trees and lamps along a path">
+  <figcaption>The same files drawn as a place — each project a structure on one plot, built from
+  what its own files say about it. Names are left off here: several of the projects are personal.</figcaption>
+</figure>
+
+<h2>Decisions</h2>
+<p class="rule">Kept in the system's own log; the ones below pass a stricter test — a reader with
+no context can go through them without once asking “what is that?”</p>
+
+<details class="dec">
+  <summary><time>2026-07-02</time><span>The person makes no decisions about the process itself</span></summary>
+  <p>The rituals were initially exposed as commands to be invoked, which quietly moved the burden of
+  choosing them onto the one person the system exists to unburden. It was inverted: the assistant
+  decides which entry a session needs, files thoughts as they arrive, and offers the closing pass
+  when the signals appear. Nothing has to be requested by name. The cost of a skipped ritual is near
+  zero precisely because capture happens continuously rather than at the end.</p>
+</details>
+
+<details class="dec">
+  <summary><time>2026-07-01</time><span>Filing on the fly is the default; the inbox is only a buffer</span></summary>
+  <p>Two paths existed for an incoming thought and were being used interchangeably. They were
+  separated: inside a session, where there is enough context to place it, a thought goes into its
+  file immediately; away from the desk, or when sorting is not wanted, it goes into a raw inbox and
+  is placed later. Stated plainly so the inbox does not become a landfill of postponed thinking —
+  it is for when filing on the spot is impossible, not for when it is tedious.</p>
+</details>
+
+<details class="dec">
+  <summary><time>2026-06-30</time><span>Two sessions cannot silently overwrite each other's file</span></summary>
+  <p>The design assumed the last writer wins, and a rule — one writer per project — was built on top
+  of that fear. A test showed the assumption was wrong: a write to a file that changed on disk after
+  this session read it is refused outright, and the session is forced to re-read before it can write.
+  Both changes survived. The rule stayed as hygiene, but it is no longer what prevents loss; the
+  tooling is.</p>
+</details>
+
+<details class="dec">
+  <summary><time>2026-06-29</time><span>The working context stays private even when the code is public</span></summary>
+  <p>Repository visibility is all-or-nothing, and these files hold unfinished thinking — the kitchen
+  rather than the dish. Where the code is meant to be public, the three files were moved out of that
+  repository into a private one. The rule generalised: a project with public code keeps its context
+  somewhere else, always.</p>
+</details>
+
+<details class="dec">
+  <summary><time>2026-06-29</time><span>One curator in different modes, not a population of agents</span></summary>
+  <p>The obvious answer to a growing set of projects is to staff it — a specialised agent per area.
+  Considered and dropped: the pain was visibility and rhythm, and those are carried by structure —
+  a map, a state file per project, a fixed entry and exit — not by having more workers. A fresh
+  agent also starts cold, re-reads everything and breaks the thread of a session that runs across
+  several projects at once. Specialisation now happens as modes of one assistant, and a separate
+  agent is called only for a one-off heavy job.</p>
+</details>
+
+<footer>What the projects actually contain is not published here: several are personal. This page
+shows the mechanism — the files, the entry and the exit — and nothing from inside them.</footer>
+
+</div>
+<script src="/assets/hub.js?v=6823b44d"></script>
+</body></html>

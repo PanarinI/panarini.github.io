@@ -69,7 +69,7 @@ ChatGPT had changed the way it holds a conversation, and the old way of reading 
 </table>
 
 <h2>Decisions</h2>
-<p class="rule">Six that can be read without knowing the project.</p>
+<p class="rule">Four that can be read without knowing the project.</p>
 
 <details class="dec">
   <summary><time>2026-08-09</time><span>A privacy statement starts with rendering, not with analytics</span></summary>
@@ -78,17 +78,6 @@ ChatGPT had changed the way it holds a conversation, and the old way of reading 
   flow that sends the whole text of a conversation off the machine to be rendered. That flow is the
   product's main data movement, and it is now the first thing stated — before any mention of
   counters, which turned out to live in three separate layers that had been confused with each other.</p>
-</details>
-
-<details class="dec">
-  <summary><time>2026-07-20</time><span>A conversation has to be rebuilt before it can be exported</span></summary>
-  <p>Exports of long threads started arriving cut short, always at the same point. The page had
-  changed underneath: turns scrolled out of view used to leave an empty placeholder behind, and the
-  exporter used those placeholders to know there was more to fetch. When they stopped being left,
-  the question “is there anything left to fetch?” began answering “no” — truthfully, and uselessly.
-  The signal was replaced with one that survives redesigns: if the thread is taller than the window,
-  it cannot all be present, so scroll. And scrolling alone was not enough — the copy has to be
-  reassembled from what was collected, in the original order.</p>
 </details>
 
 <details class="dec">
@@ -107,16 +96,6 @@ ChatGPT had changed the way it holds a conversation, and the old way of reading 
   request that never arrived points at a network or a blocker on the user's side — a difference that
   decides what to do next. Console diagnostics were also deliberately left in the shipped build:
   they are what turned a report of “doesn't work” into a diagnosis in twenty minutes.</p>
-</details>
-
-<details class="dec">
-  <summary><time>2026-08-06</time><span>Numbers from different windows must not be divided by each other</span></summary>
-  <p>Three conclusions drawn from the product's own counters were wrong in the same way: each
-  compared quantities collected over different periods, or counted people two different ways. The
-  failure rate was overstated by a factor of four; a figure for exports-per-person had a phantom
-  denominator; an activation rate compared installs against visitors of a landing page. Every claim
-  now carries the collection window of each counter it uses, and one of the three metrics turned out
-  not to be measured at all.</p>
 </details>
 
 <details class="dec">

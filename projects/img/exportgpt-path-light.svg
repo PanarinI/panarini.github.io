@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 470" width="1120" height="470" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif">
+<!-- Публичная схема пути экспорта. Без адресов, портов и устройства серверной
+     цепочки: та схема помечена в проекте как приватная. Тема зафиксирована светлой. -->
+<style>
+  .t{font-size:15px;fill:#14110E}
+  .s{font-size:13.5px;fill:#6B635A}
+  .n{font-size:12px;fill:#6B635A;letter-spacing:.12em;font-weight:600}
+  .h{font-size:17px;font-weight:700;fill:#14110E;letter-spacing:-.01em}
+  .title{font-size:20px;font-weight:800;fill:#14110E;letter-spacing:-.02em}
+</style>
+<rect fill="#F7F4EE" x="0" y="0" width="1120" height="470"/>
+
+<text class="title" x="40" y="46">What happens when you press Export</text>
+<text class="s" x="40" y="70">Three of these four steps are the reason the extension exists at all.</text>
+
+<rect fill="none" stroke="#14110E" stroke-width="2.5" x="40" y="104" width="250" height="190"/>
+<text class="n" x="58" y="132">1 · THE PAGE</text>
+<text class="h" x="58" y="158">Only part is there</text>
+<text class="t" x="58" y="188">A long conversation is never</text>
+<text class="t" x="58" y="210">fully present on the page:</text>
+<text class="t" x="58" y="232">turns scrolled out of view are</text>
+<text class="t" x="58" y="254">removed from it entirely.</text>
+
+<path stroke="#14110E" stroke-width="2.5" fill="none" d="M298 199 H338" marker-end="url(#a)"/>
+
+<rect fill="#EFEAE0" stroke="#14110E" stroke-width="2.5" x="346" y="104" width="250" height="190"/>
+<text class="n" x="364" y="132">2 · REBUILD</text>
+<text class="h" x="364" y="158">Put back together</text>
+<text class="t" x="364" y="188">The extension scrolls the</text>
+<text class="t" x="364" y="210">whole thread, keeps what it</text>
+<text class="t" x="364" y="232">sees, and merges the pieces</text>
+<text class="t" x="364" y="254">back in their original order.</text>
+
+<path stroke="#14110E" stroke-width="2.5" fill="none" d="M604 199 H644" marker-end="url(#a)"/>
+
+<rect fill="none" stroke="#14110E" stroke-width="2.5" x="652" y="104" width="250" height="190"/>
+<text class="n" x="670" y="132">3 · RENDER</text>
+<text class="h" x="670" y="158">On a server I run</text>
+<text class="t" x="670" y="188">The assembled page is sent</text>
+<text class="t" x="670" y="210">to a machine I rent and</text>
+<text class="t" x="670" y="232">administer, which turns it</text>
+<text class="t" x="670" y="254">into a PDF.</text>
+
+<path stroke="#14110E" stroke-width="2.5" fill="none" d="M910 199 H950" marker-end="url(#a)"/>
+
+<rect fill="#EFEAE0" stroke="#14110E" stroke-width="2.5" x="958" y="104" width="122" height="190"/>
+<text class="n" x="976" y="132">4 · BACK</text>
+<text class="h" x="976" y="158">The file</text>
+<text class="t" x="976" y="188">Saved to</text>
+<text class="t" x="976" y="210">your disk.</text>
+
+<line x1="40" y1="342" x2="1080" y2="342" stroke="#DBD4C7" stroke-width="2"/>
+<text class="n" x="40" y="374">WHERE THE DATA GOES</text>
+<text class="s" x="40" y="400">At step three the text of the conversation leaves the machine. That, and not the three counters</text>
+<text class="s" x="40" y="420">sitting beside it, is the product's main flow of data — so it is the first thing the privacy policy says.</text>
+<text class="s" x="40" y="440">The address of the server, its chain and its settings are not published.</text>
+
+<defs>
+  <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+    <path d="M0 0 L10 5 L0 10 z" fill="#14110E"/>
+  </marker>
+</defs>
+</svg>

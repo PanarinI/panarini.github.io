@@ -20,7 +20,9 @@ def short(p):
     return hashlib.md5((ROOT / p).read_bytes()).hexdigest()[:8]
 
 vers = {a: short(a) for a in ASSETS}
-pages = list(ROOT.glob("*.html")) + list((ROOT / "projects").glob("*.html"))
+pages = list(ROOT.glob("*.html"))
+for folder in ("projects", "ru"):          # ru/ — русский каталог, добавлен 08-10
+    pages += list((ROOT / folder).glob("*.html"))
 changed = 0
 for page in pages:
     s = old = page.read_text(encoding="utf-8")

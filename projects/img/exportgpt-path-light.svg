@@ -48,7 +48,6 @@
 <rect x="574" y="140" width="122" height="14" fill="#DBD4C7"/>
 <circle cx="586" cy="182" r="7" fill="#D93A00"/>
 <text class="lbl" x="604" y="187">renders</text>
-<text class="sub" x="550" y="276">mine, not a paid API</text>
 
 <path d="M745 155 H805" stroke="#14110E" stroke-width="2.5" fill="none" marker-end="url(#a)"/>
 <text class="lbl" x="747" y="144">back</text>

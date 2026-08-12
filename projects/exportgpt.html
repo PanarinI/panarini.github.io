@@ -2,7 +2,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ExportGPT — Igor Panarin</title>
 <meta name="description" content="A Chrome extension that turns a ChatGPT conversation into a clean PDF: how it rebuilds a page that is never fully there, and where the data goes.">
-<link rel="stylesheet" href="/assets/hub.css?v=e4caec43"><script data-goatcounter="https://panarini.goatcounter.com/count"
+<link rel="stylesheet" href="/assets/hub.css?v=3b234c7c"><script data-goatcounter="https://panarini.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 </head><body>
 <nav class="topbar">
@@ -69,43 +69,17 @@ day, rendered again.</p>
   <span data-zoom="img/exportgpt-trust-light.svg" tabindex="0"><img src="img/exportgpt-trust-light.svg" alt="The route: DNS tells the browser the address, the extension sends an encrypted request, a firewall lets only that port through, Caddy decrypts it and keeps the certificate, Gotenberg renders the PDF inside the server, and the file returns the same way."></span>
 </figure>
 
-<h2>Decisions</h2>
-<p class="rule">Four that can be read without knowing the project.</p>
-
-<details class="dec">
-  <summary><time>2026-08-09</time><span>A privacy statement starts with rendering, not with analytics</span></summary>
-  <p>The conversation about what a product collects tends to start with counters, because that is
-  what review forms ask about. Here it was the wrong end: three small analytics events sit beside a
-  flow that sends the whole text of a conversation off the machine to be rendered. That flow is the
-  product's main data movement, and it is now the first thing stated — before any mention of
-  counters, which turned out to live in three separate layers that had been confused with each other.</p>
-</details>
-
-<details class="dec">
-  <summary><time>2026-07-20</time><span>A file name falls back to the first question, never to a generic title</span></summary>
-  <p>Two different exports were both landing as “New chat”. The name had been read from the
-  conversation's link in the sidebar, which a redesign moved, and the fallback — the browser tab
-  title — lags behind renames. Files that differ in content but not in name are worse than badly
-  named ones: they cannot be told apart later. Generic titles are now rejected outright, and the
-  last resort is the first question the person asked, read from the rebuilt copy.</p>
-</details>
-
-<details class="dec">
-  <summary><time>2026-07-20</time><span>The failure counter records a reason, not just a failure</span></summary>
-  <p>A bare count of failures says something broke and nothing else. Split by cause it becomes
-  actionable: a timeout on an enormous conversation is answered with server resources, while a
-  request that never arrived points at a network or a blocker on the user's side — a difference that
-  decides what to do next. Console diagnostics were also deliberately left in the shipped build:
-  they are what turned a report of “doesn't work” into a diagnosis in twenty minutes.</p>
-</details>
-
-<details class="dec">
-  <summary><time>2026-08-06</time><span>A change in behaviour that skips a version number never reaches anyone</span></summary>
-  <p>A fix that excluded development builds from the statistics was written, committed, and believed
-  to be working for two weeks. The version number was not raised, so the store kept serving the
-  build without it, and test runs kept landing in the numbers. Code changes and product changes are
-  not the same event: one lives in a repository, the other only exists once a version carries it out.</p>
-</details>
+<h2>Devlog</h2>
+<div class="devlog">
+  <div class="e"><time>15 May</time><span class="tag">start</span><p>Built on top of someone else's extension that saved any web page as a PDF through its own paid conversion service. The first version kept that shape: a button “Save as PDF” and a menu about paper — A4 or Letter, portrait or landscape.</p></div>
+  <div class="e"><time>13 June</time><span class="tag">UI</span><p>Renamed to Export. Paper settings moved into a separate window, and the menu began asking what to export instead of how to print it.</p></div>
+  <div class="e"><time>24 June</time><span class="tag">server</span><p>Rendering moved off the paid service onto a machine I rent. The same conversion, but the cost stops growing with every export someone makes.</p></div>
+  <div class="e"><time>26 June</time><span class="tag">UI</span><p>Block selection: messages are ticked one by one and the button shows how many are selected.</p></div>
+  <div class="e"><time>14 July</time><span class="tag">engine</span><p>Images are shrunk before the file is sent. They used to be packed in at full size, so a chat with several pictures made a 24 MB file — heavy enough for the renderer to give up on it. The same chat now makes 2.7 MB and the pictures look the same.</p></div>
+  <div class="e"><time>20 July</time><span class="tag">engine</span><p>Long exports had been arriving cut short, always at the same place. ChatGPT had stopped keeping the turns that scroll out of view, so the extension now walks the whole thread and rebuilds it before anything is rendered. The same day file names stopped collapsing into “New chat”: the name falls back to the first question asked.</p></div>
+  <div class="e"><time>22 July</time><span class="tag">UI</span><p>Added “Everything” to the top of the menu. Exporting the whole conversation was already what the button did, and I assumed that was obvious — an uninstall comment showed it was not: people were looking for that option and did not find it.</p></div>
+  <div class="e"><time>10 Aug</time><span class="tag">UI</span><p>The request for a rating got a visible “Not now”. Until then the only way out of it was to click somewhere else.</p></div>
+</div>
 
 <footer>The extension is in the Chrome Web Store as
 <a href="https://chromewebstore.google.com/detail/aighdeikamhkemngfanhnamdlpoceimo">Export ChatGPT Conversation</a>.

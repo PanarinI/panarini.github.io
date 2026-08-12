@@ -110,80 +110,18 @@ exactly that.</p>
   whichever circle they sit in.</figcaption>
 </figure>
 
-<h2>Decision log</h2>
-<p class="rule">Newest first. A decision appears here only if a reader with no context can follow it
-to the end without once asking “what is that?” — the rest stay in the project’s own log.</p>
-
-<details class="dec">
-  <summary><time>2026-08-07</time><span>The tone knob ships at zero, for everyone</span></summary>
-  <p>The product promises warm noise, and a chord offered instead is not what anyone came for. An
-  earlier version put the knob at the centre for new users only — but a newcomer cannot be told from
-  a long-time user by the absence of a setting, because the setting is new and neither of them has
-  one. The split went out together with the idea behind it.</p>
-</details>
-
-<details class="dec">
-  <summary><time>2026-08-06</time><span>The tonal layer rides the same rails as the noise, not beside them</span></summary>
-  <p>On the bench the layer went straight to the output, which was right for judging it on its own.
-  In the product that would drift apart: on pause the noise would stop while the tone kept playing;
-  at the end the noise would thin while the tone stood still. One output, one set of rails — volume,
-  pause, fade and the inaudible keep-alive floor now apply to everything at once. The layer is also
-  told which phase the session is in, because music that sounds the same at the start and at the
-  finish cancels the point of arriving.</p>
-</details>
-
-<details class="dec">
-  <summary><time>2026-08-06</time><span>A finished feature was turned down the evening it started working</span></summary>
-  <p>Ten milestones laid along the flight, receding by the same perspective the starfield already
-  uses, so the remaining distance could be read in space rather than in numbers. It was built, it
-  worked, and it was rejected that evening: the sidebar reads well enough without it. The lesson was
-  mine rather than the feature’s — the choice had been offered as “what to build next” and was read,
-  correctly, as “what goes into this release”.</p>
-</details>
-
-<details class="dec">
-  <summary><time>2026-08-06</time><span>Presence is carried by the toolbar icon, not by a tab injected into other people’s pages</span></summary>
-  <p>An edge tab on every page costs a scripting permission, an optional host permission and a
-  reviewer’s attention, and it buys one thing: a door back. The icon is visible on any tab without
-  touching a single page, and clicking it already opens the panel. The drawing law came with it —
-  show the distance still ahead, never the time draining away: no digits, no red, no acceleration
-  toward the finish. A countdown in permanent view presses; an arc of what is left does not.</p>
-</details>
-
-<details class="dec">
-  <summary><time>2026-08-06</time><span>Packaging is a script with a whitelist, never a hand-made archive</span></summary>
-  <p>Two files are attached loosely, so a missing one does not crash the extension — it ships
-  silently without its icon, or without its tone, and would pass review in that state. The script
-  fails if a file is absent from disk or from the finished archive, and it refuses to overwrite an
-  archive that already exists, because that version may be the one already in the store.</p>
-</details>
-
-<details class="dec">
-  <summary><time>2026-08-04</time><span>A second sound is a bench experiment, not a release feature — and never a library of sounds</span></summary>
-  <p>The noise field is a market of sleep apps and hardware; entering it as a feature means becoming
-  the fiftieth noise generator with nothing to tell it apart. But individual variance in what people
-  can work under is real and measured, so one timbre cannot fit everyone. The fork is therefore
-  worked out on a bench driving the real engine through its ordinary controls, and a control in the
-  panel has to earn its place before it appears.</p>
-</details>
-
-<details class="dec">
-  <summary><time>2026-08-01</time><span>The worst bug was proved by a symptom, not by a reproduction</span></summary>
-  <p>“Turn the volume to zero, wait, turn it back — no sound.” Zero volume is real silence at the
-  output, and the browser keeps an audio document alive only while sound is actually playing, so it
-  was being shut down and taking the session state with it. The cure is an inaudible floor on the
-  master gain, around −80 dB and below the sixteen-bit quantum, held for as long as a session exists.
-  It treats the cause; restoring a lost session would have treated the symptom and risked resuming a
-  flight from the middle.</p>
-</details>
-
-<details class="dec">
-  <summary><time>2026-07-25</time><span>The ember was abandoned for a flight toward a star</span></summary>
-  <p>An ember sitting in a panel was rejected in four words — a potato with a rim. What replaced it
-  was not a repaint: the ring went, time became a slider under the scene, and energy became the speed
-  you travel at. Everything the old skin implied about the hour of the day went with it, because a
-  flight does not happen at a time of day.</p>
-</details>
+<h2>Devlog</h2>
+<div class="devlog">
+  <div class="e"><time>7 Aug</time><span class="tag">sound</span><p>1.1.0 added a second layer of sound — music over the noise, as much or as little of it as you want.</p></div>
+  <div class="e"><time>6 Aug</time><span class="tag">UI</span><p>The toolbar icon became the timer itself: it shows how far the session has got without opening the panel.</p></div>
+  <div class="e"><time>1 Aug</time><span class="tag">fix</span><p>A bug in the sound, found on a live test: the layer that should have gone silent kept playing after arrival.</p></div>
+  <div class="e"><time>27 July</time><span class="tag">release</span><p>Submitted to the store.</p></div>
+  <div class="e"><time>26 July</time><span class="tag">UI</span><p>The hearth became a sky. A warm ember in a ring read as a potato with a rim, and the metaphor died on the spot; the screen turned into a starfield you fly through, with the star as the destination.</p></div>
+  <div class="e"><time>11 July</time><span class="tag">focus</span><p>Reversed the founding assumption. The project had started as “sound first, timer optional”; use showed the timer is the centre and the sound is what time is made of.</p></div>
+  <div class="e"><time>10 July</time><span class="tag">UI</span><p>First shape: a dial with a ring for minutes and an orb for the sound. The orb grows towards fullness instead of draining away.</p></div>
+  <div class="e"><time>5 July</time><span class="tag">sound</span><p>Time is carried by noise, not by a drone, and it drifts slowly instead of changing in steps — anything sudden pulls attention, which is exactly what the tool is meant not to do.</p></div>
+  <div class="e"><time>4 July</time><span class="tag">start</span><p>Started from a demand survey, under the working name Tide.</p></div>
+</div>
 
 <footer>The extension is in the Chrome Web Store as
 <a href="https://chromewebstore.google.com/detail/minimalist-timer/miknhphoakphfhgjajhkalmpdnadkeic">Minimalist Timer</a>.

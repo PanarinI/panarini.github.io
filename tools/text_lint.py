@@ -46,9 +46,12 @@ def check(page: pathlib.Path):
         if len(words) > LONG_CAPTION:
             hits.append((f"подпись из {len(words)} слов", " ".join(words)[:90]))
 
-    body = strip_tags(html)
-    body = re.sub(r"\s+", " ", body)
-    for s in sentences(body):
+    # проза, а не разметка: строки таблиц и каталога склеиваются в мнимые
+    # длинные предложения, поэтому смотрим только абзацы и подписи решений
+    chunks = re.findall(r"<p[^>]*>(.*?)</p>", html, re.S)
+    chunks += re.findall(r"<summary>(.*?)</summary>", html, re.S)
+    prose = [re.sub(r"\s+", " ", strip_tags(c)).strip() for c in chunks]
+    for s in (s for c in prose for s in sentences(c)):
         n = len(s.split())
         if n > LONG_SENTENCE:
             hits.append((f"предложение из {n} слов", s[:110]))

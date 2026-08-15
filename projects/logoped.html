@@ -32,15 +32,12 @@
   <span class="stage">in build</span>
 </div>
 
-<p class="lede">Printable material for sound practice, assembled for one specific child: every
-word is filtered against the sounds that child cannot say yet — the one thing a printed
-workbook can never do.</p>
+<p class="lede">Printable material for sound practice, made for one child. Every word is filtered against the sounds that child cannot say yet.</p>
 
 
 <figure class="fig">
   <img src="img/logoped-ui.png" alt="The first screen of the generator: eleven sound cards, each with how many words the dictionary holds for it, and a note explaining which sounds this sheet cannot serve and why.">
-  <figcaption>The first screen. Each card carries the size of its own dictionary, and the note below
-  says which sounds this format cannot serve — and why not.</figcaption>
+  <figcaption>The first screen. Each card shows how many words the bank holds for that sound.</figcaption>
 </figure>
 
 <h2>How it works</h2>
@@ -53,13 +50,10 @@ workbook can never do.</p>
 <div class="how">
 <p>You choose the sound being practised and tick the sounds this child cannot say yet. Everything
 after that is automatic. The dictionary is cut down to words that hold the target sound and none of
-the forbidden ones. Ten blocks are then assembled — warm-up, the sound alone, syllables, words, a
-grammar game, sentences, a tongue-twister — and if they do not fit one A4 page, blocks are dropped in
-a fixed order until they do. Five kinds of material come out of the same dictionary: the sheet, two
+the forbidden ones. Ten blocks are then assembled: warm-up, the sound alone, syllables, words, a grammar game, sentences, a tongue-twister. Five kinds of material come out of the same dictionary: the sheet, two
 tracks to trace, word pairs, and a maze.</p>
 <p>Every word is transcribed <em>by sound, not by spelling</em>, because a Russian word can be
-written with one consonant and spoken with another. If a word cannot be verified, the build
-<em>stops</em> rather than printing it.</p>
+written with one consonant and spoken with another. If a word cannot be verified, the build <em>stops</em>.</p>
 <div class="nums">
   <span><b>11</b> sounds</span>
   <span><b>2207</b> words vetted by hand</span>
@@ -93,8 +87,7 @@ independently. Only forms both passes agreed on were kept.</p>
   <tr><td class="w">пила <span class="g">saw</span></td><td class="bad">пилочка</td><td>a nail file</td><td class="out">no</td></tr>
 </table>
 <p class="exnote">Four hundred and fifty words went through the same double pass; they agreed on
-ninety-five per cent. Every disagreement was thrown away rather than resolved — three hundred and six
-forms survived, two hundred and sixty-nine were blocked.</p>
+ninety-five per cent. Every disagreement was thrown away, not resolved. Three hundred and six forms survived; two hundred and sixty-nine were blocked.</p>
 
 <h2>What the engine learned</h2>
 <p class="rule">Newest first. Each entry has the same shape: what it could not do, what it had to
@@ -102,32 +95,32 @@ know first, and what it can do now.</p>
 
 <details class="dec">
   <summary><time>2026-08-10</time><span>Two exercises existed on paper and not in fact</span></summary>
-  <p>Both were listed as working features, and neither could be built for almost any sheet: the rule they stood on had been switched off two days earlier as unreliable, and the hand-made table replacing it covered twenty-three words out of one thousand seven hundred. They were counted as existing without existing. Once the tables were filled, one builds on twenty-eight sheets out of twenty-nine and the other on fourteen — and the second number is not a defect, see below.</p>
+  <p>Both were listed as working features. Neither could be built for almost any sheet. The rule they stood on had been switched off two days earlier, and the table replacing it covered twenty-three words out of seventeen hundred. They were counted as existing without existing. Once the tables were filled, one builds on twenty-eight sheets out of twenty-nine, the other on fourteen. The second number is not a defect; see below.</p>
 </details>
 
 <details class="dec">
   <summary><time>2026-08-10</time><span>One exercise cannot be built for hissing sounds, and the reason is the language</span></summary>
-  <p>The affectionate form almost always carries a particular consonant, and that consonant is forbidden on a sheet for any hissing or whistling sound, because a child practising one will slide into the other. Sixteen words on such a sheet; forms exist for twelve; eight of those fall at the purity gate. No engineering moves that number, so the screen should say it plainly instead of reporting that the exercise “could not be assembled”.</p>
+  <p>The affectionate form almost always carries one particular consonant. On a sheet for any hissing or whistling sound it is forbidden: a child practising one slides into the other. Sixteen words on such a sheet; forms exist for twelve; eight of those fall at the purity gate. No engineering moves that number, so the screen should say it plainly instead of reporting that the exercise “could not be assembled”.</p>
 </details>
 
 <details class="dec">
   <summary><time>2026-08-09</time><span>Ten tests had never run, and the suite reported all green</span></summary>
-  <p>The single line that tells a file to execute its tests was sitting in the middle of that file instead of at the end. Everything below it — ten test functions, five of them written by other people, including a check added the day before — was silently skipped, while the suite printed a clean result. Moving one line took the count from 1224 checks to 1649.</p>
+  <p>The single line that tells a file to execute its tests was sitting in the middle of that file instead of at the end. Everything below it was silently skipped: ten test functions, five written by other people. The suite still printed a clean result. Moving one line took the count from 1224 checks to 1649.</p>
 </details>
 
 <details class="dec">
   <summary><time>2026-08-09</time><span>A finished block was measured and parked, because the page was already full</span></summary>
-  <p>Word pairs were built as another block of the sheet. Then the sheet was measured: an A4 page holds 273 millimetres of material, and the existing blocks already asked for 305 to 363. The block became a separate printable material instead. The sheet itself did not change by a millimetre — verified against the previous version rather than assumed.</p>
+  <p>Word pairs were built as another block of the sheet. Then the sheet was measured: an A4 page holds 273 millimetres of material, and the existing blocks already asked for 305 to 363. The block became a separate printable material instead. The sheet itself did not change by a millimetre; that was checked against the previous version.</p>
 </details>
 
 <details class="dec">
   <summary><time>2026-08-08</time><span>Verbs were kept out of sentences until the dictionary knew enough about them</span></summary>
-  <p>Sentences on the sheet were frozen phrases: point at a picture, name it. Making them live needs verbs, and a verb cannot be placed without knowing whether its subject is animate and whether the action is finished — neither of which can be derived from how the word ends. The verbs waited while three properties were marked by hand across the dictionary. Then the sentences moved: from “here is a ram” to “an elk is swimming past”.</p>
+  <p>Sentences on the sheet were frozen phrases: point at a picture, name it. Making them live needs verbs. A verb cannot be placed without knowing whether its subject is animate and whether the action is finished, and neither follows from how the word ends. The verbs waited while three properties were marked by hand across the dictionary. Then the sentences moved: from “here is a ram” to “an elk is swimming past”.</p>
 </details>
 
 <details class="dec">
   <summary><time>2026-08-08</time><span>Three materials were teaching the wrong sound</span></summary>
-  <p>A practice track for one voiced consonant printed syllables that, read aloud, come out as its voiceless twin — a sheet made to train one sound was training its opposite. Two more materials had the same class of fault. All three came off the paper the day it was measured. What a letter looks like and what a mouth does with it are different facts, and only the second is allowed to decide anything.</p>
+  <p>A practice track for one voiced consonant printed syllables that come out as its voiceless twin when read aloud. The sheet was training the opposite sound. Two more materials had the same class of fault. All three came off the paper the day it was measured. What a letter looks like and what a mouth does with it are different facts, and only the second is allowed to decide anything.</p>
 </details>
 
 <details class="dec">
@@ -137,32 +130,32 @@ know first, and what it can do now.</p>
 
 <details class="dec">
   <summary><time>2026-08-06</time><span>A guess of ours became “canon” three files later</span></summary>
-  <p>An assumption was written into a research note, cited from there into a second note, and by the third had acquired the authority of a source — after which it was implemented as though the field required it. The rule now: a confidence mark belongs to the quotation, not to the conclusion drawn from it, however obvious that conclusion looks.</p>
+  <p>An assumption was written into a research note, then cited into a second, and by the third it had the authority of a source. It was implemented as though the field required it. The rule now: a confidence mark belongs to the quotation, not to the conclusion drawn from it, however obvious that conclusion looks.</p>
 </details>
 
 <details class="dec">
   <summary><time>2026-08-06</time><span>Printed material is looked at before it is shown, not after</span></summary>
-  <p>Three times in a row a build was reported as done on the strength of a passing test suite, and three times the printed page was visibly broken: lines not starting where they should, a scrawl instead of a track, a letter running off the edge. Tests pass on the data; paper is a different medium. The screenshot is now taken before the work is handed over.</p>
+  <p>Three times a build was reported as done because the tests passed. Three times the printed page was visibly broken: lines not starting where they should, a scrawl instead of a track, a letter running off the edge. Tests pass on the data; paper is a different medium. The screenshot is now taken before the work is handed over.</p>
 </details>
 
 <details class="dec">
   <summary><time>2026-08-04</time><span>A believed rule about how therapists work was disproved by their own plans</span></summary>
-  <p>Navigation rested on the idea that one session equals one step of difficulty. Ten real lesson plans were coded into a dataset of thirty-three task names, and not one worked that way: a therapist moves along a frontier — how far this child has come with this sound — and builds a run-up to it. The idea was dropped; the engine, tested against the same dataset, held.</p>
+  <p>Navigation rested on the idea that one session equals one step of difficulty. Ten real lesson plans were coded into a dataset of thirty-three task names, and not one worked that way. A therapist works from how far this child has come with this sound, and builds a run-up to it. The idea was dropped; the engine, tested against the same dataset, held.</p>
 </details>
 
 <details class="dec">
   <summary><time>2026-08-04</time><span>The screen was cleared of words that existed only in the code</span></summary>
-  <p>Machine terms had leaked into the interface, where they meant nothing to anyone but us. Rather than renaming them one by one, a translation layer was added between the engine and the screen. The rule since: a new machine term gets its translation first and is shown second.</p>
+  <p>Machine terms had leaked into the interface, where they meant nothing to anyone but us. Instead of renaming them one by one, a translation layer was added between the engine and the screen. The rule since: a new machine term gets its translation first and is shown second.</p>
 </details>
 
 <details class="dec">
   <summary><time>2026-08-03</time><span>Five untruths came off the sheet</span></summary>
-  <p>The sheet claimed more than the data could support — the source of a block, what a child had mastered, which manual an exercise came from. Provenance is now computed from the data rather than declared, and a claim without a traceable source counts as a defect rather than a rough edge.</p>
+  <p>The sheet claimed more than the data could support — the source of a block, what a child had mastered, which manual an exercise came from. Provenance is now computed from the data, not declared. A claim without a traceable source counts as a defect.</p>
 </details>
 
 <details class="dec">
   <summary><time>2026-08-03</time><span>The user's words are kept verbatim, in a file of their own</span></summary>
-  <p>A speech therapist described the format she needed, and what went into the code was a summary of her words rather than the words. A week later the two were compared: the format in the code was not hers. Her words now live untouched in their own file, and any reading of them sits beside them, never on top.</p>
+  <p>A speech therapist described the format she needed. What went into the code was my summary of her words, not the words. A week later the two were compared: the format in the code was not hers. Her words now live untouched in their own file, and any reading of them sits beside them, never on top.</p>
 </details>
 
 <footer>Not published yet. The gate: any therapist from the group of ~150 can open a link and

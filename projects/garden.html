@@ -32,17 +32,16 @@
   <span class="stage">in use</span>
 </div>
 
-<p class="lede">Work with an AI assistant restarts every session: the model arrives knowing nothing
-about yesterday. The Garden is the answer to that — every project keeps its own memory in three
-plain text files, so a new session reads itself into the work instead of being briefed again.
-Twenty projects run on it.</p>
+<p class="lede">Work with an AI assistant restarts every session — the model arrives knowing
+nothing about yesterday. Here every project keeps its own memory in three text files. A new
+session reads them and picks the work up. Twenty projects run on it.</p>
 
 <h2>The three files</h2>
 <div class="how">
   <p><em>CLAUDE.md</em> — what this project is and the rules it lives by. Changes rarely; when it
   changes, something about the project itself has changed.</p>
-  <p><em>STATE.md</em> — where the work stands right now, and what the next step is. Rewritten
-  often, and always in meaning rather than in log entries.</p>
+  <p><em>STATE.md</em> — where the work stands now and what the next step is. Rewritten often,
+  and in meaning: what the work is, not what happened to it.</p>
   <p><em>DECISIONS.md</em> — why things are the way they are. Append-only: a decision that turned
   out wrong is marked, never deleted, because the reasoning is the part worth keeping.</p>
   <p>Nothing here is a framework or a package. The files are ordinary text in the project folder,
@@ -69,45 +68,40 @@ Twenty projects run on it.</p>
 
 <figure class="fig">
   <img src="img/mir.png" alt="An isometric plot at night: a glass structure, small houses, trees and lamps along a path">
-  <figcaption>The same files drawn as a place — each project a structure on one plot, built from
-  what its own files say about it. Names are left off here: several of the projects are personal.</figcaption>
+  <figcaption>The same files drawn as a place. Names are left off — several of the projects
+  are personal.</figcaption>
 </figure>
 
 <h2>Decisions</h2>
-<p class="rule">Kept in the system's own log; the ones below pass a stricter test — a reader with
-no context can go through them without once asking “what is that?”</p>
+<p class="rule">Five, readable without knowing the project.</p>
 
 <details class="dec">
   <summary><time>2026-07-02</time><span>The person makes no decisions about the process itself</span></summary>
-  <p>The rituals were initially exposed as commands to be invoked, which quietly moved the burden of
-  choosing them onto the one person the system exists to unburden. It was inverted: the assistant
+  <p>The rituals were exposed as commands to be invoked. That moved the burden of choosing them onto the one person the system exists to unburden. It was inverted: the assistant
   decides which entry a session needs, files thoughts as they arrive, and offers the closing pass
-  when the signals appear. Nothing has to be requested by name. The cost of a skipped ritual is near
-  zero precisely because capture happens continuously rather than at the end.</p>
+  when the signals appear. Nothing has to be requested by name. A missed ritual costs almost nothing,
+  because things are filed as they settle, not at the end.</p>
 </details>
 
 <details class="dec">
   <summary><time>2026-07-01</time><span>Filing on the fly is the default; the inbox is only a buffer</span></summary>
   <p>Two paths existed for an incoming thought and were being used interchangeably. They were
-  separated: inside a session, where there is enough context to place it, a thought goes into its
-  file immediately; away from the desk, or when sorting is not wanted, it goes into a raw inbox and
-  is placed later. Stated plainly so the inbox does not become a landfill of postponed thinking —
-  it is for when filing on the spot is impossible, not for when it is tedious.</p>
+  separated. Inside a session a thought goes into its file at once. Away from the desk it goes into
+  a raw inbox and is placed later. The inbox is for when filing on the spot is impossible, not for
+  when it is tedious.</p>
 </details>
 
 <details class="dec">
   <summary><time>2026-06-30</time><span>Two sessions cannot silently overwrite each other's file</span></summary>
   <p>The design assumed the last writer wins, and a rule — one writer per project — was built on top
-  of that fear. A test showed the assumption was wrong: a write to a file that changed on disk after
-  this session read it is refused outright, and the session is forced to re-read before it can write.
-  Both changes survived. The rule stayed as hygiene, but it is no longer what prevents loss; the
+  of that fear. A test showed otherwise. If the file changed on disk after this session read it,
+  the write is refused and the session has to re-read first. Both changes survived. The rule stayed as hygiene, but it is no longer what prevents loss; the
   tooling is.</p>
 </details>
 
 <details class="dec">
   <summary><time>2026-06-29</time><span>The working context stays private even when the code is public</span></summary>
-  <p>Repository visibility is all-or-nothing, and these files hold unfinished thinking — the kitchen
-  rather than the dish. Where the code is meant to be public, the three files were moved out of that
+  <p>Repository visibility is all-or-nothing, and these files hold unfinished thinking. Where the code is meant to be public, the three files were moved out of that
   repository into a private one. The rule generalised: a project with public code keeps its context
   somewhere else, always.</p>
 </details>
@@ -115,8 +109,8 @@ no context can go through them without once asking “what is that?”</p>
 <details class="dec">
   <summary><time>2026-06-29</time><span>One curator in different modes, not a population of agents</span></summary>
   <p>The obvious answer to a growing set of projects is to staff it — a specialised agent per area.
-  Considered and dropped: the pain was visibility and rhythm, and those are carried by structure —
-  a map, a state file per project, a fixed entry and exit — not by having more workers. A fresh
+  Considered and dropped. The pain was visibility and rhythm, and those come from structure:
+  a map, a state file per project, a fixed entry and exit. A fresh
   agent also starts cold, re-reads everything and breaks the thread of a session that runs across
   several projects at once. Specialisation now happens as modes of one assistant, and a separate
   agent is called only for a one-off heavy job.</p>

@@ -40,11 +40,11 @@ already is.</p>
 <div class="timeline">
   <figure class="tl">
     <span data-zoom="img/timeline-sky/2026-07-12-sky.png" tabindex="0"><img src="img/timeline-sky/2026-07-12-sky.png" alt="A few dozen large nodes joined by lines, in three loose groups"></span>
-    <figcaption><time>12 July · 233 keys</time>The day the layout stopped being simulated in the browser and started being computed before it.</figcaption>
+    <figcaption><time>12 July · 233 keys</time>The layout moved out of the browser: it is computed before the page opens.</figcaption>
   </figure>
   <figure class="tl">
     <span data-zoom="img/timeline-sky/2026-07-14-sky.png" tabindex="0"><img src="img/timeline-sky/2026-07-14-sky.png" alt="Smaller, sparser dots spread across a wider field"></span>
-    <figcaption><time>14 July · 328 keys</time>The run's own frame was pulled out of the layout and the islands drifted apart: only the data holds anything together now.</figcaption>
+    <figcaption><time>14 July · 328 keys</time>The run's own frame was pulled out of the layout. Only the data holds the islands together now.</figcaption>
   </figure>
   <figure class="tl">
     <span data-zoom="img/timeline-sky/2026-08-10-sky.png" tabindex="0"><img src="img/timeline-sky/2026-08-10-sky.png" alt="A dense scattering of tiny points across the whole field"></span>
@@ -55,10 +55,7 @@ already is.</p>
     <figcaption><time>ahead</time>Not built yet.</figcaption>
   </figure>
 </div>
-<p class="rule">Read the counts, not the density. The view fits itself to whatever it holds, so the
-sky looks emptier as it fills: seven times more stars in the last frame than in the first, drawn
-seven times smaller. Two earlier frames exist and stay unpublished — on those the instrument's own
-method is legible, and this page shows what the sky sees, not how it measures.</p>
+<p class="rule">Read the counts, not the density. The view fits itself to whatever it holds, so the sky looks emptier as it fills. Seven times more stars in the last frame than in the first, drawn seven times smaller. Two earlier frames stay unpublished: on those the method itself is legible. This page shows what the sky sees, not how it measures.</p>
 
 <h2>How it works</h2>
 <div class="trio">
@@ -67,42 +64,40 @@ method is legible, and this page shows what the sky sees, not how it measures.</
   <figure><img src="img/sky-anatomy-layers.svg" alt="Four stacked layers ordered by how well each is proved, each of them switchable"></figure>
 </div>
 <div class="how">
-<p>Positions are not decided by hand and not simulated in the browser: the layout is
+<p>Positions are not decided by hand and not simulated in the browser. The layout is
 <em>computed offline</em> from the relations themselves, so a sky of a thousand-odd nodes stays
-smooth to fly through. Dragging a node is therefore <em>reading, not editing</em> — a reset puts it
-back where the data says it belongs, and the map gets corrected through its data, never with
-the mouse.</p>
+smooth to fly through. Dragging a node is <em>reading, not editing</em>. A reset puts it back where the data says it
+belongs; the map is corrected through its data, never with the mouse.</p>
 <div class="nums">
   <span><b>1641</b> stars</span>
   <span><b>630</b> checked against real search results</span>
   <span><b>127</b> pairs still waiting to be checked</span>
 </div>
-<p>Those three numbers belong together on purpose: the instrument may only claim what it has
-measured, so the count of what it has <em>not</em> reached yet is part of the reading.</p>
+<p>The three numbers belong together. The instrument may only claim what it has
+measured, so what it has <em>not</em> reached yet is part of the reading.</p>
 </div>
 
 <h2>Decision log</h2>
-<p class="rule">Newest first. A decision appears here only if a reader with no context can follow it
-to the end without once asking “what is that?” — the rest stay in the project’s own log.</p>
+<p class="rule">Newest first. A decision appears here only if a reader with no context can follow it to the end. The rest stay in the project’s own log.</p>
 
 <details class="dec">
   <summary><time>2026-07-20</time><span>A node's card is a table, never a sentence</span></summary>
-  <p>Hovering a star used to produce explanatory phrases — “enough for a narrow niche”. One of them turned out to be plainly wrong, because the thing it asserted cannot be derived from the number it sat next to. Prose in a cell blends a measurement with an interpretation of it, and the blend hides which part is which. The card became a table of parameter and value, with an explicit “no data” where there is none, and every interpretation moved into the map's dictionary where it can carry a confidence mark.</p>
+  <p>Hovering a star used to produce explanatory phrases — “enough for a narrow niche”. One of them turned out to be plainly wrong, because the thing it asserted cannot be derived from the number it sat next to. Prose in a cell blends a measurement with an interpretation of it, and the blend hides which part is which. The card became a table of parameter and value, with an explicit “no data” where there is none. Every interpretation moved into the map's dictionary, where it can carry a confidence mark.</p>
 </details>
 
 <details class="dec">
   <summary><time>2026-07-19</time><span>A competitor counts for a query only if it is on the first page for that query</span></summary>
-  <p>Products were being attached to queries because they lived somewhere in the same subject. But the first page of results is the only place where a demand and a product actually meet; below it, the product is invisible to the person searching, and the link between them is a guess. Anything further down was dropped, and products whose earnings are unknown were split into a line of their own rather than counted in.</p>
+  <p>Products were being attached to queries because they lived somewhere in the same subject. But the first page of results is the only place where a demand and a product meet. Below it the product is invisible to the person searching, and the link between them is a guess. Anything further down was dropped. Products whose earnings are unknown got a line of their own instead of being counted in.</p>
 </details>
 
 <details class="dec">
   <summary><time>2026-07-19</time><span>A name is taken only when it matches exactly</span></summary>
-  <p>Occupancy of a name was being marked red whenever the words appeared anywhere in a competitor's title. Checked by hand against the store, that was simply wrong: registration is blocked by an exact match, and extra words around a phrase dilute it rather than claim it. The colour was rebuilt around that distinction — and the “free” state is drawn as a ring rather than a solid mark, because a public catalogue cannot see names that are reserved but unpublished.</p>
+  <p>Occupancy of a name was being marked red whenever the words appeared anywhere in a competitor's title. Checked by hand against the store, that was simply wrong. Registration is blocked by an exact match; extra words around a phrase dilute it, they do not claim it. The colour was rebuilt around that distinction. The “free” state is drawn as a ring, not a solid mark: a public catalogue cannot see names that are reserved but unpublished.</p>
 </details>
 
 <details class="dec">
   <summary><time>2026-07-17</time><span>Occupancy is decided by where a phrase sits in a name, not by whether the words appear</span></summary>
-  <p>A title that contains the words of a query scattered among others is not competing for that query; a title that opens with the phrase is. The rule was rewritten around the position of the exact phrase, and the census moved from a general search engine to the store's own search, which is where the person looking for a product actually looks.</p>
+  <p>A title that contains the words of a query scattered among others is not competing for that query; a title that opens with the phrase is. The rule was rewritten around the position of the exact phrase. The census moved to the store's own search, where the person looking for a product actually looks.</p>
 </details>
 
 <details class="dec">
@@ -112,12 +107,12 @@ to the end without once asking “what is that?” — the rest stay in the proj
 
 <details class="dec">
   <summary><time>2026-07-15</time><span>The map counts its own coverage, out loud</span></summary>
-  <p>A line of counters was put under the title: how many stars, how much demand they add up to, how many have been checked against real results, how many pairs are still waiting. The first reading was uncomfortable and therefore useful — most of the sky had not been measured. A map that shows only what it knows reads as complete; this one shows the size of what it does not.</p>
+  <p>A line of counters was put under the title: stars, demand, how many are checked, how many still wait. The first reading was uncomfortable and therefore useful — most of the sky had not been measured. A map that shows only what it knows reads as complete; this one shows the size of what it does not.</p>
 </details>
 
 <details class="dec">
   <summary><time>2026-07-14</time><span>Nothing is drawn that the map's own dictionary cannot define</span></summary>
-  <p>A small star meaning “the author's intuition pulls here” had survived three migrations of the dataset and was still on the map, defined nowhere. It came off. The rule since: every mark carries a meaning written down in the map's dictionary, or it is not drawn — and that dictionary sits on the map itself, one keypress away.</p>
+  <p>A small star meaning “the author's intuition pulls here” had survived three migrations of the dataset and was still on the map, defined nowhere. It came off. The rule since: every mark carries a meaning written down in the map's dictionary, or it is not drawn. The dictionary sits on the map itself, one keypress away.</p>
 </details>
 
 <details class="dec">
@@ -127,17 +122,17 @@ to the end without once asking “what is that?” — the rest stay in the proj
 
 <details class="dec">
   <summary><time>2026-07-14</time><span>The frame of a run was pulled out of the layout</span></summary>
-  <p>Each run carried the name of the idea it was asked around, and that name was holding nodes together in space. But “turn based games” is not, lexically, a new-tab query: the frame of the question was freezing into the structure of the answer. It became a layer you can switch off. What holds positions now is only what is in the data — and where the data holds nothing, the map says so: the relative position of two islands means nothing at all.</p>
+  <p>Each run carried the name of the idea it was asked around, and that name was holding nodes together in space. But “turn based games” is not, lexically, a new-tab query: the frame of the question was freezing into the structure of the answer. It became a layer you can switch off. What holds positions now is only what is in the data. Where the data holds nothing, the map says so: the position of one island against another means nothing.</p>
 </details>
 
 <details class="dec">
   <summary><time>2026-07-14</time><span>Spelling is not meaning</span></summary>
-  <p>Relatives were drifting alone — “multiplication worksheets grade 4” far from “multiplication worksheet” — because the rule that builds the skeleton read exact words, and to a machine “worksheet” and “worksheets” are two different things. Plurals and hyphens were declared spelling and glued; differences of meaning are still settled only by evidence. Roots fell from 81 to 66 and forty-nine pairs left the queue without a single query being bought.</p>
+  <p>Relatives were drifting alone: “multiplication worksheets grade 4” far from “multiplication worksheet”. The rule that builds the skeleton read exact words, and to a machine those two are different words. Plurals and hyphens were declared spelling and glued; differences of meaning are still settled only by evidence. Roots fell from 81 to 66 and forty-nine pairs left the queue without a single query being bought.</p>
 </details>
 
 <details class="dec">
   <summary><time>2026-07-13</time><span>Structure is read from the text of the phrases, not from what the search engine suggests</span></summary>
-  <p>Five attempts at grouping the sky failed in a row, every one caught by eye rather than by a metric. What survived is the single structure that can be derived without argument: a longer phrase contains a shorter one. The list of related queries mixes two different things — the tails of a phrase and its genuine relatives — and the search engine does not distinguish them, so it cannot be drawn as though it were structure.</p>
+  <p>Five attempts at grouping the sky failed in a row, every one caught by eye, not by a metric. What survived is the single structure that can be derived without argument: a longer phrase contains a shorter one. The list of related queries mixes two things: the tails of a phrase and its genuine relatives. The search engine does not tell them apart, so the list cannot be drawn as structure.</p>
 </details>
 
 <details class="dec">
@@ -147,7 +142,7 @@ to the end without once asking “what is that?” — the rest stay in the proj
 
 <details class="dec">
   <summary><time>2026-07-12</time><span>A star and a constellation are not the same kind of object</span></summary>
-  <p>Measured queries and our own groupings were drawn identically, as circles with a size. But a query exists whether or not anyone looked at it, while a grouping is a figure a person draws between stars and has no measurements of its own. Drawing the second like the first gave it a volume it never had — a lie told in the visual language rather than in words.</p>
+  <p>Measured queries and our own groupings were drawn identically, as circles with a size. A query exists whether or not anyone looked at it. A grouping is a figure a person draws between stars, and it has no measurements of its own. Drawing the second like the first gave it a volume it never had — a lie told in pictures instead of words.</p>
 </details>
 
 <details class="dec">
@@ -162,7 +157,7 @@ to the end without once asking “what is that?” — the rest stay in the proj
 
 <details class="dec">
   <summary><time>2026-07-11</time><span>One sky, instead of a file per topic</span></summary>
-  <p>Every piece of research had been producing its own map, which made the maps incomparable and threw away the most interesting thing — where two subjects touch. One dataset was declared instead, with the topic of a run kept as a tag rather than a folder. The first thing it showed was a bridge nobody had asked about: a query that belongs to two subjects at once.</p>
+  <p>Every piece of research had been producing its own map. That made the maps incomparable and threw away the most interesting thing: where two subjects touch. One dataset was declared instead, with the topic of a run kept as a tag, not a folder. The first thing it showed was a bridge nobody had asked about: a query that belongs to two subjects at once.</p>
 </details>
 
 <footer>What the instrument sees is shown here. How it measures — where the numbers come from, how

@@ -41,7 +41,7 @@ played back — every sound is computed on the device while you work.</p>
 <div class="timeline">
   <figure class="tl">
     <span data-zoom="img/timeline/2026-07-10-febf093.png" tabindex="0"><img src="img/timeline/2026-07-10-febf093.png" alt="A dark blue dial with a large black orb, two tabs and a настроить link"></span>
-    <figcaption><time>10 July</time>A dial called Tide, with tabs and a switch for a paid tier. Almost nothing here survived.</figcaption>
+    <figcaption><time>10 July</time>A dial called Tide, with tabs and a paid tier. Almost none of it survived.</figcaption>
   </figure>
   <figure class="tl">
     <span data-zoom="img/timeline/2026-07-20-6473ef9.png" tabindex="0"><img src="img/timeline/2026-07-20-6473ef9.png" alt="A ring of tick marks around a small glowing ember"></span>
@@ -49,15 +49,15 @@ played back — every sound is computed on the device while you work.</p>
   </figure>
   <figure class="tl">
     <span data-zoom="img/timeline/2026-07-25-54673dd.png" tabindex="0"><img src="img/timeline/2026-07-25-54673dd.png" alt="The ember now has flame strokes inside the ring"></span>
-    <figcaption><time>25 July</time>Flame put inside the ember. It read as a potato with a rim, and that killed the whole metaphor.</figcaption>
+    <figcaption><time>25 July</time>Flame put inside the ember. It read as a potato with a rim.</figcaption>
   </figure>
   <figure class="tl">
     <span data-zoom="img/timeline/2026-07-26-0a35bc5.png" tabindex="0"><img src="img/timeline/2026-07-26-0a35bc5.png" alt="A warm amber field of stars with a slider underneath"></span>
-    <figcaption><time>26 July, 03:08</time>The ring is gone. A field to fly through, time on a slider — still warm-coloured.</figcaption>
+    <figcaption><time>26 July, 03:08</time>The ring is gone. A field to fly through, time on a slider.</figcaption>
   </figure>
   <figure class="tl">
     <span data-zoom="img/timeline/2026-07-26-13e609e.png" tabindex="0"><img src="img/timeline/2026-07-26-13e609e.png" alt="The same layout in cold blue"></span>
-    <figcaption><time>26 July, 19:34</time>Sixteen hours later the colour turns cold. A flight is not a fire, and warmth was pulling it back to the hearth.</figcaption>
+    <figcaption><time>26 July, 19:34</time>Sixteen hours later the colour turns cold.</figcaption>
   </figure>
   <figure class="tl">
     <span data-zoom="img/timeline/2026-08-09-74fdfb4.png" tabindex="0"><img src="img/timeline/2026-08-09-74fdfb4.png" alt="The cold field with two round knobs labelled Volume and Tone"></span>
@@ -74,40 +74,33 @@ photographed — not a mock-up. Captions say what changed, not what the date was
 <h2>Hear it</h2>
 <figure class="stand">
   <iframe src="/focus-pages/flight/" title="The panel, running" loading="lazy"></iframe>
-  <figcaption>The real panel, running here. Tap the sky to begin — sound starts on the tap, never
-  before it. Drag the <em>Tone</em> knob up to bring the tonal layer in.</figcaption>
+  <figcaption>The real panel, running here. Tap the sky to begin.</figcaption>
 </figure>
 
 <h2>The icon is the clock</h2>
 <figure class="fig">
   <img src="img/icon-states.png"
        alt="Six states of the toolbar icon: a full warm ring, then the arc shrinking to a stub, and a dimmed paused state">
-  <figcaption>The arc is the distance still ahead, not the time already spent. Drawn here by the same
-  file that draws it in the toolbar.</figcaption>
+  <figcaption>The arc shows how far there is still to go.</figcaption>
 </figure>
 
 <h2>How the tone is generated</h2>
 <figure class="fig">
   <img src="img/tone-layer-signal-path-2026-08-08-light.svg"
        alt="One voice is two oscillators slightly out of tune; its loudness is moved by two slow waves. The pad is eight such voices, joined by a soft beat, a drifting voice and short phrases, cut below 150 Hz and above 1.2 kHz, sent direct and through an echo into the mix">
-  <figcaption>The curves are not drawn by hand. They are computed from the same formulas that run in
-  the product, so the diagram is a measurement of the thing rather than a picture of it.</figcaption>
+  <figcaption>The curves come from the formulas that run in the product.</figcaption>
 </figure>
 
 <h2>Who it is for</h2>
 <div class="how">
-<p>People who cannot work in silence. Most of them are adults with ADHD, though hardly any of them
-go looking for that word — they search for what is actually wrong: that they cannot get started,
-or that two hours passed and they never felt them go. Those same people are the ones a bell hurts,
+<p>People who cannot work in silence. Most of them are adults with ADHD. But they do not search for that word — they search for “cannot get started” or “where did two hours go”. Those same people are the ones a bell hurts,
 because being yanked out of work costs them more than getting into it. Most timers are built to do
 exactly that.</p>
 </div>
 <figure class="fig">
   <img src="img/audience-and-doors-2026-08-08-light.svg"
        alt="Three overlapping needs — sound is the tool, the hard edge hurts, it has to be lovely — with their common core, and the category door of timer searches below">
-  <figcaption>The circles are segments; the phrases inside them are what those people actually type,
-  with monthly volumes. The band below is the category door — the noun everyone arrives through,
-  whichever circle they sit in.</figcaption>
+  <figcaption>The circles are segments, with what those people type and how often.</figcaption>
 </figure>
 
 <h2>Devlog</h2>
@@ -116,10 +109,10 @@ exactly that.</p>
   <div class="e"><time>6 Aug</time><span class="tag">UI</span><p>The toolbar icon became the timer itself: it shows how far the session has got without opening the panel.</p></div>
   <div class="e"><time>1 Aug</time><span class="tag">fix</span><p>A bug in the sound, found on a live test: the layer that should have gone silent kept playing after arrival.</p></div>
   <div class="e"><time>27 July</time><span class="tag">release</span><p>Submitted to the store.</p></div>
-  <div class="e"><time>26 July</time><span class="tag">UI</span><p>The hearth became a sky. A warm ember in a ring read as a potato with a rim, and the metaphor died on the spot; the screen turned into a starfield you fly through, with the star as the destination.</p></div>
+  <div class="e"><time>26 July</time><span class="tag">UI</span><p>The hearth became a sky. A warm ember in a ring read as a potato with a rim. The screen became a starfield instead, with the star as the destination.</p></div>
   <div class="e"><time>11 July</time><span class="tag">focus</span><p>Reversed the founding assumption. The project had started as “sound first, timer optional”; use showed the timer is the centre and the sound is what time is made of.</p></div>
   <div class="e"><time>10 July</time><span class="tag">UI</span><p>First shape: a dial with a ring for minutes and an orb for the sound. The orb grows towards fullness instead of draining away.</p></div>
-  <div class="e"><time>5 July</time><span class="tag">sound</span><p>Time is carried by noise, not by a drone, and it drifts slowly instead of changing in steps — anything sudden pulls attention, which is exactly what the tool is meant not to do.</p></div>
+  <div class="e"><time>5 July</time><span class="tag">sound</span><p>Time is carried by noise, and it drifts slowly instead of changing in steps. Anything sudden pulls attention away from the work.</p></div>
   <div class="e"><time>4 July</time><span class="tag">start</span><p>Started from a demand survey, under the working name Tide.</p></div>
 </div>
 

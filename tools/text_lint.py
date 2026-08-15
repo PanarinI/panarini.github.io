@@ -28,6 +28,10 @@ MARKERS = [
     (r"\bnot a paid\b|\binstead of a paid\b",     "определение через отрицание неизвестного"),
     (r"—[^—.]{0,60}:",                            "тире и двоеточие в одной фразе — три такта"),
     (r"\bit is not just\b|\bnot only\b[^.]{0,60}\bbut also\b", "нарастание «не только… но и»"),
+    # автор ловил это дважды: страница объясняет собственное устройство вместо того,
+    # чтобы просто быть устроенной
+    (r"\bnewest first\b|\bappears here only if\b|\bthe rest stay\b|\bbelow you\b|"
+     r"\bthis page shows\b|\bon this page\b|\bin this section\b", "страница объясняет сама себя"),
 ]
 
 def sentences(text):

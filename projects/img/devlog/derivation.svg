@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 180" width="520" height="180" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif">
+<style>
+  .w{font-size:13px;fill:#14110E}
+  .add{font-size:12px;fill:#D93A00;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+  .n{font-size:11px;fill:#6B635A}
+  .s{fill:#14110E}
+  .e{stroke:#14110E;stroke-width:2;fill:none}
+</style>
+<rect fill="#F7F4EE" width="520" height="180"/>
+<circle class="s" cx="60" cy="46" r="13"/>
+<text class="w" x="84" y="51">multiplication worksheet</text>
+<path class="e" d="M60 62 V104"/>
+<circle class="s" cx="60" cy="118" r="8"/>
+<text class="w" x="84" y="123">multiplication worksheets grade 4</text>
+<text class="add" x="70" y="90">+ grade 4</text>
+<text class="n" x="14" y="162">A longer phrase hangs off the shorter one it is built from — read from the words, not guessed.</text>
+</svg>

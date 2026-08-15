@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 210" width="520" height="210" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif">
+<style>
+  .l{font-size:12px;fill:#6B635A}
+  .n{font-size:10.5px;fill:#6B635A;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+  .s{fill:#14110E}
+  .used{font-size:11px;fill:#D93A00;font-weight:700}
+</style>
+<rect fill="#F7F4EE" width="520" height="210"/>
+<!-- by area -->
+<text class="l" x="14" y="26">by area</text>
+<circle class="s" cx="150" cy="30" r="3"/><circle class="s" cx="176" cy="30" r="5"/><circle class="s" cx="210" cy="30" r="9"/>
+<circle class="s" cx="270" cy="30" r="26"/>
+<text class="n" x="330" y="34">largest 234× the smallest</text>
+<!-- by log -->
+<text class="l" x="14" y="106">by logarithm</text>
+<circle class="s" cx="150" cy="106" r="11"/><circle class="s" cx="180" cy="106" r="13"/><circle class="s" cx="214" cy="106" r="15"/>
+<circle class="s" cx="252" cy="106" r="17"/>
+<text class="n" x="330" y="110">the top flattens out</text>
+<!-- fourth root -->
+<text class="used" x="14" y="182">fourth root</text>
+<circle class="s" cx="150" cy="180" r="6"/><circle class="s" cx="178" cy="180" r="9"/><circle class="s" cx="214" cy="180" r="13"/>
+<circle class="s" cx="262" cy="180" r="19"/>
+<text class="n" x="330" y="184">hierarchy stays readable</text>
+</svg>

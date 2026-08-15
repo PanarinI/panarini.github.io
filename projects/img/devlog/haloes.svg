@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 210" width="520" height="210" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif">
+<style>
+  .l{font-size:11px;fill:#6B635A;letter-spacing:.08em;font-weight:600}
+  .n{font-size:11px;fill:#6B635A}
+  .s{fill:#14110E}
+  .out{fill:none;stroke:#D93A00;stroke-width:2}
+  .ring{fill:none;stroke:#14110E;stroke-width:2}
+</style>
+<rect fill="#F7F4EE" width="520" height="210"/>
+<text class="l" x="14" y="24">BEFORE</text>
+<ellipse class="out" cx="110" cy="95" rx="86" ry="52"/>
+<circle class="s" cx="70" cy="80" r="9"/><circle class="s" cx="112" cy="108" r="12"/><circle class="s" cx="146" cy="74" r="7"/>
+<circle class="s" cx="168" cy="122" r="8"/>
+<path d="M168 138 v18" stroke="#D93A00" stroke-width="2" fill="none"/>
+<text class="n" x="120" y="176">this one is not a member</text>
+
+<text class="l" x="300" y="24">AFTER</text>
+<circle class="s" cx="356" cy="80" r="9"/><circle class="ring" cx="356" cy="80" r="15"/>
+<circle class="s" cx="398" cy="108" r="12"/><circle class="ring" cx="398" cy="108" r="18"/>
+<circle class="s" cx="432" cy="74" r="7"/><circle class="ring" cx="432" cy="74" r="13"/>
+<circle class="s" cx="454" cy="122" r="8"/>
+<text class="n" x="300" y="176">each member carries a ring</text>
+</svg>

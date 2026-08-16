@@ -1,8 +1,63 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>The Garden — Igor Panarin</title>
-<meta name="description" content="A way of keeping working context alive between sessions with an AI assistant: every project holds its own memory in three plain text files.">
-<link rel="stylesheet" href="/assets/hub.css?v=7c6198bf"><script data-goatcounter="https://panarini.goatcounter.com/count"
+<meta name="description" content="Twenty-one projects, each keeping its own working context in three plain text files: what it is, where it stands, why it is that way.">
+<link rel="stylesheet" href="/assets/hub.css?v=7c6198bf">
+<style>
+/* МАКЕТ: два новых блока. Если приняты — переезжают в hub.css и на все страницы. */
+/* 1. внешние ссылки под лидом */
+.ext{display:flex;flex-wrap:wrap;gap:12px;margin:1.7rem 0 .4rem}
+.ext a{display:inline-flex;align-items:baseline;gap:10px;border:2px solid var(--ink);background:var(--paper);
+  padding:9px 13px 8px;color:var(--ink);text-decoration:none;
+  font:600 11.5px/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.13em;text-transform:uppercase;
+  transition:transform .12s,box-shadow .12s}
+.ext a .w{font:400 13px/1 -apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+  letter-spacing:0;text-transform:none;color:var(--mute)}
+.ext a:hover{transform:translate(-3px,-3px);box-shadow:5px 5px 0 var(--ink);border-color:var(--accent);color:var(--accent)}
+.ext a:hover .w{color:var(--accent)}
+/* 2. схематичная строка вместо абзаца */
+.spec{margin:1.2rem 0 0;border-top:2px solid var(--ink);max-width:58em}
+.spec .r{display:grid;grid-template-columns:11em 1fr 15em;gap:8px 18px;padding:12px 0;
+  border-bottom:1px solid var(--hair);align-items:baseline}
+.spec .r b{font:600 13px/1.3 ui-monospace,SFMono-Regular,Menlo,monospace}
+.spec .r span{font-size:15.5px}
+.spec .r i{font-style:normal;color:var(--mute);font-size:13.5px;text-align:right}
+.spec .r em{font-style:normal;font-weight:600}
+@media(max-width:640px){.spec .r{grid-template-columns:1fr;gap:2px}.spec .r i{text-align:left}}
+/* 3. схема системы, которую читатель проходит по шагам сам */
+.sys{border:2px solid var(--ink);margin:1.2rem 0 0;background:var(--paper)}
+.sys:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.sys svg{display:block;width:100%;height:auto;border-bottom:2px solid var(--ink)}
+#sysmap .bx{fill:var(--paper);stroke:var(--ink);stroke-width:2}
+#sysmap .cd{fill:#EFEAE0;stroke:var(--ink);stroke-width:1.5}
+#sysmap .ln{fill:#B8AFA0}
+#sysmap .pt{fill:var(--ink)}
+#sysmap .stamp{fill:var(--accent)}
+#sysmap .st{font:600 9px ui-monospace,SFMono-Regular,Menlo,monospace;fill:var(--paper)}
+#sysmap .nm{font:600 11.5px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.13em;fill:var(--ink)}
+#sysmap .dt{font:400 12px -apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;fill:var(--mute)}
+#sysmap .link path{fill:none;stroke:var(--ink);stroke-width:2;stroke-dasharray:100;stroke-dashoffset:0}
+.sys.js .node{opacity:.2;transition:opacity .3s}
+.sys.js .link{opacity:.09;transition:opacity .3s}
+.sys.js #n-mark{opacity:0}
+.sys.js .node.on{opacity:1}
+.sys.js #n-mark.on{opacity:1}
+.sys.js .link.on{opacity:1}
+.sys.js .link.on path{animation:sysdraw .6s ease-out}
+@keyframes sysdraw{from{stroke-dashoffset:100}to{stroke-dashoffset:0}}
+@media (prefers-reduced-motion:reduce){.sys.js .link.on path{animation:none}}
+.sysbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:12px 14px}
+.sysbar button{font:600 11.5px/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.08em;
+  border:2px solid var(--ink);background:var(--paper);color:var(--ink);padding:9px 11px;cursor:pointer;min-width:34px}
+.sysbar button:hover{border-color:var(--accent);color:var(--accent)}
+.sysbar button[aria-current="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.sysbar .dots{display:flex;flex-wrap:wrap;gap:6px;margin-left:6px}
+.syscap{padding:0 14px 18px;max-width:54em;min-height:5.4em}
+.syscap b{display:block;font:600 11.5px/1 ui-monospace,SFMono-Regular,Menlo,monospace;
+  letter-spacing:.14em;text-transform:uppercase;margin:0 0 7px}
+.syscap p{margin:0;font-size:15.5px}
+</style>
+<script data-goatcounter="https://panarini.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 </head><body>
 <nav class="topbar">
@@ -32,93 +87,237 @@
   <span class="stage">in use</span>
 </div>
 
-<p class="lede">Work with an AI assistant restarts every session — the model arrives knowing
-nothing about yesterday. Here every project keeps its own memory in three text files. A new
-session reads them and picks the work up. Twenty projects run on it.</p>
+<p class="lede">An assistant remembers facts about you between sessions. It does not remember the work —
+what a project is, where it stands, why it was built this way. Here every project keeps that
+itself, in three text files.</p>
 
-<h2>The three files</h2>
-<div class="how">
-  <p><em>CLAUDE.md</em> — what this project is and the rules it lives by. Changes rarely; when it
-  changes, something about the project itself has changed.</p>
-  <p><em>STATE.md</em> — where the work stands now and what the next step is. Rewritten often,
-  and in meaning: what the work is, not what happened to it.</p>
-  <p><em>DECISIONS.md</em> — why things are the way they are. Append-only: a decision that turned
-  out wrong is marked, never deleted, because the reasoning is the part worth keeping.</p>
-  <p>Nothing here is a framework or a package. The files are ordinary text in the project folder,
-  readable by a person, and the assistant is instructed to read them first and write them last.</p>
+<div class="ext">
+  <a href="https://github.com/PanarinI/garden-genome">The law <span class="w"><span data-num="law-files">4</span> files, <span data-num="law-lines">204</span> lines</span></a>
+  <a href="https://github.com/PanarinI/deux-ex-machina">The tooling <span class="w">reads the files, draws the panel</span></a>
 </div>
 
 <div class="nums">
-  <span><b>20</b>projects running on it</span>
-  <span><b>3</b>files per project</span>
-  <span><b>47</b>decisions recorded about the system itself</span>
+  <span><b>3</b> files per project</span>
+  <span><b data-num="law-lines">204</b> lines — the whole law it runs on</span>
+  <span><b data-num="decisions">50</b> decisions recorded about the system itself</span>
 </div>
 
-<h2>What a session does with them</h2>
-<div class="how">
-  <p><em>On entry</em> the assistant reads the three files of one project and nothing else. Reading
-  the whole set would cost more and blur the work; a project is meant to be self-contained.</p>
-  <p><em>While working</em> anything that settles goes straight into its file, and the assistant
-  says out loud where it put it. This is behaviour, not a command — a command has to be remembered,
-  and remembering is exactly the load being removed.</p>
-  <p><em>On the way out</em> the files are rewritten in meaning: what the work now is, what was
-  decided and why. The closing pass is not a backup — nothing is lost without it, because things
-  were filed as they settled.</p>
-</div>
-
+<h2>One session, then the next</h2>
 <figure class="fig">
-  <img src="img/mir.png" alt="An isometric plot at night: a glass structure, small houses, trees and lamps along a path">
-  <figcaption>The same files drawn as a place. Names are left off — several of the projects
-  are personal.</figcaption>
+  <img src="img/three-files-cycle.svg" alt="A session opens, reads three files, works, writes back and ends. Across three sessions the first file stays as it is, the second is replaced whole each time, the third gains one entry and loses none.">
+  <figcaption>Three sessions, looping. The conversation does not cross the gap; the writing does.</figcaption>
 </figure>
 
-<h2>Decisions</h2>
-<p class="rule">Five, readable without knowing the project.</p>
+<div class="spec">
+  <div class="r"><b>CLAUDE.md</b><span>what this project is, and the rules it lives by</span><i>changes when the project does</i></div>
+  <div class="r"><b>STATE.md</b><span>where the work stands, and the next step</span><i>replaced whole, in meaning</i></div>
+  <div class="r"><b>DECISIONS.md</b><span>why things are the way they are</span><i>appended, never rewritten</i></div>
+</div>
+<p class="rule">Ordinary text in the project folder — no framework, no package, readable by a person.</p>
 
-<details class="dec">
-  <summary><time>2026-07-02</time><span>The person makes no decisions about the process itself</span></summary>
-  <p>The rituals were exposed as commands to be invoked. That moved the burden of choosing them onto the one person the system exists to unburden. It was inverted: the assistant
-  decides which entry a session needs, files thoughts as they arrive, and offers the closing pass
-  when the signals appear. Nothing has to be requested by name. A missed ritual costs almost nothing,
-  because things are filed as they settle, not at the end.</p>
-</details>
+<h2>The whole thing, step by step</h2>
+<p class="rule">Ten steps. Take them at your own pace — the last one closes the circle back to the first.</p>
 
-<details class="dec">
-  <summary><time>2026-07-01</time><span>Filing on the fly is the default; the inbox is only a buffer</span></summary>
-  <p>Two paths existed for an incoming thought and were being used interchangeably. They were
-  separated. Inside a session a thought goes into its file at once. Away from the desk it goes into
-  a raw inbox and is placed later. The inbox is for when filing on the spot is impossible, not for
-  when it is tedious.</p>
-</details>
+<div class="sys" id="sys">
+<svg id="sysmap" viewBox="0 0 1000 570" role="img" aria-label="A map of the system: the law, a workshop where the law is edited, the projects, a session, a bucket for stray thoughts, memory about the person, the tooling and the panel it draws.">
+  <defs><marker id="sm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#14110E"/></marker></defs>
 
-<details class="dec">
-  <summary><time>2026-06-30</time><span>Two sessions cannot silently overwrite each other's file</span></summary>
-  <p>The design assumed the last writer wins, and a rule — one writer per project — was built on top
-  of that fear. A test showed otherwise. If the file changed on disk after this session read it,
-  the write is refused and the session has to re-read first. Both changes survived. The rule stayed as hygiene, but it is no longer what prevents loss; the
-  tooling is.</p>
-</details>
+  <g class="link" id="l-sinai-law"><path d="M696 80 H304" marker-end="url(#sm)" pathLength="100"/></g>
+  <g class="link" id="l-law-sess"><path d="M300 110 H340 V196 H372" marker-end="url(#sm)" pathLength="100"/></g>
+  <g class="link" id="l-law-caps"><path d="M170 140 V172" marker-end="url(#sm)" pathLength="100"/></g>
+  <g class="link" id="l-caps-sess"><path d="M300 230 H372" marker-end="url(#sm)" pathLength="100"/></g>
+  <g class="link" id="l-sess-caps"><path d="M372 268 H304" marker-end="url(#sm)" pathLength="100"/></g>
+  <g class="link" id="l-sess-buck"><path d="M420 310 V332" marker-end="url(#sm)" pathLength="100"/></g>
+  <g class="link" id="l-sess-mem"><path d="M620 250 H656 V460 H624" marker-end="url(#sm)" pathLength="100"/></g>
+  <g class="link" id="l-mem-sess"><path d="M380 460 H344 V284 H372" marker-end="url(#sm)" pathLength="100"/></g>
+  <g class="link" id="l-caps-inst"><path d="M300 400 H330 V540 H680 V224 H692" marker-end="url(#sm)" pathLength="100"/></g>
+  <g class="link" id="l-inst-scr"><path d="M830 260 V292" marker-end="url(#sm)" pathLength="100"/></g>
+  <g class="link" id="l-buck-homes"><path d="M380 370 H320 V300 H304" marker-end="url(#sm)" pathLength="100"/></g>
+  <g class="link" id="l-sess-sinai"><path d="M620 210 H660 V110 H692" marker-end="url(#sm)" pathLength="100"/></g>
 
-<details class="dec">
-  <summary><time>2026-06-29</time><span>The working context stays private even when the code is public</span></summary>
-  <p>Repository visibility is all-or-nothing, and these files hold unfinished thinking. Where the code is meant to be public, the three files were moved out of that
-  repository into a private one. The rule generalised: a project with public code keeps its context
-  somewhere else, always.</p>
-</details>
+  <g class="node" id="n-law">
+    <rect class="bx" x="40" y="56" width="260" height="84"/>
+    <text class="nm" x="60" y="90">THE LAW</text>
+    <text class="dt" x="60" y="112">4 files · 204 lines · inherited by every session</text>
+  </g>
 
-<details class="dec">
-  <summary><time>2026-06-29</time><span>One curator in different modes, not a population of agents</span></summary>
-  <p>The obvious answer to a growing set of projects is to staff it — a specialised agent per area.
-  Considered and dropped. The pain was visibility and rhythm, and those come from structure:
-  a map, a state file per project, a fixed entry and exit. A fresh
-  agent also starts cold, re-reads everything and breaks the thread of a session that runs across
-  several projects at once. Specialisation now happens as modes of one assistant, and a separate
-  agent is called only for a one-off heavy job.</p>
-</details>
+  <g class="node" id="n-sinai">
+    <rect class="bx" x="700" y="56" width="260" height="84"/>
+    <text class="nm" x="720" y="90">THE WORKSHOP</text>
+    <text class="dt" x="720" y="112">the one place the law may be edited</text>
+  </g>
 
-<footer>What the projects actually contain is not published here: several are personal. This page
-shows the mechanism — the files, the entry and the exit — and nothing from inside them.</footer>
+  <g class="node" id="n-caps">
+    <rect class="bx" x="40" y="180" width="260" height="240"/>
+    <text class="nm" x="60" y="212">THE PROJECTS</text>
+    <rect class="cd" x="60" y="228" width="220" height="52"/>
+    <rect class="ln" x="74" y="248" width="130" height="5"/><rect class="ln" x="74" y="260" width="176" height="5"/><rect class="ln" x="74" y="272" width="98" height="5"/>
+    <rect class="cd" x="60" y="292" width="220" height="52"/>
+    <rect class="ln" x="74" y="312" width="164" height="5"/><rect class="ln" x="74" y="324" width="112" height="5"/><rect class="ln" x="74" y="336" width="186" height="5"/>
+    <rect class="cd" x="60" y="356" width="220" height="52"/>
+    <rect class="ln" x="74" y="376" width="120" height="5"/><rect class="ln" x="74" y="388" width="192" height="5"/><rect class="ln" x="74" y="400" width="142" height="5"/>
+    <text class="dt" x="188" y="212">21 · three files each</text>
+  </g>
+  <g class="node" id="n-mark"><rect class="stamp" x="236" y="236" width="36" height="16"/><text class="st" x="242" y="248">08:14</text></g>
+
+  <g class="node" id="n-sess">
+    <rect class="bx" x="380" y="180" width="240" height="130"/>
+    <text class="nm" x="400" y="212">A SESSION</text>
+    <text class="dt" x="400" y="234">lives once</text>
+    <circle class="pt" cx="410" cy="262" r="4"/><circle class="pt" cx="440" cy="276" r="4"/><circle class="pt" cx="470" cy="258" r="4"/>
+    <circle class="pt" cx="500" cy="278" r="4"/><circle class="pt" cx="530" cy="260" r="4"/><circle class="pt" cx="560" cy="276" r="4"/>
+    <circle class="pt" cx="590" cy="258" r="4"/>
+  </g>
+
+  <g class="node" id="n-buck">
+    <rect class="bx" x="380" y="340" width="240" height="60"/>
+    <text class="nm" x="400" y="368">THE BUCKET</text>
+    <text class="dt" x="400" y="388">one line, unsorted</text>
+  </g>
+
+  <g class="node" id="n-mem">
+    <rect class="bx" x="380" y="430" width="240" height="60"/>
+    <text class="nm" x="400" y="458">MEMORY</text>
+    <text class="dt" x="400" y="478">about the person, not the work</text>
+  </g>
+
+  <g class="node" id="n-inst">
+    <rect class="bx" x="700" y="180" width="260" height="80"/>
+    <text class="nm" x="720" y="212">THE TOOLING</text>
+    <text class="dt" x="720" y="234">reads the same files · outside the talk</text>
+  </g>
+
+  <g class="node" id="n-scr">
+    <rect class="bx" x="700" y="300" width="260" height="100"/>
+    <text class="nm" x="720" y="332">THE PANEL</text>
+    <rect class="ln" x="720" y="348" width="150" height="5"/><rect class="ln" x="720" y="360" width="196" height="5"/><rect class="ln" x="720" y="372" width="122" height="5"/>
+    <text class="dt" x="720" y="392">what the author sees</text>
+  </g>
+</svg>
+<div class="sysbar">
+  <button type="button" data-go="-1" aria-label="Previous step">←</button>
+  <button type="button" data-go="1" aria-label="Next step">→</button>
+  <span class="dots" id="sysdots"></span>
+</div>
+<div class="syscap" id="syscap" aria-live="polite"><b></b><p></p></div>
+</div>
+<script>
+(function(){
+  var S=[
+   ["The law","Four files, two hundred and four lines. Not code — instructions the assistant is handed before it does anything, and the same ones in every project."],
+   ["A project is born","One command writes three files: what this is, where it stands, why. From here the project carries its own context instead of living in someone's head."],
+   ["A session opens","It takes the law, then the three files of one project. Nothing else — reading the whole set would cost more and blur the work in front of it."],
+   ["Something settles","A fact that stops moving goes into its file straight away, and the assistant says where it put it. Leaving it for the end is how things are lost."],
+   ["A thought from elsewhere","It belongs to another project. One line into a bucket, unsorted, no thinking about it now — sorting is what derails the work at hand."],
+   ["A fact about the person","Not about the work but about who it is for. That goes to memory, and memory flows back into every project, unlike the files."],
+   ["The closing pass","Where the work stands is rewritten in meaning; the reason is appended to the journal. A timestamp is left behind, and only this pass leaves it."],
+   ["The panel","A script reads the same files and draws the whole set: what is heavy, what has not been thought through for weeks. It runs outside the conversation, so looking costs nothing."],
+   ["Morning","The bucket is emptied into homes — a project's file, memory, or the seed list. Nothing is discarded, and where each line went is recorded."],
+   ["The law is edited — here only","A rule that fails in practice is not patched where it failed. The reason is written down in one workshop, and only from there does the change reach the law. Everywhere else the law is received, not written."]
+  ];
+  var ON=[
+   ["n-law"],
+   ["n-law","l-law-caps","n-caps"],
+   ["n-sess","n-law","l-law-sess","n-caps","l-caps-sess"],
+   ["n-sess","l-sess-caps","n-caps"],
+   ["n-sess","l-sess-buck","n-buck"],
+   ["n-sess","l-sess-mem","n-mem","l-mem-sess"],
+   ["n-sess","l-sess-caps","n-caps","n-mark"],
+   ["n-caps","l-caps-inst","n-inst","l-inst-scr","n-scr"],
+   ["n-buck","l-buck-homes","n-caps","n-mem"],
+   ["n-sess","l-sess-sinai","n-sinai","l-sinai-law","n-law"]
+  ];
+  var box=document.getElementById('sys'),dots=document.getElementById('sysdots'),
+      cap=document.getElementById('syscap'),i=0,btns=[];
+  box.classList.add('js');
+  S.forEach(function(s,k){
+    var b=document.createElement('button');
+    b.type='button';b.className='num';b.textContent=k+1;
+    b.setAttribute('aria-label','Step '+(k+1)+': '+s[0]);
+    b.onclick=function(){go(k)};dots.appendChild(b);btns.push(b);
+  });
+  function go(k){
+    i=(k+S.length)%S.length;
+    box.querySelectorAll('.on').forEach(function(e){e.classList.remove('on')});
+    box.getBoundingClientRect();
+    ON[i].forEach(function(id){var e=document.getElementById(id);if(e)e.classList.add('on')});
+    cap.querySelector('b').textContent=(i+1)+' — '+S[i][0];
+    cap.querySelector('p').textContent=S[i][1];
+    btns.forEach(function(b,n){b.setAttribute('aria-current',n===i?'true':'false')});
+  }
+  box.querySelectorAll('[data-go]').forEach(function(b){
+    b.onclick=function(){go(i+ +b.dataset.go)};
+  });
+  box.tabIndex=0;
+  box.addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight'){go(i+1);e.preventDefault()}
+    if(e.key==='ArrowLeft'){go(i-1);e.preventDefault()}
+  });
+  go(0);
+})();
+</script>
+
+<h2>What the tooling measures</h2>
+<div class="spec">
+  <div class="r"><b>LAG</b><span>time between the last edit and the last time the project was thought through</span><i>only the closing pass writes the second stamp</i></div>
+  <div class="r"><b>FRESHNESS</b><span>whether the meaning changed, by hashing the file</span><i>re-saving the same text does not count</i></div>
+</div>
+<p class="rule">Right now the longest a project has gone without a closing pass is
+<b data-num="longest-gap">47</b> days. The number is not flattering, which is the point of having it.</p>
+
+<h2>The place, one frame a day</h2>
+<div class="timeline">
+  <figure class="tl"><span data-zoom><img src="img/timeline-garden/2026-07-04.png" alt="The garden drawn as a place, 4 July"></span>
+    <figcaption><time>4 Jul</time> first frame — nine projects, no paths between them</figcaption></figure>
+  <figure class="tl"><span data-zoom><img src="img/timeline-garden/2026-07-13.png" alt="The garden drawn as a place, 13 July"></span>
+    <figcaption><time>13 Jul</time> height means age, canopy means weight</figcaption></figure>
+  <figure class="tl"><span data-zoom><img src="img/timeline-garden/2026-07-28.png" alt="The garden drawn as a place, 28 July"></span>
+    <figcaption><time>28 Jul</time> night and day, lamps along the path</figcaption></figure>
+  <figure class="tl"><span data-zoom><img src="img/timeline-garden/2026-08-16.png" alt="The garden drawn as a place, 16 August"></span>
+    <figcaption><time>16 Aug</time> today</figcaption></figure>
+</div>
+<p class="rule">A scheduled job takes one frame every morning at 08:30 — <b data-num="frames">44</b> so far,
+nothing staged for the picture. Project names are left off: several are personal.</p>
+
+<h2>Journal</h2>
+<div class="devlog">
+  <div class="e"><time>2026-08-16</time><span class="tag">law</span>
+    <p>The hand-kept census of all projects was dissolved. A script already reads every project's state
+    file directly. The map that duplicated it had fallen six weeks behind and did not know about seven
+    live projects. What survives it is the sign: a rule that says read this, while the code never
+    opens it.</p></div>
+  <div class="e"><time>2026-08-16</time><span class="tag">law</span>
+    <p>Reversed decisions are now marked in their own heading. A reversal written only as a new entry
+    further down leaves the cancelled rule looking alive. The reader meets the dead rule first and takes
+    it as law. Cheaper than a status field on every entry: only the reversed ones pay.</p></div>
+  <div class="e"><time>2026-07-09</time><span class="tag">tooling</span>
+    <p>The closing pass now leaves a timestamp of its own. Before that, overdue was measured from the
+    last file change. Filing a small fact as it settled reset the clock and hid that nothing had been
+    thought through. Two different things had been sharing one signal.</p></div>
+  <div class="e"><time>2026-07-02</time><span class="tag">law</span>
+    <p>Committing left the closing pass. The two were bundled because both touch files. But one is
+    reflection and the other is safekeeping. Bundled, they force a choice: commit with nothing to say,
+    or skip the reflection to avoid the commit.</p></div>
+  <div class="e"><time>2026-06-30</time><span class="tag">test</span>
+    <p>Two sessions cannot silently overwrite each other's file. The design assumed the last writer
+    wins, and a rule — one writer per project — was built on top of that fear. A test showed otherwise:
+    a write based on a stale read is refused and the session has to re-read. Both changes survived. The
+    rule stayed as hygiene; it is no longer what prevents loss.</p></div>
+  <div class="e"><time>2026-06-29</time><span class="tag">shape</span>
+    <p>One assistant in different modes, not a population of agents. The obvious answer to a growing set
+    of projects is to staff it. Considered and dropped: the pain was visibility and rhythm. Both come
+    from structure — a state file per project, a fixed entry and a fixed exit.</p></div>
+  <div class="e"><time>2026-06-26</time><span class="tag">origin</span>
+    <p>The first of these files was written in the middle of an ordinary refactor, to stop
+    re-explaining the same project to every new session. Nothing about it was meant as a method.</p></div>
+</div>
+
+<footer>
+What the projects contain is not published here: several are personal. This page shows the mechanism —
+the files, the entry and the exit — and nothing from inside them.
+</footer>
 
 </div>
+<div id="lb" role="dialog" aria-modal="true" hidden><b>×</b><img alt=""></div>
 <script src="/assets/hub.js?v=6823b44d"></script>
 </body></html>

@@ -2,12 +2,20 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>The Garden — Igor Panarin</title>
 <meta name="description" content="Every project keeps its own working context in three plain text files: what it is, where it stands, why it is that way — so a new session resumes the work instead of restarting it.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="The Garden — Igor Panarin">
+<meta property="og:description" content="Every project keeps its own working context in three plain text files: what it is, where it stands, why it is that way — so a new session resumes the work instead of restarting it.">
+<meta property="og:image" content="https://panarini.github.io/projects/img/timeline-garden/2026-08-16.png">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="/assets/hub.css?v=f78c5f27">
 <style>
 /* Схема системы, которую читатель проходит по шагам сам. Пока живёт здесь одна — обкатается, переедет в hub.css. */
 .sys{border:2px solid var(--ink);margin:1.2rem 0 0;background:var(--paper)}
 .sys:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
-.sys svg{display:block;width:100%;height:auto;border-bottom:2px solid var(--ink)}
+.sys .scroll{overflow-x:auto;border-bottom:2px solid var(--ink);-webkit-overflow-scrolling:touch}
+.sys svg{display:block;width:100%;height:auto}
+/* на узком экране схема не сжимается до нечитаемого кегля, а прокручивается вбок */
+@media(max-width:760px){.sys svg{width:760px;max-width:none}}
 #sysmap .bx{fill:var(--paper);stroke:var(--ink);stroke-width:2}
 #sysmap .cd{fill:#EFEAE0;stroke:var(--ink);stroke-width:1.5}
 #sysmap .ln{fill:#B8AFA0}
@@ -38,6 +46,8 @@
 .sysbar button:hover{border-color:var(--accent);color:var(--accent)}
 .sysbar button[aria-current="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
 .sysbar .dots{display:flex;flex-wrap:wrap;gap:6px;margin-left:6px}
+.sysbar .hint{font-size:12.5px;color:var(--mute);margin-left:4px}
+.sysbar .hint.gone{display:none}
 .syscap{padding:0 14px 18px;max-width:54em;min-height:5.4em}
 .syscap b{display:block;font:600 11.5px/1 ui-monospace,SFMono-Regular,Menlo,monospace;
   letter-spacing:.14em;text-transform:uppercase;margin:0 0 7px}
@@ -79,7 +89,6 @@ itself, <em>in three text files</em>.</p>
 
 <div class="ext">
   <a href="https://github.com/PanarinI/garden-genome">~/.claude/skills <span class="w">the instruction files</span></a>
-  <a href="https://github.com/PanarinI/deux-ex-machina">gen_pult.py <span class="w">reads every STATE.md, writes one page</span></a>
 </div>
 
 <h2>One session, then the next</h2>
@@ -96,10 +105,10 @@ itself, <em>in three text files</em>.</p>
 <p class="rule">Ordinary text in the project folder, <em>readable by a person</em> and edited by hand when it is wrong.</p>
 
 <h2>The whole thing, step by step</h2>
-<p class="rule">Ten steps. Take them at your own pace — the last one closes the circle back to the first.</p>
+<p class="rule">Nine steps, at your own pace. The last one closes the circle back to the first.</p>
 
 <div class="sys" id="sys">
-<svg id="sysmap" viewBox="0 0 1000 570" role="img" aria-label="A map of the system: the law, a workshop where the law is edited, the projects, a session, a bucket for stray thoughts, memory about the person, the tooling and the panel it draws.">
+<div class="scroll"><svg id="sysmap" viewBox="0 0 1000 570" role="img" aria-label="A map of the system: the law, a workshop where the law is edited, the projects, a session, a bucket for stray thoughts, memory about the person, the tooling and the panel it draws.">
   <defs><marker id="smA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#D93A00"/></marker><marker id="sm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#14110E"/></marker></defs>
 
   <g class="link" id="l-sinai-law"><path d="M696 80 H304" marker-end="url(#sm)" pathLength="100"/></g>
@@ -110,8 +119,6 @@ itself, <em>in three text files</em>.</p>
   <g class="link" id="l-sess-buck"><path d="M420 310 V332" marker-end="url(#sm)" pathLength="100"/></g>
   <g class="link" id="l-sess-mem"><path d="M620 250 H656 V460 H624" marker-end="url(#sm)" pathLength="100"/></g>
   <g class="link" id="l-mem-sess"><path d="M380 460 H344 V284 H372" marker-end="url(#sm)" pathLength="100"/></g>
-  <g class="link" id="l-caps-inst"><path d="M300 400 H330 V540 H680 V224 H692" marker-end="url(#sm)" pathLength="100"/></g>
-  <g class="link" id="l-inst-scr"><path d="M830 260 V292" marker-end="url(#sm)" pathLength="100"/></g>
   <g class="link" id="l-buck-homes"><path d="M380 370 H320 V300 H304" marker-end="url(#sm)" pathLength="100"/></g>
   <g class="link" id="l-sess-sinai"><path d="M620 210 H660 V110 H692" marker-end="url(#sm)" pathLength="100"/></g>
 
@@ -161,23 +168,12 @@ itself, <em>in three text files</em>.</p>
     <text class="dt" x="400" y="478">facts about the user</text>
   </g>
 
-  <g class="node" id="n-inst">
-    <rect class="bx" x="700" y="180" width="260" height="80"/>
-    <text class="nm" x="720" y="212">gen_pult.py</text>
-    <text class="dt" x="720" y="234">reads every STATE.md</text>
-  </g>
 
-  <g class="node" id="n-scr">
-    <rect class="bx" x="700" y="300" width="260" height="100"/>
-    <text class="nm" x="720" y="332">pult.html</text>
-    <rect class="ln" x="720" y="348" width="150" height="5"/><rect class="ln" x="720" y="360" width="196" height="5"/><rect class="ln" x="720" y="372" width="122" height="5"/>
-    <text class="dt" x="720" y="392">one page, every project</text>
-  </g>
-</svg>
+</svg></div>
 <div class="sysbar">
   <button type="button" data-go="-1" aria-label="Previous step">←</button>
   <button type="button" data-go="1" aria-label="Next step">→</button>
-  <span class="dots" id="sysdots"></span>
+  <span class="dots" id="sysdots"></span><span class="hint" id="syshint">press → to build it up</span>
 </div>
 <div class="syscap" id="syscap" aria-live="polite"><b></b><p></p></div>
 </div>
@@ -191,21 +187,19 @@ itself, <em>in three text files</em>.</p>
    ["A thought about another project", "One line is appended to garden-meta/INBOX.md: date, text, project tag. Nothing is moved or sorted at this point."],
    ["A fact about the user", "Written to the assistant's memory directory. That directory loads in every project; <project>/ loads only in its own."],
    ["Session end", "STATE.md is overwritten with the current state. One entry is appended to DECISIONS.md. The current time is written to <project>/.shabbat — edits made during work do not write it."],
-   ["The panel", "gen_pult.py reads every <project>/STATE.md and every <project>/.shabbat, then writes pult.html: one row per project with its size, the age of its state, and the time since its last .shabbat."],
    ["Next morning", "Each line of INBOX.md is moved to a project file, to the memory directory or to SEEDS.md, then copied into INBOX-archive.md with its destination recorded. INBOX.md is left empty."],
    ["Changing a rule", "The reason is appended to garden-meta/sinai/DECISIONS.md, and the file in ~/.claude/skills/ is edited after that, only there. Sessions in other projects read the instruction files and do not write them."]
   ];
   var ON=[
    ["n-law"],
-   ["n-law","l-law-caps","n-caps"],
-   ["n-sess","n-law","l-law-sess","n-caps","l-caps-sess"],
-   ["n-sess","l-sess-caps","n-caps"],
-   ["n-sess","l-sess-buck","n-buck"],
-   ["n-sess","l-sess-mem","n-mem","l-mem-sess"],
-   ["n-sess","l-sess-caps","n-caps","n-mark"],
-   ["n-caps","l-caps-inst","n-inst","l-inst-scr","n-scr"],
-   ["n-buck","l-buck-homes","n-caps","n-mem"],
-   ["n-sess","l-sess-sinai","n-sinai","l-sinai-law","n-law"]
+   ["n-law", "l-law-caps", "n-caps"],
+   ["n-sess", "n-law", "l-law-sess", "n-caps", "l-caps-sess"],
+   ["n-sess", "l-sess-caps", "n-caps"],
+   ["n-sess", "l-sess-buck", "n-buck"],
+   ["n-sess", "l-sess-mem", "n-mem", "l-mem-sess"],
+   ["n-sess", "l-sess-caps", "n-caps", "n-mark"],
+   ["n-buck", "l-buck-homes", "n-caps", "n-mem"],
+   ["n-sess", "l-sess-sinai", "n-sinai", "l-sinai-law", "n-law"]
   ];
   var box=document.getElementById('sys'),dots=document.getElementById('sysdots'),
       cap=document.getElementById('syscap'),i=0,btns=[];
@@ -231,6 +225,7 @@ itself, <em>in three text files</em>.</p>
     cap.querySelector('b').textContent=(i+1)+' — '+S[i][0];
     cap.querySelector('p').textContent=S[i][1];
     btns.forEach(function(b,n){b.setAttribute('aria-current',n===i?'true':'false')});
+    if(i>0){var hint=document.getElementById('syshint'); if(hint) hint.classList.add('gone');}
   }
   box.querySelectorAll('[data-go]').forEach(function(b){
     b.onclick=function(){go(i+ +b.dataset.go)};
@@ -243,28 +238,6 @@ itself, <em>in three text files</em>.</p>
   go(0);
 })();
 </script>
-
-<h2>What the tooling measures</h2>
-<div class="spec">
-  <div class="r"><b>LAG</b><span>time between the last edit and the last time the project was thought through</span><i>only the closing pass writes the second stamp</i></div>
-  <div class="r"><b>FRESHNESS</b><span>whether the meaning changed, by hashing the file</span><i>re-saving the same text does not count</i></div>
-</div>
-<p class="rule">Right now the longest a project has gone without a closing pass is
-<b data-num="longest-gap">47</b> days. The panel reports the worst case, not the average.</p>
-
-<h2>The place, one frame a day</h2>
-<div class="timeline">
-  <figure class="tl"><span data-zoom><img src="img/timeline-garden/2026-07-04.png" alt="The garden drawn as a place, 4 July"></span>
-    <figcaption><time>4 Jul</time> first frame — nine projects, no paths between them</figcaption></figure>
-  <figure class="tl"><span data-zoom><img src="img/timeline-garden/2026-07-13.png" alt="The garden drawn as a place, 13 July"></span>
-    <figcaption><time>13 Jul</time> height means age, canopy means weight</figcaption></figure>
-  <figure class="tl"><span data-zoom><img src="img/timeline-garden/2026-07-28.png" alt="The garden drawn as a place, 28 July"></span>
-    <figcaption><time>28 Jul</time> night and day, lamps along the path</figcaption></figure>
-  <figure class="tl"><span data-zoom><img src="img/timeline-garden/2026-08-16.png" alt="The garden drawn as a place, 16 August"></span>
-    <figcaption><time>16 Aug</time> today</figcaption></figure>
-</div>
-<p class="rule">A scheduled job takes one frame every morning at 08:30 — <b data-num="frames">44</b> so far,
-nothing staged for the picture. Project names are left off: several are personal.</p>
 
 <h2>Journal</h2>
 <div class="devlog">
@@ -298,6 +271,18 @@ nothing staged for the picture. Project names are left off: several are personal
     <p>The first of these files was written in the middle of an ordinary refactor, to stop
     re-explaining the same project to every new session. Nothing about it was meant as a method.</p></div>
 </div>
+
+<h2>An idea being explored</h2>
+<div class="how">
+<p>The same files are also being drawn as a place — one plot, one building per project, height for
+age, canopy for weight. A scheduled job takes a frame of it every morning. It is a side experiment,
+not a working part: nothing in the system depends on it, and nobody has yet needed to look at it
+twice.</p>
+</div>
+<figure class="fig">
+  <span data-zoom="img/timeline-garden/2026-08-16.png"><img src="img/timeline-garden/2026-08-16.png" alt="An isometric plot at night: small buildings, trees and lamps along a path, standing for projects"></span>
+  <figcaption>The frame of 16 August. Project names are left off — several are personal.</figcaption>
+</figure>
 
 <footer>
 What the projects contain is not published here: several are personal. This page shows the mechanism —

@@ -1,15 +1,16 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ExportGPT — Igor Panarin</title>
-<meta name="description" content="A Chrome extension that turns a ChatGPT conversation into a clean PDF: how it rebuilds a page that is never fully there, and where the data goes.">
-<meta property="og:type" content="website">
+<meta name="description" content="A Chrome extension saving a ChatGPT conversation as a PDF — the whole thread, only the answers, or the blocks you pick.">
+<meta property="og:type" content="article">
 <meta property="og:title" content="ExportGPT — Igor Panarin">
-<meta property="og:description" content="A Chrome extension that turns a ChatGPT conversation into a clean PDF: how it rebuilds a page that is never fully there, and where the data goes.">
-<meta property="og:image" content="https://panarini.github.io/projects/img/exportgpt-ui-2026-05-15.png">
+<meta property="og:description" content="A Chrome extension saving a ChatGPT conversation as a PDF — the whole thread, only the answers, or the blocks you pick.">
+<meta property="og:image" content="https://panarini.github.io/projects/img/covers/exportgpt.svg">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="/assets/hub.css?v=b53ab6ca"><script data-goatcounter="https://panarini.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
+<link rel="stylesheet" href="/assets/hub.css?v=b53ab6ca">
+<script data-goatcounter="https://panarini.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head><body>
+<!-- СОБРАНО gen_pages.py из content/exportgpt.txt — правьте источник, не эту страницу. -->
 <nav class="topbar">
   <a class="me" href="/">Igor Panarin</a>
   <span class="links">
@@ -25,76 +26,72 @@
     <a href="https://t.me/bot_and_kot" aria-label="Telegram channel, in Russian">
       <svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M15.2 2.2 1.1 7.6c-.7.3-.7.9 0 1.1l3.5 1.1L13 4.4c.4-.2.8-.1.5.2l-6.8 6.2-.3 3.6c.4 0 .6-.2.8-.4l1.7-1.7 3.6 2.6c.7.4 1.1.2 1.3-.6l2.3-10.9c.2-.9-.3-1.3-.9-1.2Z"/></svg><span class="ru">RU</span>
     </a>
-    <a class="lang" href="/ru/" hreflang="ru">Рус</a>
+    <a class="lang" href="/ru/projects/exportgpt.html" hreflang="ru">Рус</a>
   </span>
 </nav>
 <div class="wrap page">
 
 <a class="back" href="../">← All work</a>
 
-<div class="head">
-  <h1>ExportGPT</h1>
-  <span class="stage">in use</span>
-</div>
+<div class="head"><h1>ExportGPT</h1><span class="stage">in use</span></div>
 
 <p class="lede">A Chrome extension. It saves a ChatGPT conversation as a PDF: the whole thread,
-<em>only the answers, or blocks you pick</em>.</p>
+      <em>only the answers, or blocks you pick</em>.</p>
 
 <div class="ext">
   <a href="https://chromewebstore.google.com/detail/aighdeikamhkemngfanhnamdlpoceimo">In the store <span class="w">Export ChatGPT Conversation</span></a>
 </div>
 
 <div class="timeline">
-  <figure class="tl">
-    <span data-zoom="img/exportgpt-ui-2026-05-15.png" tabindex="0"><img src="img/exportgpt-ui-2026-05-15.png" alt="A grey Save as PDF button with a white menu listing paper formats"></span>
-    <figcaption><time>15 May</time>Save as PDF. The menu offered paper formats — A4 or Letter, portrait or landscape.</figcaption>
-  </figure>
-  <figure class="tl">
-    <span data-zoom="img/exportgpt-ui-2026-06-13.png" tabindex="0"><img src="img/exportgpt-ui-2026-06-13.png" alt="An Export button with a dark menu offering Select to export and AI answers only"></span>
-    <figcaption><time>13 June</time>Renamed to Export. The menu now asks what to export instead of how to print.</figcaption>
-  </figure>
-  <figure class="tl">
-    <span data-zoom="img/exportgpt-ui-2026-07-22.png" tabindex="0"><img src="img/exportgpt-ui-2026-07-22.png" alt="The same menu with a new first item, Everything"></span>
-    <figcaption><time>22 July</time>A third option on top: everything, prompts included.</figcaption>
-  </figure>
-  <figure class="tl">
-    <span data-zoom="img/exportgpt-ui-2026-08-10.png" tabindex="0"><img src="img/exportgpt-ui-2026-08-10.png" alt="The current menu: Select all, AI answers only, Select to export, Settings"></span>
-    <figcaption><time>10 August</time>“Everything” became “Select all”.</figcaption>
-  </figure>
+  <figure class="tl"><span data-zoom="img/exportgpt-ui-2026-05-15.png" tabindex="0"><img src="img/exportgpt-ui-2026-05-15.png" alt="A grey Save as PDF button with a white menu listing paper formats"></span><figcaption><time>15 May</time>Save as PDF. The menu offered paper formats — A4 or Letter, portrait or landscape.</figcaption></figure>
+  <figure class="tl"><span data-zoom="img/exportgpt-ui-2026-06-13.png" tabindex="0"><img src="img/exportgpt-ui-2026-06-13.png" alt="An Export button with a dark menu offering Select to export and AI answers only"></span><figcaption><time>13 June</time>Renamed to Export. The menu now asks what to export instead of how to print.</figcaption></figure>
+  <figure class="tl"><span data-zoom="img/exportgpt-ui-2026-07-22.png" tabindex="0"><img src="img/exportgpt-ui-2026-07-22.png" alt="The same menu with a new first item, Everything"></span><figcaption><time>22 July</time>A third option on top: everything, prompts included.</figcaption></figure>
+  <figure class="tl"><span data-zoom="img/exportgpt-ui-2026-08-10.png" tabindex="0"><img src="img/exportgpt-ui-2026-08-10.png" alt="The current menu: Select all, AI answers only, Select to export, Settings"></span><figcaption><time>10 August</time>“Everything” became “Select all”.</figcaption></figure>
 </div>
-<p class="rule">Rebuilt from the repository: each frame is the actual markup and stylesheet of that
-day, rendered again.</p>
+<p class="rule">Rebuilt from the repository: each frame is the actual markup and stylesheet of that day, rendered again.</p>
 
 <h2>How it works</h2>
-
-<figure class="fig">
-  <span data-zoom="img/exportgpt-path-light.svg" tabindex="0"><img src="img/exportgpt-path-light.svg" alt="Four steps: the page holds only part of the conversation, the extension rebuilds it, a server renders the PDF, the file comes back."></span>
-  <figcaption>What happens when you press Export.</figcaption>
-</figure>
+<figure class="fig"><span data-zoom="img/exportgpt-path-light.svg"><img src="img/exportgpt-path-light.svg" alt="Four steps: the page holds only part of the conversation, the extension rebuilds it, a server renders the PDF, the file comes back."></span><figcaption>What happens when you press Export.</figcaption></figure>
 
 <h2>Where the file goes</h2>
-
-<figure class="fig">
-  <span data-zoom="img/exportgpt-trust-light.svg" tabindex="0"><img src="img/exportgpt-trust-light.svg" alt="The route: DNS tells the browser the address, the extension sends an encrypted request, a firewall lets only that port through, Caddy decrypts it and keeps the certificate, Gotenberg renders the PDF inside the server, and the file returns the same way."></span>
-</figure>
+<figure class="fig"><span data-zoom="img/exportgpt-trust-light.svg"><img src="img/exportgpt-trust-light.svg" alt="The route: DNS tells the browser the address, the extension sends an encrypted request, a firewall lets only that port through, Caddy decrypts it and keeps the certificate, Gotenberg renders the PDF inside the server, and the file returns the same way."></span><figcaption>The route a conversation takes, and where it stops being readable by anyone in between.</figcaption></figure>
 
 <h2>Devlog</h2>
 <div class="devlog">
-  <div class="e"><time>10 Aug</time><span class="tag">UI</span><p>The request for a rating got a visible “Not now”. Until then the only way out of it was to click somewhere else.</p></div>
-  <div class="e"><time>22 July</time><span class="tag">UI</span><p>Added “Everything” to the top of the menu. Exporting the whole conversation was already what the button did, and I assumed that was obvious. <em>An uninstall comment showed it was not</em>: people were looking for that option and did not find it.</p></div>
-  <div class="e"><time>20 July</time><span class="tag">engine</span><p>Long exports had been arriving cut short, always at the same place. <em>ChatGPT had stopped keeping the turns</em> that scroll out of view, so the extension now walks the whole thread and <em>rebuilds it before anything is rendered</em>. The same day file names stopped collapsing into “New chat”: the name falls back to the first question asked.</p></div>
-  <div class="e"><time>14 July</time><span class="tag">engine</span><p>Images are shrunk before the file is sent. They used to be packed in at full size, so a chat with several pictures <em>made a 24 MB file</em>. That was heavy enough for the renderer to give up. The same chat <em>now makes 2.7 MB</em> and the pictures look the same.</p></div>
-  <div class="e"><time>26 June</time><span class="tag">UI</span><p>Block selection: messages are ticked one by one and the button shows how many are selected.</p></div>
-  <div class="e"><time>24 June</time><span class="tag">server</span><p>Rendering moved off the paid service onto a machine I rent. The same conversion, but <em>the cost stops growing with every export</em> someone makes.</p></div>
-  <div class="e"><time>13 June</time><span class="tag">UI</span><p>Renamed to Export. Paper settings moved into a separate window, and the menu began asking what to export instead of how to print it.</p></div>
-  <div class="e"><time>15 May</time><span class="tag">start</span><p><em>Built on top of someone else's extension</em> that saved any web page as a PDF through its own paid conversion service. The first version kept that shape: a button “Save as PDF” and a menu about paper — A4 or Letter, portrait or landscape.</p></div>
+  <div class="e"><time>{'en': '10 Aug', 'ru': '10 авг'}</time><span class="tag">{'en': 'UI', 'ru': 'интерфейс'}</span>
+    <p>The request for a rating got a visible “Not now”. Until then the only way out of it was to click somewhere else.</p></div>
+  <div class="e"><time>{'en': '22 July', 'ru': '22 июля'}</time><span class="tag">{'en': 'UI', 'ru': 'интерфейс'}</span>
+    <p>Added “Everything” to the top of the menu. Exporting the whole conversation was already what the button
+      did, and I assumed that was obvious. <em>An uninstall comment showed it was not</em>: people were looking
+      for that option and did not find it.</p></div>
+  <div class="e"><time>{'en': '20 July', 'ru': '20 июля'}</time><span class="tag">{'en': 'engine', 'ru': 'движок'}</span>
+    <p>Long exports had been arriving cut short, always at the same place. <em>ChatGPT had stopped keeping the
+      turns</em> that scroll out of view, so the extension now walks the whole thread and <em>rebuilds it before
+      anything is rendered</em>. The same day file names stopped collapsing into “New chat”: the name falls back
+      to the first question asked.</p></div>
+  <div class="e"><time>{'en': '14 July', 'ru': '14 июля'}</time><span class="tag">{'en': 'engine', 'ru': 'движок'}</span>
+    <p>Images are shrunk before the file is sent. They used to be packed in at full size, so a chat with several
+      pictures <em>made a 24 MB file</em>. That was heavy enough for the renderer to give up. The same chat
+      <em>now makes 2.7 MB</em> and the pictures look the same.</p></div>
+  <div class="e"><time>{'en': '26 June', 'ru': '26 июня'}</time><span class="tag">{'en': 'UI', 'ru': 'интерфейс'}</span>
+    <p>Block selection: messages are ticked one by one and the button shows how many are selected.</p></div>
+  <div class="e"><time>{'en': '24 June', 'ru': '24 июня'}</time><span class="tag">{'en': 'server', 'ru': 'сервер'}</span>
+    <p>Rendering moved off the paid service onto a machine I rent. The same conversion, but <em>the cost stops
+      growing with every export</em> someone makes.</p></div>
+  <div class="e"><time>{'en': '13 June', 'ru': '13 июня'}</time><span class="tag">{'en': 'UI', 'ru': 'интерфейс'}</span>
+    <p>Renamed to Export. Paper settings moved into a separate window, and the menu began asking what to export
+      instead of how to print it.</p></div>
+  <div class="e"><time>{'en': '15 May', 'ru': '15 мая'}</time><span class="tag">{'en': 'start', 'ru': 'начало'}</span>
+    <p><em>Built on top of someone else's extension</em> that saved any web page as a PDF through its own paid
+      conversion service. The first version kept that shape: a button “Save as PDF” and a menu about paper —
+      A4 or Letter, portrait or landscape.</p></div>
 </div>
 
 <footer>The extension is in the Chrome Web Store as
-<a href="https://chromewebstore.google.com/detail/aighdeikamhkemngfanhnamdlpoceimo">Export ChatGPT Conversation</a>.
-The rendering server's address, its chain and <em>its configuration are not published here</em>.</footer>
+      <a href="https://chromewebstore.google.com/detail/aighdeikamhkemngfanhnamdlpoceimo">Export ChatGPT Conversation</a>.
+      The rendering server's address, its chain and <em>its configuration are not published here</em>.</footer>
 
 </div>
-<div id="lb" role="dialog" aria-modal="true" aria-label="Enlarged image"><b>&times;</b><img alt=""></div>
+<div id="lb" role="dialog" aria-modal="true" hidden><b>×</b><img alt=""></div>
 <script src="/assets/hub.js?v=6823b44d"></script>
 </body></html>

@@ -14,6 +14,7 @@
 #sysmap .pt{fill:var(--ink)}
 #sysmap .stamp{fill:var(--accent)}
 #sysmap .st{font:600 9px ui-monospace,SFMono-Regular,Menlo,monospace;fill:var(--paper)}
+#sysmap .fn{font:600 11px ui-monospace,SFMono-Regular,Menlo,monospace;fill:var(--ink)}
 #sysmap .nm{font:600 11.5px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.13em;fill:var(--ink)}
 #sysmap .dt{font:400 12px -apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;fill:var(--mute)}
 #sysmap .link path{fill:none;stroke:var(--ink);stroke-width:2;stroke-dasharray:100;stroke-dashoffset:0}
@@ -72,14 +73,8 @@ what a project is, where it stands, why it was built this way. Here every projec
 itself, <em>in three text files</em>.</p>
 
 <div class="ext">
-  <a href="https://github.com/PanarinI/garden-genome">The law <span class="w">what every session is given first</span></a>
-  <a href="https://github.com/PanarinI/deux-ex-machina">The tooling <span class="w">reads the files, draws the panel</span></a>
-</div>
-
-<div class="nums">
-  <span><b>3</b> files per project</span>
-  <span><b data-num="frames">44</b> frames of the place, one per morning</span>
-  <span><b data-num="decisions">50</b> decisions recorded about the system itself</span>
+  <a href="https://github.com/PanarinI/garden-genome">~/.claude/skills <span class="w">the instruction files</span></a>
+  <a href="https://github.com/PanarinI/deux-ex-machina">gen_pult.py <span class="w">reads every STATE.md, writes one page</span></a>
 </div>
 
 <h2>One session, then the next</h2>
@@ -117,33 +112,33 @@ itself, <em>in three text files</em>.</p>
 
   <g class="node" id="n-law">
     <rect class="bx" x="40" y="56" width="260" height="84"/>
-    <text class="nm" x="60" y="90">THE LAW</text>
-    <text class="dt" x="60" y="112">given to every session before it starts</text>
+    <text class="nm" x="60" y="90">~/.claude/skills/</text>
+    <text class="dt" x="60" y="112">instruction files · loaded into every session</text>
   </g>
 
   <g class="node" id="n-sinai">
     <rect class="bx" x="700" y="56" width="260" height="84"/>
-    <text class="nm" x="720" y="90">THE WORKSHOP</text>
-    <text class="dt" x="720" y="112">the one place the law may be edited</text>
+    <text class="nm" x="720" y="90">sinai/DECISIONS.md</text>
+    <text class="dt" x="720" y="112">why each rule is what it is</text>
   </g>
 
   <g class="node" id="n-caps">
     <rect class="bx" x="40" y="180" width="260" height="240"/>
-    <text class="nm" x="60" y="212">THE PROJECTS</text>
+    <text class="nm" x="60" y="212">&lt;project&gt;/</text>
     <rect class="cd" x="60" y="228" width="220" height="52"/>
-    <rect class="ln" x="74" y="248" width="130" height="5"/><rect class="ln" x="74" y="260" width="176" height="5"/><rect class="ln" x="74" y="272" width="98" height="5"/>
+    <text class="fn" x="76" y="250">CLAUDE.md</text><text class="dt" x="76" y="268">what it is · the rules</text>
     <rect class="cd" x="60" y="292" width="220" height="52"/>
-    <rect class="ln" x="74" y="312" width="164" height="5"/><rect class="ln" x="74" y="324" width="112" height="5"/><rect class="ln" x="74" y="336" width="186" height="5"/>
+    <text class="fn" x="76" y="314">STATE.md</text><text class="dt" x="76" y="332">where the work stands</text>
     <rect class="cd" x="60" y="356" width="220" height="52"/>
-    <rect class="ln" x="74" y="376" width="120" height="5"/><rect class="ln" x="74" y="388" width="192" height="5"/><rect class="ln" x="74" y="400" width="142" height="5"/>
-    <text class="dt" x="188" y="212">three files each</text>
+    <text class="fn" x="76" y="378">DECISIONS.md</text><text class="dt" x="76" y="396">why · appended only</text>
+    <text class="dt" x="188" y="212">one folder per project</text>
   </g>
-  <g class="node" id="n-mark"><rect class="stamp" x="236" y="236" width="36" height="16"/><text class="st" x="242" y="248">08:14</text></g>
+  <g class="node" id="n-mark"><rect class="stamp" x="212" y="298" width="62" height="16"/><text class="st" x="218" y="310">.shabbat</text></g>
 
   <g class="node" id="n-sess">
     <rect class="bx" x="380" y="180" width="240" height="130"/>
-    <text class="nm" x="400" y="212">A SESSION</text>
-    <text class="dt" x="400" y="234">lives once</text>
+    <text class="nm" x="400" y="212">assistant session</text>
+    <text class="dt" x="400" y="234">ends, keeps nothing</text>
     <circle class="pt" cx="410" cy="262" r="4"/><circle class="pt" cx="440" cy="276" r="4"/><circle class="pt" cx="470" cy="258" r="4"/>
     <circle class="pt" cx="500" cy="278" r="4"/><circle class="pt" cx="530" cy="260" r="4"/><circle class="pt" cx="560" cy="276" r="4"/>
     <circle class="pt" cx="590" cy="258" r="4"/>
@@ -151,27 +146,27 @@ itself, <em>in three text files</em>.</p>
 
   <g class="node" id="n-buck">
     <rect class="bx" x="380" y="340" width="240" height="60"/>
-    <text class="nm" x="400" y="368">THE BUCKET</text>
-    <text class="dt" x="400" y="388">one line, unsorted</text>
+    <text class="nm" x="400" y="368">INBOX.md</text>
+    <text class="dt" x="400" y="388">append-only · one line per thought</text>
   </g>
 
   <g class="node" id="n-mem">
     <rect class="bx" x="380" y="430" width="240" height="60"/>
-    <text class="nm" x="400" y="458">MEMORY</text>
-    <text class="dt" x="400" y="478">about the person</text>
+    <text class="nm" x="400" y="458">assistant memory</text>
+    <text class="dt" x="400" y="478">facts about the user</text>
   </g>
 
   <g class="node" id="n-inst">
     <rect class="bx" x="700" y="180" width="260" height="80"/>
-    <text class="nm" x="720" y="212">THE TOOLING</text>
-    <text class="dt" x="720" y="234">reads the same files</text>
+    <text class="nm" x="720" y="212">gen_pult.py</text>
+    <text class="dt" x="720" y="234">reads every STATE.md</text>
   </g>
 
   <g class="node" id="n-scr">
     <rect class="bx" x="700" y="300" width="260" height="100"/>
-    <text class="nm" x="720" y="332">THE PANEL</text>
+    <text class="nm" x="720" y="332">pult.html</text>
     <rect class="ln" x="720" y="348" width="150" height="5"/><rect class="ln" x="720" y="360" width="196" height="5"/><rect class="ln" x="720" y="372" width="122" height="5"/>
-    <text class="dt" x="720" y="392">what the author sees</text>
+    <text class="dt" x="720" y="392">one page, every project</text>
   </g>
 </svg>
 <div class="sysbar">
@@ -184,16 +179,16 @@ itself, <em>in three text files</em>.</p>
 <script>
 (function(){
   var S=[
-   ["The law", "The rules the assistant is given before it starts: how to enter a project, what to record while working, what to write on the way out. The same set in every project."],
-   ["A project is born", "One command creates the three files: what this project is, where the work stands, why it was decided that way. The project carries its context from then on."],
-   ["A session opens", "Reads the law, then the three files of one project. Other projects stay closed: one capsule holds what is needed to resume that work."],
-   ["Something settles", "A fact that stops changing goes into its file immediately, and the assistant states where it put it. Recording happens during the work, not at the end of it."],
-   ["A thought from elsewhere", "It belongs to another project. One line goes into a bucket, unsorted. Sorting is a separate pass, so the work at hand continues."],
-   ["A fact about the person", "About the person rather than the work: what they care about, how they want to be addressed. It goes to memory, which reaches every project at once."],
-   ["The closing pass", "The state file is rewritten to describe the work as it now stands. The reason is appended to the journal. This pass writes a timestamp; ordinary edits do not."],
-   ["The panel", "A script reads the same files and draws every project on one page: weight, freshness, time since the last closing pass. It runs outside the conversation."],
-   ["Morning", "The bucket is emptied: each line goes to a project file, to memory, or to the list of seeds. Every line is logged with the place it went to."],
-   ["The law is edited — here only", "A rule that fails in practice is recorded in one place: a workshop that holds the reasons. The change reaches the law only from there. In every other project the law is read, never edited."]
+   ["Instruction files", "~/.claude/skills/ — four markdown files. Loaded into every session before any work, identically in every project."],
+   ["A project folder", "One command creates <project>/ with CLAUDE.md, STATE.md and DECISIONS.md. The folder is the project's whole context."],
+   ["Session start", "The session reads the instruction files, then those three. No other project folder is opened."],
+   ["During work", "A fact that stops changing is appended to its file at once, and the assistant names the file it wrote to."],
+   ["A thought about another project", "One line is appended to garden-meta/INBOX.md. It is not sorted now."],
+   ["A fact about the user", "Written to the assistant's memory store, which loads into every project."],
+   ["Session end", "STATE.md is rewritten to describe the current state. DECISIONS.md gets one appended entry. A timestamp is written to .shabbat; ordinary edits do not write it."],
+   ["The panel", "gen_pult.py reads every STATE.md and every .shabbat, then writes pult.html — one page with every project, its weight and its time since the last rewrite."],
+   ["Next morning", "INBOX.md is emptied line by line into project files, memory, or the seed list. Each move is logged."],
+   ["Changing a rule", "The reason is appended to sinai/DECISIONS.md, and only then is the file in ~/.claude/skills/ edited. No other project edits it."]
   ];
   var ON=[
    ["n-law"],

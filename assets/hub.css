@@ -84,22 +84,6 @@ h1{font-size:clamp(38px,6.4vw,72px);font-weight:800;letter-spacing:-.035em;line-
 .spec .r em{font-style:normal;font-weight:600}
 @media(max-width:640px){.spec .r{grid-template-columns:1fr;gap:2px}.spec .r i{text-align:left}}
 
-/* ── живые ссылки на главной ────────────────────────────────────────
-   Разведка чужими глазами 08-16: три единственных проверяемых
-   доказательства (магазин, магазин, работающий генератор) лежали внутри
-   страниц проектов, и на главной наружу не вело ничего. Карточка целиком
-   ссылка, вложить в неё вторую нельзя — поэтому живые адреса вынесены
-   отдельной строкой под заявлением, до каталога. */
-.live{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:baseline;margin:1.4rem 0 0}
-.live span{font:600 10.5px/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--mute)}
-.live a{display:inline-flex;align-items:baseline;gap:8px;border-bottom:2px solid var(--ink);
-  color:var(--ink);text-decoration:none;font-size:15px;padding-bottom:1px}
-.live a b{font:600 10.5px/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--mute);font-weight:600}
-.live a:hover{color:var(--accent);border-color:var(--accent)}
-.live a:hover b{color:var(--accent)}
-
 /* ── колофон: признание, набранное как правка корректора ───────────────
    Решение автора 08-16. Смысл несёт не фраза, а вычерк: сделано НЕ ИИ —
    сделано С НИМ. Инструментом управляют, а не наоборот. Поэтому «by»
@@ -130,9 +114,19 @@ h2{display:inline-block;background:var(--ink);color:var(--paper);
   text-transform:uppercase;padding:6px 9px 5px;white-space:nowrap}
 
 /* ── карточки каталога ─────────────────────────────────────────────── */
-.card{display:block;text-decoration:none;color:inherit;background:var(--paper);
-  border:2px solid var(--ink);overflow:hidden;transition:transform .12s,box-shadow .12s}
-a.card:hover{transform:translate(-4px,-4px);box-shadow:8px 8px 0 var(--ink)}
+.card{display:flex;flex-direction:column;background:var(--paper);border:2px solid var(--ink);
+  overflow:hidden;transition:transform .12s,box-shadow .12s}
+.card:hover{transform:translate(-4px,-4px);box-shadow:8px 8px 0 var(--ink)}
+.card .face{display:block;text-decoration:none;color:inherit;flex:1}
+/* Полоса живого адреса внутри карточки. Решение автора 08-16: отдельная строка
+   живых ссылок над каталогом дублировала карточки; адрес должен лежать там же,
+   где вещь. Карточка перестала быть одной ссылкой — тело ведёт на страницу,
+   полоса ведёт к самой вещи, граница между ними видна линией. */
+.card .try{display:flex;justify-content:space-between;align-items:baseline;gap:10px;
+  border-top:2px solid var(--ink);padding:9px 15px 8px;text-decoration:none;color:var(--mute);
+  font:600 10.5px/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.12em;text-transform:uppercase}
+.card .try span{font-size:12px}
+.card .try:hover{background:var(--ink);color:var(--paper)}
 .row{display:flex;align-items:center;justify-content:space-between;gap:10px}
 .name{font-size:17px;font-weight:700;letter-spacing:-.015em}
 .desc{margin:.55rem 0 0;font-size:14.5px;line-height:1.42;color:var(--mute)}

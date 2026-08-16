@@ -18,8 +18,13 @@
 #sysmap .nm{font:600 11.5px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.13em;fill:var(--ink)}
 #sysmap .dt{font:400 12px -apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;fill:var(--mute)}
 #sysmap .link path{fill:none;stroke:var(--ink);stroke-width:2;stroke-dasharray:100;stroke-dashoffset:0}
-.sys.js .node{opacity:.2;transition:opacity .3s}
-.sys.js .link{opacity:.09;transition:opacity .3s}
+.sys.js .node,.sys.js .link{opacity:0;transition:opacity .35s}
+.sys.js .node.on,.sys.js .link.on{opacity:1}
+/* элемент, добавленный ИМЕННО этим шагом, держит киноварь, пока читатель на нём */
+#sysmap .node.fresh rect.bx{stroke:var(--accent);stroke-width:3}
+#sysmap .node.fresh .nm{fill:var(--accent)}
+#sysmap .link.fresh path{stroke:var(--accent)}
+#sysmap .link.fresh path{marker-end:url(#smA)}
 .sys.js #n-mark{opacity:0}
 .sys.js .node.on{opacity:1}
 .sys.js #n-mark.on{opacity:1}
@@ -95,7 +100,7 @@ itself, <em>in three text files</em>.</p>
 
 <div class="sys" id="sys">
 <svg id="sysmap" viewBox="0 0 1000 570" role="img" aria-label="A map of the system: the law, a workshop where the law is edited, the projects, a session, a bucket for stray thoughts, memory about the person, the tooling and the panel it draws.">
-  <defs><marker id="sm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#14110E"/></marker></defs>
+  <defs><marker id="smA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#D93A00"/></marker><marker id="sm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#14110E"/></marker></defs>
 
   <g class="link" id="l-sinai-law"><path d="M696 80 H304" marker-end="url(#sm)" pathLength="100"/></g>
   <g class="link" id="l-law-sess"><path d="M300 110 H340 V196 H372" marker-end="url(#sm)" pathLength="100"/></g>
@@ -213,9 +218,16 @@ itself, <em>in three text files</em>.</p>
   });
   function go(k){
     i=(k+S.length)%S.length;
-    box.querySelectorAll('.on').forEach(function(e){e.classList.remove('on')});
+    var seen={}, before={};
+    for(var s=0;s<i;s++) ON[s].forEach(function(id){before[id]=1;seen[id]=1});
+    ON[i].forEach(function(id){seen[id]=1});
+    box.querySelectorAll('.node,.link').forEach(function(e){
+      e.classList.toggle('on', !!seen[e.id]);
+      e.classList.remove('fresh');
+    });
     box.getBoundingClientRect();
-    ON[i].forEach(function(id){var e=document.getElementById(id);if(e)e.classList.add('on')});
+    ON[i].forEach(function(id){var e=document.getElementById(id);
+      if(e){ e.classList.add('on'); if(!before[id]) e.classList.add('fresh'); }});
     cap.querySelector('b').textContent=(i+1)+' — '+S[i][0];
     cap.querySelector('p').textContent=S[i][1];
     btns.forEach(function(b,n){b.setAttribute('aria-current',n===i?'true':'false')});

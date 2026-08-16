@@ -179,16 +179,16 @@ itself, <em>in three text files</em>.</p>
 <script>
 (function(){
   var S=[
-   ["Instruction files", "~/.claude/skills/ — four markdown files. Loaded into every session before any work, identically in every project."],
-   ["A project folder", "One command creates <project>/ with CLAUDE.md, STATE.md and DECISIONS.md. The folder is the project's whole context."],
-   ["Session start", "The session reads the instruction files, then those three. No other project folder is opened."],
-   ["During work", "A fact that stops changing is appended to its file at once, and the assistant names the file it wrote to."],
-   ["A thought about another project", "One line is appended to garden-meta/INBOX.md. It is not sorted now."],
-   ["A fact about the user", "Written to the assistant's memory store, which loads into every project."],
-   ["Session end", "STATE.md is rewritten to describe the current state. DECISIONS.md gets one appended entry. A timestamp is written to .shabbat; ordinary edits do not write it."],
-   ["The panel", "gen_pult.py reads every STATE.md and every .shabbat, then writes pult.html — one page with every project, its weight and its time since the last rewrite."],
-   ["Next morning", "INBOX.md is emptied line by line into project files, memory, or the seed list. Each move is logged."],
-   ["Changing a rule", "The reason is appended to sinai/DECISIONS.md, and only then is the file in ~/.claude/skills/ edited. No other project edits it."]
+   ["Instruction files", "~/.claude/skills/ holds four markdown files: seed, boker, shabbat, vedro. Every session loads all four before any work, in every project."],
+   ["A project folder", "seed creates <project>/ with three files: CLAUDE.md — what the project is and the rules it follows; STATE.md — the current state and the next step; DECISIONS.md — why, appended."],
+   ["Session start", "The session reads ~/.claude/skills/, then CLAUDE.md, STATE.md and DECISIONS.md of one project. Files of other projects are not read."],
+   ["During work", "A settled fact is appended to STATE.md at once, and the assistant names the file it wrote to."],
+   ["A thought about another project", "One line is appended to garden-meta/INBOX.md: date, text, project tag. Nothing is moved or sorted at this point."],
+   ["A fact about the user", "Written to the assistant's memory directory. That directory loads in every project; <project>/ loads only in its own."],
+   ["Session end", "STATE.md is overwritten with the current state. One entry is appended to DECISIONS.md. The current time is written to <project>/.shabbat — edits made during work do not write it."],
+   ["The panel", "gen_pult.py reads every <project>/STATE.md and every <project>/.shabbat, then writes pult.html: one row per project with its size, the age of its state, and the time since its last .shabbat."],
+   ["Next morning", "Each line of INBOX.md is moved to a project file, to the memory directory or to SEEDS.md, then copied into INBOX-archive.md with its destination recorded. INBOX.md is left empty."],
+   ["Changing a rule", "The reason is appended to garden-meta/sinai/DECISIONS.md, and the file in ~/.claude/skills/ is edited after that, only there. Sessions in other projects read the instruction files and do not write them."]
   ];
   var ON=[
    ["n-law"],

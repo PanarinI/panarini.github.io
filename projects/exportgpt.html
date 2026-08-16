@@ -2,7 +2,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ExportGPT — Igor Panarin</title>
 <meta name="description" content="A Chrome extension that turns a ChatGPT conversation into a clean PDF: how it rebuilds a page that is never fully there, and where the data goes.">
-<link rel="stylesheet" href="/assets/hub.css?v=91f5b04b"><script data-goatcounter="https://panarini.goatcounter.com/count"
+<link rel="stylesheet" href="/assets/hub.css?v=f78c5f27"><script data-goatcounter="https://panarini.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 </head><body>
 <nav class="topbar">
@@ -33,7 +33,7 @@
 </div>
 
 <p class="lede">A Chrome extension. It saves a ChatGPT conversation as a PDF: the whole thread,
-only the answers, or blocks you pick.</p>
+<em>only the answers, or blocks you pick</em>.</p>
 
 <div class="ext">
   <a href="https://chromewebstore.google.com/detail/aighdeikamhkemngfanhnamdlpoceimo">In the store <span class="w">Export ChatGPT Conversation</span></a>
@@ -76,18 +76,18 @@ day, rendered again.</p>
 <h2>Devlog</h2>
 <div class="devlog">
   <div class="e"><time>10 Aug</time><span class="tag">UI</span><p>The request for a rating got a visible “Not now”. Until then the only way out of it was to click somewhere else.</p></div>
-  <div class="e"><time>22 July</time><span class="tag">UI</span><p>Added “Everything” to the top of the menu. Exporting the whole conversation was already what the button did, and I assumed that was obvious. An uninstall comment showed it was not: people were looking for that option and did not find it.</p></div>
-  <div class="e"><time>20 July</time><span class="tag">engine</span><p>Long exports had been arriving cut short, always at the same place. ChatGPT had stopped keeping the turns that scroll out of view, so the extension now walks the whole thread and rebuilds it before anything is rendered. The same day file names stopped collapsing into “New chat”: the name falls back to the first question asked.</p></div>
-  <div class="e"><time>14 July</time><span class="tag">engine</span><p>Images are shrunk before the file is sent. They used to be packed in at full size, so a chat with several pictures made a 24 MB file. That was heavy enough for the renderer to give up. The same chat now makes 2.7 MB and the pictures look the same.</p></div>
+  <div class="e"><time>22 July</time><span class="tag">UI</span><p>Added “Everything” to the top of the menu. Exporting the whole conversation was already what the button did, and I assumed that was obvious. <em>An uninstall comment showed it was not</em>: people were looking for that option and did not find it.</p></div>
+  <div class="e"><time>20 July</time><span class="tag">engine</span><p>Long exports had been arriving cut short, always at the same place. <em>ChatGPT had stopped keeping the turns</em> that scroll out of view, so the extension now walks the whole thread and <em>rebuilds it before anything is rendered</em>. The same day file names stopped collapsing into “New chat”: the name falls back to the first question asked.</p></div>
+  <div class="e"><time>14 July</time><span class="tag">engine</span><p>Images are shrunk before the file is sent. They used to be packed in at full size, so a chat with several pictures <em>made a 24 MB file</em>. That was heavy enough for the renderer to give up. The same chat <em>now makes 2.7 MB</em> and the pictures look the same.</p></div>
   <div class="e"><time>26 June</time><span class="tag">UI</span><p>Block selection: messages are ticked one by one and the button shows how many are selected.</p></div>
-  <div class="e"><time>24 June</time><span class="tag">server</span><p>Rendering moved off the paid service onto a machine I rent. The same conversion, but the cost stops growing with every export someone makes.</p></div>
+  <div class="e"><time>24 June</time><span class="tag">server</span><p>Rendering moved off the paid service onto a machine I rent. The same conversion, but <em>the cost stops growing with every export</em> someone makes.</p></div>
   <div class="e"><time>13 June</time><span class="tag">UI</span><p>Renamed to Export. Paper settings moved into a separate window, and the menu began asking what to export instead of how to print it.</p></div>
-  <div class="e"><time>15 May</time><span class="tag">start</span><p>Built on top of someone else's extension that saved any web page as a PDF through its own paid conversion service. The first version kept that shape: a button “Save as PDF” and a menu about paper — A4 or Letter, portrait or landscape.</p></div>
+  <div class="e"><time>15 May</time><span class="tag">start</span><p><em>Built on top of someone else's extension</em> that saved any web page as a PDF through its own paid conversion service. The first version kept that shape: a button “Save as PDF” and a menu about paper — A4 or Letter, portrait or landscape.</p></div>
 </div>
 
 <footer>The extension is in the Chrome Web Store as
 <a href="https://chromewebstore.google.com/detail/aighdeikamhkemngfanhnamdlpoceimo">Export ChatGPT Conversation</a>.
-The rendering server's address, its chain and its configuration are not published here.</footer>
+The rendering server's address, its chain and <em>its configuration are not published here</em>.</footer>
 
 </div>
 <div id="lb" role="dialog" aria-modal="true" aria-label="Enlarged image"><b>&times;</b><img alt=""></div>

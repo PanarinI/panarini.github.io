@@ -2,7 +2,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Demand Telescope — Igor Panarin</title>
 <meta name="description" content="An instrument that turns search demand into a sky you can navigate, used to decide what is worth building next.">
-<link rel="stylesheet" href="/assets/hub.css?v=91f5b04b"><script data-goatcounter="https://panarini.goatcounter.com/count"
+<link rel="stylesheet" href="/assets/hub.css?v=f78c5f27"><script data-goatcounter="https://panarini.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 </head><body>
 <nav class="topbar">
@@ -34,7 +34,7 @@
 
 <p class="lede">Before building anything I need to know whether people are looking for it.
 This tool takes search data — what people type, how often, and what already answers them —
-and draws it as a map. One star is one query. The bigger it is, the more people type it;
+and draws it as a map. <em>One star is one query</em>. The bigger it is, the more people type it;
 the colour says how crowded that corner already is.</p>
 
 <h2>What it looked like</h2>
@@ -49,14 +49,14 @@ the colour says how crowded that corner already is.</p>
   </figure>
   <figure class="tl">
     <span data-zoom="img/timeline-sky/2026-08-10-sky.png" tabindex="0"><img src="img/timeline-sky/2026-08-10-sky.png" alt="A dense scattering of tiny points across the whole field"></span>
-    <figcaption><time>10 August · 1641 keys</time>Ten runs later. Every one of them poured in here, whatever it concluded.</figcaption>
+    <figcaption><time>10 August · 1641 keys</time>Ten runs later. Every one of them <em>poured in here, whatever it concluded</em>.</figcaption>
   </figure>
   <figure class="tl ahead">
     <span><p>Next: a public cut of the sky — the landscape shown without the instrument behind it.</p></span>
     <figcaption><time>ahead</time>Not built yet.</figcaption>
   </figure>
 </div>
-<p class="rule">Read the counts, not the density. The view fits itself to whatever it holds, so the sky looks emptier as it fills. Seven times more stars in the last frame than in the first, drawn seven times smaller. Two earlier frames stay unpublished: on those the method itself is legible.</p>
+<p class="rule">Read the counts, not the density. The view fits itself to whatever it holds, so <em>the sky looks emptier as it fills</em>. Seven times more stars in the last frame than in the first, drawn seven times smaller. Two earlier frames stay unpublished: on those the method itself is legible.</p>
 
 <h2>How it works</h2>
 <div class="trio">
@@ -68,7 +68,7 @@ the colour says how crowded that corner already is.</p>
 <p>Positions are not decided by hand and not simulated in the browser. The layout is
 <em>computed offline</em> from the relations themselves, so a sky of a thousand-odd nodes stays
 smooth to fly through. Dragging a node is <em>reading, not editing</em>. A reset puts it back where the data says it
-belongs; the map is corrected through its data, never with the mouse.</p>
+belongs; the map is <em>corrected through its data, never with the mouse</em>.</p>
 <div class="nums">
   <span><b>1641</b> stars</span>
   <span><b>630</b> checked against real search results</span>
@@ -81,13 +81,13 @@ measured, so what it has <em>not</em> reached yet is part of the reading.</p>
 <h2>Devlog</h2>
 <div class="devlog">
   <div class="e"><time>7 Aug</time><span class="tag">a run</span><p>A run closed an idea instead of opening it: for “stop a child sending an intimate photo” there was no demand to be found. The silence was checked for being an instrument fault and was not one — the words exist, but only on the other side of that subject.</p></div>
-  <div class="e"><time>25 July</time><span class="tag">engine</span><p>The last change to the engine so far. Two things went in: a check for queries that only look free — a million searches a month can belong to a site of the same name rather than to unclaimed demand — and a harvester that turns what passes the gates into rows of a register. Since then the instrument has not changed; it has been used.</p></div>
-  <div class="e"><time>21 July</time><span class="tag">data</span><p>The whole sky was measured in one pass rather than niche by niche: occupancy is now known for 664 of 1011 queries. That pass turned up a name with 1.22M searches a month that nobody had taken in the store.</p></div>
+  <div class="e"><time>25 July</time><span class="tag">engine</span><p>The last change to the engine so far. Two things went in: a check for <em>queries that only look free</em> — a million searches a month can belong to a site of the same name rather than to unclaimed demand — and a harvester that turns what passes the gates into rows of a register. Since then the instrument has not changed; it has been used.</p></div>
+  <div class="e"><time>21 July</time><span class="tag">data</span><p>The whole sky was measured in one pass rather than niche by niche: occupancy is now known for 664 of 1011 queries. That pass turned up a name with <em>1.22M searches a month that nobody had taken</em> in the store.</p></div>
   <div class="e"><time>19 July</time><span class="tag">data</span><p>A product counts as competing for a query only if it appears in the store's own top ten for it. Proven competitors and candidates stopped being kept in one list.</p></div>
-  <div class="e"><time>17 July</time><span class="tag">data</span><p>Occupancy is measured in the store's search, not in Google. Google shows who writes about a subject; the store shows who already sells there.</p></div>
+  <div class="e"><time>17 July</time><span class="tag">data</span><p>Occupancy is measured in the store's search, not in Google. Google shows who writes about a subject; <em>the store shows who already sells there</em>.</p></div>
   <div class="e"><time>16 July</time><span class="tag">data</span><p>Domains that turn up in every result — the big forums and video sites — used to be excluded by a hand-written list. Now they are found from the data itself: anything appearing in more than a tenth of all results stops counting as a link between two queries.</p></div>
-  <div class="e"><time>15 July</time><span class="tag">method</span><p>The map began stating its own coverage: how many queries are on it, how many have been checked against real results, how many still wait. A claim exists only as a line in the dataset; a reading without its coverage is not a reading.</p></div>
-  <div class="e"><time>14 July</time><span class="tag">layout</span><p>The map stopped being arranged by my questions. Each run of research had been pulling its own stars together, so the shape of the sky was the shape of what I had asked about. Now only relations between the words move anything, and the runs became a layer you can switch off — names floating over their stars like constellation names in an atlas.</p>
+  <div class="e"><time>15 July</time><span class="tag">method</span><p>The map began stating its own coverage: how many queries are on it, how many have been checked against real results, how many still wait. A claim <em>exists only as a line in the dataset</em>; a reading without its coverage is not a reading.</p></div>
+  <div class="e"><time>14 July</time><span class="tag">layout</span><p>The map stopped being arranged by my questions. Each run of research had been pulling its own stars together, so the shape of the sky was the shape of what I had asked about. Now <em>only relations between the words move anything</em>, and the runs became a layer you can switch off — names floating over their stars like constellation names in an atlas.</p>
     <figure class="pic"><span data-zoom="img/devlog/layers.svg" tabindex="0"><img src="img/devlog/layers.svg" alt="Three layers of the map: only the bottom one places anything."></span></figure></div>
   <div class="e"><time>14 July</time><span class="tag">layers</span><p>My own reading of the map — axes, hubs, clusters, bridges — moved into a layer of its own. It labels; it does not place. Nothing moves because I called a group a group.</p></div>
   <div class="e"><time>13 July</time><span class="tag">layout</span><p>Five attempts to compute “kinds of stars” failed one after another, and every one was caught by eye, not by a number. What survived is the single structure readable from the words themselves: a longer phrase hangs off the shorter one it is built from.</p>

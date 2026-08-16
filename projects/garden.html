@@ -2,7 +2,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>The Garden — Igor Panarin</title>
 <meta name="description" content="Every project keeps its own working context in three plain text files: what it is, where it stands, why it is that way — so a new session resumes the work instead of restarting it.">
-<link rel="stylesheet" href="/assets/hub.css?v=91f5b04b">
+<link rel="stylesheet" href="/assets/hub.css?v=f78c5f27">
 <style>
 /* Схема системы, которую читатель проходит по шагам сам. Пока живёт здесь одна — обкатается, переедет в hub.css. */
 .sys{border:2px solid var(--ink);margin:1.2rem 0 0;background:var(--paper)}
@@ -67,25 +67,25 @@
   <span class="stage">in use</span>
 </div>
 
-<p class="lede">An assistant remembers facts about you between sessions. It does not remember the work —
+<p class="lede">An assistant remembers facts about you between sessions. <em>It does not remember the work</em> —
 what a project is, where it stands, why it was built this way. Here every project keeps that
-itself, in three text files.</p>
+itself, <em>in three text files</em>.</p>
 
 <div class="ext">
-  <a href="https://github.com/PanarinI/garden-genome">The law <span class="w"><span data-num="law-files">4</span> files, <span data-num="law-lines">204</span> lines</span></a>
+  <a href="https://github.com/PanarinI/garden-genome">The law <span class="w">what every session is given first</span></a>
   <a href="https://github.com/PanarinI/deux-ex-machina">The tooling <span class="w">reads the files, draws the panel</span></a>
 </div>
 
 <div class="nums">
   <span><b>3</b> files per project</span>
-  <span><b data-num="law-lines">204</b> lines — the whole law it runs on</span>
+  <span><b data-num="frames">44</b> frames of the place, one per morning</span>
   <span><b data-num="decisions">50</b> decisions recorded about the system itself</span>
 </div>
 
 <h2>One session, then the next</h2>
 <figure class="fig">
   <img src="img/three-files-cycle.svg" alt="A session opens, reads three files, works, writes back and ends. Across three sessions the first file stays as it is, the second is replaced whole each time, the third gains one entry and loses none.">
-  <figcaption>Three sessions, looping. The conversation does not cross the gap; the writing does.</figcaption>
+  <figcaption>Three sessions, looping. The conversation <em>does not cross the gap; the writing does</em>.</figcaption>
 </figure>
 
 <div class="spec">
@@ -93,7 +93,7 @@ itself, in three text files.</p>
   <div class="r"><b>STATE.md</b><span>where the work stands, and the next step</span><i>replaced whole, in meaning</i></div>
   <div class="r"><b>DECISIONS.md</b><span>why things are the way they are</span><i>appended, never rewritten</i></div>
 </div>
-<p class="rule">Ordinary text in the project folder — no framework, no package, readable by a person.</p>
+<p class="rule">Ordinary text in the project folder, <em>readable by a person</em> and edited by hand when it is wrong.</p>
 
 <h2>The whole thing, step by step</h2>
 <p class="rule">Ten steps. Take them at your own pace — the last one closes the circle back to the first.</p>
@@ -118,7 +118,7 @@ itself, in three text files.</p>
   <g class="node" id="n-law">
     <rect class="bx" x="40" y="56" width="260" height="84"/>
     <text class="nm" x="60" y="90">THE LAW</text>
-    <text class="dt" x="60" y="112">4 files · 204 lines · inherited by every session</text>
+    <text class="dt" x="60" y="112">given to every session before it starts</text>
   </g>
 
   <g class="node" id="n-sinai">
@@ -136,7 +136,7 @@ itself, in three text files.</p>
     <rect class="ln" x="74" y="312" width="164" height="5"/><rect class="ln" x="74" y="324" width="112" height="5"/><rect class="ln" x="74" y="336" width="186" height="5"/>
     <rect class="cd" x="60" y="356" width="220" height="52"/>
     <rect class="ln" x="74" y="376" width="120" height="5"/><rect class="ln" x="74" y="388" width="192" height="5"/><rect class="ln" x="74" y="400" width="142" height="5"/>
-    <text class="dt" x="188" y="212">21 · three files each</text>
+    <text class="dt" x="188" y="212">three files each</text>
   </g>
   <g class="node" id="n-mark"><rect class="stamp" x="236" y="236" width="36" height="16"/><text class="st" x="242" y="248">08:14</text></g>
 
@@ -158,13 +158,13 @@ itself, in three text files.</p>
   <g class="node" id="n-mem">
     <rect class="bx" x="380" y="430" width="240" height="60"/>
     <text class="nm" x="400" y="458">MEMORY</text>
-    <text class="dt" x="400" y="478">about the person, not the work</text>
+    <text class="dt" x="400" y="478">about the person</text>
   </g>
 
   <g class="node" id="n-inst">
     <rect class="bx" x="700" y="180" width="260" height="80"/>
     <text class="nm" x="720" y="212">THE TOOLING</text>
-    <text class="dt" x="720" y="234">reads the same files · outside the talk</text>
+    <text class="dt" x="720" y="234">reads the same files</text>
   </g>
 
   <g class="node" id="n-scr">
@@ -184,16 +184,16 @@ itself, in three text files.</p>
 <script>
 (function(){
   var S=[
-   ["The law","Four files, two hundred and four lines. Not code — instructions the assistant is handed before it does anything, and the same ones in every project."],
-   ["A project is born","One command writes three files: what this is, where it stands, why. From here the project carries its own context instead of living in someone's head."],
-   ["A session opens","It takes the law, then the three files of one project. Nothing else — reading the whole set would cost more and blur the work in front of it."],
-   ["Something settles","A fact that stops moving goes into its file straight away, and the assistant says where it put it. Leaving it for the end is how things are lost."],
-   ["A thought from elsewhere","It belongs to another project. One line into a bucket, unsorted, no thinking about it now — sorting is what derails the work at hand."],
-   ["A fact about the person","Not about the work but about who it is for. That goes to memory, and memory flows back into every project, unlike the files."],
-   ["The closing pass","Where the work stands is rewritten in meaning; the reason is appended to the journal. A timestamp is left behind, and only this pass leaves it."],
-   ["The panel","A script reads the same files and draws the whole set: what is heavy, what has not been thought through for weeks. It runs outside the conversation, so looking costs nothing."],
-   ["Morning","The bucket is emptied into homes — a project's file, memory, or the seed list. Nothing is discarded, and where each line went is recorded."],
-   ["The law is edited — here only","A rule that fails in practice is not patched where it failed. The reason is written down in one workshop, and only from there does the change reach the law. Everywhere else the law is received, not written."]
+   ["The law", "The rules the assistant is given before it starts: how to enter a project, what to record while working, what to write on the way out. The same set in every project."],
+   ["A project is born", "One command creates the three files: what this project is, where the work stands, why it was decided that way. The project carries its context from then on."],
+   ["A session opens", "Reads the law, then the three files of one project. Other projects stay closed: one capsule holds what is needed to resume that work."],
+   ["Something settles", "A fact that stops changing goes into its file immediately, and the assistant states where it put it. Recording happens during the work, not at the end of it."],
+   ["A thought from elsewhere", "It belongs to another project. One line goes into a bucket, unsorted. Sorting is a separate pass, so the work at hand continues."],
+   ["A fact about the person", "About the person rather than the work: what they care about, how they want to be addressed. It goes to memory, which reaches every project at once."],
+   ["The closing pass", "The state file is rewritten to describe the work as it now stands. The reason is appended to the journal. This pass writes a timestamp; ordinary edits do not."],
+   ["The panel", "A script reads the same files and draws every project on one page: weight, freshness, time since the last closing pass. It runs outside the conversation."],
+   ["Morning", "The bucket is emptied: each line goes to a project file, to memory, or to the list of seeds. Every line is logged with the place it went to."],
+   ["The law is edited — here only", "A rule that fails in practice is recorded in one place: a workshop that holds the reasons. The change reaches the law only from there. In every other project the law is read, never edited."]
   ];
   var ON=[
    ["n-law"],
@@ -243,7 +243,7 @@ itself, in three text files.</p>
   <div class="r"><b>FRESHNESS</b><span>whether the meaning changed, by hashing the file</span><i>re-saving the same text does not count</i></div>
 </div>
 <p class="rule">Right now the longest a project has gone without a closing pass is
-<b data-num="longest-gap">47</b> days. The number is not flattering, which is the point of having it.</p>
+<b data-num="longest-gap">47</b> days. The panel reports the worst case, not the average.</p>
 
 <h2>The place, one frame a day</h2>
 <div class="timeline">
@@ -262,8 +262,8 @@ nothing staged for the picture. Project names are left off: several are personal
 <h2>Journal</h2>
 <div class="devlog">
   <div class="e"><time>2026-08-16</time><span class="tag">law</span>
-    <p>The hand-kept census of all projects was dissolved. A script already reads every project's state
-    file directly. The map that duplicated it had fallen six weeks behind and did not know about seven
+    <p>The hand-kept census of all projects was dissolved. <em>A script already reads every project's state</em>
+    file directly. The map that duplicated it <em>had fallen six weeks behind</em> and did not know about seven
     live projects. What survives it is the sign: a rule that says read this, while the code never
     opens it.</p></div>
   <div class="e"><time>2026-08-16</time><span class="tag">law</span>
@@ -281,7 +281,7 @@ nothing staged for the picture. Project names are left off: several are personal
   <div class="e"><time>2026-06-30</time><span class="tag">test</span>
     <p>Two sessions cannot silently overwrite each other's file. The design assumed the last writer
     wins, and a rule — one writer per project — was built on top of that fear. A test showed otherwise:
-    a write based on a stale read is refused and the session has to re-read. Both changes survived. The
+    a write <em>based on a stale read is refused</em> and the session has to re-read. Both changes survived. The
     rule stayed as hygiene; it is no longer what prevents loss.</p></div>
   <div class="e"><time>2026-06-29</time><span class="tag">shape</span>
     <p>One assistant in different modes, not a population of agents. The obvious answer to a growing set

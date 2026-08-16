@@ -195,7 +195,15 @@ a.card:hover{transform:translate(-4px,-4px);box-shadow:8px 8px 0 var(--ink)}
   box-shadow:6px 6px 0 var(--ink)}
 .stand figcaption,.fig figcaption{font-size:14px;color:var(--mute);padding:1.1rem .1rem 0;
   max-width:46em}
-.stand figcaption em,.fig figcaption em,.how em{font-style:normal;color:var(--ink);font-weight:600}
+/* ── смысловое выделение в прозе ───────────────────────────────────────
+   Решение автора 08-16: «у нас проза, там нет никаких выделений жирным —
+   а это важно, чтобы можно было читать текст сканируя». Курсива на этих
+   страницах нет вовсе: <em> набирается чернилами и полужирным, потому что
+   выделение здесь значит «вот на чём держится», а не «прочтите с нажимом».
+   Закон отбора живёт в DECISIONS: выделяем механизм, границу и поворот —
+   не прилагательные. Проверка — прочесть подряд ТОЛЬКО выделенное. */
+.stand figcaption em,.fig figcaption em,.how em,
+.devlog p em,p.rule em,footer em{font-style:normal;color:var(--ink);font-weight:600}
 
 .how{max-width:44em;margin:0 0 1rem;font-size:16px}
 .how p{margin:0 0 .8rem}

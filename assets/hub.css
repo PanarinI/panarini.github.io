@@ -55,6 +55,19 @@ h1{font-size:clamp(38px,6.4vw,72px);font-weight:800;letter-spacing:-.035em;line-
   margin:0 0 .7rem}
 .sub{max-width:44em;color:var(--mute);font-size:16px;margin:0 0 3rem}
 
+/* ── колофон: признание, набранное как правка корректора ───────────────
+   Решение автора 08-16. Смысл несёт не фраза, а вычерк: сделано НЕ ИИ —
+   сделано С НИМ. Инструментом управляют, а не наоборот. Поэтому «by»
+   зачёркнуто от руки (линия чуть под углом, как карандашом), а «with»
+   вписано киноварью — тем же единственным громким цветом, что и всё,
+   на что стоит смотреть. Стоит сразу под строкой-заявлением, мелко. */
+.colophon{margin:0 0 .2rem;font:400 13.5px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;
+  color:var(--mute);letter-spacing:.01em}
+.colophon del{text-decoration:none;position:relative;padding:0 1px}
+.colophon del::after{content:"";position:absolute;left:-3px;right:-3px;top:53%;height:2px;
+  background:var(--ink);transform:rotate(-5deg);transform-origin:center}
+.colophon ins{text-decoration:none;color:var(--accent);font-weight:600}
+
 h2{display:inline-block;background:var(--ink);color:var(--paper);
   font:600 11.5px/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.14em;
   text-transform:uppercase;padding:7px 11px 6px;margin:3.2rem 0 1.2rem}

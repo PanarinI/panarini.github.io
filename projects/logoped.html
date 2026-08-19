@@ -59,7 +59,7 @@
       that needs it, because the adult reads it aloud with the child.</figcaption></figure>
 
 <h2>How it works</h2>
-<figure class="fig"><span data-zoom="img/how-a-sheet-is-assembled-light.svg"><img src="img/how-a-sheet-is-assembled-light.svg" alt="Three stages in a row: a word bank of 2207 words described by sound, a filter against the sounds a child cannot say, and assembly of seven blocks onto one A4; below, the formats built on the same base."></span><figcaption>The whole path, from the dictionary to a page a child can take home.</figcaption></figure>
+<figure class="fig"><span data-zoom="img/how-a-sheet-is-assembled-light.svg"><img src="img/how-a-sheet-is-assembled-light.svg" alt="Three stages in a row: a word bank of 2204 words described by sound, a filter against the sounds a child cannot say, and assembly of seven blocks onto one A4; below, the formats built on the same base."></span><figcaption>The whole path, from the dictionary to a page a child can take home.</figcaption></figure>
 <div class="how">
 <p>You choose the sound being practised and <em>tick the sounds this child cannot say</em> yet.
       Everything after that is automatic. The dictionary is cut down to <em>words that hold the target
@@ -73,19 +73,17 @@
       soon as one more sound is ticked off, and the counter says how many words are left to build it from.</figcaption></figure>
 <div class="nums">
   <span><b>11</b> sounds</span>
-  <span><b>82–197</b> words per sound</span>
+  <span><b>81–197</b> words per sound</span>
   <span><b>979</b> objects drawn</span>
 </div>
 
-<h2>Why the forms are filled in by hand</h2>
+<h2>Where every word comes from</h2>
 <div class="how">
-<p>Look at the sheet above again. Block five asks the child to say “one — many”: <b>нора → норы</b>.
-      Another exercise, on other sheets, asks to say a word fondly. That means the engine does not only
-      select words — <em>it has to produce Russian forms itself</em>, and print them for a child who is
-      learning to speak. A wrong form here is not a typo; it is the material teaching the wrong thing.</p>
-<p>Twice the engine was caught building those forms from the shape of the word, and twice the rule
-      turned out to be wrong more often than right. Both places are now tables, filled in by hand.</p>
+<p>The filter can only work if the engine knows how a word <em>sounds</em> — and Russian spelling does
+      not tell it. That knowledge is written in by hand, word by word, and then checked against the
+      program that computes the same thing on its own.</p>
 </div>
+<figure class="fig"><span data-zoom="img/how-a-word-is-checked.png"><img src="img/how-a-word-is-checked.png" alt="Seven numbered steps, from a candidate word through transcription by sound, five rejection gates and the thirteen hand-written fields, to the machine check and the card file."></span><figcaption>The path of one word, «ложка», and the real line that is written for it.</figcaption></figure>
 <table class="ex">
   <tr><th>the word</th><th>what the rule produced</th><th>what goes on the sheet</th></tr>
   <tr><td class="w">стул <span class="g">chair</span></td><td class="bad">пять стулов</td><td class="out">пять стульев</td></tr>
@@ -106,16 +104,13 @@
 
 <h2>Where the pictures come from</h2>
 <div class="how">
-<p>Half the materials show objects rather than words, and a bought picture pack breaks them at the one
-      point that matters: the child has to name the object with the word the filter selected. A stock
-      “market” is called a shop just as often. So the bank is our own — 979 objects, each drawn for the
-      word it stands for, in colour and in black and white.</p>
+<p>In the maze the child is not reading a word — the child looks at a drawing and says its name out
+      loud. Show a market stall and hear <em>“a shop”</em>, and the sheet has missed its sound. That is
+      why the drawings are our own: 979 objects, each made for the word it has to force.</p>
 </div>
-<figure class="fig"><span data-zoom="img/how-a-picture-is-made-light.svg"><img src="img/how-a-picture-is-made-light.svg" alt="Four stages: choosing the word, the three rules of the prompt, one generation giving two files, and the check before the bank."></span><figcaption>Each rule in the middle column was bought with a failed batch: the first “thicker outline” came back
-      simplified, the first roofs came back standing on a floor that made them houses.</figcaption></figure>
-<figure class="fig"><span data-zoom="img/logoped-cvet-chb.png"><img src="img/logoped-cvet-chb.png" alt="Four objects — borscht, a tomato, a lemon, a beetroot — each shown as a black-and-white drawing, as a colour drawing, and as that colour drawing run through greyscale, where all four turn into flat grey shapes."></span><figcaption>Why black and white is <em>drawn</em> and not simply desaturated: run the colour file through
-      greyscale and the tomato becomes a grey circle. Nineteen words whose meaning rides on colour get a
-      second drawing where the difference is carried by a line.</figcaption></figure>
+<figure class="fig"><span data-zoom="img/how-a-picture-is-made.png"><img src="img/how-a-picture-is-made.png" alt="Six numbered steps from a word in the card file to the bank: the naming question, the three rules of the prompt shown on a roof drawn twice, one generation, black and white taken off the same file, and the check at printed size."></span><figcaption>Every rule in step three was bought with a failed batch.</figcaption></figure>
+<figure class="fig"><span data-zoom="img/logoped-cvet-chb.png"><img src="img/logoped-cvet-chb.png" alt="Four objects — borscht, a tomato, a lemon, a beetroot — each shown as a black-and-white drawing, as a colour drawing, and as that colour drawing run through greyscale, where all four turn into flat grey shapes."></span><figcaption>The same test across four objects, at the size they are printed. Nineteen words whose meaning rides
+      on colour get a second drawing, made black-and-white by hand.</figcaption></figure>
 
 <h2>What the engine learned</h2>
 <div class="devlog">

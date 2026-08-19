@@ -1,0 +1,116 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Richie — Igor Panarin</title>
+<meta name="description" content="The Reachy Mini robot was bought ready-made. The work here is the software that made it hold a spoken conversation and remember what was said.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Richie — Igor Panarin">
+<meta property="og:description" content="The Reachy Mini robot was bought ready-made. The work here is the software that made it hold a spoken conversation and remember what was said.">
+<meta property="og:image" content="https://panarini.github.io/projects/img/covers/richi.svg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/assets/hub.css?v=b53ab6ca">
+<script data-goatcounter="https://panarini.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head><body>
+<!-- СОБРАНО gen_pages.py из content/richi.txt — правьте источник, не эту страницу. -->
+<nav class="topbar">
+  <a class="me" href="/">Igor Panarin</a>
+  <span class="links">
+    <a href="mailto:panarin2005@gmail.com" aria-label="Email">
+      <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1.5 3h13a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5Z" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M1.6 4.1 8 8.9l6.4-4.8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+    </a>
+    <a href="https://github.com/PanarinI" aria-label="GitHub">
+      <svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+    </a>
+    <a href="https://bsky.app/profile/igorpanarin.bsky.social" aria-label="Bluesky">
+      <svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 7.1C7.1 5.4 4.7 2.2 2.7 1.4 1.5.9.5 1.4.5 2.9c0 1.4.8 4.7 1.3 5.5.9 1.4 2.4 1.3 3.9 1.1-1.5.2-2.8.8-1.1 2.6.4.4 1 1 1.5 1.5.8.8 1.5.9 1.9.9s1.1-.1 1.9-.9c.5-.5 1.1-1.1 1.5-1.5 1.7-1.8.4-2.4-1.1-2.6 1.5.2 3 .3 3.9-1.1.5-.8 1.3-4.1 1.3-5.5 0-1.5-1-2-2.2-1.5-2 .8-4.4 4-5.3 5.7Z"/></svg>
+    </a>
+    <a href="https://t.me/bot_and_kot" aria-label="Telegram channel, in Russian">
+      <svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M15.2 2.2 1.1 7.6c-.7.3-.7.9 0 1.1l3.5 1.1L13 4.4c.4-.2.8-.1.5.2l-6.8 6.2-.3 3.6c.4 0 .6-.2.8-.4l1.7-1.7 3.6 2.6c.7.4 1.1.2 1.3-.6l2.3-10.9c.2-.9-.3-1.3-.9-1.2Z"/></svg><span class="ru">RU</span>
+    </a>
+    <a class="lang" href="/ru/projects/richi.html" hreflang="ru">Рус</a>
+  </span>
+</nav>
+<div class="wrap page">
+
+<a class="back" href="../">← All work</a>
+
+<div class="head"><h1>Richie</h1><span class="stage">in build</span></div>
+
+<p class="lede">Reachy Mini is a ready-made robot by Pollen Robotics. We bought it assembled. Inside there are nine servo motors,
+      four microphones, a speaker, a camera and a single-board computer, plus the maker's own program that
+      drives the motors. It arrives able to move and to run apps from the maker's store. It does not
+      hold a conversation.
+      That is the work here. Two programs were written for it. The one inside the robot takes the sound from the
+      microphone and sends it to a cloud model, which recognises speech and answers by voice. The same
+      program plays that answer through the speaker. The one on the laptop reads the transcript after a pause and writes
+      what matters into a text file, which is how Richie remembers yesterday. It also searches the web when
+      he asks, while he goes on talking.</p>
+
+<h2>What was bought and what was written</h2>
+<div class="spec">
+  <div class="r"><b>BODY</b><span>nine servo motors, four microphones, a speaker, a camera, a single-board computer. The maker's program drives the motors; whether they are on is shown only by their own status, and its readiness flag stays off even on a robot that moves</span><i>bought ready-made</i></div>
+  <div class="r"><b>CONVERSATION</b><span>takes the sound from the microphone, sends it to the cloud model and plays the answer through the speaker. The laptop takes no part in this, and the model is used on a free token</span><i>our program, inside the robot</i></div>
+  <div class="r"><b>MEMORY AND SEARCH</b><span>reads the transcript after a pause and writes what matters into the robot's text file; on request it searches the web and reads files on the laptop. This is the only part we pay for</span><i>our program, on the laptop</i></div>
+</div>
+<p class="rule">The three are started and stopped by three separate buttons, because they break separately: the robot
+      can answer out loud while its motors are off. There is one dependency — the conversation program does
+      not start when the motors are off.</p>
+
+<h2>What he cannot do yet</h2>
+<div class="spec">
+  <div class="r"><b>TELL A PERSON FROM THE ROOM</b><span>because of that the direction is computed within 180° only, and a sound in front is the same as a sound behind. The camera will do this job instead</span><i>four microphones in one row</i></div>
+  <div class="r"><b>NOT HEAR HIS OWN VOICE</b><span>the microphone and the speaker work at the same time, so his own speech gets into the recording</span><i>no echo cancellation</i></div>
+  <div class="r"><b>SPEAK LOUDER</b><span>at maximum volume the amplifier's noise is heard along with the speech. Processing the sound made it less intelligible and was rolled back; louder means an external speaker</span><i>88 % is the working level</i></div>
+</div>
+
+<h2>Journal</h2>
+<div class="devlog">
+  <div class="e"><time>10 Aug</time><span class="tag">documentation</span>
+    <p>We built a test rig to work out the direction a voice comes from and recorded twelve scenes. It
+      turned out that the robot does not tell a sound in front from a sound behind. This is written in the
+      maker's documentation: the four microphones sit in one row, so the direction is computed within 180°
+      only. Half a day went into checking a known fact. Since then a new task starts with reading the
+      documentation and the existing apps, and measurements are made only where there is no data.</p></div>
+  <div class="e"><time>9 Aug</time><span class="tag">search</span>
+    <p>When Richie was asked something he had to look up, he went silent for the whole search. The program
+      inside the robot was waiting for the laptop and could not finish the reply. Now the request is
+      confirmed at once. Richie says that he is searching and goes on talking, and the result arrives a few
+      seconds later as a separate line. The cost of this: the answer is not attached to the question and
+      can arrive when the conversation has moved on.</p></div>
+  <div class="e"><time>9 Aug</time><span class="tag">cost</span>
+    <p>Requests to the model cost 10 dollars in one day. One question was processed by six requests in a row.
+      Each of them sent the whole previous conversation together with the text of the pages found. The
+      longer the conversation, the more every next request costs. We split the jobs — search goes to the
+      more expensive model, sorting the conversation into memory goes to the cheap one. Every answer now
+      prints its price. After the switch the cheap model turned out not to accept one of the parameters,
+      and memory quietly stopped being written for a day.</p></div>
+  <div class="e"><time>7 Aug</time><span class="tag">memory</span>
+    <p>Richie was reading the project files, the ones where we write down the work and the breakdowns. He
+      was telling the author about faults he no longer had. We made separate files for the robot itself:
+      who he is, what works right now, why things are done this way. He reads them before every answer. The
+      cost: we update these files by hand, he does not keep them himself.</p></div>
+  <div class="e"><time>6 Aug</time><span class="tag">microphone</span>
+    <p>The microphone hands over the recording in two channels. We were joining them into one row, one after
+      the other. The recording played twice as fast, and speech recognition returned fragments or nothing
+      at all. The level and the spectrum looked normal, so the error was invisible on the instruments. We
+      started taking the average of the two channels: speech was recognised, and the background noise we
+      had taken for the motors dropped elevenfold.</p></div>
+  <div class="e"><time>4 Aug</time><span class="tag">control</span>
+    <p>Controlling the robot through the maker's library did not work. It drops the connection if the robot
+      does not respond for a second, and the robot does not respond while it is busy. Its video channel
+      hangs the whole interface. We went to the service program inside the robot directly: it has a web
+      interface of its own, and a movement command runs in 23 milliseconds. What we take from this: if a
+      device comes with a convenient wrapper, it is worth looking at what is under it.</p></div>
+  <div class="e"><time>4 Aug</time><span class="tag">assembly</span>
+    <p>The robot was ordered in July and arrived in a box; assembly took one evening. Out of the box it moves, and apps from the maker's
+      store run on it. We ran three of them to see what the platform can do. None of them makes a conversation that keeps its history, so from here on the work is our own
+      programs.</p></div>
+</div>
+
+<footer>Richie stands at home, the programs written for him are not published and the source code is closed.
+      This page describes what works today; the camera, echo cancellation and movements of his own are not
+      done yet.</footer>
+
+</div>
+<div id="lb" role="dialog" aria-modal="true" hidden><b>×</b><img alt=""></div>
+<script src="/assets/hub.js?v=6823b44d"></script>
+</body></html>

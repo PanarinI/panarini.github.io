@@ -36,7 +36,9 @@ def short(p):
 
 # ── страницы ──────────────────────────────────────────────────────────────
 hub_pages = list(ROOT.glob("*.html"))
-for folder in ("projects", "ru"):          # ru/ — русский каталог, добавлен 08-10
+for folder in ("projects", "ru", "ru/projects"):   # ru/ — русский каталог (08-10);
+                                                  # ru/projects — русские страницы проектов (08-19):
+                                                  # без штампа их css кешировался на десять минут
     hub_pages += list((ROOT / folder).glob("*.html"))
 all_pages = sorted(p for p in ROOT.rglob("*.html")
                    if ".git" not in p.parts and "components" not in p.parts)

@@ -7,7 +7,7 @@
 <meta property="og:description" content="Расширение для Chrome: сохраняет переписку с ChatGPT в PDF — целиком, только ответы или выбранные блоки.">
 <meta property="og:image" content="https://panarini.github.io/projects/img/covers/exportgpt.svg">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="/assets/hub.css">
+<link rel="stylesheet" href="/assets/hub.css?v=b53ab6ca">
 <script data-goatcounter="https://panarini.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head><body>
 <!-- СОБРАНО gen_pages.py из content/exportgpt.txt — правьте источник, не эту страницу. -->
@@ -58,29 +58,29 @@
 
 <h2>Девлог</h2>
 <div class="devlog">
-  <div class="e"><time>{'en': '10 Aug', 'ru': '10 авг'}</time><span class="tag">{'en': 'UI', 'ru': 'интерфейс'}</span>
+  <div class="e"><time>10 авг</time><span class="tag">интерфейс</span>
     <p>У просьбы оценить появилось видимое «не сейчас». До этого выйти из неё можно было только кликнув мимо.</p></div>
-  <div class="e"><time>{'en': '22 July', 'ru': '22 июля'}</time><span class="tag">{'en': 'UI', 'ru': 'интерфейс'}</span>
+  <div class="e"><time>22 июля</time><span class="tag">интерфейс</span>
     <p>В начало меню добавлено «всё». Кнопка и так экспортировала переписку целиком, и мне казалось, что это
       очевидно. <em>Комментарий при удалении показал обратное</em>: люди искали такой пункт и не находили.</p></div>
-  <div class="e"><time>{'en': '20 July', 'ru': '20 июля'}</time><span class="tag">{'en': 'engine', 'ru': 'движок'}</span>
+  <div class="e"><time>20 июля</time><span class="tag">движок</span>
     <p>Длинные экспорты приходили обрезанными, всегда в одном и том же месте. <em>ChatGPT перестал держать
       реплики</em>, ушедшие за пределы экрана, поэтому расширение проходит переписку целиком и
       <em>пересобирает её до всякого рендера</em>. В тот же день имена файлов перестали схлопываться в
       «New chat»: имя берётся из первого заданного вопроса.</p></div>
-  <div class="e"><time>{'en': '14 July', 'ru': '14 июля'}</time><span class="tag">{'en': 'engine', 'ru': 'движок'}</span>
+  <div class="e"><time>14 июля</time><span class="tag">движок</span>
     <p>Картинки уменьшаются до отправки. Раньше они паковались в полный размер, и переписка с несколькими
       картинками <em>давала файл на 24 МБ</em> — этого хватало, чтобы рендер сдался. Та же переписка
       <em>теперь даёт 2,7 МБ</em>, и картинки выглядят так же.</p></div>
-  <div class="e"><time>{'en': '26 June', 'ru': '26 июня'}</time><span class="tag">{'en': 'UI', 'ru': 'интерфейс'}</span>
+  <div class="e"><time>26 июня</time><span class="tag">интерфейс</span>
     <p>Выбор блоков: сообщения отмечаются по одному, и кнопка показывает, сколько выбрано.</p></div>
-  <div class="e"><time>{'en': '24 June', 'ru': '24 июня'}</time><span class="tag">{'en': 'server', 'ru': 'сервер'}</span>
+  <div class="e"><time>24 июня</time><span class="tag">сервер</span>
     <p>Рендер переехал с платного сервиса на арендованную машину. Преобразование то же, но <em>цена перестала
       расти с каждым экспортом</em>.</p></div>
-  <div class="e"><time>{'en': '13 June', 'ru': '13 июня'}</time><span class="tag">{'en': 'UI', 'ru': 'интерфейс'}</span>
+  <div class="e"><time>13 июня</time><span class="tag">интерфейс</span>
     <p>Переименовано в Export. Настройки бумаги уехали в отдельное окно, и меню стало спрашивать, что
       экспортировать, а не как это печатать.</p></div>
-  <div class="e"><time>{'en': '15 May', 'ru': '15 мая'}</time><span class="tag">{'en': 'start', 'ru': 'начало'}</span>
+  <div class="e"><time>15 мая</time><span class="tag">начало</span>
     <p><em>Выросло из чужого расширения</em>, которое сохраняло любую веб-страницу в PDF через свой платный
       сервис преобразования. Первая версия держала ту же форму: кнопка «Save as PDF» и меню про бумагу —
       A4 или Letter, книжная или альбомная.</p></div>
@@ -92,5 +92,5 @@
 
 </div>
 <div id="lb" role="dialog" aria-modal="true" hidden><b>×</b><img alt=""></div>
-<script src="/assets/hub.js"></script>
+<script src="/assets/hub.js?v=6823b44d"></script>
 </body></html>

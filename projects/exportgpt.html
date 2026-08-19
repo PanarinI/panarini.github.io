@@ -58,30 +58,30 @@
 
 <h2>Devlog</h2>
 <div class="devlog">
-  <div class="e"><time>{'en': '10 Aug', 'ru': '10 авг'}</time><span class="tag">{'en': 'UI', 'ru': 'интерфейс'}</span>
+  <div class="e"><time>10 Aug</time><span class="tag">UI</span>
     <p>The request for a rating got a visible “Not now”. Until then the only way out of it was to click somewhere else.</p></div>
-  <div class="e"><time>{'en': '22 July', 'ru': '22 июля'}</time><span class="tag">{'en': 'UI', 'ru': 'интерфейс'}</span>
+  <div class="e"><time>22 July</time><span class="tag">UI</span>
     <p>Added “Everything” to the top of the menu. Exporting the whole conversation was already what the button
       did, and I assumed that was obvious. <em>An uninstall comment showed it was not</em>: people were looking
       for that option and did not find it.</p></div>
-  <div class="e"><time>{'en': '20 July', 'ru': '20 июля'}</time><span class="tag">{'en': 'engine', 'ru': 'движок'}</span>
+  <div class="e"><time>20 July</time><span class="tag">engine</span>
     <p>Long exports had been arriving cut short, always at the same place. <em>ChatGPT had stopped keeping the
       turns</em> that scroll out of view, so the extension now walks the whole thread and <em>rebuilds it before
       anything is rendered</em>. The same day file names stopped collapsing into “New chat”: the name falls back
       to the first question asked.</p></div>
-  <div class="e"><time>{'en': '14 July', 'ru': '14 июля'}</time><span class="tag">{'en': 'engine', 'ru': 'движок'}</span>
+  <div class="e"><time>14 July</time><span class="tag">engine</span>
     <p>Images are shrunk before the file is sent. They used to be packed in at full size, so a chat with several
       pictures <em>made a 24 MB file</em>. That was heavy enough for the renderer to give up. The same chat
       <em>now makes 2.7 MB</em> and the pictures look the same.</p></div>
-  <div class="e"><time>{'en': '26 June', 'ru': '26 июня'}</time><span class="tag">{'en': 'UI', 'ru': 'интерфейс'}</span>
+  <div class="e"><time>26 June</time><span class="tag">UI</span>
     <p>Block selection: messages are ticked one by one and the button shows how many are selected.</p></div>
-  <div class="e"><time>{'en': '24 June', 'ru': '24 июня'}</time><span class="tag">{'en': 'server', 'ru': 'сервер'}</span>
+  <div class="e"><time>24 June</time><span class="tag">server</span>
     <p>Rendering moved off the paid service onto a machine I rent. The same conversion, but <em>the cost stops
       growing with every export</em> someone makes.</p></div>
-  <div class="e"><time>{'en': '13 June', 'ru': '13 июня'}</time><span class="tag">{'en': 'UI', 'ru': 'интерфейс'}</span>
+  <div class="e"><time>13 June</time><span class="tag">UI</span>
     <p>Renamed to Export. Paper settings moved into a separate window, and the menu began asking what to export
       instead of how to print it.</p></div>
-  <div class="e"><time>{'en': '15 May', 'ru': '15 мая'}</time><span class="tag">{'en': 'start', 'ru': 'начало'}</span>
+  <div class="e"><time>15 May</time><span class="tag">start</span>
     <p><em>Built on top of someone else's extension</em> that saved any web page as a PDF through its own paid
       conversion service. The first version kept that shape: a button “Save as PDF” and a menu about paper —
       A4 or Letter, portrait or landscape.</p></div>

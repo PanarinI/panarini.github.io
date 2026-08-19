@@ -24,7 +24,7 @@
     <rect class="w" x="40" y="160" width="46" height="12"/><rect class="w" x="94" y="160" width="36" height="12"/><rect class="w" x="138" y="160" width="50" height="12"/><rect class="w" x="196" y="160" width="30" height="12"/>
   </g>
 </g>
-<text class="name" x="40" y="204">2207 words</text>
+<text class="name" x="40" y="204">2015 words</text>
 <text class="sub" x="40" y="226">for eleven sounds, each one</text>
 <text class="sub" x="40" y="244">described by how it is said</text>
 
@@ -63,15 +63,15 @@
   <rect class="w" x="640" y="268" width="130" height="8"/>
 </g>
 
-<text class="name" x="850" y="86">ten blocks</text>
+<text class="name" x="850" y="86">seven blocks</text>
 <text class="sub" x="850" y="110">warm-up · the sound alone ·</text>
 <text class="sub" x="850" y="128">syllables · words · a grammar</text>
 <text class="sub" x="850" y="146">game · sentences · a tongue-twister</text>
 
 <line x1="40" y1="374" x2="1120" y2="374" stroke="#DBD4C7" stroke-width="2"/>
 <text class="cap" x="40" y="406">FROM THE SAME BANK</text>
-<text class="sub" x="40" y="430">Practice sheet · maze · syllable tracks · word pairs — five kinds of material, all built on the</text>
-<text class="sub" x="40" y="448">one word bank and the same filter. Picture tasks are still ahead.</text>
+<text class="sub" x="40" y="430">Sheet · maze · sound tracks · word pairs · retelling — every material is built on the</text>
+<text class="sub" x="40" y="448">one word bank and the same filter. Each object has a drawing of its own.</text>
 
 <defs>
   <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">

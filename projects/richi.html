@@ -1,10 +1,10 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Richie — Igor Panarin</title>
-<meta name="description" content="The Reachy Mini robot was bought ready-made. The work here is the software that made it hold a spoken conversation and remember what was said.">
+<title>Teacher&#x27;s assistant — a living robot — Igor Panarin</title>
+<meta name="description" content="An assistant for the hours a teacher spends preparing a lesson — one that remembers the class and the textbook, and sits on the desk as a small robot you can simply talk to.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Richie — Igor Panarin">
-<meta property="og:description" content="The Reachy Mini robot was bought ready-made. The work here is the software that made it hold a spoken conversation and remember what was said.">
+<meta property="og:title" content="Teacher&#x27;s assistant — a living robot — Igor Panarin">
+<meta property="og:description" content="An assistant for the hours a teacher spends preparing a lesson — one that remembers the class and the textbook, and sits on the desk as a small robot you can simply talk to.">
 <meta property="og:image" content="https://panarini.github.io/projects/img/covers/richi.svg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="/assets/hub.css?v=b53ab6ca">
@@ -33,30 +33,62 @@
 
 <a class="back" href="../">← All work</a>
 
-<div class="head"><h1>Richie</h1><span class="stage">in build</span></div>
+<div class="head"><h1>Teacher&#x27;s assistant — a living robot</h1><span class="stage">in build</span></div>
 
-<p class="lede">Reachy Mini is a ready-made robot by Pollen Robotics. We bought it assembled. Inside there are nine servo motors,
-      four microphones, a speaker, a camera and a single-board computer, plus the maker's own program that
-      drives the motors. It arrives able to move and to run apps from the maker's store. It does not
-      hold a conversation.
-      That is the work here. Two programs were written for it. The one inside the robot takes the sound from the
-      microphone and sends it to a cloud model, which recognises speech and answers by voice. The same
-      program plays that answer through the speaker. The one on the laptop reads the transcript after a pause and writes
-      what matters into a text file, which is how Richie remembers yesterday. It also searches the web when
-      he asks, while he goes on talking.</p>
-
-<h2>What was bought and what was written</h2>
-<div class="spec">
-  <div class="r"><b>BODY</b><span>nine servo motors, four microphones, a speaker, a camera, a single-board computer. The maker's program drives the motors; whether they are on is shown only by their own status, and its readiness flag stays off even on a robot that moves</span><i>bought ready-made</i></div>
-  <div class="r"><b>CONVERSATION</b><span>takes the sound from the microphone, sends it to the cloud model and plays the answer through the speaker. The laptop takes no part in this, and the model is used on a free token</span><i>our program, inside the robot</i></div>
-  <div class="r"><b>MEMORY AND SEARCH</b><span>reads the transcript after a pause and writes what matters into the robot's text file; on request it searches the web and reads files on the laptop. This is the only part we pay for</span><i>our program, on the laptop</i></div>
+<p class="lede">An assistant for the work that happens before the lesson: find the material, fit it to this class
+      and this textbook, make the handouts. It <em>remembers</em> — the textbook, the class, what worked
+      last time. It lives in a small robot on the desk, so asking costs nothing but speaking.</p>
+<figure class="fig"><span data-zoom="img/richi-zamysel-scene.jpg"><img src="img/richi-zamysel-scene.jpg" alt="A drawing: a teacher sitting at a desk holds a printed sheet; on the desk in front of an open textbook stands a small robot with a rounded head and two antennas; a blackboard behind."></span><figcaption><em>A drawing, not a photograph.</em> The textbook page goes in, the sheet for the lesson comes
+      out. The assistant is in the room, not in a browser tab.</figcaption></figure>
+<div class="how">
+<p>Lesson preparation is a working hour that repeats every day and starts from scratch every time.
+      Tools that generate a plan already exist. All of them are stateless: they do not know the textbook,
+      the class or the teacher. What comes out is a general plan, fitted by hand afterwards.
+      <em>What is being built here is the memory</em>, and a body to keep it in.</p>
 </div>
-<p class="rule">The three are started and stopped by three separate buttons, because they break separately: the robot
-      can answer out loud while its motors are off. There is one dependency — the conversation program does
+
+<h2>What it is for</h2>
+<figure class="fig"><span data-zoom="img/richi-zamysel-loop.jpg"><img src="img/richi-zamysel-loop.jpg" alt="Three objects in a row: an open textbook, a small robot with two antennas, and a printed sheet."></span><figcaption>The whole loop in three objects. The teacher shows a page; back come the plan and the handouts,
+      built from that page and not from a template.</figcaption></figure>
+<div class="how">
+<p>Assembling the plan is the main skill, and it needs no body at all. The same work runs in a
+      browser, and that is being built as a separate service. The body changes something else.
+      The assistant sits on the desk while the teacher works, is asked out loud without opening a laptop,
+      and can be carried into the classroom. It is the same assistant — <em>only easier to reach, and
+      alive in the room</em>.</p>
+<p>The lesson itself, and what happens after it, are a different task and are not claimed here.</p>
+</div>
+
+<h2>What works today</h2>
+<div class="how">
+<p>The robot is a ready-made Reachy Mini by Pollen Robotics, bought assembled. Inside: nine servo
+      motors, four microphones, a speaker, a camera, a single-board computer, and the maker's own program
+      that drives the motors. Out of the box it moves and runs apps from the maker's store. <em>It does not hold a
+      conversation.</em> Two programs were written to change that.</p>
+</div>
+<div class="spec">
+  <div class="r"><b>CONVERSATION</b><span>takes the sound from the microphone, sends it to the cloud model and plays the answer through the speaker. The laptop takes no part in this, and the model is used on a free token</span><i>inside the robot</i></div>
+  <div class="r"><b>MEMORY AND SEARCH</b><span>reads the transcript after a pause in the conversation and writes what matters into a text file; on request it searches the web and reads files on the laptop. This is the only part we pay for</span><i>on the laptop</i></div>
+</div>
+<p class="rule">The parts are started and stopped by separate buttons, because they break separately: the robot can
+      answer out loud while its motors are off. There is one dependency — the conversation program does
       not start when the motors are off.</p>
 
-<h2>What he cannot do yet</h2>
+<h2>What the memory actually holds</h2>
+<div class="how">
+<p>The memory is a plain text file the robot grows itself. After a pause in the conversation the
+      second program reads the transcript, and what is worth keeping goes into the file. Nothing is summarised for
+      show — these are lines from that file as they stand.</p>
+</div>
 <div class="spec">
+  <div class="r"><b>7 AUG</b><span>“I have antennas, but I cannot see them — about my own position in space I trust what I am told, not my own guesses.”</span><i>about himself</i></div>
+  <div class="r"><b>7 AUG</b><span>“My antennas cross when I am thinking or waiting — confirmed by someone watching from outside.”</span><i>a gesture explained</i></div>
+  <div class="r"><b>8 AUG</b><span>“The name of my speech-to-speech model is not written anywhere I can read — do not invent it, say honestly that I do not know.”</span><i>a limit of his own</i></div>
+</div>
+
+<h2>What is not built yet</h2>
+<div class="spec">
+  <div class="r"><b>THE PLAN IS NOT IN THE ROBOT</b><span>assembling a lesson plan lives in a separate program written a year ago, and it is being rebuilt from scratch. Until it is, the assistant on the desk and the assistant that plans lessons are two different things</span><i>the main gap</i></div>
   <div class="r"><b>TELL A PERSON FROM THE ROOM</b><span>because of that the direction is computed within 180° only, and a sound in front is the same as a sound behind. The camera will do this job instead</span><i>four microphones in one row</i></div>
   <div class="r"><b>NOT HEAR HIS OWN VOICE</b><span>the microphone and the speaker work at the same time, so his own speech gets into the recording</span><i>no echo cancellation</i></div>
   <div class="r"><b>SPEAK LOUDER</b><span>at maximum volume the amplifier's noise is heard along with the speech. Processing the sound made it less intelligible and was rolled back; louder means an external speaker</span><i>88 % is the working level</i></div>
@@ -65,50 +97,24 @@
 <h2>Journal</h2>
 <div class="devlog">
   <div class="e"><time>10 Aug</time><span class="tag">documentation</span>
-    <p>We built a test rig to work out the direction a voice comes from and recorded twelve scenes. It
-      turned out that the robot does not tell a sound in front from a sound behind. This is written in the
-      maker's documentation: the four microphones sit in one row, so the direction is computed within 180°
-      only. Half a day went into checking a known fact. Since then a new task starts with reading the
-      documentation and the existing apps, and measurements are made only where there is no data.</p></div>
+    <p>We built a test rig to work out the direction a voice comes from and recorded twelve scenes. It turned out that the robot does not tell a sound in front from a sound behind. This is written in the maker's documentation: the four microphones sit in one row, so the direction is computed within 180° only. Half a day went into checking a known fact. Since then a new task starts with reading the documentation and the existing apps, and measurements are made only where there is no data.</p></div>
   <div class="e"><time>9 Aug</time><span class="tag">search</span>
-    <p>When Richie was asked something he had to look up, he went silent for the whole search. The program
-      inside the robot was waiting for the laptop and could not finish the reply. Now the request is
-      confirmed at once. Richie says that he is searching and goes on talking, and the result arrives a few
-      seconds later as a separate line. The cost of this: the answer is not attached to the question and
-      can arrive when the conversation has moved on.</p></div>
+    <p>When Richie was asked something he had to look up, he went silent for the whole search. The program inside the robot was waiting for the laptop and could not finish the reply. Now the request is confirmed at once. Richie says that he is searching and goes on talking, and the result arrives a few seconds later as a separate line. The cost of this: the answer is not attached to the question and can arrive when the conversation has moved on.</p></div>
   <div class="e"><time>9 Aug</time><span class="tag">cost</span>
-    <p>Requests to the model cost 10 dollars in one day. One question was processed by six requests in a row.
-      Each of them sent the whole previous conversation together with the text of the pages found. The
-      longer the conversation, the more every next request costs. We split the jobs — search goes to the
-      more expensive model, sorting the conversation into memory goes to the cheap one. Every answer now
-      prints its price. After the switch the cheap model turned out not to accept one of the parameters,
-      and memory quietly stopped being written for a day.</p></div>
+    <p>Requests to the model cost 10 dollars in one day. One question was processed by six requests in a row. Each of them sent the whole previous conversation together with the text of the pages found. The longer the conversation, the more every next request costs. We split the jobs — search goes to the more expensive model, sorting the conversation into memory goes to the cheap one. Every answer now prints its price. After the switch the cheap model turned out not to accept one of the parameters, and memory quietly stopped being written for a day.</p></div>
   <div class="e"><time>7 Aug</time><span class="tag">memory</span>
-    <p>Richie was reading the project files, the ones where we write down the work and the breakdowns. He
-      was telling the author about faults he no longer had. We made separate files for the robot itself:
-      who he is, what works right now, why things are done this way. He reads them before every answer. The
-      cost: we update these files by hand, he does not keep them himself.</p></div>
+    <p>Richie was reading the project files, the ones where we write down the work and the breakdowns. He was telling the author about faults he no longer had. We made separate files for the robot itself: who he is, what works right now, why things are done this way. He reads them before every answer. The cost: we update these files by hand, he does not keep them himself.</p></div>
   <div class="e"><time>6 Aug</time><span class="tag">microphone</span>
-    <p>The microphone hands over the recording in two channels. We were joining them into one row, one after
-      the other. The recording played twice as fast, and speech recognition returned fragments or nothing
-      at all. The level and the spectrum looked normal, so the error was invisible on the instruments. We
-      started taking the average of the two channels: speech was recognised, and the background noise we
-      had taken for the motors dropped elevenfold.</p></div>
+    <p>The microphone hands over the recording in two channels. We were joining them into one row, one after the other. The recording played twice as fast, and speech recognition returned fragments or nothing at all. The level and the spectrum looked normal, so the error was invisible on the instruments. We started taking the average of the two channels: speech was recognised, and the background noise we had taken for the motors dropped elevenfold.</p></div>
   <div class="e"><time>4 Aug</time><span class="tag">control</span>
-    <p>Controlling the robot through the maker's library did not work. It drops the connection if the robot
-      does not respond for a second, and the robot does not respond while it is busy. Its video channel
-      hangs the whole interface. We went to the service program inside the robot directly: it has a web
-      interface of its own, and a movement command runs in 23 milliseconds. What we take from this: if a
-      device comes with a convenient wrapper, it is worth looking at what is under it.</p></div>
+    <p>Controlling the robot through the maker's library did not work. It drops the connection if the robot does not respond for a second, and the robot does not respond while it is busy. Its video channel hangs the whole interface. We went to the service program inside the robot directly: it has a web interface of its own, and a movement command runs in 23 milliseconds. What we take from this: if a device comes with a convenient wrapper, it is worth looking at what is under it.</p></div>
   <div class="e"><time>4 Aug</time><span class="tag">assembly</span>
-    <p>The robot was ordered in July and arrived in a box; assembly took one evening. Out of the box it moves, and apps from the maker's
-      store run on it. We ran three of them to see what the platform can do. None of them makes a conversation that keeps its history, so from here on the work is our own
-      programs.</p></div>
+    <p>The robot was ordered in July and arrived in a box; assembly took one evening. Out of the box it moves, and apps from the maker's store run on it. We ran three of them to see what the platform can do. None of them makes a conversation that keeps its history, so from here on the work is our own programs.</p></div>
 </div>
 
-<footer>Richie stands at home, the programs written for him are not published and the source code is closed.
-      This page describes what works today; the camera, echo cancellation and movements of his own are not
-      done yet.</footer>
+<footer>The robot stands at home, the programs written for it are not published and the source code is
+      closed. <em>It has never been in a classroom</em>, and the assistant that assembles lesson plans is
+      still a separate program. This page says what the thing is for and what part of it runs today.</footer>
 
 </div>
 <div id="lb" role="dialog" aria-modal="true" hidden><b>×</b><img alt=""></div>

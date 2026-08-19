@@ -41,14 +41,8 @@
 <div class="ext">
   <a href="https://chromewebstore.google.com/detail/aighdeikamhkemngfanhnamdlpoceimo">В магазине <span class="w">Export ChatGPT Conversation</span></a>
 </div>
-
-<div class="timeline">
-  <figure class="tl"><span data-zoom="../../projects/img/exportgpt-ui-2026-05-15.png" tabindex="0"><img src="../../projects/img/exportgpt-ui-2026-05-15.png" alt="Серая кнопка «Save as PDF» и белое меню с форматами бумаги"></span><figcaption><time>15 мая</time>Save as PDF. Меню предлагало форматы бумаги — A4 или Letter, книжная или альбомная.</figcaption></figure>
-  <figure class="tl"><span data-zoom="../../projects/img/exportgpt-ui-2026-06-13.png" tabindex="0"><img src="../../projects/img/exportgpt-ui-2026-06-13.png" alt="Кнопка Export и тёмное меню с пунктами «выбрать для экспорта» и «только ответы ИИ»"></span><figcaption><time>13 июня</time>Переименовано в Export. Меню спрашивает, что экспортировать, а не как печатать.</figcaption></figure>
-  <figure class="tl"><span data-zoom="../../projects/img/exportgpt-ui-2026-07-22.png" tabindex="0"><img src="../../projects/img/exportgpt-ui-2026-07-22.png" alt="То же меню, первым пунктом добавлено «всё»"></span><figcaption><time>22 июля</time>Третий пункт сверху: всё, вместе с вопросами.</figcaption></figure>
-  <figure class="tl"><span data-zoom="../../projects/img/exportgpt-ui-2026-08-10.png" tabindex="0"><img src="../../projects/img/exportgpt-ui-2026-08-10.png" alt="Нынешнее меню: выбрать всё, только ответы ИИ, выбрать для экспорта, настройки"></span><figcaption><time>10 августа</time>«Всё» стало «выбрать всё».</figcaption></figure>
-</div>
-<p class="rule">Восстановлено из репозитория: каждый кадр — настоящая разметка и стили того дня, отрисованные заново.</p>
+<figure class="fig"><span data-zoom="../../projects/img/exportgpt-select.png"><img src="../../projects/img/exportgpt-select.png" alt="Переписка с ChatGPT в тёмной теме и панель расширения: два сообщения отмечены галочками, кнопка Export считает их."></span><figcaption>Расширение внутри настоящей переписки. Сообщения отмечаются по одному, а кнопка считает, что
+      попадёт в файл.</figcaption></figure>
 
 <h2>Как это работает</h2>
 <figure class="fig"><span data-zoom="../../projects/img/exportgpt-path-light.svg"><img src="../../projects/img/exportgpt-path-light.svg" alt="Четыре шага: страница держит лишь часть переписки, расширение её пересобирает, сервер рисует PDF, файл возвращается."></span><figcaption>Что происходит, когда нажимаешь Export.</figcaption></figure>
@@ -62,7 +56,8 @@
     <p>У просьбы оценить появилось видимое «не сейчас». До этого выйти из неё можно было только кликнув мимо.</p></div>
   <div class="e"><time>22 июля</time><span class="tag">интерфейс</span>
     <p>В начало меню добавлено «всё». Кнопка и так экспортировала переписку целиком, и мне казалось, что это
-      очевидно. <em>Комментарий при удалении показал обратное</em>: люди искали такой пункт и не находили.</p></div>
+      очевидно. <em>Комментарий при удалении показал обратное</em>: люди искали такой пункт и не находили.</p>
+    <div class="pic"><span data-zoom="../../projects/img/exportgpt-ui-2026-07-22.png"><img src="../../projects/img/exportgpt-ui-2026-07-22.png" alt="Меню, где первым пунктом добавлено «всё», над двумя прежними."></span></div></div>
   <div class="e"><time>20 июля</time><span class="tag">движок</span>
     <p>Длинные экспорты приходили обрезанными, всегда в одном и том же месте. <em>ChatGPT перестал держать
       реплики</em>, ушедшие за пределы экрана, поэтому расширение проходит переписку целиком и
@@ -79,7 +74,9 @@
       расти с каждым экспортом</em>.</p></div>
   <div class="e"><time>13 июня</time><span class="tag">интерфейс</span>
     <p>Переименовано в Export. Настройки бумаги уехали в отдельное окно, и меню стало спрашивать, что
-      экспортировать, а не как это печатать.</p></div>
+      экспортировать, а не как это печатать. Кадр не сохранённый снимок того дня — снимков никто не делал.
+      Это разметка и стили того коммита, поднятые из репозитория и отрисованные заново.</p>
+    <div class="pic"><span data-zoom="../../projects/img/exportgpt-ui-2026-06-13.png"><img src="../../projects/img/exportgpt-ui-2026-06-13.png" alt="Тёмное меню с пунктами «выбрать для экспорта» и «только ответы ИИ»."></span></div></div>
   <div class="e"><time>15 мая</time><span class="tag">начало</span>
     <p><em>Выросло из чужого расширения</em>, которое сохраняло любую веб-страницу в PDF через свой платный
       сервис преобразования. Первая версия держала ту же форму: кнопка «Save as PDF» и меню про бумагу —

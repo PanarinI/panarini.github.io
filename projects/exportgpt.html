@@ -41,14 +41,8 @@
 <div class="ext">
   <a href="https://chromewebstore.google.com/detail/aighdeikamhkemngfanhnamdlpoceimo">In the store <span class="w">Export ChatGPT Conversation</span></a>
 </div>
-
-<div class="timeline">
-  <figure class="tl"><span data-zoom="img/exportgpt-ui-2026-05-15.png" tabindex="0"><img src="img/exportgpt-ui-2026-05-15.png" alt="A grey Save as PDF button with a white menu listing paper formats"></span><figcaption><time>15 May</time>Save as PDF. The menu offered paper formats — A4 or Letter, portrait or landscape.</figcaption></figure>
-  <figure class="tl"><span data-zoom="img/exportgpt-ui-2026-06-13.png" tabindex="0"><img src="img/exportgpt-ui-2026-06-13.png" alt="An Export button with a dark menu offering Select to export and AI answers only"></span><figcaption><time>13 June</time>Renamed to Export. The menu now asks what to export instead of how to print.</figcaption></figure>
-  <figure class="tl"><span data-zoom="img/exportgpt-ui-2026-07-22.png" tabindex="0"><img src="img/exportgpt-ui-2026-07-22.png" alt="The same menu with a new first item, Everything"></span><figcaption><time>22 July</time>A third option on top: everything, prompts included.</figcaption></figure>
-  <figure class="tl"><span data-zoom="img/exportgpt-ui-2026-08-10.png" tabindex="0"><img src="img/exportgpt-ui-2026-08-10.png" alt="The current menu: Select all, AI answers only, Select to export, Settings"></span><figcaption><time>10 August</time>“Everything” became “Select all”.</figcaption></figure>
-</div>
-<p class="rule">Rebuilt from the repository: each frame is the actual markup and stylesheet of that day, rendered again.</p>
+<figure class="fig"><span data-zoom="img/exportgpt-select.png"><img src="img/exportgpt-select.png" alt="A ChatGPT conversation in dark theme with the extension&#x27;s toolbar: two messages ticked with checkboxes and an Export button counting them."></span><figcaption>The extension inside a real conversation. Messages are ticked one by one and the button counts what
+      will go into the file.</figcaption></figure>
 
 <h2>How it works</h2>
 <figure class="fig"><span data-zoom="img/exportgpt-path-light.svg"><img src="img/exportgpt-path-light.svg" alt="Four steps: the page holds only part of the conversation, the extension rebuilds it, a server renders the PDF, the file comes back."></span><figcaption>What happens when you press Export.</figcaption></figure>
@@ -63,7 +57,8 @@
   <div class="e"><time>22 July</time><span class="tag">UI</span>
     <p>Added “Everything” to the top of the menu. Exporting the whole conversation was already what the button
       did, and I assumed that was obvious. <em>An uninstall comment showed it was not</em>: people were looking
-      for that option and did not find it.</p></div>
+      for that option and did not find it.</p>
+    <div class="pic"><span data-zoom="img/exportgpt-ui-2026-07-22.png"><img src="img/exportgpt-ui-2026-07-22.png" alt="The menu with a new first item, Everything, above the two older ones."></span></div></div>
   <div class="e"><time>20 July</time><span class="tag">engine</span>
     <p>Long exports had been arriving cut short, always at the same place. <em>ChatGPT had stopped keeping the
       turns</em> that scroll out of view, so the extension now walks the whole thread and <em>rebuilds it before
@@ -80,7 +75,9 @@
       growing with every export</em> someone makes.</p></div>
   <div class="e"><time>13 June</time><span class="tag">UI</span>
     <p>Renamed to Export. Paper settings moved into a separate window, and the menu began asking what to export
-      instead of how to print it.</p></div>
+      instead of how to print it. The frame is not a screenshot kept from that day: no screenshots were taken.
+      It is the markup and stylesheet of that commit, checked out of the repository and rendered again.</p>
+    <div class="pic"><span data-zoom="img/exportgpt-ui-2026-06-13.png"><img src="img/exportgpt-ui-2026-06-13.png" alt="A dark menu offering “select to export” and “AI answers only”."></span></div></div>
   <div class="e"><time>15 May</time><span class="tag">start</span>
     <p><em>Built on top of someone else's extension</em> that saved any web page as a PDF through its own paid
       conversion service. The first version kept that shape: a button “Save as PDF” and a menu about paper —

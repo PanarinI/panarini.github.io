@@ -41,8 +41,15 @@
 <div class="ext">
   <a href="https://logoped-generator-production.up.railway.app/">Run it <span class="w">builds a sheet in the browser</span></a>
 </div>
-<figure class="fig"><span data-zoom="img/logoped-labirint.png"><img src="img/logoped-labirint.png" alt="A printed maze for the sound R: nine drawn objects in a grid — a crayfish, a rose, a rainbow, a mouth, a market stall, a fisherman, a shirt, a rocket and an empty cell with a question mark — joined by arrows, with four games for the adult printed underneath."></span><figcaption>One material as it comes off the printer. Nine pictures, a path along the arrows, four games on the
-      same nine — and every drawing is ours, made because stock pictures name the object with the wrong word.</figcaption></figure>
+<figure class="fig"><span data-zoom="img/logoped-labirint.png"><img src="img/logoped-labirint.png" alt="A printed maze for the sound R: nine drawn objects in a grid — a crayfish, a rose, a rainbow, a mouth, a market stall, a fisherman, a shirt, a rocket and an empty cell with a question mark — joined by arrows, with four games for the adult printed underneath."></span><figcaption>One material as it comes off the printer: nine pictures, a path along the arrows, four games on the
+      same nine.</figcaption></figure>
+<div class="how">
+<p>A speech therapist puts an hour a day into making materials — it stands in the working timetable as
+      a line of its own. Ready-made paper albums exist in plenty, and every one of them has the same
+      limit: <em>a printed page cannot know which other sounds this child gets wrong</em>. A child
+      practising [r] who cannot say [sh] must not be handed the word “shirt”. That single filter is the
+      whole difference here; everything below follows from it.</p>
+</div>
 
 <h2>What it prints</h2>
 <figure class="fig"><span data-zoom="img/logoped-stupeni.png"><img src="img/logoped-stupeni.png" alt="The choosing screen: materials grouped by step of automation — one sound, syllables, words, word pairs, text — with three of them greyed out and marked as not built yet."></span><figcaption>The materials stand on the ladder a child climbs: one sound, then syllables, then words, then word
@@ -52,7 +59,7 @@
       that needs it, because the adult reads it aloud with the child.</figcaption></figure>
 
 <h2>How it works</h2>
-<figure class="fig"><span data-zoom="img/how-a-sheet-is-assembled-light.svg"><img src="img/how-a-sheet-is-assembled-light.svg" alt="Three stages in a row: a word bank of 2015 words described by sound, a filter against the sounds a child cannot say, and assembly of seven blocks onto one A4; below, the formats built on the same base."></span><figcaption>The whole path, from the dictionary to a page a child can take home.</figcaption></figure>
+<figure class="fig"><span data-zoom="img/how-a-sheet-is-assembled-light.svg"><img src="img/how-a-sheet-is-assembled-light.svg" alt="Three stages in a row: a word bank of 2207 words described by sound, a filter against the sounds a child cannot say, and assembly of seven blocks onto one A4; below, the formats built on the same base."></span><figcaption>The whole path, from the dictionary to a page a child can take home.</figcaption></figure>
 <div class="how">
 <p>You choose the sound being practised and <em>tick the sounds this child cannot say</em> yet.
       Everything after that is automatic. The dictionary is cut down to <em>words that hold the target
@@ -70,10 +77,14 @@
   <span><b>979</b> objects drawn</span>
 </div>
 
-<h2>Where a rule would lie</h2>
+<h2>Why the forms are filled in by hand</h2>
 <div class="how">
-<p>Twice the engine was caught generating Russian by the shape of a word, and twice the rule turned out
-      to be wrong more often than right. Both are <em>now tables, filled in by hand</em>.</p>
+<p>Look at the sheet above again. Block five asks the child to say “one — many”: <b>нора → норы</b>.
+      Another exercise, on other sheets, asks to say a word fondly. That means the engine does not only
+      select words — <em>it has to produce Russian forms itself</em>, and print them for a child who is
+      learning to speak. A wrong form here is not a typo; it is the material teaching the wrong thing.</p>
+<p>Twice the engine was caught building those forms from the shape of the word, and twice the rule
+      turned out to be wrong more often than right. Both places are now tables, filled in by hand.</p>
 </div>
 <table class="ex">
   <tr><th>the word</th><th>what the rule produced</th><th>what goes on the sheet</th></tr>
@@ -93,80 +104,81 @@
       Every disagreement was <em>thrown away, not resolved</em>. Three hundred and six forms survived; two
       hundred and sixty-nine were blocked.</p>
 
+<h2>Where the pictures come from</h2>
+<div class="how">
+<p>Half the materials show objects rather than words, and a bought picture pack breaks them at the one
+      point that matters: the child has to name the object with the word the filter selected. A stock
+      “market” is called a shop just as often. So the bank is our own — 979 objects, each drawn for the
+      word it stands for, in colour and in black and white.</p>
+</div>
+<figure class="fig"><span data-zoom="img/how-a-picture-is-made-light.svg"><img src="img/how-a-picture-is-made-light.svg" alt="Four stages: choosing the word, the three rules of the prompt, one generation giving two files, and the check before the bank."></span><figcaption>Each rule in the middle column was bought with a failed batch: the first “thicker outline” came back
+      simplified, the first roofs came back standing on a floor that made them houses.</figcaption></figure>
+<figure class="fig"><span data-zoom="img/logoped-cvet-chb.png"><img src="img/logoped-cvet-chb.png" alt="Four objects — borscht, a tomato, a lemon, a beetroot — each shown as a black-and-white drawing, as a colour drawing, and as that colour drawing run through greyscale, where all four turn into flat grey shapes."></span><figcaption>Why black and white is <em>drawn</em> and not simply desaturated: run the colour file through
+      greyscale and the tomato becomes a grey circle. Nineteen words whose meaning rides on colour get a
+      second drawing where the difference is carried by a line.</figcaption></figure>
+
 <h2>What the engine learned</h2>
 <div class="devlog">
-  <div class="e"><time>19 Aug</time><span class="tag">pictures</span>
-    <p>Three words were dropped after the author went through the drawings one by one. A “ten” had been
-      drawn as the figure 10 — a sign, not an object; a diminutive of “newspaper” cannot be told from a
-      newspaper by a drawing at all. A picture on this material has to name an object, and if the drawing
-      cannot name it, the word leaves rather than the picture being redrawn twice.</p></div>
-  <div class="e"><time>18 Aug</time><span class="tag">the picture bank closed</span>
-    <p>Every word the maze can put on paper now has a drawing of its own — in colour and in black and
-      white, from the same original. The check runs across the whole pool, for all sounds and positions,
-      and returns zero words without a picture. Bought stock pictures had been failing on exactly the
-      thing the material needs: the child must name the object with the word we filtered for, and a stock
-      drawing of a “market” is as often called a shop.</p></div>
-  <div class="e"><time>18 Aug</time><span class="tag">the ladder became the screen</span>
-    <p>The materials used to sit in a flat row, and choosing one meant knowing the engine. They now stand
-      by step of automation — one sound, syllables, words, word pairs, text — which is how a therapist
-      already thinks about the child. The three that are not built keep their place in the row and say
-      “later”: an empty step is information too.</p></div>
-  <div class="e"><time>10 Aug</time><span class="tag">two exercises existed on paper and not in fact</span>
+  <div class="e"><time>19 Aug</time><span class="tag">drawings</span>
+    <p>The author went through the bank drawing by drawing and three words left it. None of the three is a
+      bad drawing; all three fail the same way — what the child sees does not force the word we filtered
+      for. When a drawing cannot name its word, it is the word that leaves, not the drawing that gets
+      redrawn twice.</p>
+    <div class="pic"><span data-zoom="img/logoped-otkloneno.png"><img src="img/logoped-otkloneno.png" alt="Three rejected drawings side by side: the figure 10, a folded newspaper, and rows of cinema seats."></span></div></div>
+  <div class="e"><time>18 Aug</time><span class="tag">line weight</span>
+    <p>A picture on the maze is 25 mm across. At that size a thin line closes up and the object stops being
+      readable. But the request “make the outline thicker” came back as “make it simpler”: the roof lost
+      its tiles, the doctor lost his cap. The working wording asks for both at once — a thick line
+      <em>and</em> the features drawn with that same thick line. On eight hard objects the thick line won
+      on six.</p>
+    <div class="pic"><span data-zoom="img/logoped-tolshchina.png"><img src="img/logoped-tolshchina.png" alt="A comparison sheet: a roof, a truck and a boat, each drawn with a thin line and with a thick line, shown at print size and enlarged."></span></div></div>
+  <div class="e"><time>18 Aug</time><span class="tag">the bank closed</span>
+    <p>Every word the maze can put on paper now has a drawing of its own. The check runs across the whole
+      pool, for all sounds and positions, and returns zero words without a picture. Black and white is
+      taken off the colour file by <em>removing the fills</em>, not by desaturating — which also decided
+      what the prompt must ask for: every distinguishing feature drawn as a black line, never assigned to
+      a colour.</p></div>
+  <div class="e"><time>17 Aug</time><span class="tag">the wall fell</span>
+    <p>Four materials had been blocked for three weeks by one thing: nobody had drawn the objects. The plan
+      was to draw them by hand and buy only the animals. A trial on eight hard objects settled it — the
+      generator won on seven, <em>including the things</em>: a truck with its cab apart from the box, a
+      boat that is not a ship, a doctor who is not a boy. That put the price of the whole corpus at about
+      two dollars.</p></div>
+  <div class="e"><time>17 Aug</time><span class="tag">style</span>
+    <p>Four styles were compared against the research literature rather than by taste. Pictograms lost on a
+      number: in one study of 1525 of them, 47 per cent of adult answers differed from the intended
+      caption — and children do worse than adults. My own guess that “a plain even drawing distracts less”
+      was not supported at all; what is supported is simplicity of <em>content</em>, which is a different
+      slider. The ceiling is set by which words and views are chosen, not by the manner of drawing.</p></div>
+  <div class="e"><time>10 Aug</time><span class="tag">phantom features</span>
     <p>Both were listed as working features. Neither could be built for almost any sheet: the rule they
       stood on had been switched off two days earlier, and the table replacing it covered twenty-three
-      words out of seventeen hundred. They were counted as existing without existing. Once the tables were
-      filled, one builds on twenty-eight sheets out of twenty-nine, the other on fourteen.</p></div>
-  <div class="e"><time>10 Aug</time><span class="tag">one exercise cannot be built for hissing sounds, and the reason is the language</span>
-    <p>The affectionate form almost always carries one particular consonant. On a sheet for any hissing or
-      whistling sound it is forbidden: a child practising one slides into the other. Sixteen words on such
-      a sheet; forms exist for twelve; eight of those fall at the purity gate. No engineering moves that
-      number, so the screen says it plainly instead of reporting that the exercise “could not be assembled”.</p></div>
-  <div class="e"><time>9 Aug</time><span class="tag">ten tests had never run, and the suite reported all green</span>
+      words out of seventeen hundred. They were counted as existing without existing.</p></div>
+  <div class="e"><time>9 Aug</time><span class="tag">tests</span>
     <p>The single line that tells a file to execute its tests was sitting in the middle of that file
       instead of at the end. Everything below it was silently skipped: ten test functions, five written by
       other people. The suite still printed a clean result. Moving one line took the count from 1224
       checks to 1649.</p></div>
-  <div class="e"><time>9 Aug</time><span class="tag">a finished block was measured and parked, because the page was already full</span>
+  <div class="e"><time>9 Aug</time><span class="tag">millimetres</span>
     <p>Word pairs were built as another block of the sheet. Then the sheet was measured: an A4 page holds
       273 millimetres of material, and the existing blocks already asked for 305 to 363. The block became
-      a separate printable material instead. The sheet itself did not change by a millimetre; that was
-      checked against the previous version.</p></div>
-  <div class="e"><time>8 Aug</time><span class="tag">verbs were kept out of sentences until the dictionary knew enough about them</span>
-    <p>Sentences on the sheet were frozen phrases: point at a picture, name it. Making them live needs
-      verbs. A verb cannot be placed without knowing whether its subject is animate and whether the action
-      is finished, and neither follows from how the word ends. The verbs waited while three properties
-      were marked by hand across the dictionary. Then the sentences moved: from “here is a ram” to “an elk
-      is swimming past”.</p></div>
-  <div class="e"><time>8 Aug</time><span class="tag">three materials were teaching the wrong sound</span>
+      a separate printable material instead, and the sheet did not change by a millimetre.</p></div>
+  <div class="e"><time>8 Aug</time><span class="tag">the wrong sound</span>
     <p>A practice track for one voiced consonant printed syllables that come out as its voiceless twin when
       read aloud. The sheet was training the opposite sound. Two more materials had the same class of
       fault. All three came off the paper the day it was measured. What a letter looks like and what a
       mouth does with it are different facts, and only the second is allowed to decide anything.</p></div>
-  <div class="e"><time>6 Aug</time><span class="tag">the engine was describing a child it had never met</span>
+  <div class="e"><time>6 Aug</time><span class="tag">inference</span>
     <p>The sheet printed a line about sounds that were “still difficult” for this child. Nothing in the
       input says that: the therapist ticks which sounds to avoid, which is not the same as a diagnosis.
       The line came off. A generated document may state what it did, <em>never what it inferred about a
       person</em>.</p></div>
-  <div class="e"><time>6 Aug</time><span class="tag">a guess of ours became “canon” three files later</span>
-    <p>An assumption was written into a research note, then cited into a second, and by the third it had
-      the authority of a source. It was implemented as though the field required it. The rule now: a
-      confidence mark belongs to the quotation, not to the conclusion drawn from it, however obvious that
-      conclusion looks.</p></div>
-  <div class="e"><time>6 Aug</time><span class="tag">printed material is looked at before it is shown, not after</span>
-    <p>Three times a build was reported as done because the tests passed. Three times the printed page was
-      visibly broken: lines not starting where they should, a scrawl instead of a track, a letter running
-      off the edge. Tests pass on the data; paper is a different medium. The screenshot is now taken
-      before the work is handed over.</p></div>
-  <div class="e"><time>4 Aug</time><span class="tag">a believed rule about how therapists work was disproved by their own plans</span>
+  <div class="e"><time>4 Aug</time><span class="tag">disproved</span>
     <p>Navigation rested on the idea that one session equals one step of difficulty. Ten real lesson plans
       were coded into a dataset of thirty-three task names, and not one worked that way. A therapist works
       from how far this child has come with this sound, and builds a run-up to it. The idea was dropped;
       the engine, tested against the same dataset, held.</p></div>
-  <div class="e"><time>3 Aug</time><span class="tag">five untruths came off the sheet</span>
-    <p>The sheet claimed more than the data could support — the source of a block, what a child had
-      mastered, which manual an exercise came from. Provenance is now <em>computed from the data, not
-      declared</em>. A claim without a traceable source counts as a defect.</p></div>
-  <div class="e"><time>3 Aug</time><span class="tag">the user&#x27;s words are kept verbatim, in a file of their own</span>
+  <div class="e"><time>3 Aug</time><span class="tag">verbatim</span>
     <p>A speech therapist described the format she needed. What went into the code was my summary of her
       words, not the words. A week later the two were compared: the format in the code was not hers. Her
       words now live untouched in their own file, and any reading of them sits beside them, never on top.</p></div>
@@ -174,7 +186,7 @@
 
 <footer>The generator runs in a browser and needs no installation; the source code is closed. <em>No sheet
       has been used with a child in a real session yet</em>: everything so far is checked against
-      literature, data and the plans of practising therapists, not against practice itself.</footer>
+      literature, data and the lesson plans of practising therapists, not against practice itself.</footer>
 
 </div>
 <div id="lb" role="dialog" aria-modal="true" hidden><b>×</b><img alt=""></div>

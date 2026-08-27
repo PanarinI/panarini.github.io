@@ -49,19 +49,21 @@
       not be handed the word “shirt”.</p>
 </div>
 
-<h2>Inside the engine</h2>
-<figure class="fig"><span data-zoom="img/how-a-sheet-is-assembled.png"><img src="img/how-a-sheet-is-assembled.png" alt="Six numbered steps inside the engine: three card files with the counts per sound, a real dictionary entry with its fields, the ban assembled from classifiers and the child&#x27;s profile with the count 168 → 135 → 16, the seven blocks each with its own demand, the sheet measured in millimetres, and the rule that what cannot be verified is not printed."></span><figcaption>The six parts the engine is made of, with the numbers of one real run.</figcaption></figure>
+<h2>What is inside</h2>
+<figure class="fig"><span data-zoom="img/how-a-sheet-is-assembled.png"><img src="img/how-a-sheet-is-assembled.png" alt="Six numbered steps of the build: three card files with the counts per sound, a real dictionary entry with its fields, the ban assembled from classifiers and the child&#x27;s profile with the count 168 → 135 → 16, the seven blocks each with its own demand, the sheet measured in millimetres, and the rule that what cannot be verified is not printed."></span><figcaption>Six steps, with the numbers of one real run.</figcaption></figure>
 <div class="how">
-<p>Three card files, a set of tables, one filter. The tables hold what a rule cannot produce: forms
-      written by hand, legal consonant clusters, which adjective goes with which noun. Everything else —
-      how the words spread across the blocks, what fits on the page — follows from those.</p>
+<p>The words sit in three card files: 1596 nouns, 356 verbs, 253 adjectives, split by the sound each
+      one forces. Every entry records how the word is <em>spoken</em> — “сад” is written with д and said
+      with [т] — and which other correctable sounds it drags in. The filter reads that second field: tick
+      [ш] for a child, and every word carrying [ш] leaves.</p>
 </div>
+<figure class="fig embed"><iframe src="/slovar/?lang=en" title="The card files and the filter" loading="lazy" style="height:700px;width:100%;border:1px solid var(--line);border-radius:2px;background:#fff"></iframe><figcaption>The same filter, on the same words. Pick a sound, tick what the child cannot say.</figcaption></figure>
 
-<h2>Why the material can be trusted</h2>
+<h2>The words</h2>
 <div class="how">
-<p>The filter can only work if the engine knows how a word <em>sounds</em> — and Russian spelling does
-      not tell it. That knowledge is written in by hand, word by word, and then checked against the
-      program that computes the same thing on its own.</p>
+<p>Two exercises on the sheet <em>change</em> the word: “one — many” and “say it fondly”. A rule that
+      works on word endings gets those wrong — 15 errors out of 16 on plurals — so both forms are written
+      by hand and checked twice, independently.</p>
 </div>
 <figure class="fig"><span data-zoom="img/how-a-word-is-checked.png"><img src="img/how-a-word-is-checked.png" alt="Seven numbered steps, from a candidate word through transcription by sound, five rejection gates and the thirteen hand-written fields, to the machine check and the card file."></span><figcaption>The path of one word, «ложка», and the real line that is written for it.</figcaption></figure>
 <table class="ex">
@@ -81,6 +83,8 @@
 <p class="exnote">Four hundred and fifty words went through the same double pass; they agreed on ninety-five per cent.
       Every disagreement was <em>thrown away, not resolved</em>. Three hundred and six forms survived; two
       hundred and sixty-nine were blocked.</p>
+
+<h2>The drawings</h2>
 <div class="how">
 <p>In the maze the child is not reading a word — the child looks at a drawing and says its name out
       loud. Show a market stall and hear <em>“a shop”</em>, and the sheet has missed its sound. That is
@@ -88,7 +92,7 @@
 </div>
 <figure class="fig"><span data-zoom="img/how-a-picture-is-made.png"><img src="img/how-a-picture-is-made.png" alt="Six numbered steps from a word in the card file to the bank: the naming question, the three rules of the prompt shown on a roof drawn twice, one generation, black and white taken off the same file, and the check at printed size."></span><figcaption>Every rule in step three was bought with a failed batch.</figcaption></figure>
 
-<h2>What the engine learned</h2>
+<h2>What broke</h2>
 <div class="devlog">
   <div class="e"><time>26 Aug</time><span class="tag">the first correction from outside</span>
     <p>A speech therapist wrote from her phone, with a screenshot: the button offered a vowel the sheet
@@ -128,7 +132,7 @@
     <p>Navigation rested on the idea that one session equals one step of difficulty. Ten real lesson plans
       were coded into a dataset of thirty-three task names, and not one worked that way. A therapist works
       from how far this child has come with this sound, and builds a run-up to it. The idea was dropped;
-      the engine, tested against the same dataset, held.</p></div>
+      the build, tested against the same dataset, held.</p></div>
   <div class="e"><time>3 Aug</time><span class="tag">verbatim</span>
     <p>A speech therapist described the format she needed. What went into the code was my summary of her
       words, not the words. A week later the two were compared: the format in the code was not hers. Her

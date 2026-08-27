@@ -21,7 +21,8 @@
   630 are checked against real search results. Used to decide what to build next.
 - Worksheet generator — https://panarini.github.io/projects/logoped.html
   Printable speech-therapy material assembled for one specific child: every word filtered against
-  the sounds that child cannot say yet.
+  the sounds that child cannot say yet. Live at https://logozvuk.com — speech therapists use it in
+  the browser, no installation; 11 sounds, 2205 words described by sound, 979 objects drawn for it.
 - ExportGPT — shipped Chrome extension: ChatGPT conversations to clean PDFs.
 - The Garden — the method itself: living context per project, decisions kept as a log.
 

@@ -7,7 +7,7 @@
 <meta property="og:description" content="Printable material for practising one sound, assembled for one child: every word is filtered against the sounds that child cannot say yet.">
 <meta property="og:image" content="https://panarini.github.io/projects/img/covers/logoped.svg">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="/assets/hub.css?v=b53ab6ca">
+<link rel="stylesheet" href="/assets/hub.css?v=7feb9636">
 <script data-goatcounter="https://panarini.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head><body>
 <!-- СОБРАНО gen_pages.py из content/logoped.txt — правьте источник, не эту страницу. -->
@@ -49,38 +49,21 @@
       limit: <em>a printed page cannot know which other sounds this child gets wrong</em>. A child
       practising [r] who cannot say [sh] must not be handed the word “shirt”. That single filter is the
       whole difference here; everything below follows from it.</p>
+<p>The tool is the therapist's — a nursery, a clinic, private practice. The sheet is printed by the
+      specialist, who decides what to do with it: this is not a diagnosis and not a lesson plan.</p>
 </div>
+<figure class="fig embed"><iframe src="https://logozvuk.com/app/?embed=1" title="The worksheet generator, live" loading="lazy" style="height:920px;width:100%;border:1px solid var(--line);border-radius:2px;background:#fff"></iframe><figcaption>Not a screenshot — the tool itself. Pick a sound on the left, tick the sounds this child cannot say
+      on the right, and the sheet rebuilds itself. The row along the top is the steps: sound, syllable,
+      word, phrase, text.</figcaption></figure>
 
-<h2>What it prints</h2>
+<h2>Inside the engine</h2>
+<figure class="fig"><span data-zoom="img/how-a-sheet-is-assembled.png"><img src="img/how-a-sheet-is-assembled.png" alt="Six numbered steps inside the engine: three card files with the counts per sound, a real dictionary entry with its fields, the ban assembled from classifiers and the child&#x27;s profile with the count 168 → 135 → 16, the seven blocks each with its own demand, the sheet measured in millimetres, and the rule that what cannot be verified is not printed."></span><figcaption>The six parts the engine is made of, with the numbers of one real run.</figcaption></figure>
 <div class="how">
-<p>The materials stand on the steps a child climbs: the sound alone, then syllables, then words, then
-      word pairs, then connected speech. The row above the sheet is named after those steps, and each step
-      has a printable material of its own.</p>
-</div>
-<figure class="fig"><span data-zoom="img/logoped-zvukovaya.png"><img src="img/logoped-zvukovaya.png" alt="A printed sheet for the step before syllables: three rows, each with a vehicle on the left, a wavy line across the page and an object at the far end — a garage, a traffic light, a bridge."></span><figcaption>The lowest step: no syllable yet. The child runs a finger along the line and holds the sound until
-      the line ends.</figcaption></figure>
-<figure class="fig"><span data-zoom="img/logoped-dorozhka.png"><img src="img/logoped-dorozhka.png" alt="A printed route of circles with the syllables РА, РО, РУ, РЫ, РЭ, joined by a road; houses, street lamps and clouds are drawn behind it in colour, the first circle is green and the last one pink."></span><figcaption>A step up: the same finger route, but every circle is a syllable said out loud. The scene behind it
-      is picked by the therapist, and the sheet prints in colour or in black and white.</figcaption></figure>
-<figure class="fig"><span data-zoom="img/logoped-list.png"><img src="img/logoped-list.png" alt="A printed A4 sheet for the sound R with seven numbered blocks: warm-up exercises, the sound alone, syllables, four columns of words, a fill-in-the-syllable line, a one-to-many game, sentences and a tongue-twister."></span><figcaption>The whole lesson on one A4: seven blocks in the order a session runs. Stress is marked on every word
-      that needs it, because the adult reads it aloud with the child.</figcaption></figure>
-
-<h2>How it works</h2>
-<figure class="fig"><span data-zoom="img/how-a-sheet-is-assembled-light.svg"><img src="img/how-a-sheet-is-assembled-light.svg" alt="Three stages in a row: a word bank of 2205 words described by sound, a filter against the sounds a child cannot say, and assembly of seven blocks onto one A4; below, the formats built on the same base."></span><figcaption>The whole path, from the dictionary to a page a child can take home.</figcaption></figure>
-<div class="how">
-<p>You choose the sound being practised and <em>tick the sounds this child cannot say</em> yet.
-      Everything after that is automatic. The dictionary is cut down to <em>words that hold the target
-      sound</em> and none of the forbidden ones, and seven blocks are assembled onto one page: warm-up,
-      the sound alone, syllables, words, a grammar game, sentences, a tongue-twister. The same bank feeds
-      every other material on the ladder.</p>
-<p>Every word is transcribed <em>by sound, not by spelling</em>, because a Russian word can be written
-      with one consonant and spoken with another. If a word cannot be verified, the build <em>stops</em>.</p>
-</div>
-<figure class="fig"><span data-zoom="img/logoped-nastroyka.png"><img src="img/logoped-nastroyka.png" alt="The working screen: a column of sounds at the left edge, a row of steps along the top, the assembled sheet in the middle, and a panel at the right where the position of the sound is chosen and the sounds the child cannot say are ticked off."></span><figcaption>The panel on the right is the whole idea of the thing: tick one more sound and the sheet is rebuilt
-      without asking. The sheet arrives assembled when the page opens — there is no form to fill in first.</figcaption></figure>
-<div class="nums">
-  <span><b>11</b> sounds</span>
-  <span><b>81–197</b> words per sound</span>
-  <span><b>979</b> objects drawn</span>
+<p>Inside there are three card files, a set of tables and one filter. The card files hold the words,
+      split by the sound each word forces. The tables hold what a rule cannot produce — hand-written
+      forms, legal consonant clusters, which adjective goes with which noun. The filter decides what this
+      child may not be shown today. Everything else — how the words are spread across the blocks, what
+      fits on the page — follows from those three.</p>
 </div>
 
 <h2>Where every word comes from</h2>
@@ -145,10 +128,13 @@
       wizards, and both insert the step in order to charge for it. The screen came off. The sheet now
       arrives assembled and the settings stand beside it.</p></div>
   <div class="e"><time>19 Aug</time><span class="tag">drawings</span>
-    <p>The author went through the bank drawing by drawing and three words left it. None of the three is a
-      bad drawing; all three fail the same way — what the child sees does not force the word we filtered
-      for. When a drawing cannot name its word, it is the word that leaves, not the drawing that gets
-      redrawn twice.</p>
+    <p>A word gets onto a sheet because it contains the sound being practised. But the child never reads
+      that word. The child looks at the drawing and says out loud whatever they see. That spoken word
+      is the exercise. So the drawing has to force one exact word. Three of mine did not. A drawn figure
+      10 is called “десять”, not the “десятка” it was picked for. A newspaper is called “газета”, not
+      “газетка”. A cinema hall is called “кино” or “кинотеатр”, not “кинозал”. The words a child actually
+      says have no target sound in them, so those three sheets were practising nothing. I dropped the
+      three words and kept the drawings. The drawings were fine; the mistake was in choosing the word.</p>
     <div class="pic"><span data-zoom="img/logoped-otkloneno.png"><img src="img/logoped-otkloneno.png" alt="Three rejected drawings side by side: the figure 10, a folded newspaper, and rows of cinema seats."></span></div></div>
   <div class="e"><time>18 Aug</time><span class="tag">line weight</span>
     <p>A picture on the maze is 25 mm across. At that size a thin line closes up and the object stops being
@@ -209,8 +195,9 @@
       words now live untouched in their own file, and any reading of them sits beside them, never on top.</p></div>
 </div>
 
-<footer>The generator runs in a browser at logozvuk.com and needs no installation; the source code is closed.
-      Speech therapists have started using it, and two of them have written with corrections — both
+<footer>The generator runs in a browser at logozvuk.com, free and without registration; the source code is
+      closed. It is a Russian-language tool: the sheets are Russian speech material, and the interface is
+      not translated. Speech therapists have started using it, and two of them have written with corrections — both
       corrections hit real faults. <em>What is still missing is a sheet that has gone through a session
       with a child</em>: nobody has yet reported printing one and working from it. Everything else is
       checked against literature, data and the lesson plans of practising therapists.</footer>

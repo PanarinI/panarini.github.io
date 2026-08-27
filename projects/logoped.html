@@ -41,32 +41,23 @@
 <div class="ext">
   <a href="https://logozvuk.com">Open it <span class="w">logozvuk.com</span></a>
 </div>
-<figure class="fig"><span data-zoom="img/logoped-labirint.png"><img src="img/logoped-labirint.png" alt="A printed maze for the sound R: nine objects drawn in colour in a grid — a crayfish, a rose, a rainbow, a mouth, a market stall, a fisherman, a shirt, a rocket and an empty cell with a question mark — joined by arrows, with four games for the adult printed underneath."></span><figcaption>One material as it comes off the printer: nine pictures, a path along the arrows, four games on the
-      same nine.</figcaption></figure>
+<figure class="fig embed"><iframe src="https://logozvuk.com/app/?embed=1" title="The worksheet generator, live" loading="lazy" style="height:920px;width:100%;border:1px solid var(--line);border-radius:2px;background:#fff"></iframe><figcaption>Pick a sound on the left, tick the sounds this child cannot say on the right.</figcaption></figure>
 <div class="how">
-<p>A speech therapist puts an hour a day into making materials — it stands in the working timetable as
-      a line of its own. Ready-made paper albums exist in plenty, and every one of them has the same
-      limit: <em>a printed page cannot know which other sounds this child gets wrong</em>. A child
-      practising [r] who cannot say [sh] must not be handed the word “shirt”. That single filter is the
-      whole difference here; everything below follows from it.</p>
-<p>The tool is the therapist's — a nursery, a clinic, private practice. The sheet is printed by the
-      specialist, who decides what to do with it: this is not a diagnosis and not a lesson plan.</p>
+<p>Making materials takes a speech therapist an hour a day — it stands in the working timetable as a
+      line of its own. Paper albums exist in plenty and all share one limit: <em>a printed page cannot
+      know which other sounds this child gets wrong</em>. A child practising [r] who cannot say [sh] must
+      not be handed the word “shirt”.</p>
 </div>
-<figure class="fig embed"><iframe src="https://logozvuk.com/app/?embed=1" title="The worksheet generator, live" loading="lazy" style="height:920px;width:100%;border:1px solid var(--line);border-radius:2px;background:#fff"></iframe><figcaption>Not a screenshot — the tool itself. Pick a sound on the left, tick the sounds this child cannot say
-      on the right, and the sheet rebuilds itself. The row along the top is the steps: sound, syllable,
-      word, phrase, text.</figcaption></figure>
 
 <h2>Inside the engine</h2>
 <figure class="fig"><span data-zoom="img/how-a-sheet-is-assembled.png"><img src="img/how-a-sheet-is-assembled.png" alt="Six numbered steps inside the engine: three card files with the counts per sound, a real dictionary entry with its fields, the ban assembled from classifiers and the child&#x27;s profile with the count 168 → 135 → 16, the seven blocks each with its own demand, the sheet measured in millimetres, and the rule that what cannot be verified is not printed."></span><figcaption>The six parts the engine is made of, with the numbers of one real run.</figcaption></figure>
 <div class="how">
-<p>Inside there are three card files, a set of tables and one filter. The card files hold the words,
-      split by the sound each word forces. The tables hold what a rule cannot produce — hand-written
-      forms, legal consonant clusters, which adjective goes with which noun. The filter decides what this
-      child may not be shown today. Everything else — how the words are spread across the blocks, what
-      fits on the page — follows from those three.</p>
+<p>Three card files, a set of tables, one filter. The tables hold what a rule cannot produce: forms
+      written by hand, legal consonant clusters, which adjective goes with which noun. Everything else —
+      how the words spread across the blocks, what fits on the page — follows from those.</p>
 </div>
 
-<h2>Where every word comes from</h2>
+<h2>Why the material can be trusted</h2>
 <div class="how">
 <p>The filter can only work if the engine knows how a word <em>sounds</em> — and Russian spelling does
       not tell it. That knowledge is written in by hand, word by word, and then checked against the
@@ -90,8 +81,6 @@
 <p class="exnote">Four hundred and fifty words went through the same double pass; they agreed on ninety-five per cent.
       Every disagreement was <em>thrown away, not resolved</em>. Three hundred and six forms survived; two
       hundred and sixty-nine were blocked.</p>
-
-<h2>Where the pictures come from</h2>
 <div class="how">
 <p>In the maze the child is not reading a word — the child looks at a drawing and says its name out
       loud. Show a market stall and hear <em>“a shop”</em>, and the sheet has missed its sound. That is
@@ -112,16 +101,6 @@
       that row and asked why there was only one option per sound — the steps were there, but under our own
       words. The row is now named the way she named it herself: sound, syllable, word, phrase, text. The
       genre stands under the step in small type.</p></div>
-  <div class="e"><time>26 Aug</time><span class="tag">syllables that do not exist</span>
-    <p>On consonant clusters the sheet printed syllables Russian does not have — “рша”, “нза”: the engine
-      was putting any consonant in front of the target sound. Now a cluster has to name a real word that
-      contains it: 27 clusters, each with its proof word, collected twice and independently. The same
-      table fixed the printing of “фс”, which a mouth says as “вс”.</p></div>
-  <div class="e"><time>24 Aug</time><span class="tag">paper and screen</span>
-    <p>The PDF used to be whatever the browser's print dialogue made of the page. Now the sheet is rendered
-      by a Chromium on my own server — the same engine the screen uses, so the two cannot drift apart. The
-      first nine files came out two pages long: the paper size was written into the code as portrait and
-      quietly survived the arrival of a landscape sheet.</p></div>
   <div class="e"><time>22 Aug</time><span class="tag">the wizard came off</span>
     <p>The tool opened as a wizard: pick a sound, pick a material, then see a sheet. Twenty-nine other
       worksheet generators were opened by hand to check whether the field works that way. Two of them are
@@ -136,54 +115,15 @@
       says have no target sound in them, so those three sheets were practising nothing. I dropped the
       three words and kept the drawings. The drawings were fine; the mistake was in choosing the word.</p>
     <div class="pic"><span data-zoom="img/logoped-otkloneno.png"><img src="img/logoped-otkloneno.png" alt="Three rejected drawings side by side: the figure 10, a folded newspaper, and rows of cinema seats."></span></div></div>
-  <div class="e"><time>18 Aug</time><span class="tag">line weight</span>
-    <p>A picture on the maze is 25 mm across. At that size a thin line closes up and the object stops being
-      readable. But the request “make the outline thicker” came back as “make it simpler”: the roof lost
-      its tiles, the doctor lost his cap. The working wording asks for both at once — a thick line
-      <em>and</em> the features drawn with that same thick line. On eight hard objects the thick line won
-      on six.</p>
-    <div class="pic"><span data-zoom="img/logoped-tolshchina.png"><img src="img/logoped-tolshchina.png" alt="A comparison sheet: a roof, a truck and a boat, each drawn with a thin line and with a thick line, shown at print size and enlarged."></span></div></div>
-  <div class="e"><time>18 Aug</time><span class="tag">the bank closed</span>
-    <p>Every word the maze can put on paper now has a drawing of its own. The check runs across the whole
-      pool, for all sounds and positions, and returns zero words without a picture. Black and white is
-      taken off the colour file by <em>removing the fills</em>, not by desaturating — which also decided
-      what the prompt must ask for: every distinguishing feature drawn as a black line, never assigned to
-      a colour.</p></div>
-  <div class="e"><time>17 Aug</time><span class="tag">the wall fell</span>
-    <p>Four materials had been blocked for three weeks by one thing: nobody had drawn the objects. The plan
-      was to draw them by hand and buy only the animals. A trial on eight hard objects settled it — the
-      generator won on seven, <em>including the things</em>: a truck with its cab apart from the box, a
-      boat that is not a ship, a doctor who is not a boy. That put the price of the whole corpus at about
-      two dollars.</p></div>
-  <div class="e"><time>17 Aug</time><span class="tag">style</span>
-    <p>Four styles were compared against the research literature rather than by taste. Pictograms lost on a
-      number: in one study of 1525 of them, 47 per cent of adult answers differed from the intended
-      caption — and children do worse than adults. My own guess that “a plain even drawing distracts less”
-      was not supported at all; what is supported is simplicity of <em>content</em>, which is a different
-      slider. The ceiling is set by which words and views are chosen, not by the manner of drawing.</p></div>
   <div class="e"><time>10 Aug</time><span class="tag">phantom features</span>
     <p>Both were listed as working features. Neither could be built for almost any sheet: the rule they
       stood on had been switched off two days earlier, and the table replacing it covered twenty-three
       words out of seventeen hundred. They were counted as existing without existing.</p></div>
-  <div class="e"><time>9 Aug</time><span class="tag">tests</span>
-    <p>The single line that tells a file to execute its tests was sitting in the middle of that file
-      instead of at the end. Everything below it was silently skipped: ten test functions, five written by
-      other people. The suite still printed a clean result. Moving one line took the count from 1224
-      checks to 1649.</p></div>
-  <div class="e"><time>9 Aug</time><span class="tag">millimetres</span>
-    <p>Word pairs were built as another block of the sheet. Then the sheet was measured: an A4 page holds
-      273 millimetres of material, and the existing blocks already asked for 305 to 363. The block became
-      a separate printable material instead, and the sheet did not change by a millimetre.</p></div>
   <div class="e"><time>8 Aug</time><span class="tag">the wrong sound</span>
     <p>A practice track for one voiced consonant printed syllables that come out as its voiceless twin when
       read aloud. The sheet was training the opposite sound. Two more materials had the same class of
       fault. All three came off the paper the day it was measured. What a letter looks like and what a
       mouth does with it are different facts, and only the second is allowed to decide anything.</p></div>
-  <div class="e"><time>6 Aug</time><span class="tag">inference</span>
-    <p>The sheet printed a line about sounds that were “still difficult” for this child. Nothing in the
-      input says that: the therapist ticks which sounds to avoid, which is not the same as a diagnosis.
-      The line came off. A generated document may state what it did, <em>never what it inferred about a
-      person</em>.</p></div>
   <div class="e"><time>4 Aug</time><span class="tag">disproved</span>
     <p>Navigation rested on the idea that one session equals one step of difficulty. Ten real lesson plans
       were coded into a dataset of thirty-three task names, and not one worked that way. A therapist works

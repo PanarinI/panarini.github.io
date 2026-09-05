@@ -1,10 +1,10 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Teacher&#x27;s assistant — a living robot — Igor Panarin</title>
-<meta name="description" content="An assistant for the hours a teacher spends preparing a lesson — one that remembers the class and the textbook, and sits on the desk as a small robot you can simply talk to.">
+<title>Teacher&#x27;s assistant — Igor Panarin</title>
+<meta name="description" content="An assistant that listens to a lesson and counts how the teacher runs it — how long he waits after a question, how often he praises. It stands on the desk: a phone on a tripod, or a small robot.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Teacher&#x27;s assistant — a living robot — Igor Panarin">
-<meta property="og:description" content="An assistant for the hours a teacher spends preparing a lesson — one that remembers the class and the textbook, and sits on the desk as a small robot you can simply talk to.">
+<meta property="og:title" content="Teacher&#x27;s assistant — Igor Panarin">
+<meta property="og:description" content="An assistant that listens to a lesson and counts how the teacher runs it — how long he waits after a question, how often he praises. It stands on the desk: a phone on a tripod, or a small robot.">
 <meta property="og:image" content="https://panarini.github.io/projects/img/covers/richi.svg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="/assets/hub.css?v=7feb9636">
@@ -33,42 +33,61 @@
 
 <a class="back" href="../">← All work</a>
 
-<div class="head"><h1>Teacher&#x27;s assistant — a living robot</h1><span class="stage">in build</span></div>
+<div class="head"><h1>Teacher&#x27;s assistant</h1><span class="stage">in build</span></div>
 
-<p class="lede">An assistant for the work that happens before the lesson: find the material, fit it to this class
-      and this textbook, make the handouts. It <em>remembers</em> — the textbook, the class, what worked
-      last time. It lives in a small robot on the desk, so asking costs nothing but speaking.</p>
-<figure class="fig"><span data-zoom="img/richi-scene.jpg"><img src="img/richi-scene.jpg" alt="A small white robot with two antennas stands on a desk beside a monitor that shows a lesson plan; a man sits at the desk holding a freshly printed sheet, a printer behind him."></span></figure>
+<p class="lede">A teacher does not see his own work from the outside. After a question he waits less than a second,
+      although from three seconds on the answers get longer. He praises less often than he thinks.
+      Counting this needs someone who is present for the whole lesson. A mentor comes once a year;
+      an app you have to open is not looked at mid-lesson. This assistant stands on the desk and counts
+      by itself.</p>
+<figure class="fig"><span data-zoom="img/richi-zamysel-urok.jpg"><img src="img/richi-zamysel-urok.jpg" alt="A lesson. On the teacher&#x27;s desk stands a small robot with two antennas, facing the class; the teacher is speaking, two children sit in front of him and one has a hand up; a red book lies on the desk."></span><figcaption>During the lesson it says nothing. The work it does is read out after the bell.</figcaption></figure>
 <div class="how">
-<p>Lesson preparation is a working hour that repeats every day and starts from scratch every time.
-      Tools that generate a plan already exist. All of them are stateless: they do not know the textbook,
-      the class or the teacher. What comes out is a general plan, fitted by hand afterwards.
-      <em>What is being built here is the memory</em>, and a body to keep it in.</p>
+<p>These numbers are not new. Wait time after a question. The count of praise against reprimands. How many chances to answer a
+      class gets in a minute. All of it was measured in education research decades ago, and the effect of
+      a teacher tracking these numbers is known too. There is no software for it.
+      The reason is in the task: these numbers describe the teacher himself, and taking them needs
+      someone who watches the whole lesson. Teachers count their own praise with a hand
+      tally counter on the wrist.</p>
 </div>
 
-<h2>What it is for</h2>
-<figure class="fig"><span data-zoom="img/richi-zamysel-loop.jpg"><img src="img/richi-zamysel-loop.jpg" alt="Three objects in a row: an open textbook, a small robot with two antennas, and a printed sheet."></span><figcaption>The whole loop in three objects. The teacher shows a page; back come the plan and the handouts,
-      built from that page and not from a template.</figcaption></figure>
+<h2>What it is meant to do</h2>
 <div class="how">
-<p>Assembling the plan is the main skill, and it needs no body at all. The same work runs in a
-      browser: that is being built as a service which stands on its own and can later be plugged into the
-      robot. The body changes something else.
-      The assistant sits on the desk while the teacher works, is asked out loud without opening a laptop,
-      and can be carried into the classroom. It is the same assistant — <em>only easier to reach, and
-      alive in the room</em>.</p>
-<p>The lesson itself, and what happens after it, are a different task and are not claimed here.</p>
+<p>Five jobs, spread over a teacher's day. Two of them are built. The counting has been checked on
+      recordings and has not run in a real lesson; the conversation after the lesson works as it is.
+      The other three are described here as the plan.</p>
 </div>
+<div class="spec">
+  <div class="r"><b>COUNTS THE LESSON</b><span>pauses after a question, how much of the lesson was speech, later praise against reprimands. The numbers go to the teacher and to no one else</span><i>says nothing during it</i></div>
+  <div class="r"><b>PROMPTS OUT LOUD</b><span>“seven minutes have passed.” A screen pulls the teacher's eyes to the board; a voice does not, so he keeps looking at the children</span><i>sound, not a screen</i></div>
+  <div class="r"><b>TALKS AFTER THE LESSON</b><span>two questions about what fell apart, and the answer goes into memory. Speech in, speech out, the history kept between conversations</span><i>this part works</i></div>
+  <div class="r"><b>SUMS UP THE WEEK</b><span>a week of counting turns into a single suggestion for the next one, and into what is not visible from inside: “this is the third time you have put group work in the last seven minutes”</span><i>one thing at a time</i></div>
+  <div class="r"><b>PREPARES THE MATERIAL</b><span>a page of the textbook and, back, activities for each stage of the lesson — chosen knowing this class and what did not work last time</span><i>the textbook simply lies there</i></div>
+</div>
+
+<h2>Two bodies, one program</h2>
+<div class="how">
+<p>Everything above is sound coming in, speech going out and memory on a server. A phone does all of that,
+      and on three counts it does it better. Everyone already has one. It is the faster computer. It lies
+      closer to the teacher than an object on the desk, and its microphone, camera and speaker are already
+      inside. What the robot can do beyond that is one thing: move, and turn towards whoever is speaking.</p>
+<p>So the counting program takes sound from anywhere, not only from the robot, and the phone and the
+      robot are two bodies for the same thing. One reason to keep the robot remains. An app you have to
+      open stops being opened. Whether an object standing on the desk holds a habit better is not known.
+      That is a guess, and comparing the two bodies is how it gets checked.</p>
+</div>
+<figure class="fig"><span data-zoom="img/richi-zamysel-dva-korpusa.jpg"><img src="img/richi-zamysel-dva-korpusa.jpg" alt="A desk. Side by side stand a small robot with two antennas and a mobile phone upright on a small tripod; the phone&#x27;s screen is red."></span><figcaption>The phone side is not written yet: today there is one body.</figcaption></figure>
 
 <h2>What works today</h2>
 <div class="how">
 <p>The robot is a ready-made Reachy Mini by Pollen Robotics, bought assembled. Inside: nine servo
       motors, four microphones, a speaker, a camera, a single-board computer, and the maker's own program
-      that drives the motors. Out of the box it moves and runs apps from the maker's store. <em>It does not hold a
-      conversation.</em> Two programs were written to change that.</p>
+      that drives the motors. Out of the box it moves and runs apps from the maker's store. <em>It does
+      not hold a conversation.</em> Three programs were written to change that.</p>
 </div>
 <div class="spec">
   <div class="r"><b>CONVERSATION</b><span>takes the sound from the microphone, sends it to the cloud model and plays the answer through the speaker. The laptop takes no part in this, and the model is used on a free token</span><i>inside the robot</i></div>
   <div class="r"><b>MEMORY AND SEARCH</b><span>reads the transcript after a pause in the conversation and writes what matters into a text file; on request it searches the web and reads files on the laptop. This is the only part we pay for</span><i>on the laptop</i></div>
+  <div class="r"><b>COUNTING THE LESSON</b><span>takes a recording or the microphone, marks where speech starts and stops, and measures the pauses between. Two counters read the same markings — pauses and rhythm — and a counter that needs word recognition attaches the same way. Checked on recordings with a known answer, not yet on a real lesson</span><i>written 1 September</i></div>
 </div>
 <p class="rule">The parts are started and stopped by separate buttons, because they break separately: the robot can
       answer out loud while its motors are off. There is one dependency — the conversation program does
@@ -76,9 +95,9 @@
 
 <h2>What the memory actually holds</h2>
 <div class="how">
-<p>The memory is a plain text file the robot grows itself. After a pause in the conversation the
-      second program reads the transcript, and what is worth keeping goes into the file. Nothing is summarised for
-      show — these are lines from that file as they stand.</p>
+<p>The memory is a plain text file the robot writes itself. After a pause in the conversation the
+      second program reads the transcript, and what is worth keeping goes into the file. Nothing is
+      summarised for show — these are lines from that file as they stand.</p>
 </div>
 <div class="spec">
   <div class="r"><b>7 AUG</b><span>“I have antennas, but I cannot see them — about my own position in space I trust what I am told, not my own guesses.”</span><i>about himself</i></div>
@@ -88,7 +107,9 @@
 
 <h2>What is not built yet</h2>
 <div class="spec">
-  <div class="r"><b>THE PLAN IS NOT IN THE ROBOT</b><span>assembling a lesson plan lives in a separate program written a year ago, and it is being rebuilt from scratch. Until it is, the assistant on the desk and the assistant that plans lessons are two different things</span><i>the main gap</i></div>
+  <div class="r"><b>THE PHONE BODY</b><span>the counting program already takes sound from anywhere, but the phone side — the screen with the eyes, the microphone, the voice — does not exist. Today there is one body, and it is the robot</span><i>nothing written for it</i></div>
+  <div class="r"><b>WHO IS SPEAKING</b><span>the counter measures the pause between one voice and the next, without knowing whether the teacher or a pupil spoke. In a staged lesson with one person these are the same thing; in a class they are not</span><i>one speech flag for the whole room</i></div>
+  <div class="r"><b>A QUESTION FROM A STATEMENT</b><span>the three-second norm is about the pause after a question. Until the words are recognised, the counter reports the whole spread of pauses instead of that one number, and says so out loud when it reports</span><i>needs word recognition</i></div>
   <div class="r"><b>TELL A PERSON FROM THE ROOM</b><span>because of that the direction is computed within 180° only, and a sound in front is the same as a sound behind. The camera will do this job instead</span><i>four microphones in one row</i></div>
   <div class="r"><b>NOT HEAR HIS OWN VOICE</b><span>the microphone and the speaker work at the same time, so his own speech gets into the recording</span><i>no echo cancellation</i></div>
   <div class="r"><b>SPEAK LOUDER</b><span>at maximum volume the amplifier's noise is heard along with the speech. Processing the sound made it less intelligible and was rolled back; louder means an external speaker</span><i>88 % is the working level</i></div>
@@ -96,6 +117,10 @@
 
 <h2>Journal</h2>
 <div class="devlog">
+  <div class="e"><time>1 Sep</time><span class="tag">counting</span>
+    <p>I wrote the program that counts pauses: how long passes between the teacher finishing and the next voice starting. I have not run it on a real lesson yet. I checked it on a recording I made myself, with the answer known in advance: forty utterances, pauses from 0.4 to 0.9 seconds, six long ones. The program found ten utterances instead of forty. The threshold by which it decided an utterance had ended stood at three quarters of a second. It glued neighbouring utterances together and erased the short pauses the whole thing was written for. A teacher who never waits would have looked exemplary. I set the threshold to a quarter of a second and the rate to twenty readings per second. On the same recording it now gives forty utterances and a median of 0.6, against the 0.66 that was planted. The price: a pause shorter than a third of a second is not told apart from a breath in the middle of a phrase.</p></div>
+  <div class="e"><time>1 Sep</time><span class="tag">bodies</span>
+    <p>I had been counting on the robot being necessary. I went through every scene I had described. None of them needs it. Sound in, speech out, memory on a server — a phone does all of that, and better on three counts. What the robot has beyond a phone came to three things, and two of them turned out weaker than they looked. It reports the direction a sound came from, but only within 180°, so front and back are the same. It has a camera that stands in the room, while a phone sits in a pocket. But a phone on a tripod stands too. What is left is movement. So I split the program: the counter takes sound from anywhere, and the robot became one body out of two.</p></div>
   <div class="e"><time>10 Aug</time><span class="tag">documentation</span>
     <p>We built a test rig to work out the direction a voice comes from and recorded twelve scenes. It turned out that the robot does not tell a sound in front from a sound behind. This is written in the maker's documentation: the four microphones sit in one row, so the direction is computed within 180° only. Half a day went into checking a known fact. Since then a new task starts with reading the documentation and the existing apps, and measurements are made only where there is no data.</p></div>
   <div class="e"><time>9 Aug</time><span class="tag">search</span>
@@ -113,8 +138,9 @@
 </div>
 
 <footer>The robot stands at home, the programs written for it are not published and the source code is
-      closed. <em>It has never been in a classroom</em>, and the assistant that assembles lesson plans is
-      still a separate program. This page says what the thing is for and what part of it runs today.</footer>
+      closed. <em>It has never been in a classroom</em>, and the counting program has so far only been run
+      on recordings I made myself. The phone body does not exist yet. This page says what the thing is
+      for and which part of it runs today.</footer>
 
 </div>
 <div id="lb" role="dialog" aria-modal="true" hidden><b>×</b><img alt=""></div>

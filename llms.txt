@@ -16,9 +16,6 @@
   Focus timer with no digits on screen; time is made of sound, generated on the device.
   In the Chrome Web Store as "Minimalist Timer". The page shows how the tone is synthesised,
   what the panel looked like at each stage, and a dated log of decisions.
-- Demand Telescope — https://panarini.github.io/projects/telescope.html
-  Internal instrument turning search data into a navigable sky of demand: 1641 queries, of which
-  630 are checked against real search results. Used to decide what to build next.
 - Worksheet generator — https://panarini.github.io/projects/logoped.html
   Printable speech-therapy material assembled for one specific child: every word filtered against
   the sounds that child cannot say yet. Live at https://logozvuk.com — speech therapists use it in
